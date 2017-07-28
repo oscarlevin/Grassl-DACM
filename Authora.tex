@@ -66,8 +66,7 @@
 \DeclareGraphicsExtensions{.pdf,.PDF,.png,.PNG,.jpg,.JPG,.jpeg,.JPEG}
 
 \usepackage[utf8]{inputenc}
-\usepackage[ngerman,greek,english]{babel}
-
+% \usepackage[ngerman,greek,english]{babel}
 
 
 
@@ -90,7 +89,6 @@
 
 
   \date{\today}
-
 
 \begingroup
 \let\center\flushleft
@@ -241,7 +239,7 @@ The first question propounded was to find a number of which the square
 when decreased or increased by 5 would remain a square. The correct
 answer given by Leonardo was 41/12. The next question was to find by the
 methods used in the tenth book of Euclid a line whose length x should
-satisfy the equation x\selectlanguage{ngerman}³ + 2x² + 10x -- 20 = 0. Leonardo showed by
+satisfy the equation $x^3 + 2x^2 + 10x - 20 = 0$. Leonardo showed by
 geometry that the problem was impossible, but he gave an approximation
 of the root 1.3688081075\ldots{}, which is correct to nine places.
 \emph{Liber Abaci} contains many additional problems of this type.
@@ -293,7 +291,6 @@ checkerboard paradox. It is first found in print in a German journal in
 Carroll (Charles Dodgson, 1832-1893) who was quite fond of it.
 
 PROBLEMS ON FIBONACCI NUMBERS
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -301,7 +298,6 @@ PROBLEMS ON FIBONACCI NUMBERS
   Determine a formula for each:
 
 \end{enumerate}
-
 \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}
 
@@ -310,7 +306,6 @@ PROBLEMS ON FIBONACCI NUMBERS
   \(F_{0} + F_{2} + F_{4} + \ldots + F_{m}\) where m is even.
 
 \end{enumerate}
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -318,7 +313,6 @@ PROBLEMS ON FIBONACCI NUMBERS
   Prove each of the following
 
 \end{enumerate}
-
 \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}
 
@@ -327,7 +321,6 @@ PROBLEMS ON FIBONACCI NUMBERS
   \(F_{k}^{2} = \ F_{k}(F_{k + 1} - \ F_{k - 1})\)
 
 \end{enumerate}
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -340,7 +333,6 @@ PROBLEMS ON FIBONACCI NUMBERS
   \(F_{1}^{2} + \ F_{2}^{2} + \ \ldots + \ F_{n}^{2}\) in two ways:
 
 \end{enumerate}
-
 \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}
 
@@ -350,30 +342,21 @@ PROBLEMS ON FIBONACCI NUMBERS
   Use 2(b) and telescoping sums.
 
 \end{enumerate}
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
 \item
   Give a geometrical ``proof'' for the result in Problem 4.
 \item
-  Prove \(
-
-\begin{pmatrix}
-  0 & 1 
-  1 & 1 
-  \end{pmatrix}
-^{n} =
-
-\begin{pmatrix}
-  F_{n - 1} & F_{n} 
-  F_{n} & F_{n + 1} 
-  \end{pmatrix}
-\) by induction. For convenience let Q =\(
-
-\begin{pmatrix}
-  0 & 1 
-  1 & 1 
+  Prove \(\begin{pmatrix}
+  0 & 1
+  1 & 1
+  \end{pmatrix}^{n} = \begin{pmatrix}
+  F_{n - 1} & F_{n}
+  F_{n} & F_{n + 1}
+  \end{pmatrix}\) by induction. For convenience let \(Q =\begin{pmatrix}
+  0 & 1
+  1 & 1
   \end{pmatrix}
 \).
 \item
@@ -381,7 +364,6 @@ PROBLEMS ON FIBONACCI NUMBERS
   ways:
 
 \end{enumerate}
-
 \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}
 
@@ -391,7 +373,6 @@ PROBLEMS ON FIBONACCI NUMBERS
   Use Problem 6 and determinants.
 
 \end{enumerate}
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -410,7 +391,6 @@ PROBLEMS ON FIBONACCI NUMBERS
   in two ways:
 
 \end{enumerate}
-
 \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}
 
@@ -420,7 +400,6 @@ PROBLEMS ON FIBONACCI NUMBERS
   Use Q.
 
 \end{enumerate}
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -428,13 +407,11 @@ PROBLEMS ON FIBONACCI NUMBERS
   Prove that \(\sum_{n = 2}^{\infty}\frac{1}{F_{n - 1}F_{n + 1}} = 1.\)
 
 \end{enumerate}
-
 \begin{quote}
 Hint: Show first that
 \(\frac{1}{F_{n - 1}F_{n + 1}} = \ \frac{1}{F_{n - 1}F_{n}} - \ \frac{1}{F_{n}F_{n + 1}}\)
 
 \end{quote}
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -464,7 +441,7 @@ Hint: Show first that
   Prove that \(F_{5n + 5} = 3F_{5n} + 5F_{5n + 1}\)
   Hint: Use \(Q^{5n + 5}\).
 \item
-  Let \selectlanguage{greek}φ \selectlanguage{english}be the positive root of x\textsuperscript{2} - x - 1 = 0. Prove
+  Let $\varphi$ be the positive root of x\textsuperscript{2} - x - 1 = 0. Prove
   that \(\ \varphi^{n} = F_{n}\varphi + F_{n - 1}\).
 \item
   Can every positive integer be written as a sum of distinct Fibonacci
@@ -480,7 +457,6 @@ THE CATALAN NUMBERS
 \[
 _{n + 1} = C_{1}C_{n} + C_{2}C_{n - 1} + \ldots + C_{n}C_{1}
 \]
-
 \begin{enumerate}
 \def\labelenumi{\Roman{enumi}.}
 
@@ -498,7 +474,7 @@ There are two ways for abc, namely a(bc) and (ab)c, and one for (ab).
 \end{enumerate}
 
 \[
-left( a_{1}a_{2}a_{3}\ldots a_{k} \right)(a_{k + 1}\ldots a_{n})
+\left( a_{1}a_{2}a_{3}\ldots a_{k} \right)(a_{k + 1}\ldots a_{n})
 \]
 
 Let P\textsubscript{n} denote the number of ways of inserting integers
@@ -510,13 +486,12 @@ to \(n - 1\) we have that
 \[
 _{n} = \ \sum_{k = 1}^{n - 1}{P_{k}P_{n - k} = \ P_{1}P_{n - 1} + \ P_{2}P_{n - 2} + \ \ldots + \ P_{n - 1}P_{1}}
 \]
-
 \begin{enumerate}
 \def\labelenumi{\Roman{enumi}.}
 
 \item
   \textbf{The H-D sequences:} 2n people stand in line at a theatre.
-  Admission is 50\selectlanguage{ngerman}¢, (denoted by H), and the box office starts with no
+  Admission is 50 cents, (denoted by H), and the box office starts with no
   change. n of the people have H and n have \$1(D). In how many ways can
   the 2n people line up so that all can be admitted? Here we enumerate
   the number of workable sequences of n H's and n D's such that at each
@@ -541,53 +516,45 @@ a sequence of n+1 H's and \(n - 1\) D's. For \(n = 3\), H D D D H H is
 D H H D H H, a sequence of 2D's and 4H's. \emph{Any} arrangement of
   2D's and 4H's will correspond to exactly one nonworkable sequence;
   simply scan through and see the \emph{first} time the H's dominate the
-  D's and then reverse through that spot. There are \(
-
-\begin{pmatrix}
-  6 
-  3 
+  D's and then reverse through that spot. There are
+  \(\begin{pmatrix}
+  6
+  3
   \end{pmatrix}
  = 20\) arrangements of 3H's and 3D's. There are
-  \(
-
-\begin{pmatrix}
-  6 
-  2 
+  \(\begin{pmatrix}
+  6
+  2
   \end{pmatrix}
  = 15\) arrangements of 2D's and 4H's each of which
   corresponds to a nonworkable sequence. Hence there are
-  \(
-
-\begin{pmatrix}
-  6 
-  3 
+  \(\begin{pmatrix}
+  6
+  3
   \end{pmatrix}
- -
-
-\begin{pmatrix}
-  6 
-  2 
+ -\begin{pmatrix}
+  6
+  2
   \end{pmatrix}
  = 5\) workable sequences. In general,
   \(\left( \frac{2n}{n} \right) - \left( \frac{2n}{n - 1} \right) = \ \frac{1}{n + 1}\left( \frac{2n}{n} \right)\)
   gives the number of workable sequences. See FIGURE 1.
 
 For n = 3, the matching of the 5 workable sequences with one of the 5
-  ways of parenthesizing, given by the bijection (\selectlanguage{english}H, letter \selectlanguage{english}D is
+  ways of parenthesizing, given by the bijection ( H, letter  D is
   presented:
 
 \end{enumerate}
 
-H H H D D D \selectlanguage{english} (((abcd
+H H H D D D   (((abcd
 
-H H D H D D \selectlanguage{english} ((a(bcd
+H H D H D D   ((a(bcd
 
-H H D D H D \selectlanguage{english} ((ab(cd
+H H D D H D   ((ab(cd
 
-H D H H D D \selectlanguage{english} (a((bcd
+H D H H D D   (a((bcd
 
-H D H D H D \selectlanguage{english}(a(b(cd
-
+H D H D H D  (a(b(cd
 \begin{enumerate}
 \def\labelenumi{\Roman{enumi}.}
 
@@ -599,7 +566,6 @@ H D H D H D \selectlanguage{english}(a(b(cd
   path to (3, 3) is shown.
 
 \end{enumerate}
-
 \begin{longtable}[]{@{}lllll@{}}
 \toprule
 & & & (3,3) &\tabularnewline
@@ -611,24 +577,21 @@ H D H D H D \selectlanguage{english}(a(b(cd
 \bottomrule
 
 \end{longtable}
-
 \begin{quote}
 Using R for right and U for up, the sequence R U R R U U gives the path.
-The bijection R\selectlanguage{english}H and U\selectlanguage{english}D links paths to H-D sequences.
+The bijection R H and U D links paths to H-D sequences.
 
 \end{quote}
-
 \begin{enumerate}
 \def\labelenumi{\Roman{enumi}.}
 
 \item
-  \textbf{Triangulations of convex \emph{n}-gons:} Fix \emph{n} 
+  \textbf{Triangulations of convex \emph{n}-gons:} Fix \emph{n}
   vertices; in how many ways can diagonals be inserted so as to
   decompose the \emph{n} -gon into triangles. For \emph{n} = 5 the five
   figures are
 
 \end{enumerate}
-
 \begin{quote}
 There are two drawings for \emph{n} = 4
 
@@ -636,7 +599,6 @@ A bijection between triangulations and parenthesizing is illustrated
 next:
 
 \end{quote}
-
 \begin{enumerate}
 \def\labelenumi{\Roman{enumi}.}
 
@@ -647,7 +609,6 @@ next:
   five arrangements:
 
 \end{enumerate}
-
 \begin{longtable}[]{@{}ccccccccccccccccccc@{}}
 \toprule
 1 & 2 & 3 & & 1 & 2 & 4 & & 1 & 2 & 5 & & 1 & 3 & 4 & & 1 & 3 &
@@ -660,9 +621,8 @@ next:
 
 \end{longtable}
 
-A bijection to the path problem is: an entry in the top row \selectlanguage{english} R. For
+A bijection to the path problem is: an entry in the top row   R. For
 example, the middle arrangement corresponds to R R U U R U.
-
 \begin{enumerate}
 \def\labelenumi{\Roman{enumi}.}
 
@@ -690,47 +650,46 @@ Place a vertex in each triangle, connect the three vertices and run
 A 2-line poem can have just two rhyme schemes
 
 \end{enumerate}
-
-\[
-begin{matrix}
-a \\
-a \\
-\end{matrix}\text{\ \ \ \ \ \ \ \ \ \ }\text{or}\text{\ \ \ \ \ \ \ \ \ \ }\begin{matrix}
-a \\
-b \\
-\end{matrix}
-\]
+FIX
+% \[
+% begin{matrix}
+% a \\
+% a \\
+% \end{matrix}\text{\ \ \ \ \ \ \ \ \ \ }\text{or}\text{\ \ \ \ \ \ \ \ \ \ }\begin{matrix}
+% a \\
+% b \\
+% \end{matrix}
+% \]
 
 A 3-line poem can have five schemes:
-
-\[
-begin{matrix}
-a \\
-a \\
-a \\
-\end{matrix}\text{\ \ \ }\begin{matrix}
-a \\
-a \\
-b \\
-\end{matrix}\text{\ \ \ \ }\begin{matrix}
-a \\
-b \\
-a \\
-\end{matrix}\text{\ \ \ \ }\begin{matrix}
-a \\
-b \\
-b \\
-\end{matrix}\text{\ \ \ \ }\begin{matrix}
-a \\
-b \\
-c \\
-\end{matrix}
-\]
+FIX
+% \[
+% begin{matrix}
+% a \\
+% a \\
+% a \\
+% \end{matrix}\text{\ \ \ }\begin{matrix}
+% a \\
+% a \\
+% b \\
+% \end{matrix}\text{\ \ \ \ }\begin{matrix}
+% a \\
+% b \\
+% a \\
+% \end{matrix}\text{\ \ \ \ }\begin{matrix}
+% a \\
+% b \\
+% b \\
+% \end{matrix}\text{\ \ \ \ }\begin{matrix}
+% a \\
+% b \\
+% c \\
+% \end{matrix}
+% \]
 
 The last pattern indicates that no line rhymes with any other. The
 Catalan numbers seem to be popping up again. For \emph{n} = 4 there
 happen to be 15 (not 14) patterns:
-
 \begin{longtable}[]{@{}ccccccccccccccc@{}}
 \toprule
 a & a & a & a & a & a & a & a & a & a & a & a & a & a & a\tabularnewline
@@ -753,20 +712,19 @@ schemes.
 
 Thus far, we have the following bijections:
 
-Parentheses \selectlanguage{english} H-D sequences
+Parentheses   H-D sequences
 
-H-D \selectlanguage{english} Paths
+H-D   Paths
 
-Triangulations \selectlanguage{english} Parentheses
+Triangulations   Parentheses
 
-Insertions \selectlanguage{english} Paths
+Insertions   Paths
 
-Trees \selectlanguage{english} Parentheses
+Trees   Parentheses
 
 See if you can connect the rhyme schemes to any of the above.
 
 THE CATALAN NUMBERS
-
 \begin{longtable}[]{@{}cccccccccccccccccccccc@{}}
 \toprule
 & & & & & & & & & & 1 & & & & & & & & & & & 1\tabularnewline
@@ -806,10 +764,8 @@ n=4
 HHDDHD HDHDHD
 
 FIGURE 2
-
 \begin{longtable}[]{@{}ccc@{}}
-\toprule
-\begin{minipage}[b]{0.32\columnwidth}\centering\strut
+\toprule\begin{minipage}[b]{0.32\columnwidth}\centering\strut
 \strut
 \end{minipage} & \begin{minipage}[b]{0.32\columnwidth}\centering\strut
 \strut
@@ -819,8 +775,7 @@ FIGURE 2
 1100100\strut
 \end{minipage}\tabularnewline
 \midrule
-\endhead
-\begin{minipage}[t]{0.32\columnwidth}\centering\strut
+\endhead\begin{minipage}[t]{0.32\columnwidth}\centering\strut
 \strut
 \end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
 \strut
@@ -828,8 +783,7 @@ FIGURE 2
 (((ab)c)d)
 
 1110000\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.32\columnwidth}\centering\strut
+\end{minipage}\tabularnewline\begin{minipage}[t]{0.32\columnwidth}\centering\strut
 \strut
 \end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
 \strut
@@ -837,8 +791,7 @@ FIGURE 2
 (a(b(cd)))
 
 1010100\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.32\columnwidth}\centering\strut
+\end{minipage}\tabularnewline\begin{minipage}[t]{0.32\columnwidth}\centering\strut
 \strut
 \end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
 \strut
@@ -846,8 +799,7 @@ FIGURE 2
 (a(bc)d))
 
 1011000\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.32\columnwidth}\centering\strut
+\end{minipage}\tabularnewline\begin{minipage}[t]{0.32\columnwidth}\centering\strut
 \strut
 \end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
 \strut
@@ -863,7 +815,6 @@ FIGURE 2
 FIGURE 3
 
 PROBLEMS ON CATALAN NUMBERS
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -888,7 +839,6 @@ PROBLEMS ON CATALAN NUMBERS
   Find the nonworkable sequence associated with each:
 
 \end{enumerate}
-
 \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}
 
@@ -898,7 +848,6 @@ PROBLEMS ON CATALAN NUMBERS
   D H H H H D (d) D D H H D H H H
 
 \end{enumerate}
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -916,7 +865,6 @@ PROBLEMS ON CATALAN NUMBERS
 \[
 _{n} = \ \left( \frac{n}{1} \right)C_{n - 1} - \ \left( \frac{n - 1}{2} \right)C_{n - 2} + \ \left( \frac{n - 2}{3} \right)C_{n - 3} - \ \ldots
 \]
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -930,7 +878,6 @@ _{n} = \ \left( \frac{n}{1} \right)C_{n - 1} - \ \left( \frac{n - 1}{2} \right)C
 
 FOR EACH OF THE FOLLOWING, INVESTIGATE BIJECTIONS THAT RELATE ONE TO
 ANOTHER.
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -1003,7 +950,6 @@ partitioning an n-set into k nonempty subsets.
 \(\text{\ S}\left( n,\ k \right)\) by examining the following:
 
 In computing \(S\left( 4,\ 3 \right)\) look back at the two cases:
-
 \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}
 
@@ -1074,52 +1020,39 @@ Stirling's Second Triangle can be made.
 1 15 25 10 1
 
 THEOREM 2.
-
 \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}
 
 \item
-  \(S\left( n,n - 1 \right) =
-
-\begin{pmatrix}
-  n 
-  2 
+  \(S\left( n,n - 1 \right) =\begin{pmatrix}
+  n
+  2
   \end{pmatrix}
 \)
 \item
   \(S\left( n,2 \right) = 2^{n - 1} - 1\)
 \item
-  \(S\left( n,n - 2 \right) =
-
-\begin{pmatrix}
-  n 
-  3 
+  \(S\left( n,n - 2 \right) =\begin{pmatrix}
+  n
+  3
   \end{pmatrix}
- + 3
-
-\begin{pmatrix}
-  n 
-  4 
+ + 3\begin{pmatrix}
+  n
+  4
   \end{pmatrix}
 \)
 \item
-  \(S\left( n,n - 3 \right) =
-
-\begin{pmatrix}
-  n 
-  4 
+  \(S\left( n,n - 3 \right) =\begin{pmatrix}
+  n
+  4
   \end{pmatrix}
- + 10
-
-\begin{pmatrix}
-  n 
-  5 
+ + 10\begin{pmatrix}
+  n
+  5
   \end{pmatrix}
- + 15
-
-\begin{pmatrix}
-  n 
-  6 
+ + 15\begin{pmatrix}
+  n
+  6
   \end{pmatrix}
 \)
 
@@ -1127,35 +1060,26 @@ THEOREM 2.
 
 Proof. You are asked to prove these in the problems.
 
-The entries in the Pascal Triangle, \(
-
-\begin{pmatrix}
-n 
-k 
+The entries in the Pascal Triangle, \(\begin{pmatrix}
+n
+k
 \end{pmatrix}
-\), satisfy the nice recursion \(
-
-\begin{pmatrix}
-n 
-k 
+\), satisfy the nice recursion \(\begin{pmatrix}
+n
+k
 \end{pmatrix}
  =
-
 \begin{pmatrix}
-n - 1 
-k 
+n - 1
+k
 \end{pmatrix}
- +
-
-\begin{pmatrix}
-n - 1 
-k - 1 
+ +\begin{pmatrix}
+n - 1
+k - 1
 \end{pmatrix}
-\) and also have a closed formula: \(
-
-\begin{pmatrix}
-n 
-k 
+\) and also have a closed formula: \(\begin{pmatrix}
+n
+k
 \end{pmatrix}
  = n!/k!\left( n - k \right)!\). Theorem 1 gives us a
 recursion for the Stirling numbers \(S\left( n,k \right)\ \)and,
@@ -1189,29 +1113,24 @@ painting the n houses without using the \(i^{th}\)color. Analogously for
 etc. Since \(N\left( \alpha_{i} \right) = \left( k - 1 \right)^{n}\),
 \(N\left( a_{i},\ \alpha_{j} \right) = \left( k - 2 \right)^{n},\ \ldots\ \)
 the number of ways of painting n houses using all k colors is, using
-PIE, \(k^{n} -
-
-\begin{pmatrix}
-k 
-1 
+PIE, \(k^{n} -\begin{pmatrix}
+k
+1
 \end{pmatrix}
 \left( k - 1 \right)^{n} +
-
 \begin{pmatrix}
-k 
-2 
+k
+2
 \end{pmatrix}
 \left( k - 2 \right)^{n} -
-
 \begin{pmatrix}
-k 
-3 
+k
+3
 \end{pmatrix}
 \left( k - 3 \right)^{n} + \ \ldots + \left( - 1 \right)^{k}
-
 \begin{pmatrix}
-k 
-k 
+k
+k
 \end{pmatrix}
 0^{n}\). Alternately, we could first partition the n houses
 into k (non-empty) sets, and then paint each set. This can be
@@ -1238,27 +1157,23 @@ numbers. \(S(n,\ k)\)is used to convert from powers to binomial
 coefficients as shown in the following:
 
 THEOREM 5. \(x^{n} = S\left( n,1 \right)
-
 \begin{pmatrix}
-x 
-1 
+x
+1
 \end{pmatrix}
 1! + S\left( n,2 \right)
-
 \begin{pmatrix}
-x 
-2 
+x
+2
 \end{pmatrix}
 2! + \ \ldots + S\left( n,n \right)
-
 \begin{pmatrix}
-n 
-n 
+n
+n
 \end{pmatrix}
 n!\ \)
 
 PROBLEMS
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -1282,7 +1197,6 @@ PROBLEMS
 \(abc = 2 \bullet 3 \bullet 5 \bullet 7 \bullet 11 \bullet 13 \bullet 17\)?
 \item
   Compute each using THEOREM 3.
-
 \begin{enumerate}
   \def\labelenumii{\alph{enumii}.}
 
@@ -1294,7 +1208,7 @@ PROBLEMS
     \(S(n,2)\)
   \item
     \(S(n,3)\)
-  
+
 \end{enumerate}
 \item
   Write out the proof of THEOREM 3 for k=3.
@@ -1303,90 +1217,76 @@ PROBLEMS
   your answer out to verify.
 \item
   Use your result in Problem 9 to express x\textsuperscript{3} as a
-  linear combination of the binomial coefficients \(
-
-\begin{pmatrix}
-  x 
-  1 
+  linear combination of the binomial coefficients \(\begin{pmatrix}
+  x
+  1
   \end{pmatrix}
 ,\
-
 \begin{pmatrix}
-  x 
-  2 
+  x
+  2
   \end{pmatrix}
 ,\
-
 \begin{pmatrix}
-  x 
-  3 
+  x
+  3
   \end{pmatrix}
 \).
 \item
   Determine the following:
-
 \begin{enumerate}
   \def\labelenumii{\alph{enumii}.}
 
   \item
     \(a,\ b,\ c\) so that \(n^{4} = 24
-
 \begin{pmatrix}
-    n 
-    4 
+    n
+    4
     \end{pmatrix}
  + 6a\
-
 \begin{pmatrix}
-    n 
-    3 
+    n
+    3
     \end{pmatrix}
  + 2b\
-
 \begin{pmatrix}
-    n 
-    2 
+    n
+    2
     \end{pmatrix}
  + c
-
 \begin{pmatrix}
-    n 
-    1 
+    n
+    1
     \end{pmatrix}
 \).
   \item
     \(a,\ b,\ c,\ d\) so that \(n^{5} = 5!
-
 \begin{pmatrix}
-    n 
-    5 
+    n
+    5
     \end{pmatrix}
  + a
-
 \begin{pmatrix}
-    n 
-    4 
+    n
+    4
     \end{pmatrix}
  + b
-
 \begin{pmatrix}
-    n 
-    3 
+    n
+    3
     \end{pmatrix}
  + c
-
 \begin{pmatrix}
-    n 
-    2 
+    n
+    2
     \end{pmatrix}
  + d
-
 \begin{pmatrix}
-    n 
-    1 
+    n
+    1
     \end{pmatrix}
 \).
-  
+
 \end{enumerate}
 \item
   Express \(1^{4} + 2^{4} + 3^{4} + \ \ldots + n^{4}\) as a polynomial
@@ -1424,22 +1324,19 @@ FORMULA:
 \(B_{n} = L\left( x^{n} \right)\ (Gian - Carlo\ Rota)\)
 
 RECURSION: \(B_{n} =
-
 \begin{pmatrix}
-n - 1 
-0 
+n - 1
+0
 \end{pmatrix}
 B_{0} +
-
 \begin{pmatrix}
-n - 1 
-1 
+n - 1
+1
 \end{pmatrix}
 B_{1} + \ \ldots +
-
 \begin{pmatrix}
-n - 1 
-n - 1 
+n - 1
+n - 1
 \end{pmatrix}
 B_{n - 1},\ B_{0} = 1\)
 
@@ -1471,7 +1368,6 @@ row. Since 5 has no number above it, the third row is complete. 5 now
 becomes the first number in the fourth row and the process continues.
 
 Construction of the triangle follows two basic rules:
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -1542,28 +1438,24 @@ This pattern suggests the \({(n + 1)}^{\text{th}}\) Bell Number can be
 represented recursively by
 
 \(B_{n + 1} =
-
 \begin{pmatrix}
-n 
-0 
+n
+0
 \end{pmatrix}
 B_{0} +
-
 \begin{pmatrix}
-n 
-1 
+n
+1
 \end{pmatrix}
 B_{1} +
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
 B_{2} + \ \ldots +
-
 \begin{pmatrix}
-n 
-n 
+n
+n
 \end{pmatrix}
 B_{n}\). The coefficients of this equation are the entries
 of the nth row of Pascal's triangle. You are asked to prove this
@@ -1620,7 +1512,6 @@ ways of partitioning the elements of \{1, 2, 3\} are
 
 \{1\} \{2\} \{3\} \{1, 2\} \{3\} \{1, 3\} \{2\} \{2, 3\} \{1\} \{1, 2,
 3\}
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -1635,40 +1526,34 @@ ways of partitioning the elements of \{1, 2, 3\} are
   numbers \(S(n,k)\) and the formula in Problem 2.
 \item
   Prove that \(B_{n} =
-
 \begin{pmatrix}
-  n - 1 
-  0 
+  n - 1
+  0
   \end{pmatrix}
 B_{0} +
-
 \begin{pmatrix}
-  n - 1 
-  1 
+  n - 1
+  1
   \end{pmatrix}
 B_{1} +
-
 \begin{pmatrix}
-  n - 1 
-  2 
+  n - 1
+  2
   \end{pmatrix}
 B_{2} + \ \ldots + \
-
 \begin{pmatrix}
-  n - 1 
-  n - 1 
+  n - 1
+  n - 1
   \end{pmatrix}
 B_{n - 1}\).
 
 \end{enumerate}
-
 \begin{quote}
 {[}Here we let \(B_{0} = 1\){]}. HINT: First try n=5 and partition
 \(\{ 1,2,3,4,\ 5\}\) by treating 5 as ``special.'' The element 5 can be
 a singleton, in a doubleton, or \ldots{} .
 
 \end{quote}
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -1676,38 +1561,32 @@ a singleton, in a doubleton, or \ldots{} .
   Prove that
 
 \end{enumerate}
-
 \begin{quote}
 \(S_{n}\left( n + 1,\ r \right) =
-
 \begin{pmatrix}
-n 
-0 
+n
+0
 \end{pmatrix}
 S\left( 0,\ r - 1 \right) +
-
 \begin{pmatrix}
-n 
-1 
+n
+1
 \end{pmatrix}
 S\left( 1,\ r - 1 \right) +
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
 S\left( 2,\ r - 1 \right) + \ \ldots\)
 
 \(+
-
 \begin{pmatrix}
-n 
-n 
+n
+n
 \end{pmatrix}
 S(n,\ r - 1)\)
 
 \end{quote}
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -1721,7 +1600,6 @@ S(n,\ r - 1)\)
   coefficients. Let
 
 \end{enumerate}
-
 \begin{quote}
 \(P\left( x \right) = c_{0}u_{0} + c_{1}u_{1} + c_{2}u_{2} + \ \ldots\ \)
 be any element of V, and define the functional L as follows:
@@ -1729,7 +1607,6 @@ be any element of V, and define the functional L as follows:
 .
 
 \end{quote}
-
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
 
@@ -1816,7 +1693,6 @@ the last paragraph.'' We asked Lyle what ETB was like as a grandfather.
 Here, with his permission, is his answer, along with notes on ETB's last
 days. WE should add by way of clarification that ``Romps'' was ETB's
 name for himself, and ``Toby'' was his name for his wife Jessie.
-
 \begin{quote}
 ``E.T. Bell, known as Pop Romps to me (he refused to be called Grandpa),
 brings back some interesting and humorous memories. You asked how he was
@@ -1888,7 +1764,6 @@ through the whole ordeal.''
 These pages are copyright 2001-by E. Bruce Brooks
 
 \textbf{Group Projects- Math 528}
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -1910,14 +1785,12 @@ These pages are copyright 2001-by E. Bruce Brooks
 \end{enumerate}
 
 PROJECT 1: PATHS AND BINOMIAL COEFFICIENTS
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
 \item
   A path consists of vertical and horizontal line segments of length 1.
   Determine the number of paths
-
 \begin{enumerate}
   \def\labelenumii{\alph{enumii}.}
 
@@ -1926,12 +1799,11 @@ PROJECT 1: PATHS AND BINOMIAL COEFFICIENTS
     \((4,\ 3)\).
   \item
     of length \(a + b\) from \(\left( 0,\ 0 \right)\) and \((a,b)\).
-  
+
 \end{enumerate}
 \item
   A lattice point in the plane is a point \((m,\ n)\) with
   \(m,\ n \in Z\).
-
 \begin{enumerate}
   \def\labelenumii{\alph{enumii}.}
 
@@ -1941,50 +1813,43 @@ PROJECT 1: PATHS AND BINOMIAL COEFFICIENTS
   \item
     Determine the number of paths of length 10 from \((0,\ 0)\) to the
     lattice points on \(y = 10 - x\).
-  
+
 \end{enumerate}
 \item
   Give a geometrical (path argument) for the identity
   \(2^{n} =
-
 \begin{pmatrix}
-  n 
-  0 
+  n
+  0
   \end{pmatrix}
  +
-
 \begin{pmatrix}
-  n 
-  1 
+  n
+  1
   \end{pmatrix}
  + \ \ldots +
-
 \begin{pmatrix}
-  n 
-  n 
+  n
+  n
   \end{pmatrix}
 \ \)using the idea in \#2.
 \item
   Generalize \#1 to three dimensions; introduce obstructions; use
   inclusion-exclusion.
 \item
-  Give a path proof for \(
-
-\begin{pmatrix}
-  n 
-  k 
+  Give a path proof for \(\begin{pmatrix}
+  n
+  k
   \end{pmatrix}
  =
-
 \begin{pmatrix}
-  n - 1 
-  k 
+  n - 1
+  k
   \end{pmatrix}
  +
-
 \begin{pmatrix}
-  n - 1 
-  k - 1 
+  n - 1
+  k - 1
   \end{pmatrix}
 \).
 \item
@@ -2007,7 +1872,6 @@ PROJECT 2: ON TRIANGULAR NUMBERS
 
 Let \(T_{n} = \frac{n\left( n + 1 \right)}{2}\) denote the
 \(n^{\text{th}}\) triangular number.
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -2022,7 +1886,6 @@ Let \(T_{n} = \frac{n\left( n + 1 \right)}{2}\) denote the
   Verify that \(T_{n}^{2} + T_{n - 1}^{2} = T_{n^{2}}\).
 \item
   Verify the following:
-
 \begin{enumerate}
   \def\labelenumii{\alph{enumii}.}
 
@@ -2030,7 +1893,7 @@ Let \(T_{n} = \frac{n\left( n + 1 \right)}{2}\) denote the
     \(3T_{n} + T_{n + 1} = T_{2n + 1}\)
   \item
     \(3T_{n} + T_{n - 1} = T_{2n}\) (also give a geometrical proof)
-  
+
 \end{enumerate}
 \item
   Determine the values \(T_{6},\ T_{66},\ T_{666},\ T_{6666},\ \ldots\).
@@ -2040,7 +1903,6 @@ Let \(T_{n} = \frac{n\left( n + 1 \right)}{2}\) denote the
   \(T_{3} + T_{6} + T_{9} + \ \ldots + T_{3n}.\)
 \item
   Verify:
-
 \begin{enumerate}
   \def\labelenumii{\alph{enumii}.}
 
@@ -2050,13 +1912,12 @@ Let \(T_{n} = \frac{n\left( n + 1 \right)}{2}\) denote the
     \(1 + 3 + 6 + 10 + 15 + 21 = 2^{2} + 4^{2} + 6^{2}\)
   \item
     Generalize and prove your generalization.
-  
+
 \end{enumerate}
 
 \end{enumerate}
 
 PROJECT 3: FIBONACCI NUMBERS
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -2065,7 +1926,6 @@ PROJECT 3: FIBONACCI NUMBERS
 \item
   Using a variety of proof methods (geometric, induction, matrices,
   recursion, telescoping sum) prove identities such as:
-
 \begin{enumerate}
   \def\labelenumii{\alph{enumii}.}
 
@@ -2077,31 +1937,27 @@ PROJECT 3: FIBONACCI NUMBERS
     \(F_{n + 1}^{2} - F_{n}F_{n + 2} = \left( - 1 \right)^{n}\)
   \item
     \(F_{n + 2} =
-
 \begin{pmatrix}
-    n + 1 
-    0 
+    n + 1
+    0
     \end{pmatrix}
  +
-
 \begin{pmatrix}
-    n 
-    1 
+    n
+    1
     \end{pmatrix}
  +
-
 \begin{pmatrix}
-    n - 1 
-    2 
+    n - 1
+    2
     \end{pmatrix}
  + \ \ldots\)
-  
+
 \end{enumerate}
 \item
   Prove the ``Binet Formula,''
   \(F_{n} = \frac{\alpha^{n} - \beta^{n}}{\alpha - \beta}\), where
   \(\alpha,\ \beta\ \)satisfy \(x^{2} - x - 1 = 0\).
-
 \begin{enumerate}
   \def\labelenumii{\alph{enumii}.}
 
@@ -2109,24 +1965,23 @@ PROJECT 3: FIBONACCI NUMBERS
     By induction.
   \item
     Using generating series.
-  
-\end{enumerate}
 
 \end{enumerate}
 
-\[
-begin{pmatrix}
-n \\
-0 \\
-\end{pmatrix}F_{0} + \begin{pmatrix}
-n \\
-1 \\
-\end{pmatrix}F_{1} + \ \ldots + \begin{pmatrix}
-n \\
-n \\
-\end{pmatrix}F_{0} = \ F_{2n}
-\]
-
+\end{enumerate}
+FIX
+% \[
+% begin{pmatrix}
+% n \\
+% 0 \\
+% \end{pmatrix} F_{0} + \begin{pmatrix}
+% n \\
+% 1 \\
+% \end{pmatrix} F_{1} + \ \ldots + \begin{pmatrix}
+% n \\
+% n \\
+% \end{pmatrix} F_{0} = \ F_{2n}
+% \]
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -2156,28 +2011,24 @@ n \\
 4 \\
 \end{pmatrix} + \ \ldots \right\rbrack.
 \]
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
 \item
   Let \(Q =
-
 \begin{pmatrix}
-  1 & 1 
-  1 & 0 
+  1 & 1
+  1 & 0
   \end{pmatrix}
 \). Prove:
-
 \begin{enumerate}
   \def\labelenumii{\alph{enumii}.}
 
   \item
     \(Q^{n} =
-
 \begin{pmatrix}
-    F_{n + 1} & F_{n} 
-    F_{n} & F_{n - 1} 
+    F_{n + 1} & F_{n}
+    F_{n} & F_{n - 1}
     \end{pmatrix}
 \).
   \item
@@ -2185,7 +2036,7 @@ n \\
   \item
     Use \(Q^{2n + 1} = Q^{n}Q^{n + 1}\) to show
     \(F_{2n + 1} = F_{n + 1}^{2} - F_{n}^{2}\ \)and other identities.
-  
+
 \end{enumerate}
 \item
   Show that if \(x^{2} = x + 1\) then \(x^{n} = F_{n}x + F_{n - 1}\)
@@ -2200,7 +2051,6 @@ References: The Fibonacci Quarterly; The Golden Section by Garth E.
 Runion; The Divine Proportion by H.E. Huntley
 
 PROJECT 4: GENERALIZED PASCAL TRIANGLES
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -2210,7 +2060,6 @@ PROJECT 4: GENERALIZED PASCAL TRIANGLES
   Organize the coefficients as in the following triangle:
 
 \end{enumerate}
-
 \begin{quote}
 1
 
@@ -2223,13 +2072,11 @@ PROJECT 4: GENERALIZED PASCAL TRIANGLES
 1 4 10 16 19 16 10 4 1
 
 \end{quote}
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
 \item
   Investigate the properties of this triangle:
-
 \begin{enumerate}
   \def\labelenumii{\alph{enumii}.}
 
@@ -2244,7 +2091,7 @@ PROJECT 4: GENERALIZED PASCAL TRIANGLES
     Generalize and prove.
   \item
     Is there a hockey stick theorem?
-  
+
 \end{enumerate}
 \item
   Investigate 3-dimensional versions of
@@ -2263,42 +2110,35 @@ PROJECT 4: GENERALIZED PASCAL TRIANGLES
 PROJECT 5: A PASCAL-LIKE TRIANGLE OF EULERIAN NUMBERS
 
 \end{enumerate}
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
 \item
   Show algebraically and geometrically that\(\
-
 \begin{pmatrix}
-  n 
-  2 
+  n
+  2
   \end{pmatrix}
  +
-
 \begin{pmatrix}
-  n + 1 
-  2 
+  n + 1
+  2
   \end{pmatrix}
  = n^{2}\).
 \item
-  Show that \(
-
-\begin{pmatrix}
-  n 
-  3 
+  Show that \(\begin{pmatrix}
+  n
+  3
   \end{pmatrix}
  + 4
-
 \begin{pmatrix}
-  n + 1 
-  3 
+  n + 1
+  3
   \end{pmatrix}
  +
-
 \begin{pmatrix}
-  n + 2 
-  3 
+  n + 2
+  3
   \end{pmatrix}
  = n^{3}\).
 \item
@@ -2334,13 +2174,11 @@ n + 4 \\
 5 \\
 \end{pmatrix}
 \]
-
 \begin{quote}
 using n=1, 2, 3, 4. This sometimes referred to as ``Polynomial
 Fitting.''
 
 \end{quote}
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -2358,18 +2196,15 @@ Fitting.''
 \item
   Investigate the properties of this triangle. Include a discussion of
   row sums, how entries are found, and a possible recursion. Use
-  \(
-
-\begin{bmatrix}
-  n 
-  k 
+  \(\begin{bmatrix}
+  n
+  k
   \end{bmatrix}
 \) for notation.
 
 PROJECT 6: THE LEIBNITZ HARMONIC TRIANGLE
 
 \end{enumerate}
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -2378,11 +2213,9 @@ PROJECT 6: THE LEIBNITZ HARMONIC TRIANGLE
 \item
   What are the ``initial conditions'' needed to generate the entries?
 \item
-  Use \(
-
-\begin{bmatrix}
-  n 
-  k 
+  Use \(\begin{bmatrix}
+  n
+  k
   \end{bmatrix}
 \) as the notation for entries and state properties
   analogous to those found in the Pascal Triangle. Include closed
@@ -2401,7 +2234,6 @@ PROJECT 7: THE TWELVE DAYS OF CHRISTMAS (in the Discrete Math Style)
 
 According to the song, THE TWELVE DAYS OF CHRISTMAS the ``true love''
 received the following number of (not so practical) gifts:
-
 \begin{longtable}[]{@{}lll@{}}
 \toprule
 Day's Gift & Number received & Total\tabularnewline
@@ -2435,7 +2267,6 @@ Twelfth & 12 X 1 & 12\tabularnewline
 5 8 9 8 5
 
 The first five rows of a triangle are given above.
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -2455,10 +2286,9 @@ The first five rows of a triangle are given above.
 \item
   Explain why
   \(1 \bullet n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \ \ldots + n \bullet 1 =
-
 \begin{pmatrix}
-  n + 2 
-  3 
+  n + 2
+  3
   \end{pmatrix}
 \).
 
@@ -2481,11 +2311,9 @@ boxes or not? As this second class of problem is a little easier let's
 analyze it first.
 
 RESULT: The number of ways of placing n similar objects into k different
-bins not allowing empty bins is \(
-
-\begin{pmatrix}
-n - 1 
-k - 1 
+bins not allowing empty bins is \(\begin{pmatrix}
+n - 1
+k - 1
 \end{pmatrix}
 \). Denote the k different bins by
 \(x_{1},\ x_{2},\ldots,\ x_{k}\). The number of solutions to
@@ -2493,11 +2321,9 @@ k - 1
 the number of such distributions.
 
 RESULT: The number of ways of placing n similar objects into k different
-bins allowing empty bins is \(
-
-\begin{pmatrix}
-n + k - 1 
-k - 1 
+bins allowing empty bins is \(\begin{pmatrix}
+n + k - 1
+k - 1
 \end{pmatrix}
 \). The number of solutions to
 \(x_{1} + x_{2} + \ \ldots + x_{k} = n\) where each \(x_{i} \geq 0\) is
@@ -2512,28 +2338,24 @@ Inclusion-Exclusion (PIE) we see that the number of functions from \{1,
 functions from \{1, 2, 3, 4, 5, 6\} \emph{onto} \{a, b, c, d\} is
 
 \(4^{6} - 4 \bullet 3^{6} + 6 \bullet 2^{6} - 4 \bullet 1^{6} =
-
 \begin{pmatrix}
-4 
-4 
+4
+4
 \end{pmatrix}
 4^{6} -
-
 \begin{pmatrix}
-4 
-3 
+4
+3
 \end{pmatrix}
 3^{6} +
-
 \begin{pmatrix}
-4 
-2 
+4
+2
 \end{pmatrix}
 2^{6} -
-
 \begin{pmatrix}
-4 
-1 
+4
+1
 \end{pmatrix}
 1^{6}.\) PIE can be used to show that, in general, the
 number of functions from \(\{ x_{1},\ x_{2},\ \ldots,\ x_{n}\}\)
@@ -2557,7 +2379,6 @@ k - 1 \\
 
 Each onto functions characterizes a distribution problem as follows: the
 following onto function
-
 \begin{longtable}[]{@{}llllll@{}}
 \toprule
 x & 1 & 2 & 3 & 4 & 5\tabularnewline
@@ -2585,7 +2406,7 @@ different bins in \(k^{n}.\)
 Without the restriction of ``no empty bins'' this is just a matter of
 saying that there are k places for disposing of each of the n objects.
 This is also the number of functions from
-\(\{ x_{1},\ x_{2},\ \ldots,\ x_{n}\}\) \emph{to} 
+\(\{ x_{1},\ x_{2},\ \ldots,\ x_{n}\}\) \emph{to}
 \(\{ y_{1},\ y_{2},\ldots,\ y_{k}\}\), ignoring the restriction that
 they must be onto.
 
@@ -2607,7 +2428,6 @@ the sum rule we can look at the following disjoint cases:
 No box is empty- \(S(n,\ \ k)\)
 
 Exactly one box is empty-\(S(n,\ k - 1)\)
-
 \begin{quote}
 Exactly two bins are empty-\(S(n,\ k - 2)\)
 
@@ -2623,7 +2443,7 @@ fewer bins is
 
 Finally, the theory of linear or integer \emph{partitions} solves the
 final distribution problem: In how many ways can you distribute n
-similar objects into k similar bins? Recall that a \emph{partition} 
+similar objects into k similar bins? Recall that a \emph{partition}
 \(\left( a_{1},\ a_{2},\ \ldots,\ a_{k} \right)\ \)of an integer n is an
 array of integers \(a_{i}\) such that
 \(n = a_{1} + a_{2} + \ \ldots + a_{n}\) and
@@ -2632,7 +2452,6 @@ example, the 5 partitions of n=4 are 4, 31, 22, 211, 1111. Here, the
 distribution 31 is the same as 13 since the bins are similar.
 
 DISTRIBUTIONS OF OBJECTS INTO BINS
-
 \begin{longtable}[]{@{}lllll@{}}
 \toprule
 n objects & & & k bins &\tabularnewline
@@ -2668,27 +2487,24 @@ S = Similar
 D = Different
 
 \(B\left( n,k \right) = k^{n} -
-
 \begin{pmatrix}
-k 
-1 
+k
+1
 \end{pmatrix}
 \left( k - 1 \right)^{n} +
-
 \begin{pmatrix}
-k 
-2 
+k
+2
 \end{pmatrix}
 \left( k - 2 \right)^{n} + \ \ldots + \left( - 1 \right)^{k - 1}
-
 \begin{pmatrix}
-k 
-k - 1 
+k
+k - 1
 \end{pmatrix}
 1^{n}\)
 
 \[
-\left( n,k \right) = \frac{1}{k!}B\left( n,k \right)\ 
+\left( n,k \right) = \frac{1}{k!}B\left( n,k \right)\
 \]
 
 COMBINATORIAL PROOFS
@@ -2706,17 +2522,14 @@ the reader is urged to attempt an alternate proof for comparison
 purposes. Such an alternate proof could be algebraic or geometric in
 nature; or one could try a collapsing sum or an induction proof.
 
-\emph{THEOREM 1} \(
-
-\begin{pmatrix}
-2n 
-2 
+\emph{THEOREM 1} \(\begin{pmatrix}
+2n
+2
 \end{pmatrix}
  = 2
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
  + n^{2}\)
 
@@ -2728,198 +2541,162 @@ A B
 
 First, you can choose 2 objects from a set of \(2n\ \)objects
 in\(\
-
 \begin{pmatrix}
-2n 
-2 
+2n
+2
 \end{pmatrix}
 \ \)ways. Alternatively, you could select two from group A
 in\(\
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
 \) ways or two from group B in\(\
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
 \) ways or take one from each in \(n \bullet n = n^{2}\)
 ways. Now add\(\
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
  +
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
  + n \bullet n\) and the result follows. The reader should
 attempt an algebraic proof using the factorial formula
 for\(\
-
 \begin{pmatrix}
-n 
-k 
+n
+k
 \end{pmatrix}
 \).
 
-\emph{THEOREM 2} \(
-
-\begin{pmatrix}
-m + n 
-2 
+\emph{THEOREM 2} \(\begin{pmatrix}
+m + n
+2
 \end{pmatrix}
  -
-
 \begin{pmatrix}
-m 
-2 
+m
+2
 \end{pmatrix}
  -
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
  = mn\)
 
 Suppose you have a group of m men and n women and you want to form
 men-women dancing pairs. This can clearly be done in mn ways. Or, you
 could choose 2 from the total of m + n and delete the men-men pairs
-(there are \(
-
-\begin{pmatrix}
-m 
-2 
+(there are \(\begin{pmatrix}
+m
+2
 \end{pmatrix}
 \ \)of these) and delete the women-women pairs
-(also\(
-
-\begin{pmatrix}
-n 
-2 
+(also\(\begin{pmatrix}
+n
+2
 \end{pmatrix}
 \)of these). The result follows. The reader could attempt
 an algebraic proof or perhaps a geometric proof making use of figures
 consisting of triangular numbers. Also, as a challenge, the reader could
-formulate a similar result involving \(
-
-\begin{pmatrix}
-a + b + c 
-3 
+formulate a similar result involving \(\begin{pmatrix}
+a + b + c
+3
 \end{pmatrix}
 \) and a corresponding proof.
 
-\emph{THEOREM 3} \(
-
-\begin{pmatrix}
-n 
-0 
+\emph{THEOREM 3} \(\begin{pmatrix}
+n
+0
 \end{pmatrix}
  +
-
 \begin{pmatrix}
-n 
-1 
+n
+1
 \end{pmatrix}
  +
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
  + \ \ldots +
-
 \begin{pmatrix}
-n 
-n 
+n
+n
 \end{pmatrix}
  = 2^{n}\)
 
 Here again we first create a question that is answered by either side of
 the given identity. Question: How many subsets does
 \(\{ a_{1},\ a_{2},\ldots,\ a_{n}\}\) have? An n-set has
-\(
-
-\begin{pmatrix}
-n 
-2 
+\(\begin{pmatrix}
+n
+2
 \end{pmatrix}
 \) subsets. The left-hand side counts these subsets by
-their size. There are \(
-
-\begin{pmatrix}
-n 
-k 
+their size. There are \(\begin{pmatrix}
+n
+k
 \end{pmatrix}
 \ \)subsets of size k.
 
 In this situation the reader might \emph{not} want to try this
 algebraically.
 
-\emph{THEOREM 4} \(
-
-\begin{pmatrix}
-n 
-1 
+\emph{THEOREM 4} \(\begin{pmatrix}
+n
+1
 \end{pmatrix}
  + 2
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
  + 3
-
 \begin{pmatrix}
-n 
-3 
+n
+3
 \end{pmatrix}
  + \ \ldots + n
-
 \begin{pmatrix}
-n 
-n 
+n
+n
 \end{pmatrix}
  = {n2}^{n - 1}\)
 
 Given a set of n people we can select a committee of size k along with a
 chair from that committee in \(k
-
 \begin{pmatrix}
-n 
-k 
+n
+k
 \end{pmatrix}
 \ \)ways. We can select a committee (of size 1, or size 2,
-or \ldots{}) and its chair in \(
-
-\begin{pmatrix}
-n 
-1 
+or \ldots{}) and its chair in \(\begin{pmatrix}
+n
+1
 \end{pmatrix}
  + 2
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
  + 3
-
 \begin{pmatrix}
-n 
-3 
+n
+3
 \end{pmatrix}
  + \ \ldots + n
-
 \begin{pmatrix}
-n 
-n 
+n
+n
 \end{pmatrix}
 \ \)ways. Alternatively, we can explain the term
 \(n2^{n - 1}\ \)as follows: choose one of the n people to chair any of
@@ -2929,63 +2706,52 @@ The reader is invited to investigate one or more of the following
 approaches: \(n2^{n - 1}\) looks like a derivative, so try
 differentiating \(\left( 1 + x \right)^{n}\); a reverse and add approach
 also works; or, first prove \(k
-
 \begin{pmatrix}
-n 
-k 
+n
+k
 \end{pmatrix}
  = n
-
 \begin{pmatrix}
-n - 1 
-k - 1 
+n - 1
+k - 1
 \end{pmatrix}
 \ \)and then use it.
 
 \emph{THEOREM 5} \(\
-
 \begin{pmatrix}
-n 
-k 
+n
+k
 \end{pmatrix}
  =
-
 \begin{pmatrix}
-n - 1 
-k 
+n - 1
+k
 \end{pmatrix}
  +
-
 \begin{pmatrix}
-n - 1 
-k - 1 
+n - 1
+k - 1
 \end{pmatrix}
 \)
 
-\(
-
-\begin{pmatrix}
-n 
-k 
+\(\begin{pmatrix}
+n
+k
 \end{pmatrix}
 \ \)is the number of subsets of
 \(\{ a_{1},\ a_{2},a_{3},\ \ldots,\ a_{n}\}\) of size k. Now a subset A
 of size k either contains the fixed element\(\ a_{i}\) or it does not.
 If A contains \(a_{i}\), the remaining \(k - 1\) elements can be
-selected in \(
-
-\begin{pmatrix}
-n - 1 
-k - 1 
+selected in \(\begin{pmatrix}
+n - 1
+k - 1
 \end{pmatrix}
 \) ways. If, on the other hand, A does not contain
 \(a_{i}\), you can choose the k elements from the depressed set
 \(\left\{ a_{1},\ a_{2},\ \ldots,\ a_{i - 1,}a_{i + 1,\ \ldots,\ }a_{n} \right\}\ \)in
-\(
-
-\begin{pmatrix}
-n - 1 
-k 
+\(\begin{pmatrix}
+n - 1
+k
 \end{pmatrix}
 \) ways. Since these two cases are mutually exclusive the
 theorem follows.
@@ -3012,104 +2778,84 @@ from which the new recursion
 \(d_{n} = nd_{n - 1} + \left( - 1 \right)^{n}\), and the above
 recursion, can be derived.
 
-\emph{THEOREM 7} \(
-
-\begin{pmatrix}
-n 
-0 
+\emph{THEOREM 7} \(\begin{pmatrix}
+n
+0
 \end{pmatrix}
 ^{2} +
-
 \begin{pmatrix}
-n 
-1 
+n
+1
 \end{pmatrix}
 ^{2} +
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
 ^{2} + \ \ldots +
-
 \begin{pmatrix}
-n 
-n 
+n
+n
 \end{pmatrix}
 ^{2} =
-
 \begin{pmatrix}
-2n 
-n 
+2n
+n
 \end{pmatrix}
 \)
 
 Given a group of \(2n\) people consisting of n men and n women, in how
 many ways can one choose a group of n people? The answer to that
-question is just\(
-
-\begin{pmatrix}
-2n 
-n 
+question is just\(\begin{pmatrix}
+2n
+n
 \end{pmatrix}
 \), the right side of the identity in question. One could
 also form the group of n people in the following way: choose 0 men and n
 women in
 
-\(
-
-\begin{pmatrix}
-n 
-0 
+\(\begin{pmatrix}
+n
+0
 \end{pmatrix}
-
 \begin{pmatrix}
-n 
-n 
+n
+n
 \end{pmatrix}
  =
-
 \begin{pmatrix}
-n 
-0 
+n
+0
 \end{pmatrix}
 ^{2}\ \)ways, or, choose 1 man and \(n - 1\) women in
 
-\(
-
-\begin{pmatrix}
-n 
-1 
+\(\begin{pmatrix}
+n
+1
 \end{pmatrix}
-
 \begin{pmatrix}
-n 
-n - 1 
+n
+n - 1
 \end{pmatrix}
  =
-
 \begin{pmatrix}
-n 
-1 
+n
+1
 \end{pmatrix}
 ^{2}\)ways, or choose 2 men and \(n - 2\) women in
 
-\(
-
-\begin{pmatrix}
-n 
-2 
+\(\begin{pmatrix}
+n
+2
 \end{pmatrix}
-
 \begin{pmatrix}
-n 
-n - 2 
+n
+n - 2
 \end{pmatrix}
  =
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
 ^{2}\) ways and so on. Now add these disjoint cases.
 
@@ -3117,66 +2863,53 @@ An alternate algebraic proof is less interesting: Extract the
 coefficient of \(x^{n}\) from both sides
 of.\(\left\lbrack \left( x + 1 \right)^{n} \right\rbrack^{2} = \left( x + 1 \right)^{2n}\)
 
-\emph{THEOREM 8} \(
-
-\begin{pmatrix}
-2 
-2 
+\emph{THEOREM 8} \(\begin{pmatrix}
+2
+2
 \end{pmatrix}
  +
-
 \begin{pmatrix}
-3 
-2 
+3
+2
 \end{pmatrix}
  +
-
 \begin{pmatrix}
-4 
-2 
+4
+2
 \end{pmatrix}
  + \ \ldots +
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
  =
-
 \begin{pmatrix}
-n + 1 
-3 
+n + 1
+3
 \end{pmatrix}
 \)
 
-The term \(
-
-\begin{pmatrix}
-n + 1 
-3 
+The term \(\begin{pmatrix}
+n + 1
+3
 \end{pmatrix}
 \) is the number of binary strings of length \(n + 1\)
 consisting of three 1's (and the rest 0's). The left hand side counts
 these by where in the string the left- most 1 appears. Let
 \(a_{1}\ a_{2}a_{3}\ldots a_{n + 1}\) be a string of length \(n + 1\).
-There are \(
-
-\begin{pmatrix}
-n 
-2 
+There are \(\begin{pmatrix}
+n
+2
 \end{pmatrix}
 \) strings when \(a_{1} = 1,\
-
 \begin{pmatrix}
-n - 1 
-2 
+n - 1
+2
 \end{pmatrix}
 \) strings when \(a_{2} = 1\) is the leftmost 1, \ldots{},
-and \(
-
-\begin{pmatrix}
-2 
-2 
+and \(\begin{pmatrix}
+2
+2
 \end{pmatrix}
 \)strings when \(a_{n - 1} = 1\ \)is the leftmost 1. In
 this last case the string looks like 000 \ldots{} 0111.
@@ -3188,49 +2921,38 @@ algebraic approach is not!
 in strictly increasing order is \(2^{9} - 1\). Include single digit
 numbers.
 
-There are \(
-
-\begin{pmatrix}
-9 
-1 
+There are \(\begin{pmatrix}
+9
+1
 \end{pmatrix}
-\) single digit type, \(
-
-\begin{pmatrix}
-9 
-2 
+\) single digit type, \(\begin{pmatrix}
+9
+2
 \end{pmatrix}
 \) double digit type (just select 2 of the 9 digits 1, 2,
 3, \ldots{}, 9 and arrange in order), \ldots{}, and so on to see that
-there are \(
-
-\begin{pmatrix}
-9 
-9 
+there are \(\begin{pmatrix}
+9
+9
 \end{pmatrix}
-\) nine digit type. The total is \(
-
-\begin{pmatrix}
-9 
-1 
+\) nine digit type. The total is \(\begin{pmatrix}
+9
+1
 \end{pmatrix}
  +
-
 \begin{pmatrix}
-9 
-2 
+9
+2
 \end{pmatrix}
  +
-
 \begin{pmatrix}
-9 
-3 
+9
+3
 \end{pmatrix}
  + \ \ldots +
-
 \begin{pmatrix}
-9 
-9 
+9
+9
 \end{pmatrix}
  = 2^{9} - 1.\)
 
@@ -3238,108 +2960,90 @@ Here is an alternative, more clever, proof. Look at 123456789. Any
 increasing number can be made by deleting \emph{any} subset of digits,
 except all of them. There are \(2^{9} - 1\)such subsets. For example,
 delete the subset \{2, 4, 7, 9\} and you get 13568. Combining these two
-approaches actually gives you a nice proof that \(
-
-\begin{pmatrix}
-9 
-0 
+approaches actually gives you a nice proof that \(\begin{pmatrix}
+9
+0
 \end{pmatrix}
  +
-
 \begin{pmatrix}
-9 
-1 
+9
+1
 \end{pmatrix}
  +
-
 \begin{pmatrix}
-9 
-2 
+9
+2
 \end{pmatrix}
  + \ \ldots +
-
 \begin{pmatrix}
-9 
-9 
+9
+9
 \end{pmatrix}
  = 2^{9}\).
 
-\emph{THEOREM 10} \(
-
-\begin{pmatrix}
-3n 
-3 
+\emph{THEOREM 10} \(\begin{pmatrix}
+3n
+3
 \end{pmatrix}
  = 3
-
 \begin{pmatrix}
-n 
-3 
+n
+3
 \end{pmatrix}
  + 6n
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
  + n^{3}\)
 
 This one is a little tougher. First rewrite as \(n^{3} =
-
 \begin{pmatrix}
-3n 
-3 
+3n
+3
 \end{pmatrix}
  - 3
-
 \begin{pmatrix}
-n 
-3 
+n
+3
 \end{pmatrix}
  - 6n
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
 \). Suppose you have n men, n women and n children and you
 want to select triples consisting of one man, one woman and one child.
 There are \(n^{3}\) ways to do this, just pick one from each group.
-Alternatively, select 3 of the 3n people in \(
-
-\begin{pmatrix}
-3n 
-3 
+Alternatively, select 3 of the 3n people in \(\begin{pmatrix}
+3n
+3
 \end{pmatrix}
 \) ways and delete the ``bad'' ones. Delete the ones where
 you selected all three from one group -- there are \(3
-
 \begin{pmatrix}
-n 
-3 
+n
+3
 \end{pmatrix}
 \)of these. Now delete those where you had two from one
 group and one from another -- there are \(2n
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
  + 2n
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
  + 2n
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
 \) of these.
 
-\emph{THEOREM 11} 
+\emph{THEOREM 11}
 \(1 \bullet 1! + 2 \bullet 2! + 3 \bullet 3! + \ \ldots + n \bullet n! = \left( n + 1 \right)! - 1\)
 
 In how many ways can you arrange the n+1 numbers 0, 1, 2, \ldots{}, n so
@@ -3358,21 +3062,18 @@ let \(a_{0} = 0\) but \(a_{1} \neq 1\). There are \(n - 1\) choices for
 
 The reader should attempt a collapsing sum or induction proof.
 
-\emph{THEOREM 12} 
+\emph{THEOREM 12}
 \(1 \bullet n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \ \ldots + n \bullet 1 =
-
 \begin{pmatrix}
-n + 2 
-3 
+n + 2
+3
 \end{pmatrix}
 \)
 
 Let \(S = \{ 0,\ 1,\ 2,\ \ldots,\ n,\ n + 1\}\). The number of subsets
-of S of size 3 is \(
-
-\begin{pmatrix}
-n + 2 
-3 
+of S of size 3 is \(\begin{pmatrix}
+n + 2
+3
 \end{pmatrix}
 \). Each one looks like \{a, b, c\} with a \textless{} b
 \textless{} c, Let's count these by looking at the size of the middle
@@ -3384,11 +3085,9 @@ total is
 \(3(n - 2)\), and so on. The total derived by looking at cases is
 
 \(1 \bullet n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \ \ldots + n \bullet 1\)
-and this must equal \(
-
-\begin{pmatrix}
-n + 2 
-3 
+and this must equal \(\begin{pmatrix}
+n + 2
+3
 \end{pmatrix}
 \) since the cases are disjoint.
 
@@ -3396,79 +3095,66 @@ n + 2
 }
 
 \emph{THEOREM 13} \(k
-
 \begin{pmatrix}
-n 
-k 
+n
+k
 \end{pmatrix}
  = n
-
 \begin{pmatrix}
-n - 1 
-k - 1 
+n - 1
+k - 1
 \end{pmatrix}
 \)
 
 Suppose you have a group of n people and you wish to form a subcommittee
 of k people with one of those k people to serve as chair. Choose the
-subcommittee in \(
-
-\begin{pmatrix}
-n 
-k 
+subcommittee in \(\begin{pmatrix}
+n
+k
 \end{pmatrix}
 \) ways and the chair in k ways. The product rule
 gives\(\text{\ k}
-
 \begin{pmatrix}
-n 
-k 
+n
+k
 \end{pmatrix}
 \) as the number of ways of selecting such a chaired
 subcommittee.
 
 Alternatively, you could first choose any one of the n people to serve
-as chair and then fill out the committee in \(
-
-\begin{pmatrix}
-n - 1 
-k - 1 
+as chair and then fill out the committee in \(\begin{pmatrix}
+n - 1
+k - 1
 \end{pmatrix}
 \) ways. There are \(n
-
 \begin{pmatrix}
-n - 1 
-k - 1 
+n - 1
+k - 1
 \end{pmatrix}
 \) ways to select a chaired subcommittee. Hence
 \(k
-
 \begin{pmatrix}
-n 
-k 
+n
+k
 \end{pmatrix}
  = n
-
 \begin{pmatrix}
-n - 1 
-k - 1 
+n - 1
+k - 1
 \end{pmatrix}
 \)
 
 The reader should attempt the easier algebraic technique by converting
-\(
-
-\begin{pmatrix}
-n 
-k 
+\(\begin{pmatrix}
+n
+k
 \end{pmatrix}
 \) to factorial form.
 
 \emph{THEOREM 14} \(P\left( n,k \right) = k!
-
 \begin{pmatrix}
-n 
-k 
+n
+k
 \end{pmatrix}
 \)
 
@@ -3476,38 +3162,32 @@ Questions -- How many permutations are there of k objects chosen from a
 collection of n objects? The LHS answers the question. There are
 \(P\left( n,k \right) = n\left( n - 1 \right)\left( n - 2 \right)...(n - k + 1)\)
 ways. Alternatively, one could first choose the k objects from the n
-objects in \(
-
-\begin{pmatrix}
-n 
-k 
+objects in \(\begin{pmatrix}
+n
+k
 \end{pmatrix}
 \) ways and then permute these in k! ways.
 
 \emph{\\
 THEOREM 15} \(n2^{n - 1} = 1
-
 \begin{pmatrix}
-n 
-1 
+n
+1
 \end{pmatrix}
  + 2
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
  + 3
-
 \begin{pmatrix}
-n 
-3 
+n
+3
 \end{pmatrix}
  + \ \ldots + n
-
 \begin{pmatrix}
-n 
-n 
+n
+n
 \end{pmatrix}
 \)
 
@@ -3523,81 +3203,68 @@ half of the \(n \bullet 2^{n}\) symbols are 1's. Then the total number
 of 1's is \(n2^{n - 1}\). Alternatively, we could consider each string
 and count those with one 1, then those with two 1's, etc. There are
 \(1 \bullet
-
 \begin{pmatrix}
-n 
-1 
+n
+1
 \end{pmatrix}
 \) with one 1, \(2
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
 \) total 1's in those binary numbers with exactly two 1's,
 \(3
-
 \begin{pmatrix}
-n 
-3 
+n
+3
 \end{pmatrix}
 \) in those with exactly three 1's , and so on. The total
 is \(1
-
 \begin{pmatrix}
-n 
-1 
+n
+1
 \end{pmatrix}
  + 2
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
  + 3
-
 \begin{pmatrix}
-n 
-3 
+n
+3
 \end{pmatrix}
  + \ \ldots + n
-
 \begin{pmatrix}
-n 
-n 
+n
+n
 \end{pmatrix}
 \text{.\ }\)The result now follows by equating
 \(n2^{n - 1}\) to this sum.
 
-\emph{THEOREM 16} \(
-
-\begin{pmatrix}
-n 
-0 
+\emph{THEOREM 16} \(\begin{pmatrix}
+n
+0
 \end{pmatrix}
 ^{2} +
-
 \begin{pmatrix}
-n 
-1 
+n
+1
 \end{pmatrix}
 ^{2} +
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
 ^{2} + \ \ldots +
-
 \begin{pmatrix}
-n 
-n 
+n
+n
 \end{pmatrix}
 ^{2} =
-
 \begin{pmatrix}
-2n 
-n 
+2n
+n
 \end{pmatrix}
 \)
 
@@ -3619,37 +3286,30 @@ of this process looks like:
 \(\left( - - - , - - - \right) \rightarrow \left( - 11,\  - - 1 \right) \rightarrow \left( 011,\ 001 \right) \rightarrow (011,\ 110)\).
 The reader can check that this process always produces an element of R
 and that the case of n=3 extends easily to general n. Conclusion: choose
-the n positions for 1's in \(
-
-\begin{pmatrix}
-2n 
-n 
+the n positions for 1's in \(\begin{pmatrix}
+2n
+n
 \end{pmatrix}
 \) ways. The result follows.
 
-\emph{THEOREM 17} \(
-
-\begin{pmatrix}
-n 
-0 
+\emph{THEOREM 17} \(\begin{pmatrix}
+n
+0
 \end{pmatrix}
 d_{0} +
-
 \begin{pmatrix}
-n 
-1 
+n
+1
 \end{pmatrix}
 d_{1} +
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
 d_{2} + \ \ldots +
-
 \begin{pmatrix}
-n 
-n 
+n
+n
 \end{pmatrix}
 d_{n} = n!\) where \(d_{n}\) denotes the
 \(\ n^{\text{th}}\ \)derangement number, \(d_{0} = 1,\ d_{1} = 0.\)
@@ -3657,77 +3317,64 @@ d_{n} = n!\) where \(d_{n}\) denotes the
 The right-hand side, n!, gives the number of permutations of n objects.
 So the left-hand side must provide the same enumeration. The left side
 partitions the permutations according to how many elements are deranged
-(and the rest fixed). The term \(
-
-\begin{pmatrix}
-n 
-i 
+(and the rest fixed). The term \(\begin{pmatrix}
+n
+i
 \end{pmatrix}
 d_{i} =
-
 \begin{pmatrix}
-n 
-n - i 
+n
+n - i
 \end{pmatrix}
 d_{\text{i\ }}\)gives the number of permutations of n where
 \(n - i\) elements are fixed and the remaining i elements are deranged.
 Summing over all i yields
 
-\(
-
-\begin{pmatrix}
-n 
-n 
+\(\begin{pmatrix}
+n
+n
 \end{pmatrix}
 d_{0} +
-
 \begin{pmatrix}
-n 
-n - 1 
+n
+n - 1
 \end{pmatrix}
 d_{1} + \ \ldots +
-
 \begin{pmatrix}
-n 
-0 
+n
+0
 \end{pmatrix}
 d_{n} =
-
 \begin{pmatrix}
-n 
-0 
+n
+0
 \end{pmatrix}
 d_{0} +
-
 \begin{pmatrix}
-n 
-1 
+n
+1
 \end{pmatrix}
 d_{1} + \ \ldots +
-
 \begin{pmatrix}
-n 
-n 
+n
+n
 \end{pmatrix}
 d_{n} = n!\)
 
 \emph{THEOREM 18} \(F_{n + 1} =
-
 \begin{pmatrix}
-n 
-0 
+n
+0
 \end{pmatrix}
  +
-
 \begin{pmatrix}
-n - 1 
-1 
+n - 1
+1
 \end{pmatrix}
  +
-
 \begin{pmatrix}
-n - 2 
-2 
+n - 2
+2
 \end{pmatrix}
  + \ \ldots\) where \(F_{n}\) denotes the
 \(\ n^{\text{th}}\ \)Fibonacci number.
@@ -3745,31 +3392,25 @@ This recursion, along with the initial conditions, show that
 Now lets look at all paths of length n and count them by the number of 1
 x 2 bricks. If there are i 1 x 2 bricks there are \(n - i\) total bricks
 making up the path of length n. Choose the positions of the i 1 x 2
-bricks in \(
-
-\begin{pmatrix}
-n - i 
-i 
+bricks in \(\begin{pmatrix}
+n - i
+i
 \end{pmatrix}
 \) ways. Now sum as i ranges through the values
 
-0, 1, 2, \ldots{}, and obtain \(
-
-\begin{pmatrix}
-n 
-0 
+0, 1, 2, \ldots{}, and obtain \(\begin{pmatrix}
+n
+0
 \end{pmatrix}
  +
-
 \begin{pmatrix}
-n - 1 
-1 
+n - 1
+1
 \end{pmatrix}
  +
-
 \begin{pmatrix}
-n - 2 
-2 
+n - 2
+2
 \end{pmatrix}
  + \ \ldots = F_{n + 1}\).
 
@@ -3777,23 +3418,19 @@ The reader should draw all paths of length \(n = 5\), for example, and
 examine the cases with i=0, 1, 2 . The reader could also explore other
 proofs.
 
-\emph{THEOREM 19} \(
-
-\begin{pmatrix}
-m + n 
-2 
+\emph{THEOREM 19} \(\begin{pmatrix}
+m + n
+2
 \end{pmatrix}
  -
-
 \begin{pmatrix}
-m 
-2 
+m
+2
 \end{pmatrix}
  -
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
  = mn\) (Revisited)
 
@@ -3802,9 +3439,7 @@ n
 m
 
 n
-
-\begin{figure}[h!]
-\begin{center}
+\begin{figure}[h!]\begin{center}
 \includegraphics[width=0.70\columnwidth]{figures/image16/default-figure}
 \caption{{Couldn't find a caption, edit here to supply one.%
 }}
@@ -3820,76 +3455,59 @@ m by n rectangle. Each choice of arrows
 
 Pick two arrows but don't take two from the top or two from
 
-the side. Then \(
-
-\begin{pmatrix}
-m + n 
-2 
+the side. Then \(\begin{pmatrix}
+m + n
+2
 \end{pmatrix}
  -
-
 \begin{pmatrix}
-m 
-2 
+m
+2
 \end{pmatrix}
  -
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
  = mn\)
 
 3. Take m people in one group and n in another. How many handshakes can
-be accomplished? Among the m people there are \(
-
-\begin{pmatrix}
-m 
-2 
+be accomplished? Among the m people there are \(\begin{pmatrix}
+m
+2
 \end{pmatrix}
 \) handshakes; among the n people there are
-\(
-
-\begin{pmatrix}
-n 
-2 
+\(\begin{pmatrix}
+n
+2
 \end{pmatrix}
 \ \)handshakes and between the two groups, mn. But,
-\(
-
-\begin{pmatrix}
-m + n 
-2 
+\(\begin{pmatrix}
+m + n
+2
 \end{pmatrix}
 \) also represents the total number of handshakes among the
-people. Then we get: \(
-
-\begin{pmatrix}
-m 
-2 
+people. Then we get: \(\begin{pmatrix}
+m
+2
 \end{pmatrix}
  +
-
 \begin{pmatrix}
-n 
-2 
+n
+2
 \end{pmatrix}
  + mn =
-
 \begin{pmatrix}
-m + n 
-2 
+m + n
+2
 \end{pmatrix}
 \).
-
-\begin{figure}[h!]
-\begin{center}
+\begin{figure}[h!]\begin{center}
 \includegraphics[width=0.70\columnwidth]{figures/image18/image18}
 \caption{{Couldn't find a caption, edit here to supply one.%
 }}
 \end{center}
 \end{figure}
 
-\selectlanguage{english}
-\end{document}
 
+\end{document}
