@@ -1,0 +1,3895 @@
+\documentclass[10pt,letter]{article}
+
+\usepackage{fullpage}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{lineno}
+
+
+
+
+
+\PassOptionsToPackage{hyphens}{url}
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\@combinedblfloats{\box\@outputbox}{\unvbox\@outputbox}{}{%
+  \errmessage{\noexpand\@combinedblfloats could not be patched}%
+}%
+\makeatother
+
+
+\usepackage[round]{natbib}
+\let\cite\citep
+
+
+\renewenvironment{abstract}
+  {{\bfseries\noindent{\large\abstractname}\par\nobreak}}
+  {}
+
+\renewenvironment{quote}
+  {\begin{tabular}{|p{13cm}}}
+  {\end{tabular}}
+
+\titlespacing{\section}{0pt}{*3}{*1}
+\titlespacing{\subsection}{0pt}{*2}{*0.5}
+\titlespacing{\subsubsection}{0pt}{*1.5}{0pt}
+
+
+\usepackage{authblk}
+\makeatletter
+\renewcommand\AB@authnote[1]{\rlap{\textsuperscript{\normalfont#1}}}
+\renewcommand\Authsep{,~\,}
+\renewcommand\Authands{,~\,and }
+\makeatother
+
+
+\usepackage{graphicx}
+\usepackage[space]{grffile}
+\usepackage{latexsym}
+\usepackage{textcomp}
+\usepackage{longtable}
+\usepackage{tabulary}
+\usepackage{booktabs,array,multirow}
+\usepackage{amsfonts,amsmath,amssymb}
+\providecommand\citet{\cite}
+\providecommand\citep{\cite}
+\providecommand\citealt{\cite}
+% You can conditionalize code for latexml or normal latex using this.
+\newif\iflatexml\latexmlfalse
+\DeclareGraphicsExtensions{.pdf,.PDF,.png,.PNG,.jpg,.JPG,.jpeg,.JPEG}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman,greek,english]{babel}
+
+
+
+
+
+
+
+
+\begin{document}
+
+\title{Discrete and Combinatorial Mathematics}
+
+
+
+\author[1]{Oscar Levin}%
+\affil[1]{Affiliation not available}%
+
+
+\vspace{-1em}
+
+
+
+  \date{\today}
+
+
+\begingroup
+\let\center\flushleft
+\let\endcenter\endflushleft
+\maketitle
+\endgroup
+
+
+
+
+
+
+
+
+MATH 528
+
+Richard Grassl
+
+University of Northern Colorado
+
+School of Mathematical Sciences
+
+\href{mailto:Richard.grassl@unco.edu}{\nolinkurl{Richard.grassl@unco.edu}}
+
+Partially Funded by NSF Grant \#0832026
+
+Revised August 2009
+
+Table of Contents
+
+A Brief History of Fibonacci
+Numbers\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}.\ldots{}.\ldots{}1
+
+The Catalan
+Numbers\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}.7
+
+Stirling
+Numbers\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}.\ldots{}.18
+
+The Bell
+Numbers\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}...\ldots{}..
+.. 24
+
+Group
+Projects\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}.\ldots{}\ldots{}.33
+
+Paths and Binomial
+Coefficients\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}.\ldots{}\ldots{}.\ldots{}..34
+
+Triangular Numbers
+\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}..\ldots{}\ldots{}.\ldots{}....35
+
+Fibonacci
+Numbers\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}.36
+
+Generalized Pascal
+Triangles\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}..\ldots{}\ldots{}37
+
+A Pascal-like Triangle of Eulerian
+Numbers\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}..\ldots{}\ldots{}38
+
+Leibnitz Harmonic
+Triangle\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}..\ldots{}..39
+
+The 12 Days of
+Christmas\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}..\ldots{}.40
+
+Four (or Eight) Distribution
+Problems\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}.......41
+
+Nineteen Combinatorial
+Proofs\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}
+.....45
+
+Linear
+Partitions\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}1-8
+
+The Exponential Generating
+Functions\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}1-11
+
+A BRIEF HISTORY OF FIBONACCI NUMBERS
+
+Fibonacci numbers receive their name from Leonardo of Pisa (Leonardo
+Pisano, c. 1175-1250), better known as Leonardo Fibonacci. Fibonacci is
+a contraction of Filius Bonacci, son of Bonacci.
+
+Leonardo was born about 1175 in the commercial center of Pisa. This was
+a time of great interest and importance in the history of Western
+Civilization. One finds the influence of the crusades stirring and
+awakening the people of Europe by bringing them in contact with the more
+advanced intellect of the East. During this time the Universities of
+Naples, Padua, Paris, Oxford, and Cambridge were established, the Magna
+Carta signed in England, and the long struggle between the Papacy and
+the Empire was culminated. Commerce was flourishing in the Mediterranean
+world and adventurous travelers such as Marco Polo were penetrating far
+beyond the borders of the known world.
+
+It is in this growing commercial activity that we find the young
+Leonardo at Bugia on the Northern coast of Africa. Here the merchants of
+Pisa and other commercial cities of Italy had large warehouses for the
+storage of their goods. Actually very little is known about the life of
+this great mathematician. No contemporary historian makes mention of
+him, and one must look to his writings to find information about him.
+
+A mathematician before his time, Leonardo of Pisa, alias Leonardo
+Pisano, alias Leonardo Bigollo, alias Fibonacci, was a despair to his
+teacher as a young boy and an enigma to his colleagues in his later
+years. Convinced of the superiority of the Hindu-Arabic numeral system
+over the Roman system, Leonardo wrote one of his greatest works,
+\emph{Liber Abaci} (in English, ``Book of Calculating'') to introduce
+this system to the Western world. The \emph{Liber Abaci} was written in
+1202 but was not published until 1857 because ``it was too advanced for
+Leonardo's contemporaries''. Along with the introduction and development
+of many mathematical topics, the \emph{Liber Abaci} contained
+interesting story problems that Leonardo liked to invent. His most
+popular problem is the breeding pair of rabbits: ``How many pairs of
+rabbits will there be after a year if it is assumed that every month
+each pair produces one new pair, which begins to bear young two months
+after its own birth?''
+
+This problem generates the infinite sequence that bears his name because
+his work is the earliest known recording. The Fibonacci sequence begins
+with 1 and each number that follows is the sum of the previous two
+numbers. The first ten Fibonnaci numbers are: 1, 1, 2, 3, 5, 8, 13, 21,
+34, 55.
+
+Leonardo, in 1228, gave a second edition of the \emph{Liber Abaci} which
+he dedicated to Michel Scott, astrologer to the Emperor Frederic II and
+author of many scientific works. Copies of this edition exist today.
+Leonardo profusely illustrated and strongly advocated the Hindu-Arabic
+system in this work. He gave an extensive discussion of the Rule of
+False Position and the Rule of Three. Leonardo did not use a general
+method in problem solving; each problem was solved independently of the
+others. In the solution of a problem he not only considered the problem
+as it might occur, but considered all of the variations of the question,
+even those that were not reasonable.
+
+Because of Leonardo's great reputation, the emperor Frederick II, when
+in Pisa (1225), held a sort of mathematical tournament to test
+Leonardo's skill. The competitors were informed beforehand of the
+questions to be asked, some or all of which were composed by Johannes of
+Palermo, who was of Frederick's staff. This is the first case in the
+history of mathematics that one meets with an instance of these
+challenges to solve particular problems which were so common in the
+sixteenth and seventeenth centuries.
+
+The first question propounded was to find a number of which the square
+when decreased or increased by 5 would remain a square. The correct
+answer given by Leonardo was 41/12. The next question was to find by the
+methods used in the tenth book of Euclid a line whose length x should
+satisfy the equation x\selectlanguage{ngerman}³ + 2x² + 10x -- 20 = 0. Leonardo showed by
+geometry that the problem was impossible, but he gave an approximation
+of the root 1.3688081075\ldots{}, which is correct to nine places.
+\emph{Liber Abaci} contains many additional problems of this type.
+
+After the `Rabbit Problem', the matter lay for 400 years. In 1611,
+Johann Kepler, of astronomy fame, arrived at the series 1, 1, 2, 3, 5,
+8, 13, 21, \ldots{} . There is no indication that he had access to one
+of Fibonacci's hand-written books (The \emph{Liber Abaci} was not
+published until 1857).
+
+\[
+_{n + 2} = F_{n + 1} + F_{n}
+\]
+
+A hundred years must pass before the problem is again considered. In
+1753, R. Simpson derived a formula, implied by Kepler
+
+\[
+_{n - 1}F_{n + 1} - F_{n}^{2} = \left( - 1 \right)^{n}
+\]
+
+A second hundred years pass by and the series again comes under study.
+In 1843, J.P.M. Binet derives an analytical function for determining the
+value of any Fibonacci number
+
+2\textsuperscript{n}\(\ \sqrt{5}\) F\textsubscript{n} = (1
++\(\ \sqrt{5}\))\textsuperscript{n} - (1 -
+\(\sqrt{5}\))\textsuperscript{n}
+
+In 1846 E. Catalan derived the formula:
+
+\[
+^{n - 1}F_{n} = \frac{n}{1} + \frac{5n\left( n - 1 \right)\left( n - 2 \right)}{1 \bullet 2 \bullet 3} + \frac{5^{2}n\left( n - 1 \right)\left( n - 2 \right)\left( n - 3 \right)\left( n - 4 \right)}{1 \bullet 2 \bullet 3 \bullet 4 \bullet 5}
+\]
+
+By now, the series had received enough attention to deserve a name. It
+was variously called the Braun series, the Schimper-Braun series, the
+Lamé series and the Gerhardt series. A. Braun, applied the series to the
+arrangement of the scales of pine cones. Schimper is completely unknown.
+Gerhardt is probably a misspelling of Girard.
+
+Edouard Lucas, who dominated the field of recursive series during the
+period 1876-1891, first applied Fibonacci's name to the series and it
+has been known as the Fibonacci series since then.
+
+About this time, 1858, Sam Loyd claimed to have invented the
+checkerboard paradox. It is first found in print in a German journal in
+1868. Today it seems proper to call it the Carroll Paradox after Lewis
+Carroll (Charles Dodgson, 1832-1893) who was quite fond of it.
+
+PROBLEMS ON FIBONACCI NUMBERS
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Determine a formula for each:
+
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+
+\item
+  \(F_{0} + F_{1} + F_{2} + \ldots + F_{m}\) (b)
+  \(F_{0} + F_{2} + F_{4} + \ldots + F_{m}\) where m is even.
+
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Prove each of the following
+
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+
+\item
+  \(F_{n + 1}^{2} - \ F_{n}^{2} = \ F_{n - 1}F_{n + 2}\) (b)
+  \(F_{k}^{2} = \ F_{k}(F_{k + 1} - \ F_{k - 1})\)
+
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Determine a closed expression for F\textsubscript{0}F\textsubscript{3}
+  + F\textsubscript{1}F\textsubscript{4} + \ldots{} +
+  F\textsubscript{n-1}F\textsubscript{n+2} using 2(a).
+\item
+  Determine a formula for
+  \(F_{1}^{2} + \ F_{2}^{2} + \ \ldots + \ F_{n}^{2}\) in two ways:
+
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+
+\item
+  Collect data and prove by mathematical induction.
+\item
+  Use 2(b) and telescoping sums.
+
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Give a geometrical ``proof'' for the result in Problem 4.
+\item
+  Prove \(
+
+\begin{pmatrix}
+  0 & 1 
+  1 & 1 
+  \end{pmatrix}
+^{n} =
+
+\begin{pmatrix}
+  F_{n - 1} & F_{n} 
+  F_{n} & F_{n + 1} 
+  \end{pmatrix}
+\) by induction. For convenience let Q =\(
+
+\begin{pmatrix}
+  0 & 1 
+  1 & 1 
+  \end{pmatrix}
+\).
+\item
+  Prove that \(F_{n - 1}F_{n + 1} - F_{n}^{2} = {( - 1)}^{n}\ \) in two
+  ways:
+
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+
+\item
+  Mathematical induction.
+\item
+  Use Problem 6 and determinants.
+
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Is there a result analogous to that in Problem 7 for just the integers
+  1, 2, 3, 4, \ldots{}?
+\item
+  Show that \(Q^{2n + 1} = Q^{n}Q^{n}\)\textsuperscript{+1} and that
+  \(F_{2n + 1} = \ F_{n + 1}^{2} + \ F_{n}^{2}\).
+\item
+  Prove the Binet Formula: \(F_{n = \ }\frac{a^{n} - b^{n}}{a - b}\)
+  where a, b are roots of x\textsuperscript{2} - x - 1 = 0.
+\item
+  Prove
+  \(\left( \frac{n}{0} \right)F_{0} + \ \left( \frac{n}{1} \right)F_{1} + \ \ldots + \ \left( \frac{n}{n} \right)F_{n} = \ F_{2n}\)
+  in two ways:
+
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+
+\item
+  Use the Binet Formula.
+\item
+  Use Q.
+
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Prove that \(\sum_{n = 2}^{\infty}\frac{1}{F_{n - 1}F_{n + 1}} = 1.\)
+
+\end{enumerate}
+
+\begin{quote}
+Hint: Show first that
+\(\frac{1}{F_{n - 1}F_{n + 1}} = \ \frac{1}{F_{n - 1}F_{n}} - \ \frac{1}{F_{n}F_{n + 1}}\)
+
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Prove that
+  \(\sum_{n = 2}^{\infty}\frac{F_{n}}{F_{n - 1}F_{n + 1}} = 2.\)
+\item
+  Prove that
+  \(\operatorname{}\frac{F_{n + 1}}{F_{n}} = \ \frac{1 + \ \sqrt{5}}{2}.\)
+\item
+  For which values of n is F\textsubscript{n} an integral multiple of 3?
+\item
+  Can you have four distinct positive Fibonacci numbers in arithmetic
+  progression?
+\item
+  How many Fibonacci numbers are perfect squares?
+\item
+  Find a closed formula for
+  \(\frac{1}{F_{1}} + \ \frac{1}{F_{2}} + \ \frac{1}{F_{4}} + \ \frac{1}{F_{8}} + \ \ldots.\)
+\item
+  Conjecture and prove a formula for
+  \(\left( \frac{n}{0} \right) + \left( \frac{n - 1}{1} \right) + \left( \frac{n - 2}{2} \right) + \ldots.\)
+\item
+  In what sense is \(\frac{x}{1 - x - x^{2}}\) the generating function
+  for the sequence of Fibonacci numbers?
+\item
+  Prove that \(F_{5n + 5} = 3F_{5n} + 5F_{5n + 1}\)
+  Hint: Use \(Q^{5n + 5}\).
+\item
+  Let \selectlanguage{greek}φ \selectlanguage{english}be the positive root of x\textsuperscript{2} - x - 1 = 0. Prove
+  that \(\ \varphi^{n} = F_{n}\varphi + F_{n - 1}\).
+\item
+  Can every positive integer be written as a sum of distinct Fibonacci
+  numbers?
+
+THE CATALAN NUMBERS
+
+(Notes of a talk presented by Professor Richard Grassl, Muhlenberg
+  College, March 15, 1991)
+
+\end{enumerate}
+
+\[
+_{n + 1} = C_{1}C_{n} + C_{2}C_{n - 1} + \ldots + C_{n}C_{1}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\Roman{enumi}.}
+
+\item
+  \textbf{Parenthesizing:} In how many ways can you insert parentheses
+  in the nonassociative product abcd? The five ways are displayed
+
+(ab)(cd) ((ab)c)d a(b(cd)) (a(bc))d a((bc)d)
+
+There are two ways for abc, namely a(bc) and (ab)c, and one for (ab).
+  For a product of n symbols
+  a\textsubscript{1}a\textsubscript{2}\ldots{}a\textsubscript{n}, break
+  it at the k-th symbol:
+
+\end{enumerate}
+
+\[
+left( a_{1}a_{2}a_{3}\ldots a_{k} \right)(a_{k + 1}\ldots a_{n})
+\]
+
+Let P\textsubscript{n} denote the number of ways of inserting integers
+into this product. There are P\textsubscript{k} ways of inserting
+parentheses in \(\left( a_{1}\ldots a_{k} \right)\) and \(P_{n - k}\)
+ways for the factor \((a_{k + 1}\ldots a_{n})\). Letting k range from 1
+to \(n - 1\) we have that
+
+\[
+_{n} = \ \sum_{k = 1}^{n - 1}{P_{k}P_{n - k} = \ P_{1}P_{n - 1} + \ P_{2}P_{n - 2} + \ \ldots + \ P_{n - 1}P_{1}}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\Roman{enumi}.}
+
+\item
+  \textbf{The H-D sequences:} 2n people stand in line at a theatre.
+  Admission is 50\selectlanguage{ngerman}¢, (denoted by H), and the box office starts with no
+  change. n of the people have H and n have \$1(D). In how many ways can
+  the 2n people line up so that all can be admitted? Here we enumerate
+  the number of workable sequences of n H's and n D's such that at each
+  point in the sequence the number of H's is not less than the number of
+  D's.
+
+The total number of sequences of n H's and n D's is
+  \(\left( \frac{2n}{n} \right)\). We delete the number of
+  \textbf{nonworkable} sequences. Each such sequence has a first snag as
+  shown by the arrow in
+
+H H D D D H H D D D H H
+
+Reverse each letter up to and including the snag, obtaining
+
+D D H H H H H D D D H H
+
+a sequence of n+1 H's and \(n - 1\) D's. For \(n = 3\), H D D D H H is
+  a nonworkable sequence with the snag indicated. Its mate, found by
+  reversing the first three letters, is
+
+D H H D H H, a sequence of 2D's and 4H's. \emph{Any} arrangement of
+  2D's and 4H's will correspond to exactly one nonworkable sequence;
+  simply scan through and see the \emph{first} time the H's dominate the
+  D's and then reverse through that spot. There are \(
+
+\begin{pmatrix}
+  6 
+  3 
+  \end{pmatrix}
+ = 20\) arrangements of 3H's and 3D's. There are
+  \(
+
+\begin{pmatrix}
+  6 
+  2 
+  \end{pmatrix}
+ = 15\) arrangements of 2D's and 4H's each of which
+  corresponds to a nonworkable sequence. Hence there are
+  \(
+
+\begin{pmatrix}
+  6 
+  3 
+  \end{pmatrix}
+ -
+
+\begin{pmatrix}
+  6 
+  2 
+  \end{pmatrix}
+ = 5\) workable sequences. In general,
+  \(\left( \frac{2n}{n} \right) - \left( \frac{2n}{n - 1} \right) = \ \frac{1}{n + 1}\left( \frac{2n}{n} \right)\)
+  gives the number of workable sequences. See FIGURE 1.
+
+For n = 3, the matching of the 5 workable sequences with one of the 5
+  ways of parenthesizing, given by the bijection (\selectlanguage{english}H, letter \selectlanguage{english}D is
+  presented:
+
+\end{enumerate}
+
+H H H D D D \selectlanguage{english} (((abcd
+
+H H D H D D \selectlanguage{english} ((a(bcd
+
+H H D D H D \selectlanguage{english} ((ab(cd
+
+H D H H D D \selectlanguage{english} (a((bcd
+
+H D H D H D \selectlanguage{english}(a(b(cd
+
+\begin{enumerate}
+\def\labelenumi{\Roman{enumi}.}
+
+\item
+  \textbf{Paths:} A point (a, b) in the plane is a lattice point if a
+  and b are integers. How many paths of length 2n, consisting of
+  horizontal and vertical segments of unit length, are there from (0, 0)
+  to (n, n) such that the path never goes above the line y = x? One such
+  path to (3, 3) is shown.
+
+\end{enumerate}
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+& & & (3,3) &\tabularnewline
+\midrule
+\endhead
+& & & &\tabularnewline
+& & & &\tabularnewline
+& & & &\tabularnewline
+\bottomrule
+
+\end{longtable}
+
+\begin{quote}
+Using R for right and U for up, the sequence R U R R U U gives the path.
+The bijection R\selectlanguage{english}H and U\selectlanguage{english}D links paths to H-D sequences.
+
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\Roman{enumi}.}
+
+\item
+  \textbf{Triangulations of convex \emph{n}-gons:} Fix \emph{n} 
+  vertices; in how many ways can diagonals be inserted so as to
+  decompose the \emph{n} -gon into triangles. For \emph{n} = 5 the five
+  figures are
+
+\end{enumerate}
+
+\begin{quote}
+There are two drawings for \emph{n} = 4
+
+A bijection between triangulations and parenthesizing is illustrated
+next:
+
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\Roman{enumi}.}
+
+\item
+  \textbf{Tableau Insertion:} Insert the integers 1, 2, \ldots{},
+  2\emph{n} into a 2 by \emph{n} rectangle of boxes such that the
+  entries are monotonic in rows and columns. For \emph{n} = 3 there are
+  five arrangements:
+
+\end{enumerate}
+
+\begin{longtable}[]{@{}ccccccccccccccccccc@{}}
+\toprule
+1 & 2 & 3 & & 1 & 2 & 4 & & 1 & 2 & 5 & & 1 & 3 & 4 & & 1 & 3 &
+5\tabularnewline
+\midrule
+\endhead
+4 & 5 & 6 & & 3 & 5 & 6 & & 3 & 4 & 6 & & 2 & 5 & 6 & & 2 & 4 &
+6\tabularnewline
+\bottomrule
+
+\end{longtable}
+
+A bijection to the path problem is: an entry in the top row \selectlanguage{english} R. For
+example, the middle arrangement corresponds to R R U U R U.
+
+\begin{enumerate}
+\def\labelenumi{\Roman{enumi}.}
+
+\item
+  \textbf{Trivalent rooted trees:} A tree is a connected graph that has
+  no cycles. Trivalent means that each interior vertex has degree 3. The
+  ``leaves'' or endpoints have degree 1. The number of trivalent rooted
+  trees having n-vertices (not counting the root) is C\textsubscript{n}.
+  The cases n = 1, 2, 3, 4 are drawn in FIGURE 2 along with bijections
+  linking H-D sequences and parenthesizing. For the bijection, label
+  interior vertices with a 1 and leaves with a 0. Start at the root,
+  keep bearing to the right, and call off the sequence of 0's and 1's,
+  not repeating them once called.
+
+A link between a particular triangulation of a 5-gon and its
+  associated tree is displayed in the following diagram:
+
+Place a vertex in each triangle, connect the three vertices and run
+  leaves out all edges, including the bottom which forms the root.
+  Straighten the tree out! FIGURE 3 shows the five triangulations of a
+  convex pentagon along with their trees.
+\item
+  \textbf{Rhyme schemes for \emph{n} line stanzas}
+
+A 2-line poem can have just two rhyme schemes
+
+\end{enumerate}
+
+\[
+begin{matrix}
+a \\
+a \\
+\end{matrix}\text{\ \ \ \ \ \ \ \ \ \ }\text{or}\text{\ \ \ \ \ \ \ \ \ \ }\begin{matrix}
+a \\
+b \\
+\end{matrix}
+\]
+
+A 3-line poem can have five schemes:
+
+\[
+begin{matrix}
+a \\
+a \\
+a \\
+\end{matrix}\text{\ \ \ }\begin{matrix}
+a \\
+a \\
+b \\
+\end{matrix}\text{\ \ \ \ }\begin{matrix}
+a \\
+b \\
+a \\
+\end{matrix}\text{\ \ \ \ }\begin{matrix}
+a \\
+b \\
+b \\
+\end{matrix}\text{\ \ \ \ }\begin{matrix}
+a \\
+b \\
+c \\
+\end{matrix}
+\]
+
+The last pattern indicates that no line rhymes with any other. The
+Catalan numbers seem to be popping up again. For \emph{n} = 4 there
+happen to be 15 (not 14) patterns:
+
+\begin{longtable}[]{@{}ccccccccccccccc@{}}
+\toprule
+a & a & a & a & a & a & a & a & a & a & a & a & a & a & a\tabularnewline
+\midrule
+\endhead
+a & a & a & b & b & a & b & b & a & b & b & b & b & b & b\tabularnewline
+a & a & b & a & b & b & b & a & b & a & c & b & c & c & c\tabularnewline
+a & b & a & a & b & b & a & b & c & c & a & c & b & c & d\tabularnewline
+\bottomrule
+
+\end{longtable}
+
+One of these, abab, is special in that it is the only ``non-planar''
+scheme. In this pattern, you cannot connect the a's with an arc and the
+b's with an arc without the arcs crossing.
+
+The planar rhyme schemes are enumerated by the Catalan numbers. These
+numbers are a subsequence of the Bell numbers, which enumerate all rhyme
+schemes.
+
+Thus far, we have the following bijections:
+
+Parentheses \selectlanguage{english} H-D sequences
+
+H-D \selectlanguage{english} Paths
+
+Triangulations \selectlanguage{english} Parentheses
+
+Insertions \selectlanguage{english} Paths
+
+Trees \selectlanguage{english} Parentheses
+
+See if you can connect the rhyme schemes to any of the above.
+
+THE CATALAN NUMBERS
+
+\begin{longtable}[]{@{}cccccccccccccccccccccc@{}}
+\toprule
+& & & & & & & & & & 1 & & & & & & & & & & & 1\tabularnewline
+\midrule
+\endhead
+& & & & & & & & & 1 & & 1 & & & & & & & & & &\tabularnewline
+& & & & & & & & 1 & & 2 & & 1 & & & & & & & & & 1\tabularnewline
+& & & & & & & 1 & & 3 & & 3 & & 1 & & & & & & & &\tabularnewline
+& & & & & & 1 & & 4 & & 6 & & 4 & & 1 & & & & & & & 2\tabularnewline
+& & & & & 1 & & 5 & & 10 & & 10 & & 5 & & 1 & & & & & &\tabularnewline
+& & & & 1 & & 6 & & 15 & & 20 & & 15 & & 6 & & 1 & & & & &
+5\tabularnewline
+& & & 1 & & 7 & & 21 & & 35 & & 35 & & 21 & & 7 & & 1 & & &
+&\tabularnewline
+& & 1 & & 8 & & 28 & & 56 & & 70 & & 56 & & 28 & & 8 & & 1 & & &
+14\tabularnewline
+& 1 & & 9 & & 36 & & 84 & & 126 & & 126 & & 84 & & 36 & & 9 & & 1 &
+&\tabularnewline
+1 & & 10 & & 45 & & 120 & & 210 & & 252 & & 210 & & 120 & & 45 & & 10 &
+& 1 & 42\tabularnewline
+\bottomrule
+
+\end{longtable}
+
+FIGURE 1
+
+TRIVALENT, PLANTED TREES WITH n LEAVES
+
+n=1 n=2 n=3
+
+n=4
+
+1100100 1010100
+
+( ( ab ( cd ( a ( b ( cd
+
+HHDDHD HDHDHD
+
+FIGURE 2
+
+\begin{longtable}[]{@{}ccc@{}}
+\toprule
+\begin{minipage}[b]{0.32\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[b]{0.32\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[b]{0.32\columnwidth}\centering\strut
+((ab(cd))
+
+1100100\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.32\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
+(((ab)c)d)
+
+1110000\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.32\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
+(a(b(cd)))
+
+1010100\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.32\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
+(a(bc)d))
+
+1011000\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.32\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
+((a(bc))d)
+
+1101000\strut
+\end{minipage}\tabularnewline
+\bottomrule
+
+\end{longtable}
+
+FIGURE 3
+
+PROBLEMS ON CATALAN NUMBERS
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Use the recursion for P\textsubscript{n} and compute
+  P\textsubscript{6}, P\textsubscript{7}.
+\item
+  Use the closed formula for P\textsubscript{n} and compute
+  P\textsubscript{6}, P\textsubscript{7}.
+\item
+  Use G = P\textsubscript{1}x + P\textsubscript{2}x\textsuperscript{2} +
+  \ldots{} and the recursion for P\textsubscript{n} to determine a
+  closed formula for P\textsubscript{n}.
+\item
+  List the workable sequences for n = 4.
+\item
+  List the P\textsubscript{6} ways of parenthesizing abcdef.
+\item
+  Display a bijection between the 14 sequences in Problem 4 and the 14
+  products in Problem 5.
+\item
+  Find the nonworkable sequence associated with each:
+
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+
+\item
+  H H H D D H (c) D D D H H H H H
+\item
+  D H H H H D (d) D D H H D H H H
+
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Draw the T\textsubscript{6} triangulations of a convex hexagon.
+\item
+  Display a bijection between the 5 ways of parenthesizing abcd and the
+  5 triangulations of a convex pentagon.
+\item
+  Let \(C_{n} = \ \frac{1}{n + 1}\left( \frac{2n}{n} \right).\) Verifiy
+  the formula:
+
+\end{enumerate}
+
+\[
+_{n} = \ \left( \frac{n}{1} \right)C_{n - 1} - \ \left( \frac{n - 1}{2} \right)C_{n - 2} + \ \left( \frac{n - 2}{3} \right)C_{n - 3} - \ \ldots
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Verify that H\textsubscript{3} = 5 by drawing the required paths.
+\item
+  Assign the appropriate binary sequences to each of the 5 Trees for n=3
+  in FIGURE 2.
+
+\end{enumerate}
+
+FOR EACH OF THE FOLLOWING, INVESTIGATE BIJECTIONS THAT RELATE ONE TO
+ANOTHER.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  A and B each receive n votes. Let V\textsubscript{n} denote the number
+  of ways that the 2n votes can be tallied so that A never trails B. Let
+  V\textsubscript{0} = 1.
+\item
+  Place 2n points on the circumference of a circle and draw n
+  nonintersecting chords in D\textsubscript{n} ways; D\textsubscript{0}
+  = 1.
+\item
+  In how many ways can 1, 2, 3, \ldots{}, 2n be inserted into a 2xn
+  rectangle such that the entries are increasing in rows and columns.
+  Let the answer be Y\textsubscript{n}; Y\textsubscript{1} = 1,
+  Y\textsubscript{2} = 2.
+\item
+  Place points on a line segment and join them in pairs by
+  nonintersecting arcs above the segment. In how many ways can this be
+  done? Call the answer S\textsubscript{n}; S\textsubscript{1}=1,
+  S\textsubscript{2}=2.
+\item
+  A rook on an \(n + 1\) by \(n + 1\) chessboard must move from the
+  lower left corner to the upper right corner never going above the
+  diagonal. How many paths are possible? Let \(K_{n}\) be the answer.
+\item
+  On an \(n + 1\) by \(n + 1\) chessboard a king starts on the first row
+  and moves one square forward or back along a fixed column and ends on
+  the starting square after moves. In how many ways, \(G_{n}\), can this
+  be done?
+\item
+  Count the number of planar rhyme schemes for a stanza consisting of n
+  lines. Joanne Growney showed in her doctoral thesis that the Bell
+  numbers, which count all rhyme schemes, have the Catalan numbers as a
+  subsequence and that these enumerate precisely the planar rhyme
+  schemes. For example, of the rhyme schemes, are planar. The nonplanar
+  one is given by abab.
+
+\end{enumerate}
+
+WORKSHEET ON STIRLING NUMBERS OF THE 2\textsuperscript{ND}
+KIND-\(S(n,\ k)\)
+
+\emph{DEFINITION:} \(S\left( n,\ k \right)\) is the number of ways of
+partitioning an n-set into k nonempty subsets.
+
+\emph{TASK 1:} Compute \(S\left( 3,\ 1 \right),\ S(4,\ 1)\) and
+\(S(n,\ 1)\).
+
+\emph{TASK 2:} Compute \(S\left( 2,\ 2 \right),\ S(3,\ 2)\) and
+\(S(4,\ 2)\).
+
+\emph{TASK 3:} Compute\(\text{\ S}\left( 3,\ 3 \right),\ S(4,\ 3)\).
+
+\emph{TASK 4:} Find formulas and give \emph{proofs} for:
+
+\(S\left( n,\ n \right) =\)
+
+\(S\left( n,\ 2 \right) =\)
+
+\[
+\left( n,\ n - 1 \right) =
+\]
+
+\[
+\left( n,\ n - 2 \right) =
+\]
+
+\emph{TASK 5:} Determine a recursion for
+\(\text{\ S}\left( n,\ k \right)\) by examining the following:
+
+In computing \(S\left( 4,\ 3 \right)\) look back at the two cases:
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+
+\item
+  ``Social''- The element 4 is part of another set.
+\item
+  ``Antisocial''-The element 4 stands alone.
+\item
+  Deduce a recursion \(S\left( n,\ k \right) =\)
+
+\end{enumerate}
+
+\emph{TASK 6:} Make the first 5 rows of the Stirling Triangle.
+
+STIRLING NUMBERS OF THE 2\textsuperscript{nd} KIND
+
+A distribution of 4 different (often we say distinguishable) objects
+\(1,2,3,4\) into 3 similar (often we say indistinguishable) boxes, each
+of which becomes non-empty is modeled by partitioning \(\{ 1,2,3,4\}\)
+into 3 nonempty subsets. The six ways of doing this are listed next:
+
+\{4\} \{1\} \{2,3\} \{1,4\} \{2\} \{3\}
+
+\{4\} \{2\} \{1,3\} \{1\} \{2,4\} \{3\}
+
+\{4\} \{3\} \{1,2\} \{1\} \{2\} \{3,4\}
+
+The Stirling numbers of the second kind, denoted by \(S(n,k)\), give the
+number of ways of partitioning an n-set into k non-empty subsets. Here
+\(k \in \{ 1,2,\ldots\}\) and\(\ n \geq k\). The above example shows
+\(S\left( 4,3 \right) = 6\). Also notice that there are two cases: 4 is
+alone, or 4 is in some other batch; we can conclude that
+\(S\left( 4,3 \right) = 3S\left( 3,3 \right) + S(3,2)\) since if 4 is in
+a singleton set just partition the remaining 3 into 2 sets and otherwise
+4 can join any of the 3 batches of 3 elements.
+
+THEOREM 1:
+\(S\left( n,k \right) = kS\left( n - 1,k \right) + S(n - 1,k - 1)\).
+
+Proof. We partition \(\{ 1,2,\ldots,n\}\) into k non-empty subsets in
+\(S(n,k)\) ways. If n is in a singleton set, there are
+\(S(n - 1,k - 1)\) ways to partition the remaining \(n - 1\) elements
+into \(k - 1\) subsets. Otherwise, the element n can join any of the k
+batches of \(n - 1\) elements in \(kS(n - 1,k)\) ways.
+
+Polya, in Notes on Introductory Combinatorics, refers to these as the
+``antisocial'' and ``social'' cases.
+
+The reader should check that \(S\left( 3,3 \right) = 1\) and that
+\(S\left( 3,2 \right) = 3\) so that
+\(S\left( 4,3 \right) = 3 \bullet 1 + 3 = 6\).
+
+\emph{Border Formulas:} The reader should verify that
+\(S\left( n,1 \right) = 1\) and \(S\left( n,n \right) = 1\) for
+\(n \in Z^{+}\). From
+
+these border formulas and the recursion in Theorem 1 the following
+Stirling's Second Triangle can be made.
+
+1
+
+1 1
+
+1 3 1
+
+1 7 6 1
+
+1 15 25 10 1
+
+THEOREM 2.
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+
+\item
+  \(S\left( n,n - 1 \right) =
+
+\begin{pmatrix}
+  n 
+  2 
+  \end{pmatrix}
+\)
+\item
+  \(S\left( n,2 \right) = 2^{n - 1} - 1\)
+\item
+  \(S\left( n,n - 2 \right) =
+
+\begin{pmatrix}
+  n 
+  3 
+  \end{pmatrix}
+ + 3
+
+\begin{pmatrix}
+  n 
+  4 
+  \end{pmatrix}
+\)
+\item
+  \(S\left( n,n - 3 \right) =
+
+\begin{pmatrix}
+  n 
+  4 
+  \end{pmatrix}
+ + 10
+
+\begin{pmatrix}
+  n 
+  5 
+  \end{pmatrix}
+ + 15
+
+\begin{pmatrix}
+  n 
+  6 
+  \end{pmatrix}
+\)
+
+\end{enumerate}
+
+Proof. You are asked to prove these in the problems.
+
+The entries in the Pascal Triangle, \(
+
+\begin{pmatrix}
+n 
+k 
+\end{pmatrix}
+\), satisfy the nice recursion \(
+
+\begin{pmatrix}
+n 
+k 
+\end{pmatrix}
+ =
+
+\begin{pmatrix}
+n - 1 
+k 
+\end{pmatrix}
+ +
+
+\begin{pmatrix}
+n - 1 
+k - 1 
+\end{pmatrix}
+\) and also have a closed formula: \(
+
+\begin{pmatrix}
+n 
+k 
+\end{pmatrix}
+ = n!/k!\left( n - k \right)!\). Theorem 1 gives us a
+recursion for the Stirling numbers \(S\left( n,k \right)\ \)and,
+unfortunately, the best we can do for a ``closed'' formula is contained
+in the following.
+
+\[
+\left( n,k \right) = \frac{1}{k!}\left\lbrack k^{n} - \begin{pmatrix}
+k \\
+1 \\
+\end{pmatrix}\left( k - 1 \right)^{n} + \begin{pmatrix}
+k \\
+2 \\
+\end{pmatrix}\left( k - 2 \right)^{n} - \begin{pmatrix}
+k \\
+3 \\
+\end{pmatrix}\left( k - 3 \right)^{n} + \ldots + \left( - 1 \right)^{k - 1}\begin{pmatrix}
+k \\
+k - 1 \\
+\end{pmatrix}1^{n} \right\rbrack
+\]
+
+Proof (by Polya). Suppose you wished to paint n houses and you have k
+different colors available. The first house can be painted in k
+different ways, the second in k different ways, etc. So there are
+\(k^{n}\) ways. How many ways actually use all k colors? Let
+\(\alpha_{i}\) be the property that no house is painted with the
+\(i^{th}\)color, and let \(N(\alpha_{i})\) denote the number of ways of
+painting the n houses without using the \(i^{th}\)color. Analogously for
+\(\text{\ N}\left( \alpha_{i},\alpha_{j} \right),\ \ N\left( \alpha_{i},\alpha_{j},\ \alpha_{k} \right),\ \)
+etc. Since \(N\left( \alpha_{i} \right) = \left( k - 1 \right)^{n}\),
+\(N\left( a_{i},\ \alpha_{j} \right) = \left( k - 2 \right)^{n},\ \ldots\ \)
+the number of ways of painting n houses using all k colors is, using
+PIE, \(k^{n} -
+
+\begin{pmatrix}
+k 
+1 
+\end{pmatrix}
+\left( k - 1 \right)^{n} +
+
+\begin{pmatrix}
+k 
+2 
+\end{pmatrix}
+\left( k - 2 \right)^{n} -
+
+\begin{pmatrix}
+k 
+3 
+\end{pmatrix}
+\left( k - 3 \right)^{n} + \ \ldots + \left( - 1 \right)^{k}
+
+\begin{pmatrix}
+k 
+k 
+\end{pmatrix}
+0^{n}\). Alternately, we could first partition the n houses
+into k (non-empty) sets, and then paint each set. This can be
+accomplished in \(k!S\left( n,k \right)\ \)ways. Now equate these two
+expressions.
+
+COROLLARY.
+\(S\left( n,3 \right) = \frac{1}{2}\left\lbrack 3^{n - 1} - 2^{n} + 1 \right\rbrack\)
+
+THEOREM 4.
+\(x^{n} = S\left( n,1 \right)x + S\left( n,2 \right)x\left( x - 1 \right) + S\left( n,3 \right)x\left( x - 1 \right)\left( x - 2 \right) + \ \ldots\ \)
+
+\[
+ldots + S\left( n,n \right)x\left( x - 1 \right)\ldots(x - n + 1)
+\]
+
+Proof (by Polya). We can paint n houses, with x colors available, in
+\(x^{n}\) ways. Using exactly one color, there are
+\(S\left( n,1 \right)x\) ways. Using exactly two colors there are
+\(S\left( n,2 \right)x(x - 1)\)ways. Continue in this manner.
+
+It is in this form that James Stirling originally developed these
+numbers. \(S(n,\ k)\)is used to convert from powers to binomial
+coefficients as shown in the following:
+
+THEOREM 5. \(x^{n} = S\left( n,1 \right)
+
+\begin{pmatrix}
+x 
+1 
+\end{pmatrix}
+1! + S\left( n,2 \right)
+
+\begin{pmatrix}
+x 
+2 
+\end{pmatrix}
+2! + \ \ldots + S\left( n,n \right)
+
+\begin{pmatrix}
+n 
+n 
+\end{pmatrix}
+n!\ \)
+
+PROBLEMS
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Compute by listing the subsets \(S(4,2)\) and \(S(5,2)\).
+\item
+  Make the 6\textsuperscript{th} row of the Stirling Triangle.
+\item
+  Prove the four parts of THEOREM 2.
+\item
+  List the sequence of elements that are row sums of the Stirling
+  Triangle.
+\item
+  How many subsets \{a, b, c\} are there of \{2, 3, 4, \ldots{}\} such
+  that
+  \(abc = 2 \bullet 3 \bullet 5 \bullet 7 \bullet 11 \bullet 13 \bullet 17\)?
+\item
+  Let \(S = \{ 2,3,4,\ldots\}\). How many ordered triples (a, b, c) are
+  there in S x S x S such that
+
+\(abc = 2 \bullet 3 \bullet 5 \bullet 7 \bullet 11 \bullet 13 \bullet 17\)?
+\item
+  Compute each using THEOREM 3.
+
+\begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+
+  \item
+    \(S\left( 5,3 \right)\)
+  \item
+    \(S(6,3)\)
+  \item
+    \(S(n,2)\)
+  \item
+    \(S(n,3)\)
+  
+\end{enumerate}
+\item
+  Write out the proof of THEOREM 3 for k=3.
+\item
+  Express x\textsuperscript{3} as suggested in THEOREM 4. Also, multiply
+  your answer out to verify.
+\item
+  Use your result in Problem 9 to express x\textsuperscript{3} as a
+  linear combination of the binomial coefficients \(
+
+\begin{pmatrix}
+  x 
+  1 
+  \end{pmatrix}
+,\
+
+\begin{pmatrix}
+  x 
+  2 
+  \end{pmatrix}
+,\
+
+\begin{pmatrix}
+  x 
+  3 
+  \end{pmatrix}
+\).
+\item
+  Determine the following:
+
+\begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+
+  \item
+    \(a,\ b,\ c\) so that \(n^{4} = 24
+
+\begin{pmatrix}
+    n 
+    4 
+    \end{pmatrix}
+ + 6a\
+
+\begin{pmatrix}
+    n 
+    3 
+    \end{pmatrix}
+ + 2b\
+
+\begin{pmatrix}
+    n 
+    2 
+    \end{pmatrix}
+ + c
+
+\begin{pmatrix}
+    n 
+    1 
+    \end{pmatrix}
+\).
+  \item
+    \(a,\ b,\ c,\ d\) so that \(n^{5} = 5!
+
+\begin{pmatrix}
+    n 
+    5 
+    \end{pmatrix}
+ + a
+
+\begin{pmatrix}
+    n 
+    4 
+    \end{pmatrix}
+ + b
+
+\begin{pmatrix}
+    n 
+    3 
+    \end{pmatrix}
+ + c
+
+\begin{pmatrix}
+    n 
+    2 
+    \end{pmatrix}
+ + d
+
+\begin{pmatrix}
+    n 
+    1 
+    \end{pmatrix}
+\).
+  
+\end{enumerate}
+\item
+  Express \(1^{4} + 2^{4} + 3^{4} + \ \ldots + n^{4}\) as a polynomial
+  in n.
+\item
+  The numbers \(S(n,k)\) and \(k!S(n,k)\) are solutions to two different
+  distribution problems. Describe each.
+\item
+  Prove THEOREM 5.
+\item
+  Why is \(4^{n} - 4 \bullet 3^{n} + 6 \bullet 2^{n} - 4\) always
+  divisible by 24?
+
+\end{enumerate}
+
+BELL NUMBERS
+
+The Bell number, \(B_{n}\), denotes the number of ways that a set of n
+objects S can be partitioned into nonempty subsets. The definition of
+``partition'' implies two properties: The subsets are disjoint and their
+union is S.
+
+Essential properties and facts about \(B_{n}\) are summarized next.
+
+BELL NUMBERS
+
+1, 1, 2, 5, 15, 52, 203, 877, 4040, 21147, 115975, \ldots{}
+
+FORMULA:
+
+\(B_{n} = S\left( n,1 \right) + \ S\left( n,2 \right) + S\left( n,3 \right) + \ \ldots + S(n,n)\)
+
+\(B_{n} = \frac{1}{e}\sum_{k = 0}^{\infty}\frac{k^{n}}{k!}\ (Dobinski^{'}s\ Formula)\)
+
+\(B_{n} = L\left( x^{n} \right)\ (Gian - Carlo\ Rota)\)
+
+RECURSION: \(B_{n} =
+
+\begin{pmatrix}
+n - 1 
+0 
+\end{pmatrix}
+B_{0} +
+
+\begin{pmatrix}
+n - 1 
+1 
+\end{pmatrix}
+B_{1} + \ \ldots +
+
+\begin{pmatrix}
+n - 1 
+n - 1 
+\end{pmatrix}
+B_{n - 1},\ B_{0} = 1\)
+
+E.G.F.:
+\(e^{e^{x} - 1} = \sum_{k = 0}^{\infty}{B_{n}\ \frac{x^{n}}{n!}}\)
+
+BELL TRIANGLE: 1
+
+1 2
+
+2 3 5
+
+5 7 10 15
+
+15 20 27 37 52
+
+\ldots{}
+
+Two observations: The first few Bell's look like the Catalans; the
+sequence of Bells increases in size rapidly. The Bell numbers can be
+generated by constructing what is called the Bell Triangle. To construct
+this triangle, begin with a 1 at the top and a 1 below it. Add these two
+numbers together and put the sum 2, to the right of the 1 in the second
+column. This 2 is also the first entry of the third row. The second
+entry in the third row is found by adding the 2 to the number 1 above
+it. This sum is 3 and goes to the right of the 2. The 3 is now below a
+2. Adding these two numbers produces the last number, 5, in the third
+row. Since 5 has no number above it, the third row is complete. 5 now
+becomes the first number in the fourth row and the process continues.
+
+Construction of the triangle follows two basic rules:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  The last number of each row is the first number of the next row.
+\item
+  All other numbers are found by adding the number to the left of the
+  missing number to the number directly above this same number.
+
+\end{enumerate}
+
+When the triangle is extended, as above, the Bell Numbers are found down
+the first column as well as along the outside diagonal.
+
+1
+
+1 2
+
+2 3 5
+
+5 7 10 15
+
+15 20 27 37 52
+
+52 67 87 114 151 203
+
+203 255 322 409 523 674 877
+
+As with Pascal's Triangle, the Bell triangle has several interesting
+properties. If the sum of a row is added to the Bell number at the end
+of that row, the next Bell number is obtained. For example, the sum of
+the fourth row plus the Bell number at the end of the row:
+
+15 + 20 + 27 + 37 + 52 + 52 is 203, the next Bell number. Also, the
+numbers of the second diagonal 1, 3, 10, 37, 151, 674, \ldots{} are the
+sums of the horizontal rows. Rotating the triangle slightly creates a
+difference triangle analogous to Pascal's Triangle. The entries that are
+formed recursively by adding in Pascal's Triangle are now differences of
+the two numbers above them in the Bell triangle.
+
+1 2 5 15 52 203 877\ldots{}
+
+1 3 10 37 151 674\ldots{}
+
+2 7 27 114 523\ldots{}
+
+5 20 87 409\ldots{}
+
+15 67 322\ldots{}
+
+52 255\ldots{}
+
+203\ldots{}
+
+Finally, rewriting the Bell triangle recursively indicates a nice
+connection of the Bell Numbers to Pascal's triangle.
+
+\(B_{0} = B_{1}\)
+
+\(B_{1}\) \(B_{0} + B_{1} = B_{2}\)
+
+\(B_{2}\) \(B_{1} + B_{2}\) \(B_{0} + 2B_{1} + B_{2} = B_{3}\)
+
+\(B_{3}\) \(B_{2} + B_{3}\) \(B_{1} + B_{2} + B_{2} + B_{3}\)
+\(B_{0} + 3B_{1} + 3B_{2} + B_{3} = B_{4}\)
+
+This pattern suggests the \({(n + 1)}^{\text{th}}\) Bell Number can be
+represented recursively by
+
+\(B_{n + 1} =
+
+\begin{pmatrix}
+n 
+0 
+\end{pmatrix}
+B_{0} +
+
+\begin{pmatrix}
+n 
+1 
+\end{pmatrix}
+B_{1} +
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+B_{2} + \ \ldots +
+
+\begin{pmatrix}
+n 
+n 
+\end{pmatrix}
+B_{n}\). The coefficients of this equation are the entries
+of the nth row of Pascal's triangle. You are asked to prove this
+recursion in the exercises.
+
+The Bell numbers are related to the Stirling numbers and can be defined
+as the sum of the Stirling numbers of the second kind. That is,
+\(B_{n} = S\left( n,1 \right) + S\left( n,2 \right) + \ \ldots + S(n,n)\),
+where
+
+S(n, k) represents the number of ways of grouping n elements into k
+subsets. So
+
+\(B_{3} = S\left( 3,1 \right) + S\left( 3,2 \right) + S\left( 3,3 \right) = 1 + 3 + 1 = 5.\)
+Since the Bell numbers count the partitions of a set of elements, they
+are used in prime-number theory to enumerate the number of ways to
+factor a number with distinct prime factors. For example, 42 has three
+distinct prime factors: 2, 3, and 7. Since \(B_{3} = 5\), we know there
+are five ways of factoring 42. These are
+
+2 x 3 x 7, 2 x 21, 3 x 14, 6 x 7, and 42. So the number 210, which has 4
+distinct factors, 2, 3, 5, and 7, can be factored in \(B_{4} = 15\)
+ways.
+
+The Bell numbers can be used to model many real-life situations. For
+example, the number of different ways two people can sleep in unlabeled
+twin beds is \(B_{2} = 2\) ways: They can sleep in the same bed or in
+separate beds. The number of ways of serving a dinner consisting of
+three items, such as a salad, bread, and fish is \(B_{3} = 5\) ways:
+each could be served on a separate plate, salad and bread could be on
+one plate and fish on another, salad and fish on one plate and bread on
+another, or all three items could be on the same plate. This example
+serves as a model for the five ways three people can occupy three
+unlabeled beds, the five ways three prisoners can be handcuffed
+together, the five ways three nations can be form alliances, or any
+situation of partitioning three distinct elements into non-empty
+subsets.
+
+One interesting application of Bell numbers is in counting the number of
+rhyme schemes possible for a stanza in poetry. There are \(B_{2} = 2\)
+possibilities for a two-line stanza: the lines can either rhyme or not
+rhyme. The possible rhyme schemes of a three-line stanza can be
+described as aaa, aab, aba, abb, and abc: thus there are 5 or \(B_{3}\)
+possible rhyme schemes. The Japanese used diagrams depicting possible
+rhyme schemes of a five-line stanza \(B_{5} = 52\ \)as early as 1000
+A.D. in the \emph{Tale of the Genji} by Lady Shikibu Murasaki.
+
+PROBLEMS FOR BELL NUMBERS
+
+The Bell number (named after Eric Temple Bell, a Scottish-born American
+mathematician, who died in 1960) \(B_{n}\) is the number of ways of
+partitioning an n-set into subsets. For example, \(B_{3} = 5\); the 5
+ways of partitioning the elements of \{1, 2, 3\} are
+
+\{1\} \{2\} \{3\} \{1, 2\} \{3\} \{1, 3\} \{2\} \{2, 3\} \{1\} \{1, 2,
+3\}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Compute \(B_{1},B_{2},\) and \(B_{4}\) by listing all the relevant
+  partitions.
+\item
+  Explain why
+  \(B_{n} = S\left( n,1 \right) + S\left( n,2 \right) + \ \ldots + S(n,n)\).
+\item
+  Compute \(B_{5},B_{6},B_{7},\ B_{8}\) using a table of Stirling
+  numbers \(S(n,k)\) and the formula in Problem 2.
+\item
+  Prove that \(B_{n} =
+
+\begin{pmatrix}
+  n - 1 
+  0 
+  \end{pmatrix}
+B_{0} +
+
+\begin{pmatrix}
+  n - 1 
+  1 
+  \end{pmatrix}
+B_{1} +
+
+\begin{pmatrix}
+  n - 1 
+  2 
+  \end{pmatrix}
+B_{2} + \ \ldots + \
+
+\begin{pmatrix}
+  n - 1 
+  n - 1 
+  \end{pmatrix}
+B_{n - 1}\).
+
+\end{enumerate}
+
+\begin{quote}
+{[}Here we let \(B_{0} = 1\){]}. HINT: First try n=5 and partition
+\(\{ 1,2,3,4,\ 5\}\) by treating 5 as ``special.'' The element 5 can be
+a singleton, in a doubleton, or \ldots{} .
+
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Prove that
+
+\end{enumerate}
+
+\begin{quote}
+\(S_{n}\left( n + 1,\ r \right) =
+
+\begin{pmatrix}
+n 
+0 
+\end{pmatrix}
+S\left( 0,\ r - 1 \right) +
+
+\begin{pmatrix}
+n 
+1 
+\end{pmatrix}
+S\left( 1,\ r - 1 \right) +
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+S\left( 2,\ r - 1 \right) + \ \ldots\)
+
+\(+
+
+\begin{pmatrix}
+n 
+n 
+\end{pmatrix}
+S(n,\ r - 1)\)
+
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Using the .results in Problems 2 and 5 prove the recursion in Problem
+  4.
+\item
+  The set \(\left\{ u_{0},\ u_{1},\ u_{2},\ldots \right\}\) where
+  \(u_{0} = 1,\ \text{\ u}_{1} = x,\ \ u_{2} = x\left( x - 1 \right),\ u_{3} = x\left( x - 1 \right)\left( x - 2 \right),\ \ldots\)
+  is a basis for the vector space V of all polynomials with real
+  coefficients. Let
+
+\end{enumerate}
+
+\begin{quote}
+\(P\left( x \right) = c_{0}u_{0} + c_{1}u_{1} + c_{2}u_{2} + \ \ldots\ \)
+be any element of V, and define the functional L as follows:
+\(L\left\lbrack P\left( x \right) \right\rbrack = c_{0} + c_{1} + \ \ldots\)
+.
+
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+
+\item
+  Prove that
+  \(L\left\lbrack P\left( x \right) + Q\left( x \right) \right\rbrack = L\left\lbrack P\left( x \right) \right\rbrack + L\left\lbrack Q\left( x \right) \right\rbrack.\)
+\item
+  Prove that
+  \(L\left\lbrack \text{rP}\left( x \right) \right\rbrack = rL\lbrack P\left( x \right)\rbrack\)
+  for \(r \in\) Reals.
+\item
+  Prove that \(B_{n} = L\lbrack x^{n}\rbrack\).
+\item
+  Prove that
+  \(L\left\lbrack x^{n + 1} \right\rbrack = L\lbrack\left( x + 1 \right)^{n}\rbrack\).
+\item
+  Derive the recursion in Problem 4 using (d).
+
+\end{enumerate}
+
+Tales of Statisticians
+
+ERIC TEMPLE BELL
+
+7 Feb 1883-20 Dec 1960
+
+Bell was no statistician; rather, a number theorist. He was and remains
+one of the great mathematical statesmen. His book \emph{Men of
+Mathematics} has inspired scores to take up a mathematical career, and
+revealed to uncounted thousands what a mathematical life is all about in
+the first place.
+
+His own early life was a mystery until parts of it were unraveled by
+\emph{Constance Reid} . He was born in Aberdeen in 1883, spent his early
+years in London, and came to America at the age of nineteen in 1903. He
+finished college at Stanford in 1904, and went on to the University of
+Washington (MS 1907) and Columbia (PhD 1912). He taught at the
+University of Washington from that year until1926. His contribution to
+statistics in this period was to encourage Harold Hotelling to switch
+from journalism to math (Hotelling named his son after Bell). In his own
+researches at this time, Bell produced significant results in number
+theory, including Diophantine analysis: equations whose solutions are
+limited to whole numbers. The Bell numbers (1, 1, 2, 5, 15, 52, and so
+on), a series of whole numbers arising in the theory of partitions, were
+first investigated by him, and are named for him. His 1921 memoir
+Arithmetical Paraphrases won him the prestigious Bocher Prize (jointly
+with Solomon Lefschetz) in 1924.
+
+In that year he began a second life as a science fiction writer, under
+the pen name John Taine (his only son, born in 1917, had been named
+Taine Bell). In all, he produced twelve novels and several stories
+between 1924 and 1954. In 1926, having earlier declined offers from
+Chicago and Columbia, he joined the faculty of the California Institute
+of Technology, where he became a distinctive and even eccentric figure,
+and had much to do with building up the quality of the mathematics
+faculty. His next mathematical publication was the comprehensive survey
+Algebraic Arithmetic (1927). His enduring masterpiece of popularization,
+\emph{Men of Mathematics} , came somewhat later, in 1937. The more
+technically advanced \emph{Development of Mathematics} (1940) had a
+comparable appeal and influence for professional and preprofessional
+readers. His gift of explanation and his fascination with the integers
+are both evident in the \emph{Magic of Numbers} (1946), a book on
+Pythagoras and the number mysticism of the Pythagorean school.
+
+Bell retired from CalTech in 1951, and died at the age of 77 in 1960.
+With the assistance of D.H. Lehmer, who had provided the otherwise
+missing final chapter, he had just completed a book entitled The Last
+Problem. It was about Fermat, to whom, and to whose tantalizing unproven
+Last Theorem, a chapter of \emph{Men of Mathematics} had already been
+devoted. Bell's conviction at the time, that Fermat's unmatched insight
+into the character of numbers did not mislead him as to the existence of
+a proof, was vindicated recently when a proof was finally found.
+
+Bell's infectious love of number, his sense of the large sweep of
+mathematical history, and his generous anger at the fools and poopheads
+who all too densely populate that history, are his great legacy to
+posterity.
+
+Postscript 2003
+
+The above notice happened to catch the eye of ETB's grandson, Lyle Bell,
+the only son of Taine Bell, who commented that ETB ``would have loved
+the last paragraph.'' We asked Lyle what ETB was like as a grandfather.
+Here, with his permission, is his answer, along with notes on ETB's last
+days. WE should add by way of clarification that ``Romps'' was ETB's
+name for himself, and ``Toby'' was his name for his wife Jessie.
+
+\begin{quote}
+``E.T. Bell, known as Pop Romps to me (he refused to be called Grandpa),
+brings back some interesting and humorous memories. You asked how he was
+as a grandfather. The answer is that he tolerated me and my two sisters
+reasonably well. He wasn't the type to sit his grandkids on his lap. I
+believe he was pretty fond of Laurie, the older of the two (both younger
+than me). From what I know, he always took more of a liking to females
+than males (that reminds me of the fact that he apparently did not want
+any children, his wife ``tricked'' him into it, and he was unhappy that
+he had a boy rather than a girl). We visited him in Pasadena maybe two
+or three times that I can remember. I remember a modest home with walls
+full of books and lots of cigar smoke. He had quite a large garden and a
+really neat study in a small structure in the middle of the garden. He
+visited us in Watsonville a few times when he was healthy. I remember
+one time when I felt I really hadn't spent any time with him, and asked
+to stay home from school for the day. We sat in the living room
+together, no doubt awkwardly for him. I don't remember anything about
+the visit except that I was just learning to multiply at the time, and
+he asked me to figure out what 7 x 7 is. It took me a while to get 49,
+and to this day those are my favorite numbers.
+
+Some time in late 1958 or early 1959 he was still living in Pasadena
+when he fell off a chair he was standing on to change a light bulb and
+broke his arm. My parents (both physicians) decided to bring him up to
+the Watsonville Hospital where they could keep an eye on him while he
+recovered. Then they decided he wasn't fit to live by himself and that
+he should live in a rest home in Watsonville. When they announced their
+plans, he made is abundantly clear that he had no intention of living
+with a bunch of old farts. He would stay right where he was, end of
+discussion! He was moved to a private room close to the nurses' station.
+He flirted with the nurses, smoked cigars, filled his room with books,
+worked on The Last Problem, and drank Scotch. He was quite popular with
+the nurses. On one occasion he caught his bed on fire as a result of
+careless smoking. He was reprimanded by the hospital administration and
+told he could not smoke without a nurse being present. He said, ``Great,
+I will enjoy more company!'' and continued to smoke when he wanted to.
+
+I was in the sixth grade when he passed away. As I was getting on my
+bicycle to ride to school, my Mom came out to tell me that Pop Romps had
+died the night before. She told me to go to school. That evening I
+remember having a short, awkward conversation with my Dad and telling
+him I was sorry that Pop Romps had died. There was NO other discussion
+or acknowledgement of his death within the family at the time. There was
+no way that my Dad would get involved in with kind of service because
+his religious upbringing was totally non-existent. When he was in the
+third grade, he asked his parents what the big plus sign on the building
+was for!
+
+When I was in college, it occurred to me that I never knew what happened
+after Pop Romps died. I asked my Mom, and she told me he was still in
+her closet. He had left very specific instructions that he was to be
+cremated and his ashes spread at the base of the rock on a hillside in
+Yreka, California, where he had proposed to his wife, Toby. He had
+spread her ashes there. He left directions and a photo of the location.
+Yreka is in the northernmost part of California. My parents did not have
+an occasion to go up there and didn't want to make a special trip, so he
+stayed in the closet. They made the trip in the early 1970's. They
+arrived early on a foggy morning and found the rock near a swing set in
+the back yard of a nice home. Dad hopped the fence and did the deed. The
+ashes were very light in color and contained bone fragments. They didn't
+exactly blend with the green grass, which was covered with dew. He tried
+to work them into the grass with his feet and just made matters worse.
+He got back in the car and drove out of town fast before somebody
+spotted the rather suspicious activity. Pop Romps was no doubt reveling
+through the whole ordeal.''
+
+\end{quote}
+
+These pages are copyright 2001-by E. Bruce Brooks
+
+\textbf{Group Projects- Math 528}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Paths and Binomial Coefficients
+\item
+  On Triangular Numbers
+\item
+  Fibonacci Numbers
+\item
+  Generalized Pascal Triangles
+\item
+  A Pascal-like Triangle of Eulerian Numbers
+\item
+  Leibnitz Harmonic Triangle
+\item
+  The Twelve Days of Christmas
+
+\end{enumerate}
+
+PROJECT 1: PATHS AND BINOMIAL COEFFICIENTS
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  A path consists of vertical and horizontal line segments of length 1.
+  Determine the number of paths
+
+\begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+
+  \item
+    of length 7 from the origin\(\ \left( 0,\ 0 \right)\) and
+    \((4,\ 3)\).
+  \item
+    of length \(a + b\) from \(\left( 0,\ 0 \right)\) and \((a,b)\).
+  
+\end{enumerate}
+\item
+  A lattice point in the plane is a point \((m,\ n)\) with
+  \(m,\ n \in Z\).
+
+\begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+
+  \item
+    How many paths of length 4 are there from \((0,\ 0)\) to lattice
+    points on the line \(y = - x + 4\)?
+  \item
+    Determine the number of paths of length 10 from \((0,\ 0)\) to the
+    lattice points on \(y = 10 - x\).
+  
+\end{enumerate}
+\item
+  Give a geometrical (path argument) for the identity
+  \(2^{n} =
+
+\begin{pmatrix}
+  n 
+  0 
+  \end{pmatrix}
+ +
+
+\begin{pmatrix}
+  n 
+  1 
+  \end{pmatrix}
+ + \ \ldots +
+
+\begin{pmatrix}
+  n 
+  n 
+  \end{pmatrix}
+\ \)using the idea in \#2.
+\item
+  Generalize \#1 to three dimensions; introduce obstructions; use
+  inclusion-exclusion.
+\item
+  Give a path proof for \(
+
+\begin{pmatrix}
+  n 
+  k 
+  \end{pmatrix}
+ =
+
+\begin{pmatrix}
+  n - 1 
+  k 
+  \end{pmatrix}
+ +
+
+\begin{pmatrix}
+  n - 1 
+  k - 1 
+  \end{pmatrix}
+\).
+\item
+  How many lattice paths from \(\left( 0,\ 0 \right)\) to all lattice
+  points on the line \(x + 2y = n\) are there?
+\item
+  Determine the number of lattice paths from
+  \(\left( 0,\ 0,\ 0 \right)\) to lattice points on that portion of the
+  plane \(x + y + z = 2\) that lies in the first octant.
+\item
+  Generalize \#7.
+\item
+  Determine the number of lattice paths from \(\left( 0,\ 0 \right)\) to
+  \((n,\ n)\) that do not cross over (they may touch) the
+  line\(\ y = x\).
+
+\end{enumerate}
+
+PROJECT 2: ON TRIANGULAR NUMBERS
+
+Let \(T_{n} = \frac{n\left( n + 1 \right)}{2}\) denote the
+\(n^{\text{th}}\) triangular number.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Give a geometric interpretation for
+  \(T_{n} + T_{n + 1} = \left( n + 1 \right)^{2}.\)
+\item
+  Verify that \(T_{n} + T_{m} + mn = T_{m + n}\) algebraically.
+\item
+  Give a geometric interpretation of the formula in \#2.
+\item
+  Verify that \(T_{n}^{2} + T_{n - 1}^{2} = T_{n^{2}}\).
+\item
+  Verify the following:
+
+\begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+
+  \item
+    \(3T_{n} + T_{n + 1} = T_{2n + 1}\)
+  \item
+    \(3T_{n} + T_{n - 1} = T_{2n}\) (also give a geometrical proof)
+  
+\end{enumerate}
+\item
+  Determine the values \(T_{6},\ T_{66},\ T_{666},\ T_{6666},\ \ldots\).
+  Make a general statement and prove it.
+\item
+  Determine the formula for
+  \(T_{3} + T_{6} + T_{9} + \ \ldots + T_{3n}.\)
+\item
+  Verify:
+
+\begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+
+  \item
+    \(1 + 3 + 6 + 10 + 15 = 1^{2} + 3^{2} + 5^{2}\)
+  \item
+    \(1 + 3 + 6 + 10 + 15 + 21 = 2^{2} + 4^{2} + 6^{2}\)
+  \item
+    Generalize and prove your generalization.
+  
+\end{enumerate}
+
+\end{enumerate}
+
+PROJECT 3: FIBONACCI NUMBERS
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Briefly address history.
+\item
+  Using a variety of proof methods (geometric, induction, matrices,
+  recursion, telescoping sum) prove identities such as:
+
+\begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+
+  \item
+    \(F_{1} + F_{2} + \ \ldots + F_{n} = F_{n + 2} - 1\)
+  \item
+    \(F_{1}^{2} + F_{2}^{2} + \ \ldots + F_{n}^{2} = F_{n}F_{n + 1}\)
+  \item
+    \(F_{n + 1}^{2} - F_{n}F_{n + 2} = \left( - 1 \right)^{n}\)
+  \item
+    \(F_{n + 2} =
+
+\begin{pmatrix}
+    n + 1 
+    0 
+    \end{pmatrix}
+ +
+
+\begin{pmatrix}
+    n 
+    1 
+    \end{pmatrix}
+ +
+
+\begin{pmatrix}
+    n - 1 
+    2 
+    \end{pmatrix}
+ + \ \ldots\)
+  
+\end{enumerate}
+\item
+  Prove the ``Binet Formula,''
+  \(F_{n} = \frac{\alpha^{n} - \beta^{n}}{\alpha - \beta}\), where
+  \(\alpha,\ \beta\ \)satisfy \(x^{2} - x - 1 = 0\).
+
+\begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+
+  \item
+    By induction.
+  \item
+    Using generating series.
+  
+\end{enumerate}
+
+\end{enumerate}
+
+\[
+begin{pmatrix}
+n \\
+0 \\
+\end{pmatrix}F_{0} + \begin{pmatrix}
+n \\
+1 \\
+\end{pmatrix}F_{1} + \ \ldots + \begin{pmatrix}
+n \\
+n \\
+\end{pmatrix}F_{0} = \ F_{2n}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Investigate the geometric interpretations of the \(F_{n}\).
+
+\end{enumerate}
+
+\[
+_{n} = \left\lbrack \begin{pmatrix}
+n \\
+1 \\
+\end{pmatrix} + \begin{pmatrix}
+n \\
+3 \\
+\end{pmatrix}5 + \begin{pmatrix}
+n \\
+5 \\
+\end{pmatrix}5^{2}\ldots \right\rbrack + \left\lbrack \begin{pmatrix}
+n \\
+0 \\
+\end{pmatrix} + \begin{pmatrix}
+n \\
+2 \\
+\end{pmatrix} + \begin{pmatrix}
+n \\
+4 \\
+\end{pmatrix} + \ \ldots \right\rbrack.
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Let \(Q =
+
+\begin{pmatrix}
+  1 & 1 
+  1 & 0 
+  \end{pmatrix}
+\). Prove:
+
+\begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+
+  \item
+    \(Q^{n} =
+
+\begin{pmatrix}
+    F_{n + 1} & F_{n} 
+    F_{n} & F_{n - 1} 
+    \end{pmatrix}
+\).
+  \item
+    \(Q^{2} = Q + I\); use \(Q^{2n}\ \)to prove the identity in \#4.
+  \item
+    Use \(Q^{2n + 1} = Q^{n}Q^{n + 1}\) to show
+    \(F_{2n + 1} = F_{n + 1}^{2} - F_{n}^{2}\ \)and other identities.
+  
+\end{enumerate}
+\item
+  Show that if \(x^{2} = x + 1\) then \(x^{n} = F_{n}x + F_{n - 1}\)
+  for\(\ n \geq 2\). Use this result to prove the Binet Formula, namely
+  that \(F_{n} = \frac{\alpha^{n} - \beta^{n}}{\alpha - \beta}\).
+\item
+  Investigate Lucas, Tribonacci, Tetranacci numbers.
+
+\end{enumerate}
+
+References: The Fibonacci Quarterly; The Golden Section by Garth E.
+Runion; The Divine Proportion by H.E. Huntley
+
+PROJECT 4: GENERALIZED PASCAL TRIANGLES
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Expand\({\ \left( 1 + x + x^{2} \right)}^{2},\ \left( 1 + x + x^{2} \right)^{3},\ \left( 1 + x + x^{2} \right)^{4}\).
+\item
+  Organize the coefficients as in the following triangle:
+
+\end{enumerate}
+
+\begin{quote}
+1
+
+1 1 1
+
+1 2 3 2 1
+
+1 3 6 7 6 3 1
+
+1 4 10 16 19 16 10 4 1
+
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Investigate the properties of this triangle:
+
+\begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+
+  \item
+    Produce the next row.
+  \item
+    Give a recursion that produces elements in this triangle.
+  \item
+    What are the row sums? Prove it!
+  \item
+    What is the sum \(1^{2} + 2^{2} + 3^{2} + 2^{2} + 1^{2}\)?
+    Generalize and prove.
+  \item
+    Is there a hockey stick theorem?
+  
+\end{enumerate}
+\item
+  Investigate 3-dimensional versions of
+  \(\left( 1 + x + x^{2} \right)^{n}\) and
+  \(\left( x + y + z \right)^{n}.\)
+\item
+  Investigate \(\left( 1 + x + x^{2} + x^{3} \right)^{n}\).
+\item
+  Investigate \(\left( 1 + x + x^{2} + \ \ldots + x^{k} \right)^{n}\).
+\item
+  Where do the ``Fibonacci'' numbers get involved in the Pascal
+  triangle?
+\item
+  Where do the ``Tribonacci'' numbers appear in the triangle in \#2?
+
+PROJECT 5: A PASCAL-LIKE TRIANGLE OF EULERIAN NUMBERS
+
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Show algebraically and geometrically that\(\
+
+\begin{pmatrix}
+  n 
+  2 
+  \end{pmatrix}
+ +
+
+\begin{pmatrix}
+  n + 1 
+  2 
+  \end{pmatrix}
+ = n^{2}\).
+\item
+  Show that \(
+
+\begin{pmatrix}
+  n 
+  3 
+  \end{pmatrix}
+ + 4
+
+\begin{pmatrix}
+  n + 1 
+  3 
+  \end{pmatrix}
+ +
+
+\begin{pmatrix}
+  n + 2 
+  3 
+  \end{pmatrix}
+ = n^{3}\).
+\item
+  Use \#1 and the hockey stick theorem to find a nice formula for
+
+\(1^{2} + 2^{2} + 3^{2} + \ \ldots + n^{2}\). Contrast with the
+  version usually seen in calculus.
+\item
+  Use \#2 to find a nice formula for
+  \(1^{3} + 2^{3} + 3^{3} + \ \ldots + n^{3}\).
+\item
+  Express \(n^{4}\ \)as in problems \#1 and \#2.
+\item
+  Use \#5 to find a nice formula for
+  \(1^{4} + 2^{4} + 3^{4} + \ \ldots + n^{4}\).
+\item
+  Here is an alternate way of accomplishing \#6:
+
+\end{enumerate}
+
+\[
+^{4} + 2^{4} + 3^{4} + \ \ldots + n^{4} = a\begin{pmatrix}
+n + 1 \\
+5 \\
+\end{pmatrix} + b\begin{pmatrix}
+n + 2 \\
+5 \\
+\end{pmatrix} + c\begin{pmatrix}
+n + 3 \\
+5 \\
+\end{pmatrix} + d\begin{pmatrix}
+n + 4 \\
+5 \\
+\end{pmatrix}
+\]
+
+\begin{quote}
+using n=1, 2, 3, 4. This sometimes referred to as ``Polynomial
+Fitting.''
+
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Express\(\ n^{3}\ \)as in problems \#1 and \#2.
+\item
+  Express\(\ 1^{5} + 2^{5} + 3^{5} + \ \ldots + n^{5}\) as a sum of
+  multiples of binomial coefficients.
+\item
+  In problem \#1, \#2, \#5, and \#7, \(n^{2},n^{3},\ n^{4},\ \)and
+  \(n^{5}\) were expressed as sums of binomial coefficients with integer
+  coefficients. Arrange these expressions in a Pascal-like triangle,
+  concentrating on these integer coefficients. The coefficients are
+  called Eulerian numbers.
+\item
+  Investigate the properties of this triangle. Include a discussion of
+  row sums, how entries are found, and a possible recursion. Use
+  \(
+
+\begin{bmatrix}
+  n 
+  k 
+  \end{bmatrix}
+\) for notation.
+
+PROJECT 6: THE LEIBNITZ HARMONIC TRIANGLE
+
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  State the rule used to form each entry, and produce the next two rows.
+\item
+  What are the ``initial conditions'' needed to generate the entries?
+\item
+  Use \(
+
+\begin{bmatrix}
+  n 
+  k 
+  \end{bmatrix}
+\) as the notation for entries and state properties
+  analogous to those found in the Pascal Triangle. Include closed
+  formulas for each entry, row sums (alternating also), hockey stick
+  theorem, hexagon property, sum of squares of row entries, etc.
+  Indicate how partial fractions help in verifying the (infinite) hockey
+  stick theorem.
+\item
+  See if you can find any papers on this topic. Check PI MU EPSILON
+  JOURNAL, THE MATHEMATICAL GAZETTE, MATHEMATICS MAGAZINE,
+  DELTA-UNDERGRADUATE MATHEMATICS JOURNAL, etc.
+
+\end{enumerate}
+
+PROJECT 7: THE TWELVE DAYS OF CHRISTMAS (in the Discrete Math Style)
+
+According to the song, THE TWELVE DAYS OF CHRISTMAS the ``true love''
+received the following number of (not so practical) gifts:
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+Day's Gift & Number received & Total\tabularnewline
+\midrule
+\endhead
+First & 1 X 12 & 12\tabularnewline
+Second & 2 X 11 & 22\tabularnewline
+Third & 3 X 10 & 30\tabularnewline
+Fourth & 4 X 9 & 36\tabularnewline
+Fifth & 5 X 8 & 40\tabularnewline
+Sixth & 6 X 7 & 42\tabularnewline
+Seventh & 7 X 6 & 42\tabularnewline
+Eighth & 8 X 5 & 40\tabularnewline
+Ninth & 9 X4 & 36\tabularnewline
+Tenth & 10 X 3 & 30\tabularnewline
+Eleventh & 11 X 2 & 22\tabularnewline
+Twelfth & 12 X 1 & 12\tabularnewline
+& & Grand Total = 364\tabularnewline
+\bottomrule
+
+\end{longtable}
+
+1
+
+2 2
+
+3 4 3
+
+4 6 6 4
+
+5 8 9 8 5
+
+The first five rows of a triangle are given above.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Make the next few rows.
+\item
+  Where have you seen this triangle before?
+\item
+  Experiment with factoring each integer in the 6\textsuperscript{th}
+  row. Repeat with other rows.
+\item
+  What are the entries in row 12?
+\item
+  Where does the expression
+  \(1 \bullet n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \ \ldots + n \bullet 1\)
+  show up in the triangle?
+\item
+  Explain why
+  \(1 \bullet n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \ \ldots + n \bullet 1 =
+
+\begin{pmatrix}
+  n + 2 
+  3 
+  \end{pmatrix}
+\).
+
+\end{enumerate}
+
+FOUR (OR EIGHT) DISTRIBUTION PROBLEMS
+
+The formulas derived earlier for the number of \emph{onto} functions f
+from a domain \(\{ x_{1},\ x_{2},\ldots,\ x_{m}\}\) to a codomain
+\(\{ y_{1},\ y_{2},\ldots,\ y_{n}\}\) can be used as a model for the
+following distribution problem: in how many ways can you place n
+different objects into k different bins, not allowing empty bins? Some
+texts use the word distinguishable instead of different. We will also
+use the word similar to connote the same meaning as indistinguishable.
+
+The concept of \emph{compositions} of n into k parts likewise serves as
+a model for the following distribution problem: in how many ways can you
+place n similar objects into k different boxes either allowing empty
+boxes or not? As this second class of problem is a little easier let's
+analyze it first.
+
+RESULT: The number of ways of placing n similar objects into k different
+bins not allowing empty bins is \(
+
+\begin{pmatrix}
+n - 1 
+k - 1 
+\end{pmatrix}
+\). Denote the k different bins by
+\(x_{1},\ x_{2},\ldots,\ x_{k}\). The number of solutions to
+\(x_{1} + x_{2} + \ \ldots + x_{k} = n\) where each \(x_{i} \geq 1\) is
+the number of such distributions.
+
+RESULT: The number of ways of placing n similar objects into k different
+bins allowing empty bins is \(
+
+\begin{pmatrix}
+n + k - 1 
+k - 1 
+\end{pmatrix}
+\). The number of solutions to
+\(x_{1} + x_{2} + \ \ldots + x_{k} = n\) where each \(x_{i} \geq 0\) is
+the number of such distributions. Notice here that allowing, \(x_{2}\),
+for example, to be 0 is the same as saying that no objects will be
+placed in bin \#2.
+
+Now let's turn to the first problem. Using the Principle of
+Inclusion-Exclusion (PIE) we see that the number of functions from \{1,
+2, 3, 4, 5\} \emph{onto} \{a, b, c\} is
+\(3^{5} - 3 \bullet 2^{5} + 3 \bullet 1^{5}\). Similarly, the number of
+functions from \{1, 2, 3, 4, 5, 6\} \emph{onto} \{a, b, c, d\} is
+
+\(4^{6} - 4 \bullet 3^{6} + 6 \bullet 2^{6} - 4 \bullet 1^{6} =
+
+\begin{pmatrix}
+4 
+4 
+\end{pmatrix}
+4^{6} -
+
+\begin{pmatrix}
+4 
+3 
+\end{pmatrix}
+3^{6} +
+
+\begin{pmatrix}
+4 
+2 
+\end{pmatrix}
+2^{6} -
+
+\begin{pmatrix}
+4 
+1 
+\end{pmatrix}
+1^{6}.\) PIE can be used to show that, in general, the
+number of functions from \(\{ x_{1},\ x_{2},\ \ldots,\ x_{n}\}\)
+\emph{onto} \(\{ y_{1},\ y_{2},\ldots,\ y_{k}\}\) is
+
+\[
+\left( n,k \right) = k^{n} - \begin{pmatrix}
+k \\
+1 \\
+\end{pmatrix}\left( k - 1 \right)^{n} + \begin{pmatrix}
+k \\
+2 \\
+\end{pmatrix}\left( k - 2 \right)^{n} - \begin{pmatrix}
+k \\
+3 \\
+\end{pmatrix}\left( k - 3 \right)^{n} + \ \ldots + \left( - 1 \right)^{k - 1}\begin{pmatrix}
+k \\
+k - 1 \\
+\end{pmatrix}1^{n}
+\]
+
+Each onto functions characterizes a distribution problem as follows: the
+following onto function
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+x & 1 & 2 & 3 & 4 & 5\tabularnewline
+\midrule
+\endhead
+f(x) & a & a & b & c & b\tabularnewline
+\bottomrule
+
+\end{longtable}
+
+can be considered as a model for distributing the two different objects
+1 and 2 into a bin \emph{a} , the two different objects 3 and 5 into bin
+\emph{b} and 4 into bin \emph{c} . Since each of the complete inverse
+images \(f^{- 1}\left( a \right),\ f^{- 1}\left( b \right),\) and
+\(f^{- 1}(c)\) is non-empty (the function being onto guarantees this)
+this model counts distributions that do not allow empty bins. This
+establishes the following distribution result.
+
+RESULT: The number of ways of placing \emph{n} different objects into
+\emph{k} different bins with no empty bins is \(B(n,k)\).
+
+RESULT: The number of ways of placing n different objects into k
+different bins in \(k^{n}.\)
+
+Without the restriction of ``no empty bins'' this is just a matter of
+saying that there are k places for disposing of each of the n objects.
+This is also the number of functions from
+\(\{ x_{1},\ x_{2},\ \ldots,\ x_{n}\}\) \emph{to} 
+\(\{ y_{1},\ y_{2},\ldots,\ y_{k}\}\), ignoring the restriction that
+they must be onto.
+
+Finally, we look at what happens if the n objects are different but the
+k bins are now similar, still with no empty bins allowed. Since there
+are k! ways to label the k bins, there are k! ways to convert similar
+bins into different bins. The number of distributions of this type is
+therefore \(\frac{1}{k!}B(n,k)\). For convenience of notation, let's
+call this last expression: \(S\left( n,k \right).\)
+
+RESULT: The number of ways of placing n different objects into k similar
+bins with no empty bins is \(S\left( n,k \right).\)
+
+There is one additional distribution problem that we can analyze using
+the machinery developed thus far. In how many ways can you place n
+different objects into k similar bins \emph{allowing} empty bins. Using
+the sum rule we can look at the following disjoint cases:
+
+No box is empty- \(S(n,\ \ k)\)
+
+Exactly one box is empty-\(S(n,\ k - 1)\)
+
+\begin{quote}
+Exactly two bins are empty-\(S(n,\ k - 2)\)
+
+\end{quote}
+
+\(\vdots\)
+
+All but one bin are empty-\(S(n,\ 1)\)
+
+RESULT: The number of ways of distributing n different objects into k or
+fewer bins is
+\(S\left( n,\ 1 \right) + S\left( n,\ 2 \right) + \ \ldots + S(n,\ k)\).
+
+Finally, the theory of linear or integer \emph{partitions} solves the
+final distribution problem: In how many ways can you distribute n
+similar objects into k similar bins? Recall that a \emph{partition} 
+\(\left( a_{1},\ a_{2},\ \ldots,\ a_{k} \right)\ \)of an integer n is an
+array of integers \(a_{i}\) such that
+\(n = a_{1} + a_{2} + \ \ldots + a_{n}\) and
+\(a_{1} \geq a_{2} \geq a_{3} \geq \ \ldots \geq a_{k} > 0\). For
+example, the 5 partitions of n=4 are 4, 31, 22, 211, 1111. Here, the
+distribution 31 is the same as 13 since the bins are similar.
+
+DISTRIBUTIONS OF OBJECTS INTO BINS
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+n objects & & & k bins &\tabularnewline
+\midrule
+\endhead
+& & & Allow empty & \(P_{k}(n)\)\tabularnewline
+S & (Partitions of Integers) & S & &\tabularnewline
+& & & Do not & \(P_{k}(n - k)\)\tabularnewline
+& & & Allow empty & \(\begin{pmatrix}
+n + k - 1 \\
+k - 1 \\
+\end{pmatrix}\)\tabularnewline
+S & (Compositions) & D & &\tabularnewline
+& & & Do not & \(\begin{pmatrix}
+n - 1 \\
+k - 1 \\
+\end{pmatrix}\)\tabularnewline
+& & & Allow empty &
+\(S\left( n,1 \right) + S\left( n,2 \right) + \ \ldots + S(n,k)\)\tabularnewline
+D & (Set Partitions) & S & &\tabularnewline
+& & & Do not & \(\frac{1}{k!}B(n,k)\)\tabularnewline
+& & & Allow empty & \(k^{n}\)\tabularnewline
+D & (Surjections) & D & &\tabularnewline
+& & & Do not & \(B(n,k)\)\tabularnewline
+\bottomrule
+
+\end{longtable}
+
+CONVENIENT NOTATION
+
+S = Similar
+
+D = Different
+
+\(B\left( n,k \right) = k^{n} -
+
+\begin{pmatrix}
+k 
+1 
+\end{pmatrix}
+\left( k - 1 \right)^{n} +
+
+\begin{pmatrix}
+k 
+2 
+\end{pmatrix}
+\left( k - 2 \right)^{n} + \ \ldots + \left( - 1 \right)^{k - 1}
+
+\begin{pmatrix}
+k 
+k - 1 
+\end{pmatrix}
+1^{n}\)
+
+\[
+\left( n,k \right) = \frac{1}{k!}B\left( n,k \right)\ 
+\]
+
+COMBINATORIAL PROOFS
+
+A combinatorial proof is sometimes used to show that two very different
+looking expressions are in fact equal. The technique is as follows.
+Refer to the two different looking expressions as the left-hand side
+(LHS) and the right-hand side RHS. Create a situation or question that
+is answered by the LHS; then show that the RHS also answers the
+question. The conclusion is that LHS=RHS.
+
+In the following we present a number of theorems, statements,
+identities, etc, and give combinatorial proofs of each. For each result
+the reader is urged to attempt an alternate proof for comparison
+purposes. Such an alternate proof could be algebraic or geometric in
+nature; or one could try a collapsing sum or an induction proof.
+
+\emph{THEOREM 1} \(
+
+\begin{pmatrix}
+2n 
+2 
+\end{pmatrix}
+ = 2
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+ + n^{2}\)
+
+Split the \(2n\) objects into two groups A and B as shown:
+
+\textbf{. . . . . . . . . . }
+
+A B
+
+First, you can choose 2 objects from a set of \(2n\ \)objects
+in\(\
+
+\begin{pmatrix}
+2n 
+2 
+\end{pmatrix}
+\ \)ways. Alternatively, you could select two from group A
+in\(\
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+\) ways or two from group B in\(\
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+\) ways or take one from each in \(n \bullet n = n^{2}\)
+ways. Now add\(\
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+ +
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+ + n \bullet n\) and the result follows. The reader should
+attempt an algebraic proof using the factorial formula
+for\(\
+
+\begin{pmatrix}
+n 
+k 
+\end{pmatrix}
+\).
+
+\emph{THEOREM 2} \(
+
+\begin{pmatrix}
+m + n 
+2 
+\end{pmatrix}
+ -
+
+\begin{pmatrix}
+m 
+2 
+\end{pmatrix}
+ -
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+ = mn\)
+
+Suppose you have a group of m men and n women and you want to form
+men-women dancing pairs. This can clearly be done in mn ways. Or, you
+could choose 2 from the total of m + n and delete the men-men pairs
+(there are \(
+
+\begin{pmatrix}
+m 
+2 
+\end{pmatrix}
+\ \)of these) and delete the women-women pairs
+(also\(
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+\)of these). The result follows. The reader could attempt
+an algebraic proof or perhaps a geometric proof making use of figures
+consisting of triangular numbers. Also, as a challenge, the reader could
+formulate a similar result involving \(
+
+\begin{pmatrix}
+a + b + c 
+3 
+\end{pmatrix}
+\) and a corresponding proof.
+
+\emph{THEOREM 3} \(
+
+\begin{pmatrix}
+n 
+0 
+\end{pmatrix}
+ +
+
+\begin{pmatrix}
+n 
+1 
+\end{pmatrix}
+ +
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+ + \ \ldots +
+
+\begin{pmatrix}
+n 
+n 
+\end{pmatrix}
+ = 2^{n}\)
+
+Here again we first create a question that is answered by either side of
+the given identity. Question: How many subsets does
+\(\{ a_{1},\ a_{2},\ldots,\ a_{n}\}\) have? An n-set has
+\(
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+\) subsets. The left-hand side counts these subsets by
+their size. There are \(
+
+\begin{pmatrix}
+n 
+k 
+\end{pmatrix}
+\ \)subsets of size k.
+
+In this situation the reader might \emph{not} want to try this
+algebraically.
+
+\emph{THEOREM 4} \(
+
+\begin{pmatrix}
+n 
+1 
+\end{pmatrix}
+ + 2
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+ + 3
+
+\begin{pmatrix}
+n 
+3 
+\end{pmatrix}
+ + \ \ldots + n
+
+\begin{pmatrix}
+n 
+n 
+\end{pmatrix}
+ = {n2}^{n - 1}\)
+
+Given a set of n people we can select a committee of size k along with a
+chair from that committee in \(k
+
+\begin{pmatrix}
+n 
+k 
+\end{pmatrix}
+\ \)ways. We can select a committee (of size 1, or size 2,
+or \ldots{}) and its chair in \(
+
+\begin{pmatrix}
+n 
+1 
+\end{pmatrix}
+ + 2
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+ + 3
+
+\begin{pmatrix}
+n 
+3 
+\end{pmatrix}
+ + \ \ldots + n
+
+\begin{pmatrix}
+n 
+n 
+\end{pmatrix}
+\ \)ways. Alternatively, we can explain the term
+\(n2^{n - 1}\ \)as follows: choose one of the n people to chair any of
+the \(2^{n - 1}\)subsets of the remaining \(n - 1\) people.
+
+The reader is invited to investigate one or more of the following
+approaches: \(n2^{n - 1}\) looks like a derivative, so try
+differentiating \(\left( 1 + x \right)^{n}\); a reverse and add approach
+also works; or, first prove \(k
+
+\begin{pmatrix}
+n 
+k 
+\end{pmatrix}
+ = n
+
+\begin{pmatrix}
+n - 1 
+k - 1 
+\end{pmatrix}
+\ \)and then use it.
+
+\emph{THEOREM 5} \(\
+
+\begin{pmatrix}
+n 
+k 
+\end{pmatrix}
+ =
+
+\begin{pmatrix}
+n - 1 
+k 
+\end{pmatrix}
+ +
+
+\begin{pmatrix}
+n - 1 
+k - 1 
+\end{pmatrix}
+\)
+
+\(
+
+\begin{pmatrix}
+n 
+k 
+\end{pmatrix}
+\ \)is the number of subsets of
+\(\{ a_{1},\ a_{2},a_{3},\ \ldots,\ a_{n}\}\) of size k. Now a subset A
+of size k either contains the fixed element\(\ a_{i}\) or it does not.
+If A contains \(a_{i}\), the remaining \(k - 1\) elements can be
+selected in \(
+
+\begin{pmatrix}
+n - 1 
+k - 1 
+\end{pmatrix}
+\) ways. If, on the other hand, A does not contain
+\(a_{i}\), you can choose the k elements from the depressed set
+\(\left\{ a_{1},\ a_{2},\ \ldots,\ a_{i - 1,}a_{i + 1,\ \ldots,\ }a_{n} \right\}\ \)in
+\(
+
+\begin{pmatrix}
+n - 1 
+k 
+\end{pmatrix}
+\) ways. Since these two cases are mutually exclusive the
+theorem follows.
+
+Once again the reader is invited to attempt an algebraic proof.
+
+\emph{THEOREM 6} Let \(d_{n}\) denote the number of derangements of 1,
+2, 3, \ldots{}, n with
+
+\(d_{0} = 1,\ d_{1} = 0.\) Then
+\(d_{n} = \left( n - 1 \right)(d_{n - 1}{+ d}_{n - 2})\) for
+\(n \geq 2\).
+
+In forming a derangement of 1, 2, 3, \ldots{}, n the integer n can be
+placed in any of the \(n - 1\) spots 1, 2, 3, \ldots{}, \(n - 1\), say
+spot i. If i goes into spot n there are \(d_{n - 2}\) ways to finish it.
+If i does not go into spot n there are \(d_{n - 1}\) ways to complete
+the derangement.
+
+The reader can use the principle of inclusion-exclusion to derive a
+formula for \(d_{n}\)
+
+from which the new recursion
+\(d_{n} = nd_{n - 1} + \left( - 1 \right)^{n}\), and the above
+recursion, can be derived.
+
+\emph{THEOREM 7} \(
+
+\begin{pmatrix}
+n 
+0 
+\end{pmatrix}
+^{2} +
+
+\begin{pmatrix}
+n 
+1 
+\end{pmatrix}
+^{2} +
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+^{2} + \ \ldots +
+
+\begin{pmatrix}
+n 
+n 
+\end{pmatrix}
+^{2} =
+
+\begin{pmatrix}
+2n 
+n 
+\end{pmatrix}
+\)
+
+Given a group of \(2n\) people consisting of n men and n women, in how
+many ways can one choose a group of n people? The answer to that
+question is just\(
+
+\begin{pmatrix}
+2n 
+n 
+\end{pmatrix}
+\), the right side of the identity in question. One could
+also form the group of n people in the following way: choose 0 men and n
+women in
+
+\(
+
+\begin{pmatrix}
+n 
+0 
+\end{pmatrix}
+
+\begin{pmatrix}
+n 
+n 
+\end{pmatrix}
+ =
+
+\begin{pmatrix}
+n 
+0 
+\end{pmatrix}
+^{2}\ \)ways, or, choose 1 man and \(n - 1\) women in
+
+\(
+
+\begin{pmatrix}
+n 
+1 
+\end{pmatrix}
+
+\begin{pmatrix}
+n 
+n - 1 
+\end{pmatrix}
+ =
+
+\begin{pmatrix}
+n 
+1 
+\end{pmatrix}
+^{2}\)ways, or choose 2 men and \(n - 2\) women in
+
+\(
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+
+\begin{pmatrix}
+n 
+n - 2 
+\end{pmatrix}
+ =
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+^{2}\) ways and so on. Now add these disjoint cases.
+
+An alternate algebraic proof is less interesting: Extract the
+coefficient of \(x^{n}\) from both sides
+of.\(\left\lbrack \left( x + 1 \right)^{n} \right\rbrack^{2} = \left( x + 1 \right)^{2n}\)
+
+\emph{THEOREM 8} \(
+
+\begin{pmatrix}
+2 
+2 
+\end{pmatrix}
+ +
+
+\begin{pmatrix}
+3 
+2 
+\end{pmatrix}
+ +
+
+\begin{pmatrix}
+4 
+2 
+\end{pmatrix}
+ + \ \ldots +
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+ =
+
+\begin{pmatrix}
+n + 1 
+3 
+\end{pmatrix}
+\)
+
+The term \(
+
+\begin{pmatrix}
+n + 1 
+3 
+\end{pmatrix}
+\) is the number of binary strings of length \(n + 1\)
+consisting of three 1's (and the rest 0's). The left hand side counts
+these by where in the string the left- most 1 appears. Let
+\(a_{1}\ a_{2}a_{3}\ldots a_{n + 1}\) be a string of length \(n + 1\).
+There are \(
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+\) strings when \(a_{1} = 1,\
+
+\begin{pmatrix}
+n - 1 
+2 
+\end{pmatrix}
+\) strings when \(a_{2} = 1\) is the leftmost 1, \ldots{},
+and \(
+
+\begin{pmatrix}
+2 
+2 
+\end{pmatrix}
+\)strings when \(a_{n - 1} = 1\ \)is the leftmost 1. In
+this last case the string looks like 000 \ldots{} 0111.
+
+Attempting a proof by mathematical induction is an easy option. An
+algebraic approach is not!
+
+\emph{THEOREM 9} The number of positive integers that have their digits
+in strictly increasing order is \(2^{9} - 1\). Include single digit
+numbers.
+
+There are \(
+
+\begin{pmatrix}
+9 
+1 
+\end{pmatrix}
+\) single digit type, \(
+
+\begin{pmatrix}
+9 
+2 
+\end{pmatrix}
+\) double digit type (just select 2 of the 9 digits 1, 2,
+3, \ldots{}, 9 and arrange in order), \ldots{}, and so on to see that
+there are \(
+
+\begin{pmatrix}
+9 
+9 
+\end{pmatrix}
+\) nine digit type. The total is \(
+
+\begin{pmatrix}
+9 
+1 
+\end{pmatrix}
+ +
+
+\begin{pmatrix}
+9 
+2 
+\end{pmatrix}
+ +
+
+\begin{pmatrix}
+9 
+3 
+\end{pmatrix}
+ + \ \ldots +
+
+\begin{pmatrix}
+9 
+9 
+\end{pmatrix}
+ = 2^{9} - 1.\)
+
+Here is an alternative, more clever, proof. Look at 123456789. Any
+increasing number can be made by deleting \emph{any} subset of digits,
+except all of them. There are \(2^{9} - 1\)such subsets. For example,
+delete the subset \{2, 4, 7, 9\} and you get 13568. Combining these two
+approaches actually gives you a nice proof that \(
+
+\begin{pmatrix}
+9 
+0 
+\end{pmatrix}
+ +
+
+\begin{pmatrix}
+9 
+1 
+\end{pmatrix}
+ +
+
+\begin{pmatrix}
+9 
+2 
+\end{pmatrix}
+ + \ \ldots +
+
+\begin{pmatrix}
+9 
+9 
+\end{pmatrix}
+ = 2^{9}\).
+
+\emph{THEOREM 10} \(
+
+\begin{pmatrix}
+3n 
+3 
+\end{pmatrix}
+ = 3
+
+\begin{pmatrix}
+n 
+3 
+\end{pmatrix}
+ + 6n
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+ + n^{3}\)
+
+This one is a little tougher. First rewrite as \(n^{3} =
+
+\begin{pmatrix}
+3n 
+3 
+\end{pmatrix}
+ - 3
+
+\begin{pmatrix}
+n 
+3 
+\end{pmatrix}
+ - 6n
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+\). Suppose you have n men, n women and n children and you
+want to select triples consisting of one man, one woman and one child.
+There are \(n^{3}\) ways to do this, just pick one from each group.
+Alternatively, select 3 of the 3n people in \(
+
+\begin{pmatrix}
+3n 
+3 
+\end{pmatrix}
+\) ways and delete the ``bad'' ones. Delete the ones where
+you selected all three from one group -- there are \(3
+
+\begin{pmatrix}
+n 
+3 
+\end{pmatrix}
+\)of these. Now delete those where you had two from one
+group and one from another -- there are \(2n
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+ + 2n
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+ + 2n
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+\) of these.
+
+\emph{THEOREM 11} 
+\(1 \bullet 1! + 2 \bullet 2! + 3 \bullet 3! + \ \ldots + n \bullet n! = \left( n + 1 \right)! - 1\)
+
+In how many ways can you arrange the n+1 numbers 0, 1, 2, \ldots{}, n so
+that they are \emph{not} in ascending order? The answer is
+\(\left( n + 1 \right)! - 1\) since 0, 1, 2, \ldots{}, n is the
+\emph{only} arrangement in ascending order. Now lets separate into
+cases. Let \(a_{0},\ a_{1},\ a_{2},\ \ldots,\ a_{n}\ \)represent an
+arrangement of these n+1 numbers. If \(a_{0} \neq 0\), there are n
+choices left for \(a_{0}\), and then n! ways to fill out
+\(a_{1},\ a_{2},\ \ldots,\ a_{n}\) for a total of \(n \bullet n!\). Now
+let \(a_{0} = 0\) but \(a_{1} \neq 1\). There are \(n - 1\) choices for
+\(a_{1}\) and \(\left( n - 1 \right)!\ \)ways to complete for a total of
+\(\left( n - 1 \right)\left( n - 1 \right)!\). Now continue with
+\(a_{0} = 1,\ a_{1} = 1\) but \(a_{2} \neq 2\). There are
+\(\left( n - 2 \right)\left( n - 2 \right)!\) ways, and so on.
+
+The reader should attempt a collapsing sum or induction proof.
+
+\emph{THEOREM 12} 
+\(1 \bullet n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \ \ldots + n \bullet 1 =
+
+\begin{pmatrix}
+n + 2 
+3 
+\end{pmatrix}
+\)
+
+Let \(S = \{ 0,\ 1,\ 2,\ \ldots,\ n,\ n + 1\}\). The number of subsets
+of S of size 3 is \(
+
+\begin{pmatrix}
+n + 2 
+3 
+\end{pmatrix}
+\). Each one looks like \{a, b, c\} with a \textless{} b
+\textless{} c, Let's count these by looking at the size of the middle
+element b. If b=1 , there is one choice for a, namely a=0 and n choices
+for c for a total of \(1 \bullet n\). If b=2 there are 2 choices for a,
+and \(n - 1\) choices for c for a total of \(2(n - 1)\). If b=3 the
+total is
+
+\(3(n - 2)\), and so on. The total derived by looking at cases is
+
+\(1 \bullet n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \ \ldots + n \bullet 1\)
+and this must equal \(
+
+\begin{pmatrix}
+n + 2 
+3 
+\end{pmatrix}
+\) since the cases are disjoint.
+
+\emph{\\
+}
+
+\emph{THEOREM 13} \(k
+
+\begin{pmatrix}
+n 
+k 
+\end{pmatrix}
+ = n
+
+\begin{pmatrix}
+n - 1 
+k - 1 
+\end{pmatrix}
+\)
+
+Suppose you have a group of n people and you wish to form a subcommittee
+of k people with one of those k people to serve as chair. Choose the
+subcommittee in \(
+
+\begin{pmatrix}
+n 
+k 
+\end{pmatrix}
+\) ways and the chair in k ways. The product rule
+gives\(\text{\ k}
+
+\begin{pmatrix}
+n 
+k 
+\end{pmatrix}
+\) as the number of ways of selecting such a chaired
+subcommittee.
+
+Alternatively, you could first choose any one of the n people to serve
+as chair and then fill out the committee in \(
+
+\begin{pmatrix}
+n - 1 
+k - 1 
+\end{pmatrix}
+\) ways. There are \(n
+
+\begin{pmatrix}
+n - 1 
+k - 1 
+\end{pmatrix}
+\) ways to select a chaired subcommittee. Hence
+\(k
+
+\begin{pmatrix}
+n 
+k 
+\end{pmatrix}
+ = n
+
+\begin{pmatrix}
+n - 1 
+k - 1 
+\end{pmatrix}
+\)
+
+The reader should attempt the easier algebraic technique by converting
+\(
+
+\begin{pmatrix}
+n 
+k 
+\end{pmatrix}
+\) to factorial form.
+
+\emph{THEOREM 14} \(P\left( n,k \right) = k!
+
+\begin{pmatrix}
+n 
+k 
+\end{pmatrix}
+\)
+
+Questions -- How many permutations are there of k objects chosen from a
+collection of n objects? The LHS answers the question. There are
+\(P\left( n,k \right) = n\left( n - 1 \right)\left( n - 2 \right)...(n - k + 1)\)
+ways. Alternatively, one could first choose the k objects from the n
+objects in \(
+
+\begin{pmatrix}
+n 
+k 
+\end{pmatrix}
+\) ways and then permute these in k! ways.
+
+\emph{\\
+THEOREM 15} \(n2^{n - 1} = 1
+
+\begin{pmatrix}
+n 
+1 
+\end{pmatrix}
+ + 2
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+ + 3
+
+\begin{pmatrix}
+n 
+3 
+\end{pmatrix}
+ + \ \ldots + n
+
+\begin{pmatrix}
+n 
+n 
+\end{pmatrix}
+\)
+
+Contrast this discussion with that presented in THEOREM 4. Look at the
+set of the first \(2^{n}\) nonnegative
+integers\(\ 0,\ 1,\ 2,\ \ldots,\ 2^{n} - 1\). When you convert each to
+binary form what is the total number of 1s written? This binary list
+will look like the standard listing in \(B^{n}\) the set of all binary
+strings of length n. For n=3
+\(B^{3} = \{ 000,\ 001,\ 010,\ 011,\ 100,\ 101,\ 110,\ 111\}\). In
+\(B^{n}\) each string has length n and there are \(2^{n}\) of them. But
+half of the \(n \bullet 2^{n}\) symbols are 1's. Then the total number
+of 1's is \(n2^{n - 1}\). Alternatively, we could consider each string
+and count those with one 1, then those with two 1's, etc. There are
+\(1 \bullet
+
+\begin{pmatrix}
+n 
+1 
+\end{pmatrix}
+\) with one 1, \(2
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+\) total 1's in those binary numbers with exactly two 1's,
+\(3
+
+\begin{pmatrix}
+n 
+3 
+\end{pmatrix}
+\) in those with exactly three 1's , and so on. The total
+is \(1
+
+\begin{pmatrix}
+n 
+1 
+\end{pmatrix}
+ + 2
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+ + 3
+
+\begin{pmatrix}
+n 
+3 
+\end{pmatrix}
+ + \ \ldots + n
+
+\begin{pmatrix}
+n 
+n 
+\end{pmatrix}
+\text{.\ }\)The result now follows by equating
+\(n2^{n - 1}\) to this sum.
+
+\emph{THEOREM 16} \(
+
+\begin{pmatrix}
+n 
+0 
+\end{pmatrix}
+^{2} +
+
+\begin{pmatrix}
+n 
+1 
+\end{pmatrix}
+^{2} +
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+^{2} + \ \ldots +
+
+\begin{pmatrix}
+n 
+n 
+\end{pmatrix}
+^{2} =
+
+\begin{pmatrix}
+2n 
+n 
+\end{pmatrix}
+\)
+
+Let's revisit this identity using equivalence relations. A binary
+relation R on the set of all binary strings of length n is defined by
+specifying that \(\left( \alpha,\ \beta \right) \in R\) whenever weight
+\(\alpha =\) weight \(\beta\). This R is an equivalence relation. For
+n=3 there are four different equivalence classes, each containing
+strings of weight 0, 1, 2, or 3. The relation R contains
+\(1^{2} + 3^{2} + 3^{2} + 1^{2}\) ordered pairs; for example, with
+weight 1 each of the three strings 001, 010, 100 can be paired with any
+one of those same strings for a total of \(3^{2} = 9\). These ordered
+pairs can be counted in another way. Each ordered pair looks like
+\(\left( - - - ,\  - - - \right).\) Place 1's in any three positions,
+and 0's in the others. If you take the complement of the entries in the
+second coordinate an element of R is produced. Here is what one sequence
+of this process looks like:
+
+\(\left( - - - , - - - \right) \rightarrow \left( - 11,\  - - 1 \right) \rightarrow \left( 011,\ 001 \right) \rightarrow (011,\ 110)\).
+The reader can check that this process always produces an element of R
+and that the case of n=3 extends easily to general n. Conclusion: choose
+the n positions for 1's in \(
+
+\begin{pmatrix}
+2n 
+n 
+\end{pmatrix}
+\) ways. The result follows.
+
+\emph{THEOREM 17} \(
+
+\begin{pmatrix}
+n 
+0 
+\end{pmatrix}
+d_{0} +
+
+\begin{pmatrix}
+n 
+1 
+\end{pmatrix}
+d_{1} +
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+d_{2} + \ \ldots +
+
+\begin{pmatrix}
+n 
+n 
+\end{pmatrix}
+d_{n} = n!\) where \(d_{n}\) denotes the
+\(\ n^{\text{th}}\ \)derangement number, \(d_{0} = 1,\ d_{1} = 0.\)
+
+The right-hand side, n!, gives the number of permutations of n objects.
+So the left-hand side must provide the same enumeration. The left side
+partitions the permutations according to how many elements are deranged
+(and the rest fixed). The term \(
+
+\begin{pmatrix}
+n 
+i 
+\end{pmatrix}
+d_{i} =
+
+\begin{pmatrix}
+n 
+n - i 
+\end{pmatrix}
+d_{\text{i\ }}\)gives the number of permutations of n where
+\(n - i\) elements are fixed and the remaining i elements are deranged.
+Summing over all i yields
+
+\(
+
+\begin{pmatrix}
+n 
+n 
+\end{pmatrix}
+d_{0} +
+
+\begin{pmatrix}
+n 
+n - 1 
+\end{pmatrix}
+d_{1} + \ \ldots +
+
+\begin{pmatrix}
+n 
+0 
+\end{pmatrix}
+d_{n} =
+
+\begin{pmatrix}
+n 
+0 
+\end{pmatrix}
+d_{0} +
+
+\begin{pmatrix}
+n 
+1 
+\end{pmatrix}
+d_{1} + \ \ldots +
+
+\begin{pmatrix}
+n 
+n 
+\end{pmatrix}
+d_{n} = n!\)
+
+\emph{THEOREM 18} \(F_{n + 1} =
+
+\begin{pmatrix}
+n 
+0 
+\end{pmatrix}
+ +
+
+\begin{pmatrix}
+n - 1 
+1 
+\end{pmatrix}
+ +
+
+\begin{pmatrix}
+n - 2 
+2 
+\end{pmatrix}
+ + \ \ldots\) where \(F_{n}\) denotes the
+\(\ n^{\text{th}}\ \)Fibonacci number.
+
+Here is a question that might resolve the issue. How many different
+brick paths of length n (and width 1) can you make using 1 x 1 bricks
+and 1 x 2 bricks? Let a(n) denote the number of such paths of length n.
+A few drawings will show that a(1)=1, a(2)=2, a(3)=3, a(4)=5. Since you
+can place a 1 x 1 brick in front of all paths of length \(n - 1\) or a 1
+x 2 brick in front of all paths of length \(n - 2\) we have that
+\(a\left( n \right) = a\left( n - 1 \right) + a\left( n - 2 \right)\).
+This recursion, along with the initial conditions, show that
+\(a\left( n \right) = F_{n + 1}\), the left-hand side of the identity.
+
+Now lets look at all paths of length n and count them by the number of 1
+x 2 bricks. If there are i 1 x 2 bricks there are \(n - i\) total bricks
+making up the path of length n. Choose the positions of the i 1 x 2
+bricks in \(
+
+\begin{pmatrix}
+n - i 
+i 
+\end{pmatrix}
+\) ways. Now sum as i ranges through the values
+
+0, 1, 2, \ldots{}, and obtain \(
+
+\begin{pmatrix}
+n 
+0 
+\end{pmatrix}
+ +
+
+\begin{pmatrix}
+n - 1 
+1 
+\end{pmatrix}
+ +
+
+\begin{pmatrix}
+n - 2 
+2 
+\end{pmatrix}
+ + \ \ldots = F_{n + 1}\).
+
+The reader should draw all paths of length \(n = 5\), for example, and
+examine the cases with i=0, 1, 2 . The reader could also explore other
+proofs.
+
+\emph{THEOREM 19} \(
+
+\begin{pmatrix}
+m + n 
+2 
+\end{pmatrix}
+ -
+
+\begin{pmatrix}
+m 
+2 
+\end{pmatrix}
+ -
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+ = mn\) (Revisited)
+
+1.
+
+m
+
+n
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=0.70\columnwidth]{figures/image16/default-figure}
+\caption{{Couldn't find a caption, edit here to supply one.%
+}}
+\end{center}
+\end{figure}
+
+2.
+There are mn one by one squares in the subdivided
+
+m by n rectangle. Each choice of arrows
+
+(one horizontal, one vertical) specifies one of these squares.
+
+Pick two arrows but don't take two from the top or two from
+
+the side. Then \(
+
+\begin{pmatrix}
+m + n 
+2 
+\end{pmatrix}
+ -
+
+\begin{pmatrix}
+m 
+2 
+\end{pmatrix}
+ -
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+ = mn\)
+
+3. Take m people in one group and n in another. How many handshakes can
+be accomplished? Among the m people there are \(
+
+\begin{pmatrix}
+m 
+2 
+\end{pmatrix}
+\) handshakes; among the n people there are
+\(
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+\ \)handshakes and between the two groups, mn. But,
+\(
+
+\begin{pmatrix}
+m + n 
+2 
+\end{pmatrix}
+\) also represents the total number of handshakes among the
+people. Then we get: \(
+
+\begin{pmatrix}
+m 
+2 
+\end{pmatrix}
+ +
+
+\begin{pmatrix}
+n 
+2 
+\end{pmatrix}
+ + mn =
+
+\begin{pmatrix}
+m + n 
+2 
+\end{pmatrix}
+\).
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=0.70\columnwidth]{figures/image18/image18}
+\caption{{Couldn't find a caption, edit here to supply one.%
+}}
+\end{center}
+\end{figure}
+
+\selectlanguage{english}
+\end{document}
+
