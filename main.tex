@@ -7,7 +7,9 @@
 \usepackage{xcolor}
 \usepackage{lineno}
 
+\usepackage{amsmath, amsthm, amssymb}
 
+\newtheorem{result}{Result}[section]
 
 
 
@@ -67,8 +69,6 @@
 
 \usepackage[utf8]{inputenc}
 % \usepackage[ngerman,greek,english]{babel}
-
-
 
 
 
@@ -517,25 +517,13 @@ D H H D H H, a sequence of 2D's and 4H's. \emph{Any} arrangement of
   2D's and 4H's will correspond to exactly one nonworkable sequence;
   simply scan through and see the \emph{first} time the H's dominate the
   D's and then reverse through that spot. There are
-  \(\begin{pmatrix}
-  6
-  3
-  \end{pmatrix}
+  \(\binom{6}{3}
  = 20\) arrangements of 3H's and 3D's. There are
-  \(\begin{pmatrix}
-  6
-  2
-  \end{pmatrix}
+  \(\binom{6}{2}
  = 15\) arrangements of 2D's and 4H's each of which
   corresponds to a nonworkable sequence. Hence there are
-  \(\begin{pmatrix}
-  6
-  3
-  \end{pmatrix}
- -\begin{pmatrix}
-  6
-  2
-  \end{pmatrix}
+  \(\binom{6}{3}
+ -\binom{6}{2}
  = 5\) workable sequences. In general,
   \(\left( \frac{2n}{n} \right) - \left( \frac{2n}{n - 1} \right) = \ \frac{1}{n + 1}\left( \frac{2n}{n} \right)\)
   gives the number of workable sequences. See FIGURE 1.
@@ -1024,82 +1012,37 @@ THEOREM 2.
 \def\labelenumi{(\alph{enumi})}
 
 \item
-  \(S\left( n,n - 1 \right) =\begin{pmatrix}
-  n
-  2
-  \end{pmatrix}
+  \(S\left( n,n - 1 \right) =\binom{n}{2}
 \)
 \item
   \(S\left( n,2 \right) = 2^{n - 1} - 1\)
 \item
-  \(S\left( n,n - 2 \right) =\begin{pmatrix}
-  n
-  3
-  \end{pmatrix}
- + 3\begin{pmatrix}
-  n
-  4
-  \end{pmatrix}
+  \(S\left( n,n - 2 \right) =\binom{n}{3}
+ + 3\binom{n}{4}
 \)
 \item
-  \(S\left( n,n - 3 \right) =\begin{pmatrix}
-  n
-  4
-  \end{pmatrix}
- + 10\begin{pmatrix}
-  n
-  5
-  \end{pmatrix}
- + 15\begin{pmatrix}
-  n
-  6
-  \end{pmatrix}
+  \(S\left( n,n - 3 \right) =\binom{n}{4}
+ + 10\binom{n}{5}
+ + 15\binom{n}{6}
 \)
 
 \end{enumerate}
 
 Proof. You are asked to prove these in the problems.
 
-The entries in the Pascal Triangle, \(\begin{pmatrix}
-n
-k
-\end{pmatrix}
-\), satisfy the nice recursion \(\begin{pmatrix}
-n
-k
-\end{pmatrix}
+The entries in the Pascal Triangle, \(\binom{n}{k}
+\), satisfy the nice recursion \(\binom{n}{k}
  =
-\begin{pmatrix}
-n - 1
-k
-\end{pmatrix}
- +\begin{pmatrix}
-n - 1
-k - 1
-\end{pmatrix}
-\) and also have a closed formula: \(\begin{pmatrix}
-n
-k
-\end{pmatrix}
+\binom{n - 1}{k}
+ +\binom{n - 1}{k - 1}
+\) and also have a closed formula: \(\binom{n}{k}
  = n!/k!\left( n - k \right)!\). Theorem 1 gives us a
 recursion for the Stirling numbers \(S\left( n,k \right)\ \)and,
 unfortunately, the best we can do for a ``closed'' formula is contained
 in the following.
 
 \[
-\left( n,k \right) = \frac{1}{k!}\left\lbrack k^{n} - \begin{pmatrix}
-k \\
-1 \\
-\end{pmatrix}\left( k - 1 \right)^{n} + \begin{pmatrix}
-k \\
-2 \\
-\end{pmatrix}\left( k - 2 \right)^{n} - \begin{pmatrix}
-k \\
-3 \\
-\end{pmatrix}\left( k - 3 \right)^{n} + \ldots + \left( - 1 \right)^{k - 1}\begin{pmatrix}
-k \\
-k - 1 \\
-\end{pmatrix}1^{n} \right\rbrack
+\left( n,k \right) = \frac{1}{k!}\left\lbrack k^{n} - \binom{k}{1} \left( k - 1 \right)^{n} + \binom{k}{2} \left( k - 2 \right)^{n} - \binom{k}{3} \left( k - 3 \right)^{n} + \ldots + \left( - 1 \right)^{k - 1}\binom{k}{k - 1} 1^{n} \right\rbrack
 \]
 
 Proof (by Polya). Suppose you wished to paint n houses and you have k
@@ -1113,25 +1056,13 @@ painting the n houses without using the \(i^{th}\)color. Analogously for
 etc. Since \(N\left( \alpha_{i} \right) = \left( k - 1 \right)^{n}\),
 \(N\left( a_{i},\ \alpha_{j} \right) = \left( k - 2 \right)^{n},\ \ldots\ \)
 the number of ways of painting n houses using all k colors is, using
-PIE, \(k^{n} -\begin{pmatrix}
-k
-1
-\end{pmatrix}
+PIE, \(k^{n} -\binom{k}{1}
 \left( k - 1 \right)^{n} +
-\begin{pmatrix}
-k
-2
-\end{pmatrix}
+\binom{k}{2}
 \left( k - 2 \right)^{n} -
-\begin{pmatrix}
-k
-3
-\end{pmatrix}
+\binom{k}{3}
 \left( k - 3 \right)^{n} + \ \ldots + \left( - 1 \right)^{k}
-\begin{pmatrix}
-k
-k
-\end{pmatrix}
+\binom{k}{k}
 0^{n}\). Alternately, we could first partition the n houses
 into k (non-empty) sets, and then paint each set. This can be
 accomplished in \(k!S\left( n,k \right)\ \)ways. Now equate these two
@@ -1157,20 +1088,11 @@ numbers. \(S(n,\ k)\)is used to convert from powers to binomial
 coefficients as shown in the following:
 
 THEOREM 5. \(x^{n} = S\left( n,1 \right)
-\begin{pmatrix}
-x
-1
-\end{pmatrix}
+\binom{x}{1}
 1! + S\left( n,2 \right)
-\begin{pmatrix}
-x
-2
-\end{pmatrix}
+\binom{x}{2}
 2! + \ \ldots + S\left( n,n \right)
-\begin{pmatrix}
-n
-n
-\end{pmatrix}
+\binom{n}{n}
 n!\ \)
 
 PROBLEMS
@@ -1217,20 +1139,11 @@ PROBLEMS
   your answer out to verify.
 \item
   Use your result in Problem 9 to express x\textsuperscript{3} as a
-  linear combination of the binomial coefficients \(\begin{pmatrix}
-  x
-  1
-  \end{pmatrix}
+  linear combination of the binomial coefficients \(\binom{x}{1}
 ,\
-\begin{pmatrix}
-  x
-  2
-  \end{pmatrix}
+\binom{x}{2}
 ,\
-\begin{pmatrix}
-  x
-  3
-  \end{pmatrix}
+\binom{x}{3}
 \).
 \item
   Determine the following:
@@ -1239,52 +1152,25 @@ PROBLEMS
 
   \item
     \(a,\ b,\ c\) so that \(n^{4} = 24
-\begin{pmatrix}
-    n
-    4
-    \end{pmatrix}
+\binom{n}{4}
  + 6a\
-\begin{pmatrix}
-    n
-    3
-    \end{pmatrix}
+\binom{n}{3}
  + 2b\
-\begin{pmatrix}
-    n
-    2
-    \end{pmatrix}
+\binom{n}{2}
  + c
-\begin{pmatrix}
-    n
-    1
-    \end{pmatrix}
+\binom{n}{1}
 \).
   \item
     \(a,\ b,\ c,\ d\) so that \(n^{5} = 5!
-\begin{pmatrix}
-    n
-    5
-    \end{pmatrix}
+\binom{n}{5}
  + a
-\begin{pmatrix}
-    n
-    4
-    \end{pmatrix}
+\binom{n}{4}
  + b
-\begin{pmatrix}
-    n
-    3
-    \end{pmatrix}
+\binom{n}{3}
  + c
-\begin{pmatrix}
-    n
-    2
-    \end{pmatrix}
+\binom{n}{2}
  + d
-\begin{pmatrix}
-    n
-    1
-    \end{pmatrix}
+\binom{n}{1}
 \).
 
 \end{enumerate}
@@ -1324,20 +1210,11 @@ FORMULA:
 \(B_{n} = L\left( x^{n} \right)\ (Gian - Carlo\ Rota)\)
 
 RECURSION: \(B_{n} =
-\begin{pmatrix}
-n - 1
-0
-\end{pmatrix}
+\binom{n - 1}{0}
 B_{0} +
-\begin{pmatrix}
-n - 1
-1
-\end{pmatrix}
+\binom{n - 1}{1}
 B_{1} + \ \ldots +
-\begin{pmatrix}
-n - 1
-n - 1
-\end{pmatrix}
+\binom{n - 1}{n - 1}
 B_{n - 1},\ B_{0} = 1\)
 
 E.G.F.:
@@ -1438,25 +1315,13 @@ This pattern suggests the \({(n + 1)}^{\text{th}}\) Bell Number can be
 represented recursively by
 
 \(B_{n + 1} =
-\begin{pmatrix}
-n
-0
-\end{pmatrix}
+\binom{n}{0}
 B_{0} +
-\begin{pmatrix}
-n
-1
-\end{pmatrix}
+\binom{n}{1}
 B_{1} +
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
 B_{2} + \ \ldots +
-\begin{pmatrix}
-n
-n
-\end{pmatrix}
+\binom{n}{n}
 B_{n}\). The coefficients of this equation are the entries
 of the nth row of Pascal's triangle. You are asked to prove this
 recursion in the exercises.
@@ -1526,25 +1391,13 @@ ways of partitioning the elements of \{1, 2, 3\} are
   numbers \(S(n,k)\) and the formula in Problem 2.
 \item
   Prove that \(B_{n} =
-\begin{pmatrix}
-  n - 1
-  0
-  \end{pmatrix}
+\binom{  n - 1}{  0}
 B_{0} +
-\begin{pmatrix}
-  n - 1
-  1
-  \end{pmatrix}
+\binom{n - 1}{1}
 B_{1} +
-\begin{pmatrix}
-  n - 1
-  2
-  \end{pmatrix}
+\binom{n - 1}{2}
 B_{2} + \ \ldots + \
-\begin{pmatrix}
-  n - 1
-  n - 1
-  \end{pmatrix}
+\binom{n - 1}{n - 1}
 B_{n - 1}\).
 
 \end{enumerate}
@@ -1563,27 +1416,15 @@ a singleton, in a doubleton, or \ldots{} .
 \end{enumerate}
 \begin{quote}
 \(S_{n}\left( n + 1,\ r \right) =
-\begin{pmatrix}
-n
-0
-\end{pmatrix}
+\binom{n}{0}
 S\left( 0,\ r - 1 \right) +
-\begin{pmatrix}
-n
-1
-\end{pmatrix}
+\binom{n}{1}
 S\left( 1,\ r - 1 \right) +
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
 S\left( 2,\ r - 1 \right) + \ \ldots\)
 
 \(+
-\begin{pmatrix}
-n
-n
-\end{pmatrix}
+\binom{n}{n}
 S(n,\ r - 1)\)
 
 \end{quote}
@@ -1681,7 +1522,7 @@ into the character of numbers did not mislead him as to the existence of
 a proof, was vindicated recently when a proof was finally found.
 
 Bell's infectious love of number, his sense of the large sweep of
-mathematical history, and his generous anger at the fools and poopheads
+mathematical history, and his generous anger at the barls and poopheads
 who all too densely populate that history, are his great legacy to
 posterity.
 
@@ -1818,39 +1659,21 @@ PROJECT 1: PATHS AND BINOMIAL COEFFICIENTS
 \item
   Give a geometrical (path argument) for the identity
   \(2^{n} =
-\begin{pmatrix}
-  n
-  0
-  \end{pmatrix}
+\binom{n}{0}
  +
-\begin{pmatrix}
-  n
-  1
-  \end{pmatrix}
+\binom{n}{1}
  + \ \ldots +
-\begin{pmatrix}
-  n
-  n
-  \end{pmatrix}
+\binom{n}{n}
 \ \)using the idea in \#2.
 \item
   Generalize \#1 to three dimensions; introduce obstructions; use
   inclusion-exclusion.
 \item
-  Give a path proof for \(\begin{pmatrix}
-  n
-  k
-  \end{pmatrix}
+  Give a path proof for \(\binom{n}{k}
  =
-\begin{pmatrix}
-  n - 1
-  k
-  \end{pmatrix}
+\binom{n - 1}{k}
  +
-\begin{pmatrix}
-  n - 1
-  k - 1
-  \end{pmatrix}
+\binom{n - 1}{k - 1}
 \).
 \item
   How many lattice paths from \(\left( 0,\ 0 \right)\) to all lattice
@@ -1937,20 +1760,11 @@ PROJECT 3: FIBONACCI NUMBERS
     \(F_{n + 1}^{2} - F_{n}F_{n + 2} = \left( - 1 \right)^{n}\)
   \item
     \(F_{n + 2} =
-\begin{pmatrix}
-    n + 1
-    0
-    \end{pmatrix}
+\binom{n + 1}{0}
  +
-\begin{pmatrix}
-    n
-    1
-    \end{pmatrix}
+\binom{n}{1}
  +
-\begin{pmatrix}
-    n - 1
-    2
-    \end{pmatrix}
+\binom{n - 1}{2}
  + \ \ldots\)
 
 \end{enumerate}
@@ -1991,25 +1805,7 @@ FIX
 \end{enumerate}
 
 \[
-_{n} = \left\lbrack \begin{pmatrix}
-n \\
-1 \\
-\end{pmatrix} + \begin{pmatrix}
-n \\
-3 \\
-\end{pmatrix}5 + \begin{pmatrix}
-n \\
-5 \\
-\end{pmatrix}5^{2}\ldots \right\rbrack + \left\lbrack \begin{pmatrix}
-n \\
-0 \\
-\end{pmatrix} + \begin{pmatrix}
-n \\
-2 \\
-\end{pmatrix} + \begin{pmatrix}
-n \\
-4 \\
-\end{pmatrix} + \ \ldots \right\rbrack.
+_{n} = \left\lbrack \binom{n}{1}  + \binom{n}{3} 5 + \binom{n}{5} 5^{2}\ldots \right\rbrack + \left\lbrack \binom{n}{0}  + \binom{n}{2}  + \binom{n}{4}  + \ \ldots \right\rbrack.
 \]
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2115,31 +1911,16 @@ PROJECT 5: A PASCAL-LIKE TRIANGLE OF EULERIAN NUMBERS
 
 \item
   Show algebraically and geometrically that\(\
-\begin{pmatrix}
-  n
-  2
-  \end{pmatrix}
+\binom{n}{2}
  +
-\begin{pmatrix}
-  n + 1
-  2
-  \end{pmatrix}
+\binom{n + 1}{2}
  = n^{2}\).
 \item
-  Show that \(\begin{pmatrix}
-  n
-  3
-  \end{pmatrix}
+  Show that \(\binom{n}{3}
  + 4
-\begin{pmatrix}
-  n + 1
-  3
-  \end{pmatrix}
+\binom{n + 1}{3}
  +
-\begin{pmatrix}
-  n + 2
-  3
-  \end{pmatrix}
+\binom{n + 2}{3}
  = n^{3}\).
 \item
   Use \#1 and the hockey stick theorem to find a nice formula for
@@ -2160,19 +1941,7 @@ PROJECT 5: A PASCAL-LIKE TRIANGLE OF EULERIAN NUMBERS
 \end{enumerate}
 
 \[
-^{4} + 2^{4} + 3^{4} + \ \ldots + n^{4} = a\begin{pmatrix}
-n + 1 \\
-5 \\
-\end{pmatrix} + b\begin{pmatrix}
-n + 2 \\
-5 \\
-\end{pmatrix} + c\begin{pmatrix}
-n + 3 \\
-5 \\
-\end{pmatrix} + d\begin{pmatrix}
-n + 4 \\
-5 \\
-\end{pmatrix}
+^{4} + 2^{4} + 3^{4} + \ \ldots + n^{4} = a\binom{n + 1}{5}  + b\binom{n + 2}{5}  + c\binom{n + 3}{5}  + d\binom{n + 4}{5}
 \]
 \begin{quote}
 using n=1, 2, 3, 4. This sometimes referred to as ``Polynomial
@@ -2286,10 +2055,7 @@ The first five rows of a triangle are given above.
 \item
   Explain why
   \(1 \bullet n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \ \ldots + n \bullet 1 =
-\begin{pmatrix}
-  n + 2
-  3
-  \end{pmatrix}
+\binom{n + 2}{3}
 \).
 
 \end{enumerate}
@@ -2310,26 +2076,22 @@ place n similar objects into k different boxes either allowing empty
 boxes or not? As this second class of problem is a little easier let's
 analyze it first.
 
-RESULT: The number of ways of placing n similar objects into k different
-bins not allowing empty bins is \(\begin{pmatrix}
-n - 1
-k - 1
-\end{pmatrix}
+\begin{result}The number of ways of placing n similar objects into k different
+bins not allowing empty bins is \(\binom{n - 1}{k - 1}
 \). Denote the k different bins by
 \(x_{1},\ x_{2},\ldots,\ x_{k}\). The number of solutions to
 \(x_{1} + x_{2} + \ \ldots + x_{k} = n\) where each \(x_{i} \geq 1\) is
 the number of such distributions.
+\end{result}
 
-RESULT: The number of ways of placing n similar objects into k different
-bins allowing empty bins is \(\begin{pmatrix}
-n + k - 1
-k - 1
-\end{pmatrix}
-\). The number of solutions to
-\(x_{1} + x_{2} + \ \ldots + x_{k} = n\) where each \(x_{i} \geq 0\) is
-the number of such distributions. Notice here that allowing, \(x_{2}\),
-for example, to be 0 is the same as saying that no objects will be
-placed in bin \#2.
+\begin{result}  The number of ways of placing n similar objects into k different
+  bins allowing empty bins is \(\binom{n + k - 1}{k - 1}
+  \). The number of solutions to
+  \(x_{1} + x_{2} + \ \ldots + x_{k} = n\) where each \(x_{i} \geq 0\) is
+  the number of such distributions. Notice here that allowing, \(x_{2}\),
+  for example, to be 0 is the same as saying that no objects will be
+  placed in bin \#2.
+\end{result}
 
 Now let's turn to the first problem. Using the Principle of
 Inclusion-Exclusion (PIE) we see that the number of functions from \{1,
@@ -2338,43 +2100,19 @@ Inclusion-Exclusion (PIE) we see that the number of functions from \{1,
 functions from \{1, 2, 3, 4, 5, 6\} \emph{onto} \{a, b, c, d\} is
 
 \(4^{6} - 4 \bullet 3^{6} + 6 \bullet 2^{6} - 4 \bullet 1^{6} =
-\begin{pmatrix}
-4
-4
-\end{pmatrix}
+\binom{4}{4}
 4^{6} -
-\begin{pmatrix}
-4
-3
-\end{pmatrix}
+\binom{4}{3}
 3^{6} +
-\begin{pmatrix}
-4
-2
-\end{pmatrix}
+\binom{4}{2}
 2^{6} -
-\begin{pmatrix}
-4
-1
-\end{pmatrix}
+\binom{4}{1}
 1^{6}.\) PIE can be used to show that, in general, the
 number of functions from \(\{ x_{1},\ x_{2},\ \ldots,\ x_{n}\}\)
 \emph{onto} \(\{ y_{1},\ y_{2},\ldots,\ y_{k}\}\) is
 
 \[
-\left( n,k \right) = k^{n} - \begin{pmatrix}
-k \\
-1 \\
-\end{pmatrix}\left( k - 1 \right)^{n} + \begin{pmatrix}
-k \\
-2 \\
-\end{pmatrix}\left( k - 2 \right)^{n} - \begin{pmatrix}
-k \\
-3 \\
-\end{pmatrix}\left( k - 3 \right)^{n} + \ \ldots + \left( - 1 \right)^{k - 1}\begin{pmatrix}
-k \\
-k - 1 \\
-\end{pmatrix}1^{n}
+\left( n,k \right) = k^{n} - \binom{k}{1} \left( k - 1 \right)^{n} + \binom{k}{2} \left( k - 2 \right)^{n} - \binom{k}{3} \left( k - 3 \right)^{n} + \ \ldots + \left( - 1 \right)^{k - 1}\binom{k}{k - 1} 1^{n}
 \]
 
 Each onto functions characterizes a distribution problem as follows: the
@@ -2397,12 +2135,14 @@ images \(f^{- 1}\left( a \right),\ f^{- 1}\left( b \right),\) and
 this model counts distributions that do not allow empty bins. This
 establishes the following distribution result.
 
-RESULT: The number of ways of placing \emph{n} different objects into
+\begin{result}
+	 The number of ways of placing \emph{n} different objects into
 \emph{k} different bins with no empty bins is \(B(n,k)\).
-
-RESULT: The number of ways of placing n different objects into k
+\end{result}
+\begin{result}
+	 The number of ways of placing n different objects into k
 different bins in \(k^{n}.\)
-
+\end{result}
 Without the restriction of ``no empty bins'' this is just a matter of
 saying that there are k places for disposing of each of the n objects.
 This is also the number of functions from
@@ -2417,8 +2157,10 @@ bins into different bins. The number of distributions of this type is
 therefore \(\frac{1}{k!}B(n,k)\). For convenience of notation, let's
 call this last expression: \(S\left( n,k \right).\)
 
-RESULT: The number of ways of placing n different objects into k similar
+\begin{result}
+	 The number of ways of placing n different objects into k similar
 bins with no empty bins is \(S\left( n,k \right).\)
+\end{result}
 
 There is one additional distribution problem that we can analyze using
 the machinery developed thus far. In how many ways can you place n
@@ -2437,9 +2179,10 @@ Exactly two bins are empty-\(S(n,\ k - 2)\)
 
 All but one bin are empty-\(S(n,\ 1)\)
 
-RESULT: The number of ways of distributing n different objects into k or
+\begin{result} The number of ways of distributing n different objects into k or
 fewer bins is
 \(S\left( n,\ 1 \right) + S\left( n,\ 2 \right) + \ \ldots + S(n,\ k)\).
+\end{result}
 
 Finally, the theory of linear or integer \emph{partitions} solves the
 final distribution problem: In how many ways can you distribute n
@@ -2460,15 +2203,9 @@ n objects & & & k bins &\tabularnewline
 & & & Allow empty & \(P_{k}(n)\)\tabularnewline
 S & (Partitions of Integers) & S & &\tabularnewline
 & & & Do not & \(P_{k}(n - k)\)\tabularnewline
-& & & Allow empty & \(\begin{pmatrix}
-n + k - 1 \\
-k - 1 \\
-\end{pmatrix}\)\tabularnewline
+& & & Allow empty & \(\binom{n + k - 1}{k - 1} \)\tabularnewline
 S & (Compositions) & D & &\tabularnewline
-& & & Do not & \(\begin{pmatrix}
-n - 1 \\
-k - 1 \\
-\end{pmatrix}\)\tabularnewline
+& & & Do not & \(\binom{n - 1}{k - 1} \)\tabularnewline
 & & & Allow empty &
 \(S\left( n,1 \right) + S\left( n,2 \right) + \ \ldots + S(n,k)\)\tabularnewline
 D & (Set Partitions) & S & &\tabularnewline
@@ -2487,20 +2224,11 @@ S = Similar
 D = Different
 
 \(B\left( n,k \right) = k^{n} -
-\begin{pmatrix}
-k
-1
-\end{pmatrix}
+\binom{k}{1}
 \left( k - 1 \right)^{n} +
-\begin{pmatrix}
-k
-2
-\end{pmatrix}
+\binom{k}{2}
 \left( k - 2 \right)^{n} + \ \ldots + \left( - 1 \right)^{k - 1}
-\begin{pmatrix}
-k
-k - 1
-\end{pmatrix}
+\binom{k}{k - 1}
 1^{n}\)
 
 \[
@@ -2522,15 +2250,9 @@ the reader is urged to attempt an alternate proof for comparison
 purposes. Such an alternate proof could be algebraic or geometric in
 nature; or one could try a collapsing sum or an induction proof.
 
-\emph{THEOREM 1} \(\begin{pmatrix}
-2n
-2
-\end{pmatrix}
+\emph{THEOREM 1} \(\binom{2n}{2}
  = 2
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
  + n^{2}\)
 
 Split the \(2n\) objects into two groups A and B as shown:
@@ -2541,163 +2263,82 @@ A B
 
 First, you can choose 2 objects from a set of \(2n\ \)objects
 in\(\
-\begin{pmatrix}
-2n
-2
-\end{pmatrix}
+\binom{2n}{2}
 \ \)ways. Alternatively, you could select two from group A
 in\(\
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
 \) ways or two from group B in\(\
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
 \) ways or take one from each in \(n \bullet n = n^{2}\)
 ways. Now add\(\
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
  +
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
  + n \bullet n\) and the result follows. The reader should
 attempt an algebraic proof using the factorial formula
 for\(\
-\begin{pmatrix}
-n
-k
-\end{pmatrix}
+\binom{n}{k}
 \).
 
-\emph{THEOREM 2} \(\begin{pmatrix}
-m + n
-2
-\end{pmatrix}
+\emph{THEOREM 2} \(\binom{m + n}{2}
  -
-\begin{pmatrix}
-m
-2
-\end{pmatrix}
+\binom{m}{2}
  -
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
  = mn\)
 
 Suppose you have a group of m men and n women and you want to form
 men-women dancing pairs. This can clearly be done in mn ways. Or, you
 could choose 2 from the total of m + n and delete the men-men pairs
-(there are \(\begin{pmatrix}
-m
-2
-\end{pmatrix}
+(there are \(\binom{m}{2}
 \ \)of these) and delete the women-women pairs
-(also\(\begin{pmatrix}
-n
-2
-\end{pmatrix}
+(also\(\binom{n}{2}
 \)of these). The result follows. The reader could attempt
 an algebraic proof or perhaps a geometric proof making use of figures
 consisting of triangular numbers. Also, as a challenge, the reader could
-formulate a similar result involving \(\begin{pmatrix}
-a + b + c
-3
-\end{pmatrix}
+formulate a similar result involving \(\binom{a + b + c}{3}
 \) and a corresponding proof.
 
-\emph{THEOREM 3} \(\begin{pmatrix}
-n
-0
-\end{pmatrix}
+\emph{THEOREM 3} \(\binom{n}{0}
  +
-\begin{pmatrix}
-n
-1
-\end{pmatrix}
+\binom{n}{1}
  +
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
  + \ \ldots +
-\begin{pmatrix}
-n
-n
-\end{pmatrix}
+\binom{n}{n}
  = 2^{n}\)
 
 Here again we first create a question that is answered by either side of
 the given identity. Question: How many subsets does
 \(\{ a_{1},\ a_{2},\ldots,\ a_{n}\}\) have? An n-set has
-\(\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\(\binom{n}{2}
 \) subsets. The left-hand side counts these subsets by
-their size. There are \(\begin{pmatrix}
-n
-k
-\end{pmatrix}
+their size. There are \(\binom{n}{k}
 \ \)subsets of size k.
 
 In this situation the reader might \emph{not} want to try this
 algebraically.
 
-\emph{THEOREM 4} \(\begin{pmatrix}
-n
-1
-\end{pmatrix}
+\emph{THEOREM 4} \(\binom{n}{1}
  + 2
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
  + 3
-\begin{pmatrix}
-n
-3
-\end{pmatrix}
+\binom{n}{3}
  + \ \ldots + n
-\begin{pmatrix}
-n
-n
-\end{pmatrix}
+\binom{n}{n}
  = {n2}^{n - 1}\)
 
 Given a set of n people we can select a committee of size k along with a
 chair from that committee in \(k
-\begin{pmatrix}
-n
-k
-\end{pmatrix}
+\binom{n}{k}
 \ \)ways. We can select a committee (of size 1, or size 2,
-or \ldots{}) and its chair in \(\begin{pmatrix}
-n
-1
-\end{pmatrix}
+or \ldots{}) and its chair in \(\binom{n}{1}
  + 2
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
  + 3
-\begin{pmatrix}
-n
-3
-\end{pmatrix}
+\binom{n}{3}
  + \ \ldots + n
-\begin{pmatrix}
-n
-n
-\end{pmatrix}
+\binom{n}{n}
 \ \)ways. Alternatively, we can explain the term
 \(n2^{n - 1}\ \)as follows: choose one of the n people to chair any of
 the \(2^{n - 1}\)subsets of the remaining \(n - 1\) people.
@@ -2706,53 +2347,29 @@ The reader is invited to investigate one or more of the following
 approaches: \(n2^{n - 1}\) looks like a derivative, so try
 differentiating \(\left( 1 + x \right)^{n}\); a reverse and add approach
 also works; or, first prove \(k
-\begin{pmatrix}
-n
-k
-\end{pmatrix}
+\binom{n}{k}
  = n
-\begin{pmatrix}
-n - 1
-k - 1
-\end{pmatrix}
+\binom{n - 1}{k - 1}
 \ \)and then use it.
 
 \emph{THEOREM 5} \(\
-\begin{pmatrix}
-n
-k
-\end{pmatrix}
+\binom{n}{k}
  =
-\begin{pmatrix}
-n - 1
-k
-\end{pmatrix}
+\binom{n - 1}{k}
  +
-\begin{pmatrix}
-n - 1
-k - 1
-\end{pmatrix}
+\binom{n - 1}{k - 1}
 \)
 
-\(\begin{pmatrix}
-n
-k
-\end{pmatrix}
+\(\binom{n}{k}
 \ \)is the number of subsets of
 \(\{ a_{1},\ a_{2},a_{3},\ \ldots,\ a_{n}\}\) of size k. Now a subset A
 of size k either contains the fixed element\(\ a_{i}\) or it does not.
 If A contains \(a_{i}\), the remaining \(k - 1\) elements can be
-selected in \(\begin{pmatrix}
-n - 1
-k - 1
-\end{pmatrix}
+selected in \(\binom{n - 1}{k - 1}
 \) ways. If, on the other hand, A does not contain
 \(a_{i}\), you can choose the k elements from the depressed set
 \(\left\{ a_{1},\ a_{2},\ \ldots,\ a_{i - 1,}a_{i + 1,\ \ldots,\ }a_{n} \right\}\ \)in
-\(\begin{pmatrix}
-n - 1
-k
-\end{pmatrix}
+\(\binom{n - 1}{k}
 \) ways. Since these two cases are mutually exclusive the
 theorem follows.
 
@@ -2778,139 +2395,67 @@ from which the new recursion
 \(d_{n} = nd_{n - 1} + \left( - 1 \right)^{n}\), and the above
 recursion, can be derived.
 
-\emph{THEOREM 7} \(\begin{pmatrix}
-n
-0
-\end{pmatrix}
+\emph{THEOREM 7} \(\binom{n}{0}
 ^{2} +
-\begin{pmatrix}
-n
-1
-\end{pmatrix}
+\binom{n}{1}
 ^{2} +
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
 ^{2} + \ \ldots +
-\begin{pmatrix}
-n
-n
-\end{pmatrix}
+\binom{n}{n}
 ^{2} =
-\begin{pmatrix}
-2n
-n
-\end{pmatrix}
+\binom{2n}{n}
 \)
 
 Given a group of \(2n\) people consisting of n men and n women, in how
 many ways can one choose a group of n people? The answer to that
-question is just\(\begin{pmatrix}
-2n
-n
-\end{pmatrix}
+question is just\(\binom{2n}{n}
 \), the right side of the identity in question. One could
 also form the group of n people in the following way: choose 0 men and n
 women in
 
-\(\begin{pmatrix}
-n
-0
-\end{pmatrix}
-\begin{pmatrix}
-n
-n
-\end{pmatrix}
+\(\binom{n}{0}
+\binom{n}{n}
  =
-\begin{pmatrix}
-n
-0
-\end{pmatrix}
+\binom{n}{0}
 ^{2}\ \)ways, or, choose 1 man and \(n - 1\) women in
 
-\(\begin{pmatrix}
-n
-1
-\end{pmatrix}
-\begin{pmatrix}
-n
-n - 1
-\end{pmatrix}
+\(\binom{n}{1}
+\binom{n}{n - 1}
  =
-\begin{pmatrix}
-n
-1
-\end{pmatrix}
+\binom{n}{1}
 ^{2}\)ways, or choose 2 men and \(n - 2\) women in
 
-\(\begin{pmatrix}
-n
-2
-\end{pmatrix}
-\begin{pmatrix}
-n
-n - 2
-\end{pmatrix}
+\(\binom{n}{2}
+\binom{n}{n - 2}
  =
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
 ^{2}\) ways and so on. Now add these disjoint cases.
 
 An alternate algebraic proof is less interesting: Extract the
 coefficient of \(x^{n}\) from both sides
 of.\(\left\lbrack \left( x + 1 \right)^{n} \right\rbrack^{2} = \left( x + 1 \right)^{2n}\)
 
-\emph{THEOREM 8} \(\begin{pmatrix}
-2
-2
-\end{pmatrix}
+\emph{THEOREM 8} \(\binom{2}{2}
  +
-\begin{pmatrix}
-3
-2
-\end{pmatrix}
+\binom{3}{2}
  +
-\begin{pmatrix}
-4
-2
-\end{pmatrix}
+\binom{4}{2}
  + \ \ldots +
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
  =
-\begin{pmatrix}
-n + 1
-3
-\end{pmatrix}
+\binom{n + 1}{3}
 \)
 
-The term \(\begin{pmatrix}
-n + 1
-3
-\end{pmatrix}
+The term \(\binom{n + 1}{3}
 \) is the number of binary strings of length \(n + 1\)
 consisting of three 1's (and the rest 0's). The left hand side counts
 these by where in the string the left- most 1 appears. Let
 \(a_{1}\ a_{2}a_{3}\ldots a_{n + 1}\) be a string of length \(n + 1\).
-There are \(\begin{pmatrix}
-n
-2
-\end{pmatrix}
+There are \(\binom{n}{2}
 \) strings when \(a_{1} = 1,\
-\begin{pmatrix}
-n - 1
-2
-\end{pmatrix}
+\binom{n - 1}{2}
 \) strings when \(a_{2} = 1\) is the leftmost 1, \ldots{},
-and \(\begin{pmatrix}
-2
-2
-\end{pmatrix}
+and \(\binom{2}{2}
 \)strings when \(a_{n - 1} = 1\ \)is the leftmost 1. In
 this last case the string looks like 000 \ldots{} 0111.
 
@@ -2921,126 +2466,60 @@ algebraic approach is not!
 in strictly increasing order is \(2^{9} - 1\). Include single digit
 numbers.
 
-There are \(\begin{pmatrix}
-9
-1
-\end{pmatrix}
-\) single digit type, \(\begin{pmatrix}
-9
-2
-\end{pmatrix}
+There are \(\binom{9}{1}
+\) single digit type, \(\binom{9}{2}
 \) double digit type (just select 2 of the 9 digits 1, 2,
 3, \ldots{}, 9 and arrange in order), \ldots{}, and so on to see that
-there are \(\begin{pmatrix}
-9
-9
-\end{pmatrix}
-\) nine digit type. The total is \(\begin{pmatrix}
-9
-1
-\end{pmatrix}
+there are \(\binom{9}{9}
+\) nine digit type. The total is \(\binom{9}{1}
  +
-\begin{pmatrix}
-9
-2
-\end{pmatrix}
+\binom{9}{2}
  +
-\begin{pmatrix}
-9
-3
-\end{pmatrix}
+\binom{9}{3}
  + \ \ldots +
-\begin{pmatrix}
-9
-9
-\end{pmatrix}
+\binom{9}{9}
  = 2^{9} - 1.\)
 
 Here is an alternative, more clever, proof. Look at 123456789. Any
 increasing number can be made by deleting \emph{any} subset of digits,
 except all of them. There are \(2^{9} - 1\)such subsets. For example,
 delete the subset \{2, 4, 7, 9\} and you get 13568. Combining these two
-approaches actually gives you a nice proof that \(\begin{pmatrix}
-9
-0
-\end{pmatrix}
+approaches actually gives you a nice proof that \(\binom{9}{0}
  +
-\begin{pmatrix}
-9
-1
-\end{pmatrix}
+\binom{9}{1}
  +
-\begin{pmatrix}
-9
-2
-\end{pmatrix}
+\binom{9}{2}
  + \ \ldots +
-\begin{pmatrix}
-9
-9
-\end{pmatrix}
+\binom{9}{9}
  = 2^{9}\).
 
-\emph{THEOREM 10} \(\begin{pmatrix}
-3n
-3
-\end{pmatrix}
+\emph{THEOREM 10} \(\binom{3n}{3}
  = 3
-\begin{pmatrix}
-n
-3
-\end{pmatrix}
+\binom{n}{3}
  + 6n
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
  + n^{3}\)
 
 This one is a little tougher. First rewrite as \(n^{3} =
-\begin{pmatrix}
-3n
-3
-\end{pmatrix}
+\binom{3n}{3}
  - 3
-\begin{pmatrix}
-n
-3
-\end{pmatrix}
+\binom{n}{3}
  - 6n
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
 \). Suppose you have n men, n women and n children and you
 want to select triples consisting of one man, one woman and one child.
 There are \(n^{3}\) ways to do this, just pick one from each group.
-Alternatively, select 3 of the 3n people in \(\begin{pmatrix}
-3n
-3
-\end{pmatrix}
+Alternatively, select 3 of the 3n people in \(\binom{3n}{3}
 \) ways and delete the ``bad'' ones. Delete the ones where
 you selected all three from one group -- there are \(3
-\begin{pmatrix}
-n
-3
-\end{pmatrix}
+\binom{n}{3}
 \)of these. Now delete those where you had two from one
 group and one from another -- there are \(2n
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
  + 2n
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
  + 2n
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
 \) of these.
 
 \emph{THEOREM 11}
@@ -3064,17 +2543,11 @@ The reader should attempt a collapsing sum or induction proof.
 
 \emph{THEOREM 12}
 \(1 \bullet n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \ \ldots + n \bullet 1 =
-\begin{pmatrix}
-n + 2
-3
-\end{pmatrix}
+\binom{n + 2}{3}
 \)
 
 Let \(S = \{ 0,\ 1,\ 2,\ \ldots,\ n,\ n + 1\}\). The number of subsets
-of S of size 3 is \(\begin{pmatrix}
-n + 2
-3
-\end{pmatrix}
+of S of size 3 is \(\binom{n + 2}{3}
 \). Each one looks like \{a, b, c\} with a \textless{} b
 \textless{} c, Let's count these by looking at the size of the middle
 element b. If b=1 , there is one choice for a, namely a=0 and n choices
@@ -3085,110 +2558,62 @@ total is
 \(3(n - 2)\), and so on. The total derived by looking at cases is
 
 \(1 \bullet n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \ \ldots + n \bullet 1\)
-and this must equal \(\begin{pmatrix}
-n + 2
-3
-\end{pmatrix}
+and this must equal \(\binom{n + 2}{3}
 \) since the cases are disjoint.
 
 \emph{\\
 }
 
 \emph{THEOREM 13} \(k
-\begin{pmatrix}
-n
-k
-\end{pmatrix}
+\binom{n}{k}
  = n
-\begin{pmatrix}
-n - 1
-k - 1
-\end{pmatrix}
+\binom{n - 1}{k - 1}
 \)
 
 Suppose you have a group of n people and you wish to form a subcommittee
 of k people with one of those k people to serve as chair. Choose the
-subcommittee in \(\begin{pmatrix}
-n
-k
-\end{pmatrix}
+subcommittee in \(\binom{n}{k}
 \) ways and the chair in k ways. The product rule
 gives\(\text{\ k}
-\begin{pmatrix}
-n
-k
-\end{pmatrix}
+\binom{n}{k}
 \) as the number of ways of selecting such a chaired
 subcommittee.
 
 Alternatively, you could first choose any one of the n people to serve
-as chair and then fill out the committee in \(\begin{pmatrix}
-n - 1
-k - 1
-\end{pmatrix}
+as chair and then fill out the committee in \(\binom{n - 1}{k - 1}
 \) ways. There are \(n
-\begin{pmatrix}
-n - 1
-k - 1
-\end{pmatrix}
+\binom{n - 1}{k - 1}
 \) ways to select a chaired subcommittee. Hence
 \(k
-\begin{pmatrix}
-n
-k
-\end{pmatrix}
+\binom{n}{k}
  = n
-\begin{pmatrix}
-n - 1
-k - 1
-\end{pmatrix}
+\binom{n - 1}{k - 1}
 \)
 
 The reader should attempt the easier algebraic technique by converting
-\(\begin{pmatrix}
-n
-k
-\end{pmatrix}
+\(\binom{n}{k}
 \) to factorial form.
 
 \emph{THEOREM 14} \(P\left( n,k \right) = k!
-\begin{pmatrix}
-n
-k
-\end{pmatrix}
+\binom{n}{k}
 \)
 
 Questions -- How many permutations are there of k objects chosen from a
 collection of n objects? The LHS answers the question. There are
 \(P\left( n,k \right) = n\left( n - 1 \right)\left( n - 2 \right)...(n - k + 1)\)
 ways. Alternatively, one could first choose the k objects from the n
-objects in \(\begin{pmatrix}
-n
-k
-\end{pmatrix}
+objects in \(\binom{n}{k}
 \) ways and then permute these in k! ways.
 
 \emph{\\
 THEOREM 15} \(n2^{n - 1} = 1
-\begin{pmatrix}
-n
-1
-\end{pmatrix}
+\binom{n}{1}
  + 2
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
  + 3
-\begin{pmatrix}
-n
-3
-\end{pmatrix}
+\binom{n}{3}
  + \ \ldots + n
-\begin{pmatrix}
-n
-n
-\end{pmatrix}
+\binom{n}{n}
 \)
 
 Contrast this discussion with that presented in THEOREM 4. Look at the
@@ -3203,69 +2628,33 @@ half of the \(n \bullet 2^{n}\) symbols are 1's. Then the total number
 of 1's is \(n2^{n - 1}\). Alternatively, we could consider each string
 and count those with one 1, then those with two 1's, etc. There are
 \(1 \bullet
-\begin{pmatrix}
-n
-1
-\end{pmatrix}
+\binom{n}{1}
 \) with one 1, \(2
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
 \) total 1's in those binary numbers with exactly two 1's,
 \(3
-\begin{pmatrix}
-n
-3
-\end{pmatrix}
+\binom{n}{3}
 \) in those with exactly three 1's , and so on. The total
 is \(1
-\begin{pmatrix}
-n
-1
-\end{pmatrix}
+\binom{n}{1}
  + 2
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
  + 3
-\begin{pmatrix}
-n
-3
-\end{pmatrix}
+\binom{n}{3}
  + \ \ldots + n
-\begin{pmatrix}
-n
-n
-\end{pmatrix}
+\binom{n}{n}
 \text{.\ }\)The result now follows by equating
 \(n2^{n - 1}\) to this sum.
 
-\emph{THEOREM 16} \(\begin{pmatrix}
-n
-0
-\end{pmatrix}
+\emph{THEOREM 16} \(\binom{n}{0}
 ^{2} +
-\begin{pmatrix}
-n
-1
-\end{pmatrix}
+\binom{n}{1}
 ^{2} +
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
 ^{2} + \ \ldots +
-\begin{pmatrix}
-n
-n
-\end{pmatrix}
+\binom{n}{n}
 ^{2} =
-\begin{pmatrix}
-2n
-n
-\end{pmatrix}
+\binom{2n}{n}
 \)
 
 Let's revisit this identity using equivalence relations. A binary
@@ -3286,96 +2675,48 @@ of this process looks like:
 \(\left( - - - , - - - \right) \rightarrow \left( - 11,\  - - 1 \right) \rightarrow \left( 011,\ 001 \right) \rightarrow (011,\ 110)\).
 The reader can check that this process always produces an element of R
 and that the case of n=3 extends easily to general n. Conclusion: choose
-the n positions for 1's in \(\begin{pmatrix}
-2n
-n
-\end{pmatrix}
+the n positions for 1's in \(\binom{2n}{n}
 \) ways. The result follows.
 
-\emph{THEOREM 17} \(\begin{pmatrix}
-n
-0
-\end{pmatrix}
+\emph{THEOREM 17} \(\binom{n}{0}
 d_{0} +
-\begin{pmatrix}
-n
-1
-\end{pmatrix}
+\binom{n}{1}
 d_{1} +
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
 d_{2} + \ \ldots +
-\begin{pmatrix}
-n
-n
-\end{pmatrix}
+\binom{n}{n}
 d_{n} = n!\) where \(d_{n}\) denotes the
 \(\ n^{\text{th}}\ \)derangement number, \(d_{0} = 1,\ d_{1} = 0.\)
 
 The right-hand side, n!, gives the number of permutations of n objects.
 So the left-hand side must provide the same enumeration. The left side
 partitions the permutations according to how many elements are deranged
-(and the rest fixed). The term \(\begin{pmatrix}
-n
-i
-\end{pmatrix}
+(and the rest fixed). The term \(\binom{n}{i}
 d_{i} =
-\begin{pmatrix}
-n
-n - i
-\end{pmatrix}
+\binom{n}{n - i}
 d_{\text{i\ }}\)gives the number of permutations of n where
 \(n - i\) elements are fixed and the remaining i elements are deranged.
 Summing over all i yields
 
-\(\begin{pmatrix}
-n
-n
-\end{pmatrix}
+\(\binom{n}{n}
 d_{0} +
-\begin{pmatrix}
-n
-n - 1
-\end{pmatrix}
+\binom{n}{n - 1}
 d_{1} + \ \ldots +
-\begin{pmatrix}
-n
-0
-\end{pmatrix}
+\binom{n}{0}
 d_{n} =
-\begin{pmatrix}
-n
-0
-\end{pmatrix}
+\binom{n}{0}
 d_{0} +
-\begin{pmatrix}
-n
-1
-\end{pmatrix}
+\binom{n}{1}
 d_{1} + \ \ldots +
-\begin{pmatrix}
-n
-n
-\end{pmatrix}
+\binom{n}{n}
 d_{n} = n!\)
 
 \emph{THEOREM 18} \(F_{n + 1} =
-\begin{pmatrix}
-n
-0
-\end{pmatrix}
+\binom{n}{0}
  +
-\begin{pmatrix}
-n - 1
-1
-\end{pmatrix}
+\binom{n - 1}{1}
  +
-\begin{pmatrix}
-n - 2
-2
-\end{pmatrix}
+\binom{n - 2}{2}
  + \ \ldots\) where \(F_{n}\) denotes the
 \(\ n^{\text{th}}\ \)Fibonacci number.
 
@@ -3392,46 +2733,25 @@ This recursion, along with the initial conditions, show that
 Now lets look at all paths of length n and count them by the number of 1
 x 2 bricks. If there are i 1 x 2 bricks there are \(n - i\) total bricks
 making up the path of length n. Choose the positions of the i 1 x 2
-bricks in \(\begin{pmatrix}
-n - i
-i
-\end{pmatrix}
+bricks in \(\binom{n - i}{i}
 \) ways. Now sum as i ranges through the values
 
-0, 1, 2, \ldots{}, and obtain \(\begin{pmatrix}
-n
-0
-\end{pmatrix}
+0, 1, 2, \ldots{}, and obtain \(\binom{n}{0}
  +
-\begin{pmatrix}
-n - 1
-1
-\end{pmatrix}
+\binom{n - 1}{1}
  +
-\begin{pmatrix}
-n - 2
-2
-\end{pmatrix}
+\binom{n - 2}{2}
  + \ \ldots = F_{n + 1}\).
 
 The reader should draw all paths of length \(n = 5\), for example, and
 examine the cases with i=0, 1, 2 . The reader could also explore other
 proofs.
 
-\emph{THEOREM 19} \(\begin{pmatrix}
-m + n
-2
-\end{pmatrix}
+\emph{THEOREM 19} \(\binom{m + n}{2}
  -
-\begin{pmatrix}
-m
-2
-\end{pmatrix}
+\binom{m}{2}
  -
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
  = mn\) (Revisited)
 
 1.
@@ -3455,52 +2775,25 @@ m by n rectangle. Each choice of arrows
 
 Pick two arrows but don't take two from the top or two from
 
-the side. Then \(\begin{pmatrix}
-m + n
-2
-\end{pmatrix}
+the side. Then \(\binom{m + n}{2}
  -
-\begin{pmatrix}
-m
-2
-\end{pmatrix}
+\binom{m}{2}
  -
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
  = mn\)
 
 3. Take m people in one group and n in another. How many handshakes can
-be accomplished? Among the m people there are \(\begin{pmatrix}
-m
-2
-\end{pmatrix}
+be accomplished? Among the m people there are \(\binom{m}{2}
 \) handshakes; among the n people there are
-\(\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\(\binom{n}{2}
 \ \)handshakes and between the two groups, mn. But,
-\(\begin{pmatrix}
-m + n
-2
-\end{pmatrix}
+\(\binom{m + n}{2}
 \) also represents the total number of handshakes among the
-people. Then we get: \(\begin{pmatrix}
-m
-2
-\end{pmatrix}
+people. Then we get: \(\binom{m}{2}
  +
-\begin{pmatrix}
-n
-2
-\end{pmatrix}
+\binom{n}{2}
  + mn =
-\begin{pmatrix}
-m + n
-2
-\end{pmatrix}
+\binom{m + n}{2}
 \).
 \begin{figure}[h!]\begin{center}
 \includegraphics[width=0.70\columnwidth]{figures/image18/image18}
