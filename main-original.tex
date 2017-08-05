@@ -1,6 +1,104 @@
+\documentclass[10pt,letter]{article}
 
+\usepackage{fullpage}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{lineno}
+
+\usepackage{amsmath, amsthm, amssymb}
+
+\newtheorem{result}{Result}[section]
+
+
+
+\PassOptionsToPackage{hyphens}{url}
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\@combinedblfloats{\box\@outputbox}{\unvbox\@outputbox}{}{%
+  \errmessage{\noexpand\@combinedblfloats could not be patched}%
+}%
+\makeatother
+
+
+\usepackage[round]{natbib}
+\let\cite\citep
+
+
+\renewenvironment{abstract}
+  {{\bfseries\noindent{\large\abstractname}\par\nobreak}}
+  {}
+
+\renewenvironment{quote}
+  {\begin{tabular}{|p{13cm}}}
+  {\end{tabular}}
+
+\titlespacing{\section}{0pt}{*3}{*1}
+\titlespacing{\subsection}{0pt}{*2}{*0.5}
+\titlespacing{\subsubsection}{0pt}{*1.5}{0pt}
+
+
+\usepackage{authblk}
+\makeatletter
+\renewcommand\AB@authnote[1]{\rlap{\textsuperscript{\normalfont#1}}}
+\renewcommand\Authsep{,~\,}
+\renewcommand\Authands{,~\,and }
+\makeatother
+
+
+\usepackage{graphicx}
+\usepackage[space]{grffile}
+\usepackage{latexsym}
+\usepackage{textcomp}
+\usepackage{longtable}
+\usepackage{tabulary}
+\usepackage{booktabs,array,multirow}
+\usepackage{amsfonts,amsmath,amssymb}
+\providecommand\citet{\cite}
+\providecommand\citep{\cite}
+\providecommand\citealt{\cite}
+% You can conditionalize code for latexml or normal latex using this.
+\newif\iflatexml\latexmlfalse
+\DeclareGraphicsExtensions{.pdf,.PDF,.png,.PNG,.jpg,.JPG,.jpeg,.JPEG}
+
+\usepackage[utf8]{inputenc}
+% \usepackage[ngerman,greek,english]{babel}
+
+
+
+
+
+\begin{document}
 
 \title{Discrete and Combinatorial Mathematics}
+
+
+
+\author[1]{Oscar Levin}%
+\affil[1]{Affiliation not available}%
+
+
+\vspace{-1em}
+
+
+
+  \date{\today}
+
+\begingroup
+\let\center\flushleft
+\let\endcenter\endflushleft
+\maketitle
+\endgroup
+
+
+
+
 
 
 
@@ -19,7 +117,57 @@ Partially Funded by NSF Grant \#0832026
 
 Revised August 2009
 
+Table of Contents
 
+A Brief History of Fibonacci
+Numbers\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}.\ldots{}.\ldots{}1
+
+The Catalan
+Numbers\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}.7
+
+Stirling
+Numbers\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}.\ldots{}.18
+
+The Bell
+Numbers\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}...\ldots{}..
+.. 24
+
+Group
+Projects\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}.\ldots{}\ldots{}.33
+
+Paths and Binomial
+Coefficients\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}.\ldots{}\ldots{}.\ldots{}..34
+
+Triangular Numbers
+\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}..\ldots{}\ldots{}.\ldots{}....35
+
+Fibonacci
+Numbers\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}.36
+
+Generalized Pascal
+Triangles\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}..\ldots{}\ldots{}37
+
+A Pascal-like Triangle of Eulerian
+Numbers\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}..\ldots{}\ldots{}38
+
+Leibnitz Harmonic
+Triangle\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}..\ldots{}..39
+
+The 12 Days of
+Christmas\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}..\ldots{}.40
+
+Four (or Eight) Distribution
+Problems\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}.......41
+
+Nineteen Combinatorial
+Proofs\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}
+.....45
+
+Linear
+Partitions\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}1-8
+
+The Exponential Generating
+Functions\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}\ldots{}1-11
 
 A BRIEF HISTORY OF FIBONACCI NUMBERS
 
@@ -91,7 +239,7 @@ The first question propounded was to find a number of which the square
 when decreased or increased by 5 would remain a square. The correct
 answer given by Leonardo was 41/12. The next question was to find by the
 methods used in the tenth book of Euclid a line whose length x should
-satisfy the equation \(x^3 + 2x^2 + 10x - 20 = 0\). Leonardo showed by
+satisfy the equation $x^3 + 2x^2 + 10x - 20 = 0$. Leonardo showed by
 geometry that the problem was impossible, but he gave an approximation
 of the root 1.3688081075\ldots{}, which is correct to nine places.
 \emph{Liber Abaci} contains many additional problems of this type.
@@ -298,13 +446,13 @@ Hint: Show first that
 \item
   Can every positive integer be written as a sum of distinct Fibonacci
   numbers?
-\end{enumerate}
 
 THE CATALAN NUMBERS
 
 (Notes of a talk presented by Professor Richard Grassl, Muhlenberg
   College, March 15, 1991)
 
+\end{enumerate}
 
 \[
 _{n + 1} = C_{1}C_{n} + C_{2}C_{n - 1} + \ldots + C_{n}C_{1}
@@ -313,7 +461,7 @@ _{n + 1} = C_{1}C_{n} + C_{2}C_{n - 1} + \ldots + C_{n}C_{1}
 \def\labelenumi{\Roman{enumi}.}
 
 \item
-  \title{Parenthesizing:} In how many ways can you insert parentheses
+  \textbf{Parenthesizing:} In how many ways can you insert parentheses
   in the nonassociative product abcd? The five ways are displayed
 
 (ab)(cd) ((ab)c)d a(b(cd)) (a(bc))d a((bc)d)
@@ -342,7 +490,7 @@ _{n} = \ \sum_{k = 1}^{n - 1}{P_{k}P_{n - k} = \ P_{1}P_{n - 1} + \ P_{2}P_{n - 
 \def\labelenumi{\Roman{enumi}.}
 
 \item
-  \title{The H-D sequences:} 2n people stand in line at a theatre.
+  \textbf{The H-D sequences:} 2n people stand in line at a theatre.
   Admission is 50 cents, (denoted by H), and the box office starts with no
   change. n of the people have H and n have \$1(D). In how many ways can
   the 2n people line up so that all can be admitted? Here we enumerate
@@ -399,7 +547,7 @@ H D H D H D  (a(b(cd
 \def\labelenumi{\Roman{enumi}.}
 
 \item
-  \title{Paths:} A point (a, b) in the plane is a lattice point if a
+  \textbf{Paths:} A point (a, b) in the plane is a lattice point if a
   and b are integers. How many paths of length 2n, consisting of
   horizontal and vertical segments of unit length, are there from (0, 0)
   to (n, n) such that the path never goes above the line y = x? One such
@@ -426,7 +574,7 @@ The bijection R H and U D links paths to H-D sequences.
 \def\labelenumi{\Roman{enumi}.}
 
 \item
-  \title{Triangulations of convex \emph{n}-gons:} Fix \emph{n}
+  \textbf{Triangulations of convex \emph{n}-gons:} Fix \emph{n}
   vertices; in how many ways can diagonals be inserted so as to
   decompose the \emph{n} -gon into triangles. For \emph{n} = 5 the five
   figures are
@@ -443,7 +591,7 @@ next:
 \def\labelenumi{\Roman{enumi}.}
 
 \item
-  \title{Tableau Insertion:} Insert the integers 1, 2, \ldots{},
+  \textbf{Tableau Insertion:} Insert the integers 1, 2, \ldots{},
   2\emph{n} into a 2 by \emph{n} rectangle of boxes such that the
   entries are monotonic in rows and columns. For \emph{n} = 3 there are
   five arrangements:
@@ -467,7 +615,7 @@ example, the middle arrangement corresponds to R R U U R U.
 \def\labelenumi{\Roman{enumi}.}
 
 \item
-  \title{Trivalent rooted trees:} A tree is a connected graph that has
+  \textbf{Trivalent rooted trees:} A tree is a connected graph that has
   no cycles. Trivalent means that each interior vertex has degree 3. The
   ``leaves'' or endpoints have degree 1. The number of trivalent rooted
   trees having n-vertices (not counting the root) is C\textsubscript{n}.
@@ -485,7 +633,7 @@ Place a vertex in each triangle, connect the three vertices and run
   Straighten the tree out! FIGURE 3 shows the five triangulations of a
   convex pentagon along with their trees.
 \item
-  \title{Rhyme schemes for \emph{n} line stanzas}
+  \textbf{Rhyme schemes for \emph{n} line stanzas}
 
 A 2-line poem can have just two rhyme schemes
 
@@ -1456,7 +1604,7 @@ through the whole ordeal.''
 
 These pages are copyright 2001-by E. Bruce Brooks
 
-\title{Group Projects- Math 528}
+\textbf{Group Projects- Math 528}
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -1635,10 +1783,19 @@ PROJECT 3: FIBONACCI NUMBERS
 \end{enumerate}
 
 \end{enumerate}
-
-\[
-\binom{n}{0}F_{0} + \binom{n}{1} F_{1} + \ldots + \binom{n}{n}F_{0} = F_{2n}
-\]
+FIX
+% \[
+% begin{pmatrix}
+% n \\
+% 0 \\
+% \end{pmatrix} F_{0} + \begin{pmatrix}
+% n \\
+% 1 \\
+% \end{pmatrix} F_{1} + \ \ldots + \begin{pmatrix}
+% n \\
+% n \\
+% \end{pmatrix} F_{0} = \ F_{2n}
+% \]
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 
@@ -1813,10 +1970,10 @@ Fitting.''
   k
   \end{bmatrix}
 \) for notation.
-\end{enumerate}
 
 PROJECT 6: THE LEIBNITZ HARMONIC TRIANGLE
 
+\end{enumerate}
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 

@@ -1,0 +1,2637 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<mathbook xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
+<docinfo>
+</docinfo>
+<book>
+
+<title>Discrete and Combinatorial Mathematics</title>
+MATH 528
+
+Richard Grassl
+
+University of Northern Colorado
+
+School of Mathematical Sciences
+
+\href{mailto:Richard.grassl@unco.edu}{\nolinkurl{Richard.grassl@unco.edu}}
+
+Partially Funded by NSF Grant \#0832026
+
+Revised August 2009
+
+A BRIEF HISTORY OF FIBONACCI NUMBERS
+
+Fibonacci numbers receive their name from Leonardo of Pisa (Leonardo
+Pisano, c. 1175-1250), better known as Leonardo Fibonacci. Fibonacci is
+a contraction of Filius Bonacci, son of Bonacci
+</p>
+
+<p>
+  Leonardo was born about 1175 in the commercial center of Pisa. This was
+  a time of great interest and importance in the history of Western
+  Civilization. One finds the influence of the crusades stirring and
+  awakening the people of Europe by bringing them in contact with the more
+  advanced intellect of the East. During this time the Universities of
+  Naples, Padua, Paris, Oxford, and Cambridge were established, the Magna
+  Carta signed in England, and the long struggle between the Papacy and
+  the Empire was culminated. Commerce was flourishing in the Mediterranean
+  world and adventurous travelers such as Marco Polo were penetrating far
+  beyond the borders of the known world
+</p>
+
+<p>
+  It is in this growing commercial activity that we find the young
+  Leonardo at Bugia on the Northern coast of Africa. Here the merchants of
+  Pisa and other commercial cities of Italy had large warehouses for the
+  storage of their goods. Actually very little is known about the life of
+  this great mathematician. No contemporary historian makes mention of
+  him, and one must look to his writings to find information about him
+</p>
+
+<p>
+  A mathematician before his time, Leonardo of Pisa, alias Leonardo
+  Pisano, alias Leonardo Bigollo, alias Fibonacci, was a despair to his
+  teacher as a young boy and an enigma to his colleagues in his later
+  years. Convinced of the superiority of the Hindu-Arabic numeral system
+  over the Roman system, Leonardo wrote one of his greatest works,
+  <em>Liber Abaci</em> (in English, <q>Book of Calculating</q>) to introduce
+  this system to the Western world. The <em>Liber Abaci</em> was written in
+  1202 but was not published until 1857 because ``it was too advanced for
+  Leonardo's contemporaries''. Along with the introduction and development
+  of many mathematical topics, the <em>Liber Abaci</em> contained
+  interesting story problems that Leonardo liked to invent. His most
+  popular problem is the breeding pair of rabbits: ``How many pairs of
+  rabbits will there be after a year if it is assumed that every month
+  each pair produces one new pair, which begins to bear young two months
+  after its own birth?''
+
+  This problem generates the infinite sequence that bears his name because
+  his work is the earliest known recording. The Fibonacci sequence begins
+  with 1 and each number that follows is the sum of the previous two
+  numbers. The first ten Fibonnaci numbers are: 1, 1, 2, 3, 5, 8, 13, 21,
+  34, 55
+</p>
+
+<p>
+  Leonardo, in 1228, gave a second edition of the <em>Liber Abaci</em> which
+  he dedicated to Michel Scott, astrologer to the Emperor Frederic II and
+  author of many scientific works. Copies of this edition exist today.
+  Leonardo profusely illustrated and strongly advocated the Hindu-Arabic
+  system in this work. He gave an extensive discussion of the Rule of
+  False Position and the Rule of Three. Leonardo did not use a general
+  method in problem solving; each problem was solved independently of the
+  others. In the solution of a problem he not only considered the problem
+  as it might occur, but considered all of the variations of the question,
+  even those that were not reasonable
+</p>
+
+<p>
+  Because of Leonardo's great reputation, the emperor Frederick II, when
+  in Pisa (1225), held a sort of mathematical tournament to test
+  Leonardo's skill. The competitors were informed beforehand of the
+  questions to be asked, some or all of which were composed by Johannes of
+  Palermo, who was of Frederick's staff. This is the first case in the
+  history of mathematics that one meets with an instance of these
+  challenges to solve particular problems which were so common in the
+  sixteenth and seventeenth centuries
+</p>
+
+<p>
+  The first question propounded was to find a number of which the square
+  when decreased or increased by 5 would remain a square. The correct
+  answer given by Leonardo was 41/12. The next question was to find by the
+  methods used in the tenth book of Euclid a line whose length x should
+  satisfy the equation <m>x^3 + 2x^2 + 10x - 20 = 0</m> . Leonardo showed by
+  geometry that the problem was impossible, but he gave an approximation
+  of the root 1.3688081075\ldots{}, which is correct to nine places.
+  <em>Liber Abaci</em> contains many additional problems of this type
+</p>
+
+<p>
+  After the `Rabbit Problem', the matter lay for 400 years. In 1611,
+  Johann Kepler, of astronomy fame, arrived at the series 1, 1, 2, 3, 5,
+  8, 13, 21, \ldots{} . There is no indication that he had access to one
+  of Fibonacci's hand-written books (The <em>Liber Abaci</em> was not
+  published until 1857).
+  <md>
+    _{n + 2} = F_{n + 1} + F_{n}
+  </md>
+  A hundred years must pass before the problem is again considered. In
+  1753, R. Simpson derived a formula, implied by Kepler
+  <md>
+    _{n - 1}F_{n + 1} - F_{n}^{2} = \left( - 1 \right)^{n}
+  </md>
+  A second hundred years pass by and the series again comes under study.
+  In 1843, J.P.M. Binet derives an analytical function for determining the
+  value of any Fibonacci number
+
+  2\textsuperscript{n} <m>\sqrt{5}</m> F\textsubscript{n} = (1
+  + <m>\sqrt{5}</m> )\textsuperscript{n} - (1 - <m>\sqrt{5}</m> )\textsuperscript{n}
+
+  In 1846 E. Catalan derived the formula:
+  <md>
+    ^{n - 1}F_{n} = \frac{n}{1} + \frac{5n\left( n - 1 \right)\left( n - 2 \right)}{1 \bullet 2 \bullet 3} + \frac{5^{2}n\left( n - 1 \right)\left( n - 2 \right)\left( n - 3 \right)\left( n - 4 \right)}{1 \bullet 2 \bullet 3 \bullet 4 \bullet 5}
+  </md>
+  By now, the series had received enough attention to deserve a name. It
+  was variously called the Braun series, the Schimper-Braun series, the
+  Lamé series and the Gerhardt series. A. Braun, applied the series to the
+  arrangement of the scales of pine cones. Schimper is completely unknown.
+  Gerhardt is probably a misspelling of Girard
+</p>
+
+<p>
+  Edouard Lucas, who dominated the field of recursive series during the
+  period 1876-1891, first applied Fibonacci's name to the series and it
+  has been known as the Fibonacci series since then
+</p>
+
+<p>
+  About this time, 1858, Sam Loyd claimed to have invented the
+  checkerboard paradox. It is first found in print in a German journal in
+  1868. Today it seems proper to call it the Carroll Paradox after Lewis
+  Carroll (Charles Dodgson, 1832-1893) who was quite fond of it.
+
+  PROBLEMS ON FIBONACCI NUMBERS
+  <ol>
+    <li>
+      <p>
+        Determine a formula for each:
+      </p>
+    </li>
+  </ol>
+  <ol>
+    <li>
+      <p>
+        <m>F_{0} + F_{1} + F_{2} + \ldots + F_{m}</m> (b) <m>F_{0} + F_{2} + F_{4} + \ldots + F_{m}</m> where m is even.
+      </p>
+    </li>
+  </ol>
+  <ol>
+    <li>
+      <p>
+        Prove each of the following
+      </p>
+    </li>
+  </ol>
+  <ol>
+    <li>
+      <p>
+        <m>F_{n + 1}^{2} - F_{n}^{2} = F_{n - 1}F_{n + 2}</m> (b) <m>F_{k}^{2} = F_{k}(F_{k + 1} - F_{k - 1})</m>
+      </p>
+    </li>
+  </ol>
+  <ol>
+    <li>Determine a closed expression for F\textsubscript{0}F\textsubscript{3}
+      + F\textsubscript{1}F\textsubscript{4} + \ldots{} +
+      F\textsubscript{n-1}F\textsubscript{n+2} using 2(a).</li>
+
+    <li>
+      <p>
+        Determine a formula for <m>F_{1}^{2} + F_{2}^{2} + \ldots + F_{n}^{2}</m> in two ways:
+      </p>
+    </li>
+  </ol>
+  <ol>
+    <li>
+      <p>
+        Collect data and prove by mathematical induction.
+      </p>
+    </li>
+
+    <li>
+      <p>
+        Use 2(b) and telescoping sums.
+      </p>
+    </li>
+  </ol>
+  <ol>
+    <li>
+      <p>
+        Give a geometrical <q>proof</q> for the result in Problem 4.
+      </p>
+    </li>
+
+    <li>Prove <m>\begin{pmatrix}
+      0 & 1
+      1 & 1
+      \end{pmatrix}^{n} = \begin{pmatrix}
+      F_{n - 1} & F_{n}
+      F_{n} & F_{n + 1}
+      \end{pmatrix}</m> by induction. For convenience let <m>Q =\begin{pmatrix}
+      0 & 1
+      1 & 1
+      \end{pmatrix}</m> .</li>
+
+    <li>Prove that <m>F_{n - 1}F_{n + 1} - F_{n}^{2} = {( - 1)}^{n}</m> in two
+      ways:</li>
+  </ol>
+  <ol>
+    <li>
+      <p>
+        Mathematical induction.
+      </p>
+    </li>
+
+    <li>
+      <p>
+        Use Problem 6 and determinants.
+      </p>
+    </li>
+  </ol>
+  <ol>
+    <li>Is there a result analogous to that in Problem 7 for just the integers
+      1, 2, 3, 4, \ldots{}?</li>
+
+    <li>
+      <p>
+        Show that <m>Q^{2n + 1} = Q^{n}Q^{n}</m> \textsuperscript{+1} and that <m>F_{2n + 1} = F_{n + 1}^{2} + F_{n}^{2}</m> .
+      </p>
+    </li>
+
+    <li>
+      <p>
+        Prove the Binet Formula: <m>F_{n = }\frac{a^{n} - b^{n}}{a - b}</m> where a, b are roots of x\textsuperscript{2} - x - 1 = 0.
+      </p>
+    </li>
+
+    <li>
+      <p>
+        Prove <m>\left( \frac{n}{0} \right)F_{0} + \left( \frac{n}{1} \right)F_{1} + \ldots + \left( \frac{n}{n} \right)F_{n} = F_{2n}</m> in two ways:
+      </p>
+    </li>
+  </ol>
+  <ol>
+    <li>
+      <p>
+        Use the Binet Formula.
+      </p>
+    </li>
+
+    <li>
+      <p>
+        Use Q.
+      </p>
+    </li>
+  </ol>
+  <ol>
+    <li>
+      <p>
+        Prove that <m>\sum_{n = 2}^{\infty}\frac{1}{F_{n - 1}F_{n + 1}} = 1.</m>
+      </p>
+    </li>
+  </ol>
+  \begin{quote}
+  Hint: Show first that <m>\frac{1}{F_{n - 1}F_{n + 1}} = \frac{1}{F_{n - 1}F_{n}} - \frac{1}{F_{n}F_{n + 1}}</m> \end{quote}
+  <ol>
+    <li>
+      <p>
+        Prove that <m>\sum_{n = 2}^{\infty}\frac{F_{n}}{F_{n - 1}F_{n + 1}} = 2.</m>
+      </p>
+    </li>
+
+    <li>
+      <p>
+        Prove that <m>\operatorname{}\frac{F_{n + 1}}{F_{n}} = \frac{1 + \sqrt{5}}{2}.</m>
+      </p>
+    </li>
+
+    <li>
+      <p>
+        For which values of n is F\textsubscript{n} an integral multiple of 3?
+      </p>
+    </li>
+
+    <li>Can you have four distinct positive Fibonacci numbers in arithmetic
+      progression?</li>
+
+    <li>
+      <p>
+        How many Fibonacci numbers are perfect squares?
+      </p>
+    </li>
+
+    <li>
+      <p>
+        Find a closed formula for <m>\frac{1}{F_{1}} + \frac{1}{F_{2}} + \frac{1}{F_{4}} + \frac{1}{F_{8}} + \ldots.</m>
+      </p>
+    </li>
+
+    <li>
+      <p>
+        Conjecture and prove a formula for <m>\left( \frac{n}{0} \right) + \left( \frac{n - 1}{1} \right) + \left( \frac{n - 2}{2} \right) + \ldots.</m>
+      </p>
+    </li>
+
+    <li>In what sense is <m>\frac{x}{1 - x - x^{2}}</m> the generating function
+      for the sequence of Fibonacci numbers?</li>
+
+    <li>
+      <p>
+        Prove that <m>F_{5n + 5} = 3F_{5n} + 5F_{5n + 1}</m> Hint: Use <m>Q^{5n + 5}</m> .
+      </p>
+    </li>
+
+    <li>Let $\varphi$ be the positive root of x\textsuperscript{2} - x - 1 = 0. Prove
+      that <m>\varphi^{n} = F_{n}\varphi + F_{n - 1}</m> .</li>
+
+    <li>Can every positive integer be written as a sum of distinct Fibonacci
+      numbers?</li>
+  </ol>
+  THE CATALAN NUMBERS
+
+  (Notes of a talk presented by Professor Richard Grassl, Muhlenberg
+  College, March 15, 1991)
+  <md>
+    _{n + 1} = C_{1}C_{n} + C_{2}C_{n - 1} + \ldots + C_{n}C_{1}
+  </md>
+  <ol>
+    <li>
+      <title>Parenthesizing:</title>
+      In how many ways can you insert parentheses
+      in the nonassociative product abcd? The five ways are displayed
+
+      (ab)(cd) ((ab)c)d a(b(cd)) (a(bc))d a((bc)d)
+
+      There are two ways for abc, namely a(bc) and (ab)c, and one for (ab).
+      For a product of n symbols
+      a\textsubscript{1}a\textsubscript{2}\ldots{}a\textsubscript{n}, break
+      it at the k-th symbol:</li>
+  </ol>
+  <md>
+    \left( a_{1}a_{2}a_{3}\ldots a_{k} \right)(a_{k + 1}\ldots a_{n})
+  </md>
+  Let P\textsubscript{n} denote the number of ways of inserting integers
+  into this product. There are P\textsubscript{k} ways of inserting
+  parentheses in <m>\left( a_{1}\ldots a_{k} \right)</m> and <m>P_{n - k}</m> ways for the factor <m>(a_{k + 1}\ldots a_{n})</m> . Letting k range from 1
+  to <m>n - 1</m> we have that
+  <md>
+    _{n} = \sum_{k = 1}^{n - 1}{P_{k}P_{n - k} = P_{1}P_{n - 1} + P_{2}P_{n - 2} + \ldots + P_{n - 1}P_{1}}
+  </md>
+  <ol>
+    <li>
+      <title>The H-D sequences:</title>
+      2n people stand in line at a theatre.
+      Admission is 50 cents, (denoted by H), and the box office starts with no
+      change. n of the people have H and n have \$1(D). In how many ways can
+      the 2n people line up so that all can be admitted? Here we enumerate
+      the number of workable sequences of n H's and n D's such that at each
+      point in the sequence the number of H's is not less than the number of
+      D's
+    </p>
+
+    <p>
+      The total number of sequences of n H's and n D's is <m>\left( \frac{2n}{n} \right)</m> . We delete the number of
+      \textbf{nonworkable} sequences. Each such sequence has a first snag as
+      shown by the arrow in
+
+      H H D D D H H D D D H H
+
+      Reverse each letter up to and including the snag, obtaining
+
+      D D H H H H H D D D H H
+
+      a sequence of n+1 H's and <m>n - 1</m> D's. For <m>n = 3</m> , H D D D H H is
+      a nonworkable sequence with the snag indicated. Its mate, found by
+      reversing the first three letters, is
+
+      D H H D H H, a sequence of 2D's and 4H's. <em>Any</em> arrangement of
+      2D's and 4H's will correspond to exactly one nonworkable sequence;
+      simply scan through and see the <em>first</em> time the H's dominate the
+      D's and then reverse through that spot. There are <m>\binom{6}{3}
+      = 20</m> arrangements of 3H's and 3D's. There are <m>\binom{6}{2}
+      = 15</m> arrangements of 2D's and 4H's each of which
+      corresponds to a nonworkable sequence. Hence there are <m>\binom{6}{3}
+      -\binom{6}{2}
+      = 5</m> workable sequences. In general, <m>\left( \frac{2n}{n} \right) - \left( \frac{2n}{n - 1} \right) = \frac{1}{n + 1}\left( \frac{2n}{n} \right)</m> gives the number of workable sequences. See FIGURE 1
+    </p>
+
+    <p>
+      For n = 3, the matching of the 5 workable sequences with one of the 5
+      ways of parenthesizing, given by the bijection ( H, letter  D is
+      presented:</li>
+  </ol>
+  H H H D D D   (((abcd
+
+  H H D H D D   ((a(bcd
+
+  H H D D H D   ((ab(cd
+
+  H D H H D D   (a((bcd
+
+  H D H D H D  (a(b(cd
+  <ol>
+    <li>
+      <title>Paths:</title>
+      A point (a, b) in the plane is a lattice point if a
+      and b are integers. How many paths of length 2n, consisting of
+      horizontal and vertical segments of unit length, are there from (0, 0)
+      to (n, n) such that the path never goes above the line y = x? One such
+      path to (3, 3) is shown.</li>
+  </ol>
+  \begin{longtable}[]{@{}lllll@{}}
+  \toprule
+  & & & (3,3) &\tabularnewline
+  \midrule
+  \endhead
+  & & & &\tabularnewline
+  & & & &\tabularnewline
+  & & & &\tabularnewline
+  \bottomrule
+
+  \end{longtable}
+  \begin{quote}
+  Using R for right and U for up, the sequence R U R R U U gives the path.
+  The bijection R H and U D links paths to H-D sequences.
+
+  \end{quote}
+  <ol>
+    <li>
+      <title>Triangulations of convex <em>n}-gons:</title>
+      Fix \emph{n</em>
+      vertices; in how many ways can diagonals be inserted so as to
+      decompose the <em>n} -gon into triangles. For \emph{n</em> = 5 the five
+      figures are</li>
+  </ol>
+  \begin{quote}
+  There are two drawings for <em>n</em> = 4
+
+  A bijection between triangulations and parenthesizing is illustrated
+  next:
+
+  \end{quote}
+  <ol>
+    <li>
+      <title>Tableau Insertion:</title>
+      Insert the integers 1, 2, \ldots{},
+      2<em>n} into a 2 by \emph{n</em> rectangle of boxes such that the
+      entries are monotonic in rows and columns. For <em>n</em> = 3 there are
+      five arrangements:</li>
+  </ol>
+  \begin{longtable}[]{@{}ccccccccccccccccccc@{}}
+  \toprule
+  1 & 2 & 3 & & 1 & 2 & 4 & & 1 & 2 & 5 & & 1 & 3 & 4 & & 1 & 3 &
+  5\tabularnewline
+  \midrule
+  \endhead
+  4 & 5 & 6 & & 3 & 5 & 6 & & 3 & 4 & 6 & & 2 & 5 & 6 & & 2 & 4 &
+  6\tabularnewline
+  \bottomrule
+
+  \end{longtable}
+
+  A bijection to the path problem is: an entry in the top row   R. For
+  example, the middle arrangement corresponds to R R U U R U.
+  <ol>
+    <li>
+      <title>Trivalent rooted trees:</title>
+      A tree is a connected graph that has
+      no cycles. Trivalent means that each interior vertex has degree 3. The
+      <q>leaves</q> or endpoints have degree 1. The number of trivalent rooted
+      trees having n-vertices (not counting the root) is C\textsubscript{n}.
+      The cases n = 1, 2, 3, 4 are drawn in FIGURE 2 along with bijections
+      linking H-D sequences and parenthesizing. For the bijection, label
+      interior vertices with a 1 and leaves with a 0. Start at the root,
+      keep bearing to the right, and call off the sequence of 0's and 1's,
+      not repeating them once called
+    </p>
+
+    <p>
+      A link between a particular triangulation of a 5-gon and its
+      associated tree is displayed in the following diagram:
+
+      Place a vertex in each triangle, connect the three vertices and run
+      leaves out all edges, including the bottom which forms the root.
+      Straighten the tree out! FIGURE 3 shows the five triangulations of a
+      convex pentagon along with their trees.</li>
+
+    <li>
+      <title>Rhyme schemes for <em>n</em> line stanzas</title>
+      A 2-line poem can have just two rhyme schemes</li>
+  </ol>
+  FIX
+
+  A 3-line poem can have five schemes:
+  FIX
+
+  The last pattern indicates that no line rhymes with any other. The
+  Catalan numbers seem to be popping up again. For <em>n</em> = 4 there
+  happen to be 15 (not 14) patterns:
+  \begin{longtable}[]{@{}ccccccccccccccc@{}}
+  \toprule
+  a & a & a & a & a & a & a & a & a & a & a & a & a & a & a\tabularnewline
+  \midrule
+  \endhead
+  a & a & a & b & b & a & b & b & a & b & b & b & b & b & b\tabularnewline
+  a & a & b & a & b & b & b & a & b & a & c & b & c & c & c\tabularnewline
+  a & b & a & a & b & b & a & b & c & c & a & c & b & c & d\tabularnewline
+  \bottomrule
+
+  \end{longtable}
+
+  One of these, abab, is special in that it is the only <q>non-planar</q>
+  scheme. In this pattern, you cannot connect the a's with an arc and the
+  b's with an arc without the arcs crossing
+</p>
+
+<p>
+  The planar rhyme schemes are enumerated by the Catalan numbers. These
+  numbers are a subsequence of the Bell numbers, which enumerate all rhyme
+  schemes
+</p>
+
+<p>
+Thus far, we have the following bijections:
+
+Parentheses   H-D sequences
+
+H-D   Paths
+
+Triangulations   Parentheses
+
+Insertions   Paths
+
+Trees   Parentheses
+
+See if you can connect the rhyme schemes to any of the above.
+
+THE CATALAN NUMBERS
+\begin{longtable}[]{@{}cccccccccccccccccccccc@{}}
+\toprule
+& & & & & & & & & & 1 & & & & & & & & & & & 1\tabularnewline
+\midrule
+\endhead
+& & & & & & & & & 1 & & 1 & & & & & & & & & &\tabularnewline
+& & & & & & & & 1 & & 2 & & 1 & & & & & & & & & 1\tabularnewline
+& & & & & & & 1 & & 3 & & 3 & & 1 & & & & & & & &\tabularnewline
+& & & & & & 1 & & 4 & & 6 & & 4 & & 1 & & & & & & & 2\tabularnewline
+& & & & & 1 & & 5 & & 10 & & 10 & & 5 & & 1 & & & & & &\tabularnewline
+& & & & 1 & & 6 & & 15 & & 20 & & 15 & & 6 & & 1 & & & & &
+5\tabularnewline
+& & & 1 & & 7 & & 21 & & 35 & & 35 & & 21 & & 7 & & 1 & & &
+&\tabularnewline
+& & 1 & & 8 & & 28 & & 56 & & 70 & & 56 & & 28 & & 8 & & 1 & & &
+14\tabularnewline
+& 1 & & 9 & & 36 & & 84 & & 126 & & 126 & & 84 & & 36 & & 9 & & 1 &
+&\tabularnewline
+1 & & 10 & & 45 & & 120 & & 210 & & 252 & & 210 & & 120 & & 45 & & 10 &
+& 1 & 42\tabularnewline
+\bottomrule
+
+\end{longtable}
+
+FIGURE 1
+
+TRIVALENT, PLANTED TREES WITH n LEAVES
+
+n=1 n=2 n=3
+
+n=4
+
+1100100 1010100
+
+( ( ab ( cd ( a ( b ( cd
+
+<section>
+  <title>HHDDHD HDHDHD</title>
+  <p>
+    FIGURE 2
+    \begin{longtable}[]{@{}ccc@{}}
+    \toprule\begin{minipage}[b]{0.32\columnwidth}\centering\strut
+    \strut
+    \end{minipage} & \begin{minipage}[b]{0.32\columnwidth}\centering\strut
+    \strut
+    \end{minipage} & \begin{minipage}[b]{0.32\columnwidth}\centering\strut
+    ((ab(cd))
+
+    1100100\strut
+    \end{minipage}\tabularnewline
+    \midrule
+    \endhead\begin{minipage}[t]{0.32\columnwidth}\centering\strut
+    \strut
+    \end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
+    \strut
+    \end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
+    (((ab)c)d)
+
+    1110000\strut
+    \end{minipage}\tabularnewline\begin{minipage}[t]{0.32\columnwidth}\centering\strut
+    \strut
+    \end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
+    \strut
+    \end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
+    (a(b(cd)))
+
+    1010100\strut
+    \end{minipage}\tabularnewline\begin{minipage}[t]{0.32\columnwidth}\centering\strut
+    \strut
+    \end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
+    \strut
+    \end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
+    (a(bc)d))
+
+    1011000\strut
+    \end{minipage}\tabularnewline\begin{minipage}[t]{0.32\columnwidth}\centering\strut
+    \strut
+    \end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
+    \strut
+    \end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\centering\strut
+    ((a(bc))d)
+
+    1101000\strut
+    \end{minipage}\tabularnewline
+    \bottomrule
+
+    \end{longtable}
+
+    FIGURE 3
+
+    PROBLEMS ON CATALAN NUMBERS
+    <ol>
+      <li>Use the recursion for P\textsubscript{n} and compute
+        P\textsubscript{6}, P\textsubscript{7}.</li>
+
+      <li>Use the closed formula for P\textsubscript{n} and compute
+        P\textsubscript{6}, P\textsubscript{7}.</li>
+
+      <li>Use G = P\textsubscript{1}x + P\textsubscript{2}x\textsuperscript{2} +
+        \ldots{} and the recursion for P\textsubscript{n} to determine a
+        closed formula for P\textsubscript{n}.</li>
+
+      <li>
+        <p>
+          List the workable sequences for n = 4.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          List the P\textsubscript{6} ways of parenthesizing abcdef.
+        </p>
+      </li>
+
+      <li>Display a bijection between the 14 sequences in Problem 4 and the 14
+        products in Problem 5.</li>
+
+      <li>
+        <p>
+          Find the nonworkable sequence associated with each:
+        </p>
+      </li>
+    </ol>
+    <ol>
+      <li>
+        <p>
+          H H H D D H (c) D D D H H H H H
+        </p>
+      </li>
+
+      <li>
+        <p>
+          D H H H H D (d) D D H H D H H H
+        </p>
+      </li>
+    </ol>
+    <ol>
+      <li>
+        <p>
+          Draw the T\textsubscript{6} triangulations of a convex hexagon.
+        </p>
+      </li>
+
+      <li>Display a bijection between the 5 ways of parenthesizing abcd and the
+        5 triangulations of a convex pentagon.</li>
+
+      <li>Let <m>C_{n} = \frac{1}{n + 1}\left( \frac{2n}{n} \right).</m> Verifiy
+        the formula:</li>
+    </ol>
+    <md>
+      _{n} = \left( \frac{n}{1} \right)C_{n - 1} - \left( \frac{n - 1}{2} \right)C_{n - 2} + \left( \frac{n - 2}{3} \right)C_{n - 3} - \ldots
+    </md>
+    <ol>
+      <li>
+        <p>
+          Verify that H\textsubscript{3} = 5 by drawing the required paths.
+        </p>
+      </li>
+
+      <li>Assign the appropriate binary sequences to each of the 5 Trees for n=3
+        in FIGURE 2.</li>
+    </ol>
+    FOR EACH OF THE FOLLOWING, INVESTIGATE BIJECTIONS THAT RELATE ONE TO
+    ANOTHER.
+    <ol>
+      <li>A and B each receive n votes. Let V\textsubscript{n} denote the number
+        of ways that the 2n votes can be tallied so that A never trails B. Let
+        V\textsubscript{0} = 1.</li>
+
+      <li>Place 2n points on the circumference of a circle and draw n
+        nonintersecting chords in D\textsubscript{n} ways; D\textsubscript{0}
+        = 1.</li>
+
+      <li>In how many ways can 1, 2, 3, \ldots{}, 2n be inserted into a 2xn
+        rectangle such that the entries are increasing in rows and columns.
+        Let the answer be Y\textsubscript{n}; Y\textsubscript{1} = 1,
+        Y\textsubscript{2} = 2.</li>
+
+      <li>Place points on a line segment and join them in pairs by
+        nonintersecting arcs above the segment. In how many ways can this be
+        done? Call the answer S\textsubscript{n}; S\textsubscript{1}=1,
+        S\textsubscript{2}=2.</li>
+
+      <li>A rook on an <m>n + 1</m> by <m>n + 1</m> chessboard must move from the
+        lower left corner to the upper right corner never going above the
+        diagonal. How many paths are possible? Let <m>K_{n}</m> be the answer.</li>
+
+      <li>On an <m>n + 1</m> by <m>n + 1</m> chessboard a king starts on the first row
+        and moves one square forward or back along a fixed column and ends on
+        the starting square after moves. In how many ways, <m>G_{n}</m> , can this
+        be done?</li>
+
+      <li>Count the number of planar rhyme schemes for a stanza consisting of n
+        lines. Joanne Growney showed in her doctoral thesis that the Bell
+        numbers, which count all rhyme schemes, have the Catalan numbers as a
+        subsequence and that these enumerate precisely the planar rhyme
+        schemes. For example, of the rhyme schemes, are planar. The nonplanar
+        one is given by abab.</li>
+    </ol>
+    WORKSHEET ON STIRLING NUMBERS OF THE 2\textsuperscript{ND}
+    KIND- <m>S(n,k)</m> <em>DEFINITION:</em> <m>S\left( n,k \right)</m> is the number of ways of
+    partitioning an n-set into k nonempty subsets.
+
+    <em>TASK 1:</em> Compute <m>S\left( 3,1 \right),S(4,1)</m> and <m>S(n,1)</m> .
+
+    <em>TASK 2:</em> Compute <m>S\left( 2,2 \right),S(3,2)</m> and <m>S(4,2)</m> .
+
+    <em>TASK 3:} Compute <m>\text{S</em>\left( 3,3 \right),S(4,3)</m> .
+
+    <em>TASK 4:} Find formulas and give \emph{proofs</em> for: <m>S\left( n,n \right) =</m> <m>S\left( n,2 \right) =</m>
+    <md>
+      \left( n,n - 1 \right) =
+    </md>
+    <md>
+      \left( n,n - 2 \right) =
+    </md>
+    <em>TASK 5:} Determine a recursion for <m>\text{S</em>\left( n,k \right)</m> by examining the following:
+
+    In computing <m>S\left( 4,3 \right)</m> look back at the two cases:
+    <ol>
+      <li>
+        <p>
+          <q>Social</q>- The element 4 is part of another set.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <q>Antisocial</q>-The element 4 stands alone.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Deduce a recursion <m>S\left( n,k \right) =</m>
+        </p>
+      </li>
+    </ol>
+    <em>TASK 6:</em> Make the first 5 rows of the Stirling Triangle.
+
+    STIRLING NUMBERS OF THE 2\textsuperscript{nd} KIND
+
+    A distribution of 4 different (often we say distinguishable) objects <m>1,2,3,4</m> into 3 similar (often we say indistinguishable) boxes, each
+    of which becomes non-empty is modeled by partitioning <m>\{ 1,2,3,4\}</m> into 3 nonempty subsets. The six ways of doing this are listed next:
+
+    \{4\} \{1\} \{2,3\} \{1,4\} \{2\} \{3\}
+
+    \{4\} \{2\} \{1,3\} \{1\} \{2,4\} \{3\}
+
+    \{4\} \{3\} \{1,2\} \{1\} \{2\} \{3,4\}
+
+    The Stirling numbers of the second kind, denoted by <m>S(n,k)</m> , give the
+    number of ways of partitioning an n-set into k non-empty subsets. Here <m>k \in \{ 1,2,\ldots\}</m> and <m>n \geq k</m> . The above example shows <m>S\left( 4,3 \right) = 6</m> . Also notice that there are two cases: 4 is
+    alone, or 4 is in some other batch; we can conclude that <m>S\left( 4,3 \right) = 3S\left( 3,3 \right) + S(3,2)</m> since if 4 is in
+    a singleton set just partition the remaining 3 into 2 sets and otherwise
+    4 can join any of the 3 batches of 3 elements.
+
+    THEOREM 1: <m>S\left( n,k \right) = kS\left( n - 1,k \right) + S(n - 1,k - 1)</m>
+  </p>
+
+  <p>
+    Proof. We partition <m>\{ 1,2,\ldots,n\}</m> into k non-empty subsets in <m>S(n,k)</m> ways. If n is in a singleton set, there are <m>S(n - 1,k - 1)</m> ways to partition the remaining <m>n - 1</m> elements
+    into <m>k - 1</m> subsets. Otherwise, the element n can join any of the k
+    batches of <m>n - 1</m> elements in <m>kS(n - 1,k)</m> ways
+  </p>
+
+  <p>
+    Polya, in Notes on Introductory Combinatorics, refers to these as the
+    <q>antisocial'' and ``social</q> cases
+  </p>
+
+  <p>
+    The reader should check that <m>S\left( 3,3 \right) = 1</m> and that <m>S\left( 3,2 \right) = 3</m> so that <m>S\left( 4,3 \right) = 3 \bullet 1 + 3 = 6</m> .
+
+    <em>Border Formulas:} The reader should verify that <m>S\left( n,1 \right) = 1</m> and <m>S\left( n,n \right) = 1</m> for <m>n \in Z^{+</em></m> . From
+
+    these border formulas and the recursion in Theorem 1 the following
+    Stirling's Second Triangle can be made.
+
+    1
+
+    1 1
+
+    1 3 1
+
+    1 7 6 1
+
+    1 15 25 10 1
+
+    THEOREM 2.
+    <ol>
+      <li>
+        <p>
+          <m>S\left( n,n - 1 \right) =\binom{n}{2}</m>
+        </p>
+      </li>
+
+      <li>
+        <p>
+          <m>S\left( n,2 \right) = 2^{n - 1} - 1</m>
+        </p>
+      </li>
+
+      <li><m>S\left( n,n - 2 \right) =\binom{n}{3}
+        + 3\binom{n}{4}</m></li>
+
+      <li><m>S\left( n,n - 3 \right) =\binom{n}{4}
+        + 10\binom{n}{5}
+        + 15\binom{n}{6}</m></li>
+    </ol>
+    Proof. You are asked to prove these in the problems
+  </p>
+
+  <p>
+    The entries in the Pascal Triangle, <m>\binom{n}{k}</m> , satisfy the nice recursion <m>\binom{n}{k}
+    =
+    \binom{n - 1}{k}
+    +\binom{n - 1}{k - 1}</m> and also have a closed formula: <m>\binom{n}{k}
+    = n!/k!\left( n - k \right)!</m> . Theorem 1 gives us a
+    recursion for the Stirling numbers <m>S\left( n,k \right)</m> and,
+    unfortunately, the best we can do for a <q>closed</q> formula is contained
+    in the following.
+    <md>
+      \left( n,k \right) = \frac{1}{k!}\left\lbrack k^{n} - \binom{k}{1} \left( k - 1 \right)^{n} + \binom{k}{2} \left( k - 2 \right)^{n} - \binom{k}{3} \left( k - 3 \right)^{n} + \ldots + \left( - 1 \right)^{k - 1}\binom{k}{k - 1} 1^{n} \right\rbrack
+    </md>
+    Proof (by Polya). Suppose you wished to paint n houses and you have k
+    different colors available. The first house can be painted in k
+    different ways, the second in k different ways, etc. So there are <m>k^{n}</m> ways. How many ways actually use all k colors? Let <m>\alpha_{i}</m> be the property that no house is painted with the <m>i^{th}</m> color, and let <m>N(\alpha_{i})</m> denote the number of ways of
+    painting the n houses without using the <m>i^{th}</m> color. Analogously for <m>\text{N}\left( \alpha_{i},\alpha_{j} \right),N\left( \alpha_{i},\alpha_{j},\alpha_{k} \right),</m> etc. Since <m>N\left( \alpha_{i} \right) = \left( k - 1 \right)^{n}</m> , <m>N\left( a_{i},\alpha_{j} \right) = \left( k - 2 \right)^{n},\ldots</m> the number of ways of painting n houses using all k colors is, using
+    PIE, <m>k^{n} -\binom{k}{1}
+    \left( k - 1 \right)^{n} +
+    \binom{k}{2}
+    \left( k - 2 \right)^{n} -
+    \binom{k}{3}
+    \left( k - 3 \right)^{n} + \ldots + \left( - 1 \right)^{k}
+    \binom{k}{k}
+    0^{n}</m> . Alternately, we could first partition the n houses
+    into k (non-empty) sets, and then paint each set. This can be
+    accomplished in <m>k!S\left( n,k \right)</m> ways. Now equate these two
+    expressions.
+
+    COROLLARY. <m>S\left( n,3 \right) = \frac{1}{2}\left\lbrack 3^{n - 1} - 2^{n} + 1 \right\rbrack</m> THEOREM 4. <m>x^{n} = S\left( n,1 \right)x + S\left( n,2 \right)x\left( x - 1 \right) + S\left( n,3 \right)x\left( x - 1 \right)\left( x - 2 \right) + \ldots</m>
+    <md>
+      ldots + S\left( n,n \right)x\left( x - 1 \right)\ldots(x - n + 1)
+    </md>
+    Proof (by Polya). We can paint n houses, with x colors available, in <m>x^{n}</m> ways. Using exactly one color, there are <m>S\left( n,1 \right)x</m> ways. Using exactly two colors there are <m>S\left( n,2 \right)x(x - 1)</m> ways. Continue in this manner
+  </p>
+
+  <p>
+    It is in this form that James Stirling originally developed these
+    numbers. <m>S(n,k)</m> is used to convert from powers to binomial
+    coefficients as shown in the following:
+
+    THEOREM 5. <m>x^{n} = S\left( n,1 \right)
+    \binom{x}{1}
+    1! + S\left( n,2 \right)
+    \binom{x}{2}
+    2! + \ldots + S\left( n,n \right)
+    \binom{n}{n}
+    n!</m> PROBLEMS
+    <ol>
+    <li>
+      <p>
+        Compute by listing the subsets <m>S(4,2)</m> and <m>S(5,2)</m> .
+      </p>
+    </li>
+
+    <li>
+      <p>
+        Make the 6\textsuperscript{th} row of the Stirling Triangle.
+      </p>
+    </li>
+
+    <li>
+      <p>
+        Prove the four parts of THEOREM 2.
+      </p>
+    </li>
+
+    <li>List the sequence of elements that are row sums of the Stirling
+      Triangle.</li>
+
+    <li>How many subsets \{a, b, c\} are there of \{2, 3, 4, \ldots{}\} such
+      that <m>abc = 2 \bullet 3 \bullet 5 \bullet 7 \bullet 11 \bullet 13 \bullet 17</m> ?</li>
+
+    <li>Let <m>S = \{ 2,3,4,\ldots\}</m> . How many ordered triples (a, b, c) are
+      there in S x S x S such that <m>abc = 2 \bullet 3 \bullet 5 \bullet 7 \bullet 11 \bullet 13 \bullet 17</m> ?</li>
+
+    <li>Compute each using THEOREM 3.
+      <ol>
+        <li>
+          <p>
+            <m>S\left( 5,3 \right)</m>
+          </p>
+        </li>
+
+        <li>
+          <p>
+            <m>S(6,3)</m>
+          </p>
+        </li>
+
+        <li>
+          <p>
+            <m>S(n,2)</m>
+          </p>
+        </li>
+
+        <li>
+          <p>
+            <m>S(n,3)</m>
+          </p>
+        </li>
+      </ol>
+    </li>
+
+    <li>
+      <p>
+        Write out the proof of THEOREM 3 for k=3.
+      </p>
+    </li>
+
+    <li>Express x\textsuperscript{3} as suggested in THEOREM 4. Also, multiply
+      your answer out to verify.</li>
+
+    <li>Use your result in Problem 9 to express x\textsuperscript{3} as a
+      linear combination of the binomial coefficients <m>\binom{x}{1}
+      ,\binom{x}{2}
+      ,\binom{x}{3}</m> .</li>
+
+    <li>Determine the following:
+      <ol>
+        <li><m>a,b,c</m> so that <m>n^{4} = 24
+          \binom{n}{4}
+          + 6a\binom{n}{3}
+          + 2b\binom{n}{2}
+          + c
+          \binom{n}{1}</m> .</li>
+
+        <li><m>a,b,c,d</m> so that <m>n^{5} = 5!
+          \binom{n}{5}
+          + a
+          \binom{n}{4}
+          + b
+          \binom{n}{3}
+          + c
+          \binom{n}{2}
+          + d
+          \binom{n}{1}</m> .</li>
+      </ol>
+    </li>
+
+    <li>Express <m>1^{4} + 2^{4} + 3^{4} + \ldots + n^{4}</m> as a polynomial
+      in n.</li>
+
+    <li>The numbers <m>S(n,k)</m> and <m>k!S(n,k)</m> are solutions to two different
+      distribution problems. Describe each.</li>
+
+    <li>
+      <p>
+        Prove THEOREM 5.
+      </p>
+    </li>
+
+    <li>Why is <m>4^{n} - 4 \bullet 3^{n} + 6 \bullet 2^{n} - 4</m> always
+      divisible by 24?</li>
+    </ol>
+  </p>
+</section>
+
+<section>
+  <title>BELL NUMBERS</title>
+  <p>
+    The Bell number, <m>B_{n}</m> , denotes the number of ways that a set of n
+    objects S can be partitioned into nonempty subsets. The definition of
+    <q>partition</q> implies two properties: The subsets are disjoint and their
+    union is S
+  </p>
+
+  <p>
+    Essential properties and facts about <m>B_{n}</m> are summarized next.
+  </p>
+</section>
+
+<section>
+  <title>BELL NUMBERS</title>
+  <p>
+    1, 1, 2, 5, 15, 52, 203, 877, 4040, 21147, 115975, \ldots{}
+
+    FORMULA: <m>B_{n} = S\left( n,1 \right) + S\left( n,2 \right) + S\left( n,3 \right) + \ldots + S(n,n)</m> <m>B_{n} = \frac{1}{e}\sum_{k = 0}^{\infty}\frac{k^{n}}{k!}(Dobinski^{'}sFormula)</m> <m>B_{n} = L\left( x^{n} \right)(Gian - CarloRota)</m> RECURSION: <m>B_{n} =
+    \binom{n - 1}{0}
+    B_{0} +
+    \binom{n - 1}{1}
+    B_{1} + \ldots +
+    \binom{n - 1}{n - 1}
+    B_{n - 1},B_{0} = 1</m> E.G.F.: <m>e^{e^{x} - 1} = \sum_{k = 0}^{\infty}{B_{n}\frac{x^{n}}{n!}}</m> BELL TRIANGLE: 1
+
+    1 2
+
+    2 3 5
+
+    5 7 10 15
+
+    15 20 27 37 52
+
+    \ldots{}
+
+    Two observations: The first few Bell's look like the Catalans; the
+    sequence of Bells increases in size rapidly. The Bell numbers can be
+    generated by constructing what is called the Bell Triangle. To construct
+    this triangle, begin with a 1 at the top and a 1 below it. Add these two
+    numbers together and put the sum 2, to the right of the 1 in the second
+    column. This 2 is also the first entry of the third row. The second
+    entry in the third row is found by adding the 2 to the number 1 above
+    it. This sum is 3 and goes to the right of the 2. The 3 is now below a
+    2. Adding these two numbers produces the last number, 5, in the third
+    row. Since 5 has no number above it, the third row is complete. 5 now
+    becomes the first number in the fourth row and the process continues
+  </p>
+
+  <p>
+    Construction of the triangle follows two basic rules:
+    <ol>
+      <li>
+        <p>
+          The last number of each row is the first number of the next row.
+        </p>
+      </li>
+
+      <li>All other numbers are found by adding the number to the left of the
+        missing number to the number directly above this same number.</li>
+    </ol>
+    When the triangle is extended, as above, the Bell Numbers are found down
+    the first column as well as along the outside diagonal.
+
+    1
+
+    1 2
+
+    2 3 5
+
+    5 7 10 15
+
+    15 20 27 37 52
+
+    52 67 87 114 151 203
+
+    203 255 322 409 523 674 877
+
+    As with Pascal's Triangle, the Bell triangle has several interesting
+    properties. If the sum of a row is added to the Bell number at the end
+    of that row, the next Bell number is obtained. For example, the sum of
+    the fourth row plus the Bell number at the end of the row:
+
+    15 + 20 + 27 + 37 + 52 + 52 is 203, the next Bell number. Also, the
+    numbers of the second diagonal 1, 3, 10, 37, 151, 674, \ldots{} are the
+    sums of the horizontal rows. Rotating the triangle slightly creates a
+    difference triangle analogous to Pascal's Triangle. The entries that are
+    formed recursively by adding in Pascal's Triangle are now differences of
+    the two numbers above them in the Bell triangle.
+
+    1 2 5 15 52 203 877\ldots{}
+
+    1 3 10 37 151 674\ldots{}
+
+    2 7 27 114 523\ldots{}
+
+    5 20 87 409\ldots{}
+
+    15 67 322\ldots{}
+
+    52 255\ldots{}
+
+    203\ldots{}
+
+    Finally, rewriting the Bell triangle recursively indicates a nice
+    connection of the Bell Numbers to Pascal's triangle. <m>B_{0} = B_{1}</m> <m>B_{1}</m> <m>B_{0} + B_{1} = B_{2}</m> <m>B_{2}</m> <m>B_{1} + B_{2}</m> <m>B_{0} + 2B_{1} + B_{2} = B_{3}</m> <m>B_{3}</m> <m>B_{2} + B_{3}</m> <m>B_{1} + B_{2} + B_{2} + B_{3}</m> <m>B_{0} + 3B_{1} + 3B_{2} + B_{3} = B_{4}</m> This pattern suggests the <m>{(n + 1)}^{\text{th}}</m> Bell Number can be
+    represented recursively by <m>B_{n + 1} =
+    \binom{n}{0}
+    B_{0} +
+    \binom{n}{1}
+    B_{1} +
+    \binom{n}{2}
+    B_{2} + \ldots +
+    \binom{n}{n}
+    B_{n}</m> . The coefficients of this equation are the entries
+    of the nth row of Pascal's triangle. You are asked to prove this
+    recursion in the exercises
+  </p>
+
+  <p>
+    The Bell numbers are related to the Stirling numbers and can be defined
+    as the sum of the Stirling numbers of the second kind. That is, <m>B_{n} = S\left( n,1 \right) + S\left( n,2 \right) + \ldots + S(n,n)</m> ,
+    where
+
+    S(n, k) represents the number of ways of grouping n elements into k
+    subsets. So <m>B_{3} = S\left( 3,1 \right) + S\left( 3,2 \right) + S\left( 3,3 \right) = 1 + 3 + 1 = 5.</m> Since the Bell numbers count the partitions of a set of elements, they
+    are used in prime-number theory to enumerate the number of ways to
+    factor a number with distinct prime factors. For example, 42 has three
+    distinct prime factors: 2, 3, and 7. Since <m>B_{3} = 5</m> , we know there
+    are five ways of factoring 42. These are
+
+    2 x 3 x 7, 2 x 21, 3 x 14, 6 x 7, and 42. So the number 210, which has 4
+    distinct factors, 2, 3, 5, and 7, can be factored in <m>B_{4} = 15</m> ways
+  </p>
+
+  <p>
+    The Bell numbers can be used to model many real-life situations. For
+    example, the number of different ways two people can sleep in unlabeled
+    twin beds is <m>B_{2} = 2</m> ways: They can sleep in the same bed or in
+    separate beds. The number of ways of serving a dinner consisting of
+    three items, such as a salad, bread, and fish is <m>B_{3} = 5</m> ways:
+    each could be served on a separate plate, salad and bread could be on
+    one plate and fish on another, salad and fish on one plate and bread on
+    another, or all three items could be on the same plate. This example
+    serves as a model for the five ways three people can occupy three
+    unlabeled beds, the five ways three prisoners can be handcuffed
+    together, the five ways three nations can be form alliances, or any
+    situation of partitioning three distinct elements into non-empty
+    subsets
+  </p>
+
+  <p>
+    One interesting application of Bell numbers is in counting the number of
+    rhyme schemes possible for a stanza in poetry. There are <m>B_{2} = 2</m> possibilities for a two-line stanza: the lines can either rhyme or not
+    rhyme. The possible rhyme schemes of a three-line stanza can be
+    described as aaa, aab, aba, abb, and abc: thus there are 5 or <m>B_{3}</m> possible rhyme schemes. The Japanese used diagrams depicting possible
+    rhyme schemes of a five-line stanza <m>B_{5} = 52</m> as early as 1000
+    A.D. in the <em>Tale of the Genji</em> by Lady Shikibu Murasaki.
+
+    PROBLEMS FOR BELL NUMBERS
+
+    The Bell number (named after Eric Temple Bell, a Scottish-born American
+    mathematician, who died in 1960) <m>B_{n}</m> is the number of ways of
+    partitioning an n-set into subsets. For example, <m>B_{3} = 5</m> ; the 5
+    ways of partitioning the elements of \{1, 2, 3\} are
+
+    \{1\} \{2\} \{3\} \{1, 2\} \{3\} \{1, 3\} \{2\} \{2, 3\} \{1\} \{1, 2,
+    3\}
+    <ol>
+      <li>Compute <m>B_{1},B_{2},</m> and <m>B_{4}</m> by listing all the relevant
+        partitions.</li>
+
+      <li>
+        <p>
+          Explain why <m>B_{n} = S\left( n,1 \right) + S\left( n,2 \right) + \ldots + S(n,n)</m> .
+        </p>
+      </li>
+
+      <li>Compute <m>B_{5},B_{6},B_{7},B_{8}</m> using a table of Stirling
+        numbers <m>S(n,k)</m> and the formula in Problem 2.</li>
+
+      <li>Prove that <m>B_{n} =
+        \binom{  n - 1}{  0}
+        B_{0} +
+        \binom{n - 1}{1}
+        B_{1} +
+        \binom{n - 1}{2}
+        B_{2} + \ldots + \binom{n - 1}{n - 1}
+        B_{n - 1}</m> .</li>
+    </ol>
+    \begin{quote}
+    {[}Here we let <m>B_{0} = 1</m> {]}. HINT: First try n=5 and partition <m>\{ 1,2,3,4,5\}</m> by treating 5 as <q>special.</q> The element 5 can be
+    a singleton, in a doubleton, or \ldots{} .
+
+    \end{quote}
+    <ol>
+      <li>
+        <p>
+          Prove that
+        </p>
+      </li>
+    </ol>
+    \begin{quote} <m>S_{n}\left( n + 1,r \right) =
+    \binom{n}{0}
+    S\left( 0,r - 1 \right) +
+    \binom{n}{1}
+    S\left( 1,r - 1 \right) +
+    \binom{n}{2}
+    S\left( 2,r - 1 \right) + \ldots</m> <m>+
+    \binom{n}{n}
+    S(n,r - 1)</m> \end{quote}
+    <ol>
+      <li>Using the .results in Problems 2 and 5 prove the recursion in Problem
+        4.</li>
+
+      <li>The set <m>\left\{ u_{0},u_{1},u_{2},\ldots \right\}</m> where <m>u_{0} = 1,\text{u}_{1} = x,u_{2} = x\left( x - 1 \right),u_{3} = x\left( x - 1 \right)\left( x - 2 \right),\ldots</m> is a basis for the vector space V of all polynomials with real
+        coefficients. Let</li>
+    </ol>
+    \begin{quote} <m>P\left( x \right) = c_{0}u_{0} + c_{1}u_{1} + c_{2}u_{2} + \ldots</m> be any element of V, and define the functional L as follows: <m>L\left\lbrack P\left( x \right) \right\rbrack = c_{0} + c_{1} + \ldots</m> .
+
+    \end{quote}
+    <ol>
+      <li>
+        <p>
+          Prove that <m>L\left\lbrack P\left( x \right) + Q\left( x \right) \right\rbrack = L\left\lbrack P\left( x \right) \right\rbrack + L\left\lbrack Q\left( x \right) \right\rbrack.</m>
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Prove that <m>L\left\lbrack \text{rP}\left( x \right) \right\rbrack = rL\lbrack P\left( x \right)\rbrack</m> for <m>r \in</m> Reals.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Prove that <m>B_{n} = L\lbrack x^{n}\rbrack</m> .
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Prove that <m>L\left\lbrack x^{n + 1} \right\rbrack = L\lbrack\left( x + 1 \right)^{n}\rbrack</m> .
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Derive the recursion in Problem 4 using (d).
+        </p>
+      </li>
+    </ol>
+    Tales of Statisticians
+
+    ERIC TEMPLE BELL
+
+    7 Feb 1883-20 Dec 1960
+
+    Bell was no statistician; rather, a number theorist. He was and remains
+    one of the great mathematical statesmen. His book \emph{Men of
+    Mathematics} has inspired scores to take up a mathematical career, and
+    revealed to uncounted thousands what a mathematical life is all about in
+    the first place
+  </p>
+
+  <p>
+    His own early life was a mystery until parts of it were unraveled by
+    <em>Constance Reid</em> . He was born in Aberdeen in 1883, spent his early
+    years in London, and came to America at the age of nineteen in 1903. He
+    finished college at Stanford in 1904, and went on to the University of
+    Washington (MS 1907) and Columbia (PhD 1912). He taught at the
+    University of Washington from that year until1926. His contribution to
+    statistics in this period was to encourage Harold Hotelling to switch
+    from journalism to math (Hotelling named his son after Bell). In his own
+    researches at this time, Bell produced significant results in number
+    theory, including Diophantine analysis: equations whose solutions are
+    limited to whole numbers. The Bell numbers (1, 1, 2, 5, 15, 52, and so
+    on), a series of whole numbers arising in the theory of partitions, were
+    first investigated by him, and are named for him. His 1921 memoir
+    Arithmetical Paraphrases won him the prestigious Bocher Prize (jointly
+    with Solomon Lefschetz) in 1924
+  </p>
+
+  <p>
+    In that year he began a second life as a science fiction writer, under
+    the pen name John Taine (his only son, born in 1917, had been named
+    Taine Bell). In all, he produced twelve novels and several stories
+    between 1924 and 1954. In 1926, having earlier declined offers from
+    Chicago and Columbia, he joined the faculty of the California Institute
+    of Technology, where he became a distinctive and even eccentric figure,
+    and had much to do with building up the quality of the mathematics
+    faculty. His next mathematical publication was the comprehensive survey
+    Algebraic Arithmetic (1927). His enduring masterpiece of popularization,
+    <em>Men of Mathematics</em> , came somewhat later, in 1937. The more
+    technically advanced <em>Development of Mathematics</em> (1940) had a
+    comparable appeal and influence for professional and preprofessional
+    readers. His gift of explanation and his fascination with the integers
+    are both evident in the <em>Magic of Numbers</em> (1946), a book on
+    Pythagoras and the number mysticism of the Pythagorean school
+  </p>
+
+  <p>
+    Bell retired from CalTech in 1951, and died at the age of 77 in 1960.
+    With the assistance of D.H. Lehmer, who had provided the otherwise
+    missing final chapter, he had just completed a book entitled The Last
+    Problem. It was about Fermat, to whom, and to whose tantalizing unproven
+    Last Theorem, a chapter of <em>Men of Mathematics</em> had already been
+    devoted. Bell's conviction at the time, that Fermat's unmatched insight
+    into the character of numbers did not mislead him as to the existence of
+    a proof, was vindicated recently when a proof was finally found
+  </p>
+
+  <p>
+    Bell's infectious love of number, his sense of the large sweep of
+    mathematical history, and his generous anger at the barls and poopheads
+    who all too densely populate that history, are his great legacy to
+    posterity
+  </p>
+
+  <p>
+    Postscript 2003
+
+    The above notice happened to catch the eye of ETB's grandson, Lyle Bell,
+    the only son of Taine Bell, who commented that ETB ``would have loved
+    the last paragraph.'' We asked Lyle what ETB was like as a grandfather.
+    Here, with his permission, is his answer, along with notes on ETB's last
+    days. WE should add by way of clarification that <q>Romps</q> was ETB's
+    name for himself, and <q>Toby</q> was his name for his wife Jessie.
+    \begin{quote}
+    ``E.T. Bell, known as Pop Romps to me (he refused to be called Grandpa),
+    brings back some interesting and humorous memories. You asked how he was
+    as a grandfather. The answer is that he tolerated me and my two sisters
+    reasonably well. He wasn't the type to sit his grandkids on his lap. I
+    believe he was pretty fond of Laurie, the older of the two (both younger
+    than me). From what I know, he always took more of a liking to females
+    than males (that reminds me of the fact that he apparently did not want
+    any children, his wife <q>tricked</q> him into it, and he was unhappy that
+    he had a boy rather than a girl). We visited him in Pasadena maybe two
+    or three times that I can remember. I remember a modest home with walls
+    full of books and lots of cigar smoke. He had quite a large garden and a
+    really neat study in a small structure in the middle of the garden. He
+    visited us in Watsonville a few times when he was healthy. I remember
+    one time when I felt I really hadn't spent any time with him, and asked
+    to stay home from school for the day. We sat in the living room
+    together, no doubt awkwardly for him. I don't remember anything about
+    the visit except that I was just learning to multiply at the time, and
+    he asked me to figure out what 7 x 7 is. It took me a while to get 49,
+    and to this day those are my favorite numbers
+  </p>
+
+  <p>
+    Some time in late 1958 or early 1959 he was still living in Pasadena
+    when he fell off a chair he was standing on to change a light bulb and
+    broke his arm. My parents (both physicians) decided to bring him up to
+    the Watsonville Hospital where they could keep an eye on him while he
+    recovered. Then they decided he wasn't fit to live by himself and that
+    he should live in a rest home in Watsonville. When they announced their
+    plans, he made is abundantly clear that he had no intention of living
+    with a bunch of old farts. He would stay right where he was, end of
+    discussion! He was moved to a private room close to the nurses' station.
+    He flirted with the nurses, smoked cigars, filled his room with books,
+    worked on The Last Problem, and drank Scotch. He was quite popular with
+    the nurses. On one occasion he caught his bed on fire as a result of
+    careless smoking. He was reprimanded by the hospital administration and
+    told he could not smoke without a nurse being present. He said, ``Great,
+    I will enjoy more company!'' and continued to smoke when he wanted to
+  </p>
+
+  <p>
+    I was in the sixth grade when he passed away. As I was getting on my
+    bicycle to ride to school, my Mom came out to tell me that Pop Romps had
+    died the night before. She told me to go to school. That evening I
+    remember having a short, awkward conversation with my Dad and telling
+    him I was sorry that Pop Romps had died. There was NO other discussion
+    or acknowledgement of his death within the family at the time. There was
+    no way that my Dad would get involved in with kind of service because
+    his religious upbringing was totally non-existent. When he was in the
+    third grade, he asked his parents what the big plus sign on the building
+    was for!
+
+    When I was in college, it occurred to me that I never knew what happened
+    after Pop Romps died. I asked my Mom, and she told me he was still in
+    her closet. He had left very specific instructions that he was to be
+    cremated and his ashes spread at the base of the rock on a hillside in
+    Yreka, California, where he had proposed to his wife, Toby. He had
+    spread her ashes there. He left directions and a photo of the location.
+    Yreka is in the northernmost part of California. My parents did not have
+    an occasion to go up there and didn't want to make a special trip, so he
+    stayed in the closet. They made the trip in the early 1970's. They
+    arrived early on a foggy morning and found the rock near a swing set in
+    the back yard of a nice home. Dad hopped the fence and did the deed. The
+    ashes were very light in color and contained bone fragments. They didn't
+    exactly blend with the green grass, which was covered with dew. He tried
+    to work them into the grass with his feet and just made matters worse.
+    He got back in the car and drove out of town fast before somebody
+    spotted the rather suspicious activity. Pop Romps was no doubt reveling
+    through the whole ordeal.''
+
+    \end{quote}
+
+    These pages are copyright 2001-by E. Bruce Brooks
+    <title>Group Projects- Math 528</title>
+    <ol>
+      <li>
+        <p>
+          Paths and Binomial Coefficients
+        </p>
+      </li>
+
+      <li>
+        <p>
+          On Triangular Numbers
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Fibonacci Numbers
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Generalized Pascal Triangles
+        </p>
+      </li>
+
+      <li>
+        <p>
+          A Pascal-like Triangle of Eulerian Numbers
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Leibnitz Harmonic Triangle
+        </p>
+      </li>
+
+      <li>
+        <p>
+          The Twelve Days of Christmas
+        </p>
+      </li>
+    </ol>
+    PROJECT 1: PATHS AND BINOMIAL COEFFICIENTS
+    <ol>
+    <li>A path consists of vertical and horizontal line segments of length 1.
+      Determine the number of paths
+      <ol>
+        <li>
+          <p>
+            of length 7 from the origin <m>\left( 0,0 \right)</m> and <m>(4,3)</m> .
+          </p>
+        </li>
+
+        <li>
+          <p>
+            of length <m>a + b</m> from <m>\left( 0,0 \right)</m> and <m>(a,b)</m> .
+          </p>
+        </li>
+      </ol>
+    </li>
+
+    <li>A lattice point in the plane is a point <m>(m,n)</m> with <m>m,n \in Z</m> .
+      <ol>
+        <li>How many paths of length 4 are there from <m>(0,0)</m> to lattice
+          points on the line <m>y = - x + 4</m> ?</li>
+
+        <li>Determine the number of paths of length 10 from <m>(0,0)</m> to the
+          lattice points on <m>y = 10 - x</m> .</li>
+      </ol>
+    </li>
+
+    <li>Give a geometrical (path argument) for the identity <m>2^{n} =
+      \binom{n}{0}
+      +
+      \binom{n}{1}
+      + \ldots +
+      \binom{n}{n}</m> using the idea in \#2.</li>
+
+    <li>Generalize \#1 to three dimensions; introduce obstructions; use
+      inclusion-exclusion.</li>
+
+    <li>Give a path proof for <m>\binom{n}{k}
+      =
+      \binom{n - 1}{k}
+      +
+      \binom{n - 1}{k - 1}</m> .</li>
+
+    <li>How many lattice paths from <m>\left( 0,0 \right)</m> to all lattice
+      points on the line <m>x + 2y = n</m> are there?</li>
+
+    <li>Determine the number of lattice paths from <m>\left( 0,0,0 \right)</m> to lattice points on that portion of the
+      plane <m>x + y + z = 2</m> that lies in the first octant.</li>
+
+    <li>
+      <p>
+        Generalize \#7.
+      </p>
+    </li>
+
+    <li>Determine the number of lattice paths from <m>\left( 0,0 \right)</m> to <m>(n,n)</m> that do not cross over (they may touch) the
+      line <m>y = x</m> .</li>
+    </ol>
+    PROJECT 2: ON TRIANGULAR NUMBERS
+
+    Let <m>T_{n} = \frac{n\left( n + 1 \right)}{2}</m> denote the <m>n^{\text{th}}</m> triangular number.
+    <ol>
+    <li>
+      <p>
+        Give a geometric interpretation for <m>T_{n} + T_{n + 1} = \left( n + 1 \right)^{2}.</m>
+      </p>
+    </li>
+
+    <li>
+      <p>
+        Verify that <m>T_{n} + T_{m} + mn = T_{m + n}</m> algebraically.
+      </p>
+    </li>
+
+    <li>
+      <p>
+        Give a geometric interpretation of the formula in \#2.
+      </p>
+    </li>
+
+    <li>
+      <p>
+        Verify that <m>T_{n}^{2} + T_{n - 1}^{2} = T_{n^{2}}</m> .
+      </p>
+    </li>
+
+    <li>Verify the following:
+      <ol>
+        <li>
+          <p>
+            <m>3T_{n} + T_{n + 1} = T_{2n + 1}</m>
+          </p>
+        </li>
+
+        <li>
+          <p>
+            <m>3T_{n} + T_{n - 1} = T_{2n}</m> (also give a geometrical proof)
+          </p>
+        </li>
+      </ol>
+    </li>
+
+    <li>Determine the values <m>T_{6},T_{66},T_{666},T_{6666},\ldots</m> .
+      Make a general statement and prove it.</li>
+
+    <li>
+      <p>
+        Determine the formula for <m>T_{3} + T_{6} + T_{9} + \ldots + T_{3n}.</m>
+      </p>
+    </li>
+
+    <li>Verify:
+      <ol>
+        <li>
+          <p>
+            <m>1 + 3 + 6 + 10 + 15 = 1^{2} + 3^{2} + 5^{2}</m>
+          </p>
+        </li>
+
+        <li>
+          <p>
+            <m>1 + 3 + 6 + 10 + 15 + 21 = 2^{2} + 4^{2} + 6^{2}</m>
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Generalize and prove your generalization.
+          </p>
+        </li>
+      </ol>
+    </li>
+    </ol>
+    PROJECT 3: FIBONACCI NUMBERS
+    <ol>
+    <li>
+      <p>
+        Briefly address history.
+      </p>
+    </li>
+
+    <li>Using a variety of proof methods (geometric, induction, matrices,
+      recursion, telescoping sum) prove identities such as:
+      <ol>
+        <li>
+          <p>
+            <m>F_{1} + F_{2} + \ldots + F_{n} = F_{n + 2} - 1</m>
+          </p>
+        </li>
+
+        <li>
+          <p>
+            <m>F_{1}^{2} + F_{2}^{2} + \ldots + F_{n}^{2} = F_{n}F_{n + 1}</m>
+          </p>
+        </li>
+
+        <li>
+          <p>
+            <m>F_{n + 1}^{2} - F_{n}F_{n + 2} = \left( - 1 \right)^{n}</m>
+          </p>
+        </li>
+
+        <li><m>F_{n + 2} =
+          \binom{n + 1}{0}
+          +
+          \binom{n}{1}
+          +
+          \binom{n - 1}{2}
+          + \ldots</m></li>
+      </ol>
+    </li>
+
+    <li>Prove the <q>Binet Formula,</q> <m>F_{n} = \frac{\alpha^{n} - \beta^{n}}{\alpha - \beta}</m> , where <m>\alpha,\beta</m> satisfy <m>x^{2} - x - 1 = 0</m> .
+      <ol>
+        <li>
+          <p>
+            By induction.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Using generating series.
+          </p>
+        </li>
+      </ol>
+    </li>
+    </ol>
+    FIX
+    <md>
+      \binom{n}{0}F_{0} + \binom{n}{1} F_{1} + \ldots + \binom{n}{n}F_{0} = F_{2n}
+    </md>
+    <ol>
+      <li>
+        <p>
+          Investigate the geometric interpretations of the <m>F_{n}</m> .
+        </p>
+      </li>
+    </ol>
+    <md>
+      _{n} = \left\lbrack \binom{n}{1}  + \binom{n}{3} 5 + \binom{n}{5} 5^{2}\ldots \right\rbrack + \left\lbrack \binom{n}{0}  + \binom{n}{2}  + \binom{n}{4}  + \ldots \right\rbrack.
+    </md>
+    <ol>
+    <li>Let <m>Q =
+      \begin{pmatrix}
+      1 & 1
+      1 & 0
+      \end{pmatrix}</m> . Prove:
+      <ol>
+        <li><m>Q^{n} =
+          \begin{pmatrix}
+          F_{n + 1} & F_{n}
+          F_{n} & F_{n - 1}
+          \end{pmatrix}</m> .</li>
+
+        <li>
+          <p>
+            <m>Q^{2} = Q + I</m> ; use <m>Q^{2n}</m> to prove the identity in \#4.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Use <m>Q^{2n + 1} = Q^{n}Q^{n + 1}</m> to show <m>F_{2n + 1} = F_{n + 1}^{2} - F_{n}^{2}</m> and other identities.
+          </p>
+        </li>
+      </ol>
+    </li>
+
+    <li>Show that if <m>x^{2} = x + 1</m> then <m>x^{n} = F_{n}x + F_{n - 1}</m> for <m>n \geq 2</m> . Use this result to prove the Binet Formula, namely
+      that <m>F_{n} = \frac{\alpha^{n} - \beta^{n}}{\alpha - \beta}</m> .</li>
+
+    <li>
+      <p>
+        Investigate Lucas, Tribonacci, Tetranacci numbers.
+      </p>
+    </li>
+    </ol>
+    References: The Fibonacci Quarterly; The Golden Section by Garth E.
+    Runion; The Divine Proportion by H.E. Huntley
+
+    PROJECT 4: GENERALIZED PASCAL TRIANGLES
+    <ol>
+      <li>
+        <p>
+          Expand <m>{\left( 1 + x + x^{2} \right)}^{2},\left( 1 + x + x^{2} \right)^{3},\left( 1 + x + x^{2} \right)^{4}</m> .
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Organize the coefficients as in the following triangle:
+        </p>
+      </li>
+    </ol>
+    \begin{quote}
+    1
+
+    1 1 1
+
+    1 2 3 2 1
+
+    1 3 6 7 6 3 1
+
+    1 4 10 16 19 16 10 4 1
+
+    \end{quote}
+    <ol>
+    <li>Investigate the properties of this triangle:
+      <ol>
+        <li>
+          <p>
+            Produce the next row.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Give a recursion that produces elements in this triangle.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            What are the row sums? Prove it!
+          </p>
+        </li>
+
+        <li>What is the sum <m>1^{2} + 2^{2} + 3^{2} + 2^{2} + 1^{2}</m> ?
+          Generalize and prove.</li>
+
+        <li>
+          <p>
+            Is there a hockey stick theorem?
+          </p>
+        </li>
+      </ol>
+    </li>
+
+    <li>
+      <p>
+        Investigate 3-dimensional versions of <m>\left( 1 + x + x^{2} \right)^{n}</m> and <m>\left( x + y + z \right)^{n}.</m>
+      </p>
+    </li>
+
+    <li>
+      <p>
+        Investigate <m>\left( 1 + x + x^{2} + x^{3} \right)^{n}</m> .
+      </p>
+    </li>
+
+    <li>
+      <p>
+        Investigate <m>\left( 1 + x + x^{2} + \ldots + x^{k} \right)^{n}</m> .
+      </p>
+    </li>
+
+    <li>Where do the <q>Fibonacci</q> numbers get involved in the Pascal
+      triangle?</li>
+
+    <li>Where do the <q>Tribonacci</q> numbers appear in the triangle in \#2?
+
+      PROJECT 5: A PASCAL-LIKE TRIANGLE OF EULERIAN NUMBERS</li>
+    </ol>
+    <ol>
+      <li>Show algebraically and geometrically that <m>\binom{n}{2}
+        +
+        \binom{n + 1}{2}
+        = n^{2}</m> .</li>
+
+      <li>Show that <m>\binom{n}{3}
+        + 4
+        \binom{n + 1}{3}
+        +
+        \binom{n + 2}{3}
+        = n^{3}</m> .</li>
+
+      <li>Use \#1 and the hockey stick theorem to find a nice formula for <m>1^{2} + 2^{2} + 3^{2} + \ldots + n^{2}</m> . Contrast with the
+        version usually seen in calculus.</li>
+
+      <li>
+        <p>
+          Use \#2 to find a nice formula for <m>1^{3} + 2^{3} + 3^{3} + \ldots + n^{3}</m> .
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Express <m>n^{4}</m> as in problems \#1 and \#2.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Use \#5 to find a nice formula for <m>1^{4} + 2^{4} + 3^{4} + \ldots + n^{4}</m> .
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Here is an alternate way of accomplishing \#6:
+        </p>
+      </li>
+    </ol>
+    <md>
+      ^{4} + 2^{4} + 3^{4} + \ldots + n^{4} = a\binom{n + 1}{5}  + b\binom{n + 2}{5}  + c\binom{n + 3}{5}  + d\binom{n + 4}{5}
+    </md>
+    \begin{quote}
+    using n=1, 2, 3, 4. This sometimes referred to as ``Polynomial
+    Fitting.''
+
+    \end{quote}
+    <ol>
+      <li>
+        <p>
+          Express <m>n^{3}</m> as in problems \#1 and \#2.
+        </p>
+      </li>
+
+      <li>Express <m>1^{5} + 2^{5} + 3^{5} + \ldots + n^{5}</m> as a sum of
+        multiples of binomial coefficients.</li>
+
+      <li>In problem \#1, \#2, \#5, and \#7, <m>n^{2},n^{3},n^{4},</m> and <m>n^{5}</m> were expressed as sums of binomial coefficients with integer
+        coefficients. Arrange these expressions in a Pascal-like triangle,
+        concentrating on these integer coefficients. The coefficients are
+        called Eulerian numbers.</li>
+
+      <li>Investigate the properties of this triangle. Include a discussion of
+        row sums, how entries are found, and a possible recursion. Use <m>\begin{bmatrix}
+        n
+        k
+        \end{bmatrix}</m> for notation.</li>
+    </ol>
+    PROJECT 6: THE LEIBNITZ HARMONIC TRIANGLE
+    <ol>
+      <li>
+        <p>
+          State the rule used to form each entry, and produce the next two rows.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          What are the <q>initial conditions</q> needed to generate the entries?
+        </p>
+      </li>
+
+      <li>Use <m>\begin{bmatrix}
+        n
+        k
+        \end{bmatrix}</m> as the notation for entries and state properties
+        analogous to those found in the Pascal Triangle. Include closed
+        formulas for each entry, row sums (alternating also), hockey stick
+        theorem, hexagon property, sum of squares of row entries, etc.
+        Indicate how partial fractions help in verifying the (infinite) hockey
+        stick theorem.</li>
+
+      <li>See if you can find any papers on this topic. Check PI MU EPSILON
+        JOURNAL, THE MATHEMATICAL GAZETTE, MATHEMATICS MAGAZINE,
+        DELTA-UNDERGRADUATE MATHEMATICS JOURNAL, etc.</li>
+    </ol>
+    PROJECT 7: THE TWELVE DAYS OF CHRISTMAS (in the Discrete Math Style)
+
+    According to the song, THE TWELVE DAYS OF CHRISTMAS the <q>true love</q>
+    received the following number of (not so practical) gifts:
+    \begin{longtable}[]{@{}lll@{}}
+    \toprule
+    Day's Gift & Number received & Total\tabularnewline
+    \midrule
+    \endhead
+    First & 1 X 12 & 12\tabularnewline
+    Second & 2 X 11 & 22\tabularnewline
+    Third & 3 X 10 & 30\tabularnewline
+    Fourth & 4 X 9 & 36\tabularnewline
+    Fifth & 5 X 8 & 40\tabularnewline
+    Sixth & 6 X 7 & 42\tabularnewline
+    Seventh & 7 X 6 & 42\tabularnewline
+    Eighth & 8 X 5 & 40\tabularnewline
+    Ninth & 9 X4 & 36\tabularnewline
+    Tenth & 10 X 3 & 30\tabularnewline
+    Eleventh & 11 X 2 & 22\tabularnewline
+    Twelfth & 12 X 1 & 12\tabularnewline
+    & & Grand Total = 364\tabularnewline
+    \bottomrule
+
+    \end{longtable}
+
+    1
+
+    2 2
+
+    3 4 3
+
+    4 6 6 4
+
+    5 8 9 8 5
+
+    The first five rows of a triangle are given above.
+    <ol>
+      <li>
+        <p>
+          Make the next few rows.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Where have you seen this triangle before?
+        </p>
+      </li>
+
+      <li>Experiment with factoring each integer in the 6\textsuperscript{th}
+        row. Repeat with other rows.</li>
+
+      <li>
+        <p>
+          What are the entries in row 12?
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Where does the expression <m>1 \bullet n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \ldots + n \bullet 1</m> show up in the triangle?
+        </p>
+      </li>
+
+      <li>Explain why <m>1 \bullet n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \ldots + n \bullet 1 =
+        \binom{n + 2}{3}</m> .</li>
+    </ol>
+    FOUR (OR EIGHT) DISTRIBUTION PROBLEMS
+
+    The formulas derived earlier for the number of <em>onto</em> functions f
+    from a domain <m>\{ x_{1},x_{2},\ldots,x_{m}\}</m> to a codomain <m>\{ y_{1},y_{2},\ldots,y_{n}\}</m> can be used as a model for the
+    following distribution problem: in how many ways can you place n
+    different objects into k different bins, not allowing empty bins? Some
+    texts use the word distinguishable instead of different. We will also
+    use the word similar to connote the same meaning as indistinguishable
+  </p>
+
+  <p>
+    The concept of <em>compositions</em> of n into k parts likewise serves as
+    a model for the following distribution problem: in how many ways can you
+    place n similar objects into k different boxes either allowing empty
+    boxes or not? As this second class of problem is a little easier let's
+    analyze it first.
+
+    \begin{result}The number of ways of placing n similar objects into k different
+    bins not allowing empty bins is <m>\binom{n - 1}{k - 1}</m> . Denote the k different bins by <m>x_{1},x_{2},\ldots,x_{k}</m> . The number of solutions to <m>x_{1} + x_{2} + \ldots + x_{k} = n</m> where each <m>x_{i} \geq 1</m> is
+    the number of such distributions.
+    \end{result}
+
+    \begin{result}  The number of ways of placing n similar objects into k different
+    bins allowing empty bins is <m>\binom{n + k - 1}{k - 1}</m> . The number of solutions to <m>x_{1} + x_{2} + \ldots + x_{k} = n</m> where each <m>x_{i} \geq 0</m> is
+    the number of such distributions. Notice here that allowing, <m>x_{2}</m> ,
+    for example, to be 0 is the same as saying that no objects will be
+    placed in bin \#2.
+    \end{result}
+
+    Now let's turn to the first problem. Using the Principle of
+    Inclusion-Exclusion (PIE) we see that the number of functions from \{1,
+    2, 3, 4, 5\} <em>onto} \{a, b, c\} is <m>3^{5} - 3 \bullet 2^{5} + 3 \bullet 1^{5</em></m> . Similarly, the number of
+    functions from \{1, 2, 3, 4, 5, 6\} <em>onto} \{a, b, c, d\} is <m>4^{6} - 4 \bullet 3^{6} + 6 \bullet 2^{6} - 4 \bullet 1^{6</em> =
+    \binom{4}{4}
+    4^{6} -
+    \binom{4}{3}
+    3^{6} +
+    \binom{4}{2}
+    2^{6} -
+    \binom{4}{1}
+    1^{6}.</m> PIE can be used to show that, in general, the
+    number of functions from <m>\{ x_{1},x_{2},\ldots,x_{n}\}</m> <em>onto} <m>\{ y_{1},y_{2},\ldots,y_{k}\</em></m> is
+    <md>
+      \left( n,k \right) = k^{n} - \binom{k}{1} \left( k - 1 \right)^{n} + \binom{k}{2} \left( k - 2 \right)^{n} - \binom{k}{3} \left( k - 3 \right)^{n} + \ldots + \left( - 1 \right)^{k - 1}\binom{k}{k - 1} 1^{n}
+    </md>
+    Each onto functions characterizes a distribution problem as follows: the
+    following onto function
+    \begin{longtable}[]{@{}llllll@{}}
+    \toprule
+    x & 1 & 2 & 3 & 4 & 5\tabularnewline
+    \midrule
+    \endhead
+    f(x) & a & a & b & c & b\tabularnewline
+    \bottomrule
+
+    \end{longtable}
+
+    can be considered as a model for distributing the two different objects
+    1 and 2 into a bin <em>a</em> , the two different objects 3 and 5 into bin
+    <em>b} and 4 into bin \emph{c</em> . Since each of the complete inverse
+    images <m>f^{- 1}\left( a \right),f^{- 1}\left( b \right),</m> and <m>f^{- 1}(c)</m> is non-empty (the function being onto guarantees this)
+    this model counts distributions that do not allow empty bins. This
+    establishes the following distribution result.
+
+    \begin{result}
+	 The number of ways of placing <em>n</em> different objects into
+    <em>k</em> different bins with no empty bins is <m>B(n,k)</m> .
+    \end{result}
+    \begin{result}
+	 The number of ways of placing n different objects into k
+    different bins in <m>k^{n}.</m> \end{result}
+    Without the restriction of <q>no empty bins</q> this is just a matter of
+    saying that there are k places for disposing of each of the n objects.
+    This is also the number of functions from <m>\{ x_{1},x_{2},\ldots,x_{n}\}</m> <em>to} <m>\{ y_{1},y_{2},\ldots,y_{k}\</em></m> , ignoring the restriction that
+    they must be onto
+  </p>
+
+  <p>
+    Finally, we look at what happens if the n objects are different but the
+    k bins are now similar, still with no empty bins allowed. Since there
+    are k! ways to label the k bins, there are k! ways to convert similar
+    bins into different bins. The number of distributions of this type is
+    therefore <m>\frac{1}{k!}B(n,k)</m> . For convenience of notation, let's
+    call this last expression: <m>S\left( n,k \right).</m> \begin{result}
+	 The number of ways of placing n different objects into k similar
+    bins with no empty bins is <m>S\left( n,k \right).</m> \end{result}
+
+    There is one additional distribution problem that we can analyze using
+    the machinery developed thus far. In how many ways can you place n
+    different objects into k similar bins <em>allowing</em> empty bins. Using
+    the sum rule we can look at the following disjoint cases:
+
+    No box is empty- <m>S(n,k)</m> Exactly one box is empty- <m>S(n,k - 1)</m> \begin{quote}
+    Exactly two bins are empty- <m>S(n,k - 2)</m> \end{quote} <m>\vdots</m> All but one bin are empty- <m>S(n,1)</m> \begin{result} The number of ways of distributing n different objects into k or
+    fewer bins is <m>S\left( n,1 \right) + S\left( n,2 \right) + \ldots + S(n,k)</m> .
+    \end{result}
+
+    Finally, the theory of linear or integer <em>partitions</em> solves the
+    final distribution problem: In how many ways can you distribute n
+    similar objects into k similar bins? Recall that a <em>partition} <m>\left( a_{1},a_{2},\ldots,a_{k</em> \right)</m> of an integer n is an
+    array of integers <m>a_{i}</m> such that <m>n = a_{1} + a_{2} + \ldots + a_{n}</m> and <m>a_{1} \geq a_{2} \geq a_{3} \geq \ldots \geq a_{k} > 0</m> . For
+    example, the 5 partitions of n=4 are 4, 31, 22, 211, 1111. Here, the
+    distribution 31 is the same as 13 since the bins are similar.
+
+    DISTRIBUTIONS OF OBJECTS INTO BINS
+    \begin{longtable}[]{@{}lllll@{}}
+    \toprule
+    n objects & & & k bins &\tabularnewline
+    \midrule
+    \endhead
+    & & & Allow empty & <m>P_{k}(n)</m> \tabularnewline
+    S & (Partitions of Integers) & S & &\tabularnewline
+    & & & Do not & <m>P_{k}(n - k)</m> \tabularnewline
+    & & & Allow empty & <m>\binom{n + k - 1}{k - 1}</m> \tabularnewline
+    S & (Compositions) & D & &\tabularnewline
+    & & & Do not & <m>\binom{n - 1}{k - 1}</m> \tabularnewline
+    & & & Allow empty & <m>S\left( n,1 \right) + S\left( n,2 \right) + \ldots + S(n,k)</m> \tabularnewline
+    D & (Set Partitions) & S & &\tabularnewline
+    & & & Do not & <m>\frac{1}{k!}B(n,k)</m> \tabularnewline
+    & & & Allow empty & <m>k^{n}</m> \tabularnewline
+    D & (Surjections) & D & &\tabularnewline
+    & & & Do not & <m>B(n,k)</m> \tabularnewline
+    \bottomrule
+
+    \end{longtable}
+  </p>
+</section>
+
+<section>
+  <title>CONVENIENT NOTATION</title>
+  <p>
+    S = Similar
+
+    D = Different <m>B\left( n,k \right) = k^{n} -
+    \binom{k}{1}
+    \left( k - 1 \right)^{n} +
+    \binom{k}{2}
+    \left( k - 2 \right)^{n} + \ldots + \left( - 1 \right)^{k - 1}
+    \binom{k}{k - 1}
+    1^{n}</m>
+    <md>
+      \left( n,k \right) = \frac{1}{k!}B\left( n,k \right)
+    </md>
+  </p>
+</section>
+
+<section>
+  <title>COMBINATORIAL PROOFS</title>
+  <p>
+    A combinatorial proof is sometimes used to show that two very different
+    looking expressions are in fact equal. The technique is as follows.
+    Refer to the two different looking expressions as the left-hand side
+    (LHS) and the right-hand side RHS. Create a situation or question that
+    is answered by the LHS; then show that the RHS also answers the
+    question. The conclusion is that LHS=RHS
+  </p>
+
+  <p>
+    In the following we present a number of theorems, statements,
+    identities, etc, and give combinatorial proofs of each. For each result
+    the reader is urged to attempt an alternate proof for comparison
+    purposes. Such an alternate proof could be algebraic or geometric in
+    nature; or one could try a collapsing sum or an induction proof.
+
+    <theorem>
+      <statement>
+        <p>
+          <m>\binom{2n}{2}
+          = 2
+          \binom{n}{2}
+          + n^{2}</m> Split the <m>2n</m> objects into two groups A and B as shown:
+        </p>
+      </statement>
+    </theorem>
+
+    \textbf{. . . . . . . . . . }
+
+    A B
+
+    First, you can choose 2 objects from a set of <m>2n</m> objects
+    in <m>\binom{2n}{2}</m> ways. Alternatively, you could select two from group A
+    in <m>\binom{n}{2}</m> ways or two from group B in <m>\binom{n}{2}</m> ways or take one from each in <m>n \bullet n = n^{2}</m> ways. Now add <m>\binom{n}{2}
+    +
+    \binom{n}{2}
+    + n \bullet n</m> and the result follows. The reader should
+    attempt an algebraic proof using the factorial formula
+    for <m>\binom{n}{k}</m> .
+
+    <theorem>
+      <statement>
+        <p>
+          <m>\binom{m + n}{2}
+          -
+          \binom{m}{2}
+          -
+          \binom{n}{2}
+          = mn</m> Suppose you have a group of m men and n women and you want to form
+          men-women dancing pairs. This can clearly be done in mn ways. Or, you
+          could choose 2 from the total of m + n and delete the men-men pairs
+          (there are <m>\binom{m}{2}</m> of these) and delete the women-women pairs
+          (also <m>\binom{n}{2}</m> of these). The result follows. The reader could attempt
+          an algebraic proof or perhaps a geometric proof making use of figures
+          consisting of triangular numbers. Also, as a challenge, the reader could
+          formulate a similar result involving <m>\binom{a + b + c}{3}</m> and a corresponding proof.
+        </p>
+      </statement>
+    </theorem>
+
+    <theorem>
+      <statement>
+        <p>
+          <m>\binom{n}{0}
+          +
+          \binom{n}{1}
+          +
+          \binom{n}{2}
+          + \ldots +
+          \binom{n}{n}
+          = 2^{n}</m> Here again we first create a question that is answered by either side of
+          the given identity. Question: How many subsets does <m>\{ a_{1},a_{2},\ldots,a_{n}\}</m> have? An n-set has <m>\binom{n}{2}</m> subsets. The left-hand side counts these subsets by
+          their size. There are <m>\binom{n}{k}</m> subsets of size k.
+        </p>
+      </statement>
+    </theorem>
+
+    In this situation the reader might <em>not</em> want to try this
+    algebraically.
+
+    <theorem>
+      <statement>
+        <p>
+          <m>\binom{n}{1}
+          + 2
+          \binom{n}{2}
+          + 3
+          \binom{n}{3}
+          + \ldots + n
+          \binom{n}{n}
+          = {n2}^{n - 1}</m> Given a set of n people we can select a committee of size k along with a
+          chair from that committee in <m>k
+          \binom{n}{k}</m> ways. We can select a committee (of size 1, or size 2,
+          or \ldots{}) and its chair in <m>\binom{n}{1}
+          + 2
+          \binom{n}{2}
+          + 3
+          \binom{n}{3}
+          + \ldots + n
+          \binom{n}{n}</m> ways. Alternatively, we can explain the term <m>n2^{n - 1}</m> as follows: choose one of the n people to chair any of
+          the <m>2^{n - 1}</m> subsets of the remaining <m>n - 1</m> people.
+        </p>
+      </statement>
+    </theorem>
+
+    The reader is invited to investigate one or more of the following
+    approaches: <m>n2^{n - 1}</m> looks like a derivative, so try
+    differentiating <m>\left( 1 + x \right)^{n}</m> ; a reverse and add approach
+    also works; or, first prove <m>k
+    \binom{n}{k}
+    = n
+    \binom{n - 1}{k - 1}</m> and then use it.
+
+    <theorem>
+      <statement>
+        <p>
+          <m>\binom{n}{k}
+          =
+          \binom{n - 1}{k}
+          +
+          \binom{n - 1}{k - 1}</m> <m>\binom{n}{k}</m> is the number of subsets of <m>\{ a_{1},a_{2},a_{3},\ldots,a_{n}\}</m> of size k. Now a subset A
+          of size k either contains the fixed element <m>a_{i}</m> or it does not.
+          If A contains <m>a_{i}</m> , the remaining <m>k - 1</m> elements can be
+          selected in <m>\binom{n - 1}{k - 1}</m> ways. If, on the other hand, A does not contain <m>a_{i}</m> , you can choose the k elements from the depressed set <m>\left\{ a_{1},a_{2},\ldots,a_{i - 1,}a_{i + 1,\ldots,}a_{n} \right\}</m> in <m>\binom{n - 1}{k}</m> ways. Since these two cases are mutually exclusive the
+          theorem follows.
+        </p>
+      </statement>
+    </theorem>
+
+    Once again the reader is invited to attempt an algebraic proof.
+
+    <theorem>
+      <statement>
+        <p>
+          Let <m>d_{n}</m> denote the number of derangements of 1,
+          2, 3, \ldots{}, n with <m>d_{0} = 1,d_{1} = 0.</m> Then <m>d_{n} = \left( n - 1 \right)(d_{n - 1}{+ d}_{n - 2})</m> for <m>n \geq 2</m> .
+        </p>
+      </statement>
+    </theorem>
+
+    In forming a derangement of 1, 2, 3, \ldots{}, n the integer n can be
+    placed in any of the <m>n - 1</m> spots 1, 2, 3, \ldots{}, <m>n - 1</m> , say
+    spot i. If i goes into spot n there are <m>d_{n - 2}</m> ways to finish it.
+    If i does not go into spot n there are <m>d_{n - 1}</m> ways to complete
+    the derangement
+  </p>
+
+  <p>
+    The reader can use the principle of inclusion-exclusion to derive a
+    formula for <m>d_{n}</m> from which the new recursion <m>d_{n} = nd_{n - 1} + \left( - 1 \right)^{n}</m> , and the above
+    recursion, can be derived.
+
+    <theorem>
+      <statement>
+        <p>
+          <m>\binom{n}{0}
+          ^{2} +
+          \binom{n}{1}
+          ^{2} +
+          \binom{n}{2}
+          ^{2} + \ldots +
+          \binom{n}{n}
+          ^{2} =
+          \binom{2n}{n}</m> Given a group of <m>2n</m> people consisting of n men and n women, in how
+          many ways can one choose a group of n people? The answer to that
+          question is just <m>\binom{2n}{n}</m> , the right side of the identity in question. One could
+          also form the group of n people in the following way: choose 0 men and n
+          women in <m>\binom{n}{0}
+          \binom{n}{n}
+          =
+          \binom{n}{0}
+          ^{2}</m> ways, or, choose 1 man and <m>n - 1</m> women in <m>\binom{n}{1}
+          \binom{n}{n - 1}
+          =
+          \binom{n}{1}
+          ^{2}</m> ways, or choose 2 men and <m>n - 2</m> women in <m>\binom{n}{2}
+          \binom{n}{n - 2}
+          =
+          \binom{n}{2}
+          ^{2}</m> ways and so on. Now add these disjoint cases.
+        </p>
+      </statement>
+    </theorem>
+
+    An alternate algebraic proof is less interesting: Extract the
+    coefficient of <m>x^{n}</m> from both sides
+    of. <m>\left\lbrack \left( x + 1 \right)^{n} \right\rbrack^{2} = \left( x + 1 \right)^{2n}</m>
+
+    <theorem>
+      <statement>
+        <p>
+          <m>\binom{2}{2}
+          +
+          \binom{3}{2}
+          +
+          \binom{4}{2}
+          + \ldots +
+          \binom{n}{2}
+          =
+          \binom{n + 1}{3}</m> The term <m>\binom{n + 1}{3}</m> is the number of binary strings of length <m>n + 1</m> consisting of three 1's (and the rest 0's). The left hand side counts
+          these by where in the string the left- most 1 appears. Let <m>a_{1}a_{2}a_{3}\ldots a_{n + 1}</m> be a string of length <m>n + 1</m> .
+          There are <m>\binom{n}{2}</m> strings when <m>a_{1} = 1,\binom{n - 1}{2}</m> strings when <m>a_{2} = 1</m> is the leftmost 1, \ldots{},
+          and <m>\binom{2}{2}</m> strings when <m>a_{n - 1} = 1</m> is the leftmost 1. In
+          this last case the string looks like 000 \ldots{} 0111.
+        </p>
+      </statement>
+    </theorem>
+
+    Attempting a proof by mathematical induction is an easy option. An
+    algebraic approach is not!
+
+    <theorem>
+      <statement>
+        <p>
+          The number of positive integers that have their digits
+          in strictly increasing order is <m>2^{9} - 1</m> . Include single digit
+          numbers.
+        </p>
+      </statement>
+    </theorem>
+
+    There are <m>\binom{9}{1}</m> single digit type, <m>\binom{9}{2}</m> double digit type (just select 2 of the 9 digits 1, 2,
+    3, \ldots{}, 9 and arrange in order), \ldots{}, and so on to see that
+    there are <m>\binom{9}{9}</m> nine digit type. The total is <m>\binom{9}{1}
+    +
+    \binom{9}{2}
+    +
+    \binom{9}{3}
+    + \ldots +
+    \binom{9}{9}
+    = 2^{9} - 1.</m> Here is an alternative, more clever, proof. Look at 123456789. Any
+    increasing number can be made by deleting <em>any</em> subset of digits,
+    except all of them. There are <m>2^{9} - 1</m> such subsets. For example,
+    delete the subset \{2, 4, 7, 9\} and you get 13568. Combining these two
+    approaches actually gives you a nice proof that <m>\binom{9}{0}
+    +
+    \binom{9}{1}
+    +
+    \binom{9}{2}
+    + \ldots +
+    \binom{9}{9}
+    = 2^{9}</m> .
+
+    <theorem>
+      <statement>
+        <p>
+          <m>\binom{3n}{3}
+          = 3
+          \binom{n}{3}
+          + 6n
+          \binom{n}{2}
+          + n^{3}</m> This one is a little tougher. First rewrite as <m>n^{3} =
+          \binom{3n}{3}
+          - 3
+          \binom{n}{3}
+          - 6n
+          \binom{n}{2}</m> . Suppose you have n men, n women and n children and you
+          want to select triples consisting of one man, one woman and one child.
+          There are <m>n^{3}</m> ways to do this, just pick one from each group.
+          Alternatively, select 3 of the 3n people in <m>\binom{3n}{3}</m> ways and delete the <q>bad</q> ones. Delete the ones where
+          you selected all three from one group -- there are <m>3
+          \binom{n}{3}</m> of these. Now delete those where you had two from one
+          group and one from another -- there are <m>2n
+          \binom{n}{2}
+          + 2n
+          \binom{n}{2}
+          + 2n
+          \binom{n}{2}</m> of these.
+        </p>
+      </statement>
+    </theorem>
+
+    <theorem>
+      <statement>
+        <p>
+          <m>1 \bullet 1! + 2 \bullet 2! + 3 \bullet 3! + \ldots + n \bullet n! = \left( n + 1 \right)! - 1</m> In how many ways can you arrange the n+1 numbers 0, 1, 2, \ldots{}, n so
+          that they are <em>not} in ascending order? The answer is <m>\left( n + 1 \right)! - 1</m> since 0, 1, 2, \ldots{</em>, n is the
+          <em>only</em> arrangement in ascending order. Now lets separate into
+          cases. Let <m>a_{0},a_{1},a_{2},\ldots,a_{n}</m> represent an
+          arrangement of these n+1 numbers. If <m>a_{0} \neq 0</m> , there are n
+          choices left for <m>a_{0}</m> , and then n! ways to fill out <m>a_{1},a_{2},\ldots,a_{n}</m> for a total of <m>n \bullet n!</m> . Now
+          let <m>a_{0} = 0</m> but <m>a_{1} \neq 1</m> . There are <m>n - 1</m> choices for <m>a_{1}</m> and <m>\left( n - 1 \right)!</m> ways to complete for a total of <m>\left( n - 1 \right)\left( n - 1 \right)!</m> . Now continue with <m>a_{0} = 1,a_{1} = 1</m> but <m>a_{2} \neq 2</m> . There are <m>\left( n - 2 \right)\left( n - 2 \right)!</m> ways, and so on.
+        </p>
+      </statement>
+    </theorem>
+
+    The reader should attempt a collapsing sum or induction proof.
+
+    <theorem>
+      <statement>
+        <p>
+          <m>1 \bullet n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \ldots + n \bullet 1 =
+          \binom{n + 2}{3}</m> Let <m>S = \{ 0,1,2,\ldots,n,n + 1\}</m> . The number of subsets
+          of S of size 3 is <m>\binom{n + 2}{3}</m> . Each one looks like \{a, b, c\} with a \textless{} b
+          \textless{} c, Let's count these by looking at the size of the middle
+          element b. If b=1 , there is one choice for a, namely a=0 and n choices
+          for c for a total of <m>1 \bullet n</m> . If b=2 there are 2 choices for a,
+          and <m>n - 1</m> choices for c for a total of <m>2(n - 1)</m> . If b=3 the
+          total is <m>3(n - 2)</m> , and so on. The total derived by looking at cases is <m>1 \bullet n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \ldots + n \bullet 1</m> and this must equal <m>\binom{n + 2}{3}</m> since the cases are disjoint.
+        </p>
+      </statement>
+    </theorem>
+
+    <em>\</em>
+
+    <theorem>
+      <statement>
+        <p>
+          <m>k
+          \binom{n}{k}
+          = n
+          \binom{n - 1}{k - 1}</m> Suppose you have a group of n people and you wish to form a subcommittee
+          of k people with one of those k people to serve as chair. Choose the
+          subcommittee in <m>\binom{n}{k}</m> ways and the chair in k ways. The product rule
+          gives <m>\text{k}
+          \binom{n}{k}</m> as the number of ways of selecting such a chaired
+          subcommittee.
+        </p>
+      </statement>
+    </theorem>
+
+    Alternatively, you could first choose any one of the n people to serve
+    as chair and then fill out the committee in <m>\binom{n - 1}{k - 1}</m> ways. There are <m>n
+    \binom{n - 1}{k - 1}</m> ways to select a chaired subcommittee. Hence <m>k
+    \binom{n}{k}
+    = n
+    \binom{n - 1}{k - 1}</m> The reader should attempt the easier algebraic technique by converting <m>\binom{n}{k}</m> to factorial form.
+
+    <theorem>
+      <statement>
+        <p>
+          <m>P\left( n,k \right) = k!
+          \binom{n}{k}</m> Questions -- How many permutations are there of k objects chosen from a
+          collection of n objects? The LHS answers the question. There are <m>P\left( n,k \right) = n\left( n - 1 \right)\left( n - 2 \right)...(n - k + 1)</m> ways. Alternatively, one could first choose the k objects from the n
+          objects in <m>\binom{n}{k}</m> ways and then permute these in k! ways.
+        </p>
+      </statement>
+    </theorem>
+
+    <em>\THEOREM 15} <m>n2^{n - 1</em> = 1
+    \binom{n}{1}
+    + 2
+    \binom{n}{2}
+    + 3
+    \binom{n}{3}
+    + \ldots + n
+    \binom{n}{n}</m> Contrast this discussion with that presented in THEOREM 4. Look at the
+    set of the first <m>2^{n}</m> nonnegative
+    integers <m>0,1,2,\ldots,2^{n} - 1</m> . When you convert each to
+    binary form what is the total number of 1s written? This binary list
+    will look like the standard listing in <m>B^{n}</m> the set of all binary
+    strings of length n. For n=3 <m>B^{3} = \{ 000,001,010,011,100,101,110,111\}</m> . In <m>B^{n}</m> each string has length n and there are <m>2^{n}</m> of them. But
+    half of the <m>n \bullet 2^{n}</m> symbols are 1's. Then the total number
+    of 1's is <m>n2^{n - 1}</m> . Alternatively, we could consider each string
+    and count those with one 1, then those with two 1's, etc. There are <m>1 \bullet
+    \binom{n}{1}</m> with one 1, <m>2
+    \binom{n}{2}</m> total 1's in those binary numbers with exactly two 1's, <m>3
+    \binom{n}{3}</m> in those with exactly three 1's , and so on. The total
+    is <m>1
+    \binom{n}{1}
+    + 2
+    \binom{n}{2}
+    + 3
+    \binom{n}{3}
+    + \ldots + n
+    \binom{n}{n}
+    \text{.}</m> The result now follows by equating <m>n2^{n - 1}</m> to this sum.
+
+    <theorem>
+      <statement>
+        <p>
+          <m>\binom{n}{0}
+          ^{2} +
+          \binom{n}{1}
+          ^{2} +
+          \binom{n}{2}
+          ^{2} + \ldots +
+          \binom{n}{n}
+          ^{2} =
+          \binom{2n}{n}</m> Let's revisit this identity using equivalence relations. A binary
+          relation R on the set of all binary strings of length n is defined by
+          specifying that <m>\left( \alpha,\beta \right) \in R</m> whenever weight <m>\alpha =</m> weight <m>\beta</m> . This R is an equivalence relation. For
+          n=3 there are four different equivalence classes, each containing
+          strings of weight 0, 1, 2, or 3. The relation R contains <m>1^{2} + 3^{2} + 3^{2} + 1^{2}</m> ordered pairs; for example, with
+          weight 1 each of the three strings 001, 010, 100 can be paired with any
+          one of those same strings for a total of <m>3^{2} = 9</m> . These ordered
+          pairs can be counted in another way. Each ordered pair looks like <m>\left( - - - ,- - - \right).</m> Place 1's in any three positions,
+          and 0's in the others. If you take the complement of the entries in the
+          second coordinate an element of R is produced. Here is what one sequence
+          of this process looks like: <m>\left( - - - , - - - \right) \rightarrow \left( - 11,- - 1 \right) \rightarrow \left( 011,001 \right) \rightarrow (011,110)</m> .
+          The reader can check that this process always produces an element of R
+          and that the case of n=3 extends easily to general n. Conclusion: choose
+          the n positions for 1's in <m>\binom{2n}{n}</m> ways. The result follows.
+        </p>
+      </statement>
+    </theorem>
+
+    <theorem>
+      <statement>
+        <p>
+          <m>\binom{n}{0}
+          d_{0} +
+          \binom{n}{1}
+          d_{1} +
+          \binom{n}{2}
+          d_{2} + \ldots +
+          \binom{n}{n}
+          d_{n} = n!</m> where <m>d_{n}</m> denotes the <m>n^{\text{th}}</m> derangement number, <m>d_{0} = 1,d_{1} = 0.</m> The right-hand side, n!, gives the number of permutations of n objects.
+          So the left-hand side must provide the same enumeration. The left side
+          partitions the permutations according to how many elements are deranged
+          (and the rest fixed). The term <m>\binom{n}{i}
+          d_{i} =
+          \binom{n}{n - i}
+          d_{\text{i}}</m> gives the number of permutations of n where <m>n - i</m> elements are fixed and the remaining i elements are deranged.
+          Summing over all i yields <m>\binom{n}{n}
+          d_{0} +
+          \binom{n}{n - 1}
+          d_{1} + \ldots +
+          \binom{n}{0}
+          d_{n} =
+          \binom{n}{0}
+          d_{0} +
+          \binom{n}{1}
+          d_{1} + \ldots +
+          \binom{n}{n}
+          d_{n} = n!</m> <em>THEOREM 18} <m>F_{n + 1</em> =
+          \binom{n}{0}
+          +
+          \binom{n - 1}{1}
+          +
+          \binom{n - 2}{2}
+          + \ldots</m> where <m>F_{n}</m> denotes the <m>n^{\text{th}}</m> Fibonacci number.
+        </p>
+      </statement>
+    </theorem>
+
+    Here is a question that might resolve the issue. How many different
+    brick paths of length n (and width 1) can you make using 1 x 1 bricks
+    and 1 x 2 bricks? Let a(n) denote the number of such paths of length n.
+    A few drawings will show that a(1)=1, a(2)=2, a(3)=3, a(4)=5. Since you
+    can place a 1 x 1 brick in front of all paths of length <m>n - 1</m> or a 1
+    x 2 brick in front of all paths of length <m>n - 2</m> we have that <m>a\left( n \right) = a\left( n - 1 \right) + a\left( n - 2 \right)</m> .
+    This recursion, along with the initial conditions, show that <m>a\left( n \right) = F_{n + 1}</m> , the left-hand side of the identity
+  </p>
+
+  <p>
+    Now lets look at all paths of length n and count them by the number of 1
+    x 2 bricks. If there are i 1 x 2 bricks there are <m>n - i</m> total bricks
+    making up the path of length n. Choose the positions of the i 1 x 2
+    bricks in <m>\binom{n - i}{i}</m> ways. Now sum as i ranges through the values
+
+    0, 1, 2, \ldots{}, and obtain <m>\binom{n}{0}
+    +
+    \binom{n - 1}{1}
+    +
+    \binom{n - 2}{2}
+    + \ldots = F_{n + 1}</m>
+  </p>
+
+  <p>
+    The reader should draw all paths of length <m>n = 5</m> , for example, and
+    examine the cases with i=0, 1, 2 . The reader could also explore other
+    proofs.
+
+    <theorem>
+      <statement>
+        <p>
+          <m>\binom{m + n}{2}
+          -
+          \binom{m}{2}
+          -
+          \binom{n}{2}
+          = mn</m> (Revisited)
+        </p>
+      </statement>
+    </theorem>
+
+    1.
+
+    m
+
+    n
+    \begin{figure}[h!]\begin{center}
+    \includegraphics[width=0.70\columnwidth]{figures/image16/default-figure}
+    \caption{{Couldn't find a caption, edit here to supply one.
+    }}
+    \end{center}
+    \end{figure}
+
+    2.
+    There are mn one by one squares in the subdivided
+
+    m by n rectangle. Each choice of arrows
+
+    (one horizontal, one vertical) specifies one of these squares
+  </p>
+
+  <p>
+  Pick two arrows but don't take two from the top or two from
+
+  the side. Then <m>\binom{m + n}{2}
+  -
+  \binom{m}{2}
+  -
+  \binom{n}{2}
+  = mn</m> 3. Take m people in one group and n in another. How many handshakes can
+  be accomplished? Among the m people there are <m>\binom{m}{2}</m> handshakes; among the n people there are <m>\binom{n}{2}</m> handshakes and between the two groups, mn. But, <m>\binom{m + n}{2}</m> also represents the total number of handshakes among the
+  people. Then we get: <m>\binom{m}{2}
+  +
+  \binom{n}{2}
+  + mn =
+  \binom{m + n}{2}</m> .
+  \begin{figure}[h!]\begin{center}
+  \includegraphics[width=0.70\columnwidth]{figures/image18/image18}
+  \caption{{Couldn't find a caption, edit here to supply one.
+  }}
+  \end{center}
+  \end{figure}
+
+  \end{document}
+</section>
+
+</book>
+</mathbook>

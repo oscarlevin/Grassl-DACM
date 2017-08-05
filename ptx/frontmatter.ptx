@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<frontmatter xml:id="frontmatter" xmlns:xi="http://www.w3.org/2001/XInclude">
+<titlepage>
+<author>
+<personname>Richard Grassl</personname>
+<department>School of Mathematical Science</department>
+<institution>University of Northern Colorado</institution>
+</author>
+
+<date><today/></date>
+</titlepage>
+
+
+
+<colophon>
+  <!-- <website>
+    <name><c>discretetext.oscarlevin.com</c></name>
+    <address>http://discretetext.oscarlevin.com</address>
+  </website> -->
+
+    <copyright>
+      <year>2009<ndash/>2017</year>
+      <holder>Richard Grassl</holder>
+      <!-- <minilicense><image source="../images/by-sa.png" /></minilicense> -->
+      <shortlicense><p><image source="../images/by-sa.png" width="15%" /> </p> <p>This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit <url href="http://creativecommons.org/licenses/by-sa/4.0/">http://creativecommons.org/licenses/by-sa/4.0/</url></p></shortlicense>
+    </copyright>
+
+
+    <!-- <p>
+      This online edition matches the 2nd print edition, published August 2016.
+    <dl width="narrow"><li><title>ISBN-13:</title> 978-1534970748</li>
+    <li><title>ISBN-10:</title> 1534970746 </li>
+    </dl>
+    </p> -->
+ <!-- <p>
+   Cover image: <em>Tiling with Fibonacci and Pascal</em>.
+ </p> -->
+</colophon>
+
+<!-- <dedication>
+<p>
+  For Madeline and Teagan
+</p>
+</dedication> -->
+
+
+
+<!-- <acknowledgement>
+
+</acknowledgement> -->
+
+
+
+<!-- <preface  xml:id="preface">
+
+
+</preface> -->
+
+
+
+</frontmatter>
