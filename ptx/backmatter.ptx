@@ -4,24 +4,24 @@
   <title>Backmatter</title>
 
 
-  <appendix>
+  <!-- <appendix>
       <title>Selected Solutions</title>
       <solution-list />
-  </appendix>
+  </appendix> -->
 
 
 
-<appendix>
+<!-- <appendix>
   <title>List of Symbols</title>
 
   <notation-list />
-</appendix>
+</appendix> -->
 
 
-<index-part>
+<!-- <index>
   <title>Index</title>
   <index-list />
-</index-part>
+</index> -->
 
 <colophon>
   <p>

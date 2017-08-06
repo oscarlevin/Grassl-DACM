@@ -1,14 +1,420 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 
-<chapter xml:id="ch_temp" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>TEMP</title>
+<chapter xml:id="ch_fibs" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>
+  A BRIEF HISTORY OF FIBONACCI NUMBERS
+</title>
+<introduction>
+<p>
+  Fibonacci numbers receive their name from Leonardo of Pisa (Leonardo
+  Pisano, c. 1175-1250), better known as Leonardo Fibonacci. Fibonacci is
+  a contraction of Filius Bonacci, son of Bonacci
+  </p>
+
+  <p>
+    Leonardo was born about 1175 in the commercial center of Pisa. This was
+    a time of great interest and importance in the history of Western
+    Civilization. One finds the influence of the crusades stirring and
+    awakening the people of Europe by bringing them in contact with the more
+    advanced intellect of the East. During this time the Universities of
+    Naples, Padua, Paris, Oxford, and Cambridge were established, the Magna
+    Carta signed in England, and the long struggle between the Papacy and
+    the Empire was culminated. Commerce was flourishing in the Mediterranean
+    world and adventurous travelers such as Marco Polo were penetrating far
+    beyond the borders of the known world
+  </p>
+
+  <p>
+    It is in this growing commercial activity that we find the young
+    Leonardo at Bugia on the Northern coast of Africa. Here the merchants of
+    Pisa and other commercial cities of Italy had large warehouses for the
+    storage of their goods. Actually very little is known about the life of
+    this great mathematician. No contemporary historian makes mention of
+    him, and one must look to his writings to find information about him
+  </p>
+
+  <p>
+    A mathematician before his time, Leonardo of Pisa, alias Leonardo
+    Pisano, alias Leonardo Bigollo, alias Fibonacci, was a despair to his
+    teacher as a young boy and an enigma to his colleagues in his later
+    years. Convinced of the superiority of the Hindu-Arabic numeral system
+    over the Roman system, Leonardo wrote one of his greatest works,
+    <em>Liber Abaci</em> (in English, <q>Book of Calculating</q>) to introduce
+    this system to the Western world. The <em>Liber Abaci</em> was written in
+    1202 but was not published until 1857 because <q>it was too advanced for
+    Leonardo's contemporaries.</q> Along with the introduction and development
+    of many mathematical topics, the <em>Liber Abaci</em> contained
+    interesting story problems that Leonardo liked to invent. His most
+    popular problem is the breeding pair of rabbits: <q>How many pairs of
+    rabbits will there be after a year if it is assumed that every month
+    each pair produces one new pair, which begins to bear young two months
+    after its own birth?</q>
+  </p>
+
+  <p>
+    This problem generates the infinite sequence that bears his name because
+    his work is the earliest known recording. The Fibonacci sequence begins
+    with 1 and each number that follows is the sum of the previous two
+    numbers. The first ten Fibonnaci numbers are: <m>1, 1, 2, 3, 5, 8, 13, 21,
+    34, 55</m>.
+  </p>
+
+  <p>
+    Leonardo, in 1228, gave a second edition of the <em>Liber Abaci</em> which
+    he dedicated to Michel Scott, astrologer to the Emperor Frederic II and
+    author of many scientific works. Copies of this edition exist today.
+    Leonardo profusely illustrated and strongly advocated the Hindu-Arabic
+    system in this work. He gave an extensive discussion of the Rule of
+    False Position and the Rule of Three. Leonardo did not use a general
+    method in problem solving; each problem was solved independently of the
+    others. In the solution of a problem he not only considered the problem
+    as it might occur, but considered all of the variations of the question,
+    even those that were not reasonable
+  </p>
+
+  <p>
+    Because of Leonardo's great reputation, the emperor Frederick II, when
+    in Pisa (1225), held a sort of mathematical tournament to test
+    Leonardo's skill. The competitors were informed beforehand of the
+    questions to be asked, some or all of which were composed by Johannes of
+    Palermo, who was of Frederick's staff. This is the first case in the
+    history of mathematics that one meets with an instance of these
+    challenges to solve particular problems which were so common in the
+    sixteenth and seventeenth centuries
+  </p>
+
+  <p>
+    The first question propounded was to find a number of which the square
+    when decreased or increased by 5 would remain a square. The correct
+    answer given by Leonardo was 41/12. The next question was to find by the
+    methods used in the tenth book of Euclid a line whose length x should
+    satisfy the equation <m>x^3 + 2x^2 + 10x - 20 = 0</m> . Leonardo showed by
+    geometry that the problem was impossible, but he gave an approximation
+    of the root <m>1.3688081075\ldots</m>, which is correct to nine places.
+    <em>Liber Abaci</em> contains many additional problems of this type
+  </p>
+
+  <p>
+    After the <q>Rabbit Problem,</q> the matter lay for 400 years. In 1611,
+    Johann Kepler, of astronomy fame, arrived at the series <m>1, 1, 2, 3, 5,
+    8, 13, 21, \ldots</m> . There is no indication that he had access to one
+    of Fibonacci's hand-written books (the <em>Liber Abaci</em> was not
+    published until 1857).
+  </p>
+  <p>
+    Simon Stevens (1548-1620) wrote on the famous Golden Section.  The editor of his works, A. Gerarad, arrived at the following formula for expressing the series in 1634:
+    <me>
+      F_{n + 2} = F_{n + 1} + F_{n}.
+    </me>
+  </p>
+
+  <p>
+    A hundred years must pass before the problem is again considered. In
+    1753, R. Simpson derived a formula, implied by Kepler:
+    <me>
+      F_{n - 1}F_{n + 1} - F_{n}^{2} = \left( - 1 \right)^{n}.
+    </me>
+  </p>
+
+  <p>
+    A second hundred years pass by and the series again comes under study.
+    In 1843, J.P.M. Binet derives an analytical function for determining the
+    value of any Fibonacci number:
+    <me> 2^n \sqrt{5} F^n = (1 + \sqrt{5})^{n} - (1 - \sqrt{5})^{n}.</me>
+
+    In 1846 E. Catalan derived the formula:
+    <me>
+      2^{n - 1}F_{n} = \frac{n}{1} + \frac{5n\left( n - 1 \right)\left( n - 2 \right)}{1 \cdot 2 \cdot 3} + \frac{5^{2}n\left( n - 1 \right)\left( n - 2 \right)\left( n - 3 \right)\left( n - 4 \right)}{1 \cdot 2 \cdot 3 \cdot 4 \cdot 5}.
+    </me>
+  </p>
+
+  <p>
+    By now, the series had received enough attention to deserve a name. It
+    was variously called the Braun series, the Schimper-Braun series, the
+    Lamé series and the Gerhardt series. A. Braun, applied the series to the
+    arrangement of the scales of pine cones. Schimper is completely unknown.
+    Gerhardt is probably a misspelling of Girard
+  </p>
+
+  <p>
+    Edouard Lucas, who dominated the field of recursive series during the
+    period 1876-1891, first applied Fibonacci's name to the series and it
+    has been known as the Fibonacci series since then
+  </p>
+
+  <p>
+    About this time, 1858, Sam Loyd claimed to have invented the
+    checkerboard paradox. It is first found in print in a German journal in
+    1868. Today it seems proper to call it the Carroll Paradox after Lewis
+    Carroll (Charles Dodgson, 1832-1893) who was quite fond of it.
+  </p>
+</introduction>
+
+<exercises>
+    <title>PROBLEMS ON FIBONACCI NUMBERS</title>
+
+    <exercise>
+      <statement>
+        <p> Determine a formula for each: </p>
+
+        <ol>
+          <li> <p> <m>F_{0} + F_{1} + F_{2} + \ldots + F_{m}</m> </p></li>
+          <li> <p><m>F_{0} + F_{2} + F_{4} + \ldots + F_{m}</m> where m is even. </p> </li>
+        </ol>
+      </statement>
+    </exercise>
+
+    <exercise>
+        <statement>
+          <p>
+            Prove each of the following
+          </p>
+      <ol>
+        <li xml:id="diff-fib-squares">
+          <p>
+            <m>F_{n + 1}^{2} - F_{n}^{2} = F_{n - 1}F_{n + 2}</m>
+          </p>
+        </li>
+        <li xml:id="fib-squares">
+          <p>
+            <m>F_{k}^{2} = F_{k}(F_{k + 1} - F_{k - 1})</m>
+          </p>
+        </li>
+      </ol>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>Determine a closed expression for <m>F_{0}F_{3}
+          + F_{1}F_{4} + \cdots +
+          F_{n-1}F_{n+2}</m> using <xref ref="diff-fib-squares">Problem</xref>.
+      </p>
+    </statement>
+  </exercise>
 
 
-  <introduction>
+    <exercise xml:id="fib-sum-squares">
+        <statement>
+          <p>
+            Determine a formula for <m>F_{1}^{2} + F_{2}^{2} + \ldots + F_{n}^{2}</m> in two ways:
+          </p>
+          <ol>
+            <li>
+              <p>
+                Collect data and prove by mathematical induction.
+              </p>
+            </li>
 
-  </introduction>
+            <li>
+              <p>
+                Use <xref ref="fib-squares">Problem</xref> and telescoping sums.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
 
-  <!-- <xi:include href="sec_something.ptx" /> -->
+      <exercise>
+        <statement>
+          <p>
+            Give a geometrical <q>proof</q> for the result in <xref ref="fib-sum-squares">Problem</xref>.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="fib-matrix">
+        <statement>
+          <p>
+            Prove <m>\begin{pmatrix}
+          0 \amp 1\\
+          1 \amp 1
+          \end{pmatrix}^{n} = \begin{pmatrix}
+          F_{n - 1} \amp F_{n}\\
+          F_{n} \amp F_{n + 1}
+          \end{pmatrix}</m> by induction. For convenience let <m>Q =\begin{pmatrix}
+          0 \amp 1 \\
+          1 \amp 1
+          \end{pmatrix}</m> .
+        </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="fib-neg-one">
+        <statement>
+          <p>
+            Prove that <m>F_{n - 1}F_{n + 1} - F_{n}^{2} = (-1)^{n}</m> in two ways:
+          </p>
+          <ol>
+            <li>
+              <p>
+                Mathematical induction.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Use <xref ref="fib-matrix">Problem</xref> and determinants.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+
+
+
+      <exercise>
+        <statement>
+          <p>
+            Is there a result analogous to that in <xref ref="fib-neg-one">Problem</xref> for just the positive integers <m>1, 2, 3, 4, \ldots</m>?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            Show that <m>Q^{2n + 1} = Q^{n}Q^{n+1}</m> and that <m>F_{2n + 1} = F_{n + 1}^{2} + F_{n}^{2}</m> .
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            Prove the Binet Formula: <m>F_{n = }\frac{a^{n} - b^{n}}{a - b}</m> where <m>a</m>, <m>b</m> are roots of <m>x^{2} - x - 1 = 0</m>.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            Prove <m>\left( \frac{n}{0} \right)F_{0} + \left( \frac{n}{1} \right)F_{1} + \ldots + \left( \frac{n}{n} \right)F_{n} = F_{2n}</m> in two ways:
+          </p>
+
+          <ol>
+            <li>
+              <p>
+                Use the Binet Formula.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Use Q.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p> Prove that <m>\sum_{n = 2}^{\infty}\frac{1}{F_{n - 1}F_{n + 1}} = 1</m>. </p>
+      </statement>
+      <hint>
+        <p> Show first that
+      <m>\frac{1}{F_{n - 1}F_{n + 1}} = \frac{1}{F_{n - 1}F_{n}} -
+      \frac{1}{F_{n}F_{n + 1}}</m>.</p>
+      </hint>
+    </exercise>
+
+
+      <exercise>
+        <statement>
+          <p>
+            Prove that <m>\sum_{n = 2}^{\infty}\frac{F_{n}}{F_{n - 1}F_{n + 1}} = 2.</m>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            Prove that <m>\lim_{n\to\infty}\frac{F_{n + 1}}{F_{n}} = \frac{1 + \sqrt{5}}{2}.</m>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            For which values of <m>n</m> is <m>F^{n}</m> an integral multiple of 3?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            Can you have four distinct positive Fibonacci numbers in arithmetic progression?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            How many Fibonacci numbers are perfect squares?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            Find a closed formula for <m>\frac{1}{F_{1}} + \frac{1}{F_{2}} + \frac{1}{F_{4}} + \frac{1}{F_{8}} + \ldots.</m>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            Conjecture and prove a formula for <m>\binom{n}{0} + \binom{n-1}{1} + \binom{n-2}{2} + \cdots</m>.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            In what sense is <m>\frac{x}{1 - x - x^{2}}</m> the generating function for the sequence of Fibonacci numbers?
+          </p>
+        </statement>
+        </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            Prove that <m>F_{5n + 5} = 3F_{5n} + 5F_{5n + 1}</m>.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Use <m>Q^{5n + 5}</m>.
+          </p>
+        </hint>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            Let <m>\varphi</m> be the positive root of <m>x^{2} - x - 1 = 0</m>. Prove that <m>\varphi^{n} = F_{n}\varphi + F_{n - 1}</m>.
+          </p>
+        </statement>
+    </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            Can every positive integer be written as a sum of distinct Fibonacci numbers?
+          </p>
+        </statement>
+      </exercise>
+
+</exercises>
 
 </chapter>

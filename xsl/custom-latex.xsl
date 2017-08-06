@@ -41,7 +41,7 @@
 <!-- Pass a string with any of geometry's options  -->
 <!-- Default is empty and thus ineffective         -->
 <!-- Otherwise, happens early in preamble template -->
-<xsl:param name="latex.geometry" select="'papersize={6in,9in}, hmargin={0.85in, 0.5in}, height=7.75in, top=0.75in, twoside, ignoreheadfoot'"/>
+<!-- <xsl:param name="latex.geometry" select="'papersize={6in,9in}, hmargin={0.85in, 0.5in}, height=7.75in, top=0.75in, twoside, ignoreheadfoot'"/> -->
 <!--  -->
 <!-- PDF Watermarking                    -->
 <!-- Non-empty string makes it happen    -->
@@ -134,40 +134,40 @@
 
 <!-- Remove "half-title" leading page with -->
 <!-- title only, at about 1:2 split    -->
-<xsl:template match="book" mode="half-title" >
+<!-- <xsl:template match="book" mode="half-title" >
     <xsl:text>%% no half-title&#xa;</xsl:text>
-</xsl:template>
+</xsl:template> -->
 
 <!-- Remove Ad card (may contain list of other books        -->
 <!-- Or may be overridden to make title page spread -->
 <!-- Obverse of half-title                          -->
-<xsl:template match="book" mode="ad-card">
+<!-- <xsl:template match="book" mode="ad-card">
     <xsl:text>%% No adcard&#xa;</xsl:text>
-</xsl:template>
+</xsl:template> -->
 
 
 <!-- Import custom title page -->
-<xsl:template match="book" mode="title-page">
+<!-- <xsl:template match="book" mode="title-page">
     <xsl:text>%% begin: title page&#xa;</xsl:text>
     <xsl:text>%% my custom page.&#xa;</xsl:text>
     <xsl:text>\input{frontmatter/title-page}&#xa;</xsl:text>
     <xsl:text>%% end: title page&#xa;</xsl:text>
-</xsl:template>
+</xsl:template> -->
 
 <!-- Import custom copyright page -->
-<xsl:template match="book" mode="copyright-page" >
+<!-- <xsl:template match="book" mode="copyright-page" >
     <xsl:text>%% begin: copyright-page&#xa;</xsl:text>
     <xsl:text>\input{frontmatter/copyright-page}&#xa;</xsl:text>
     <xsl:text>%% end:   copyright-page&#xa;</xsl:text>
-</xsl:template>
+</xsl:template> -->
 
 <!-- Dedication style -->
-<xsl:template match="dedication/p|dedication/p[1]" priority="1">
+<!-- <xsl:template match="dedication/p|dedication/p[1]" priority="1">
     <xsl:text>\begin{flushright}\large%&#xa;</xsl:text>
         <xsl:apply-templates />
     <xsl:text>%&#xa;</xsl:text>
     <xsl:text>\end{flushright}&#xa;</xsl:text>
-</xsl:template>
+</xsl:template> -->
 
 
 

@@ -1,0 +1,453 @@
+%**************************************%
+%*    Generated from PreTeXt source   *%
+%*    on 2017-08-06T14:51:37-06:00    *%
+%*                                    *%
+%*   http://mathbook.pugetsound.edu   *%
+%*                                    *%
+%**************************************%
+\documentclass[10pt,]{book}
+%% Custom Preamble Entries, early (use latex.preamble.early)
+%% Inline math delimiters, \(, \), need to be robust
+%% 2016-01-31:  latexrelease.sty  supersedes  fixltx2e.sty
+%% If  latexrelease.sty  exists, bugfix is in kernel
+%% If not, bugfix is in  fixltx2e.sty
+%% See:  https://tug.org/TUGboat/tb36-3/tb114ltnews22.pdf
+%% and read "Fewer fragile commands" in distribution's  latexchanges.pdf
+\IfFileExists{latexrelease.sty}{}{\usepackage{fixltx2e}}
+%% Text height identically 9 inches, text width varies on point size
+%% See Bringhurst 2.1.1 on measure for recommendations
+%% 75 characters per line (count spaces, punctuation) is target
+%% which is the upper limit of Bringhurst's recommendations
+%% Load geometry package to allow page margin adjustments
+\usepackage{geometry}
+\geometry{letterpaper,total={340pt,9.0in}}
+%% Custom Page Layout Adjustments (use latex.geometry)
+%% This LaTeX file may be compiled with pdflatex, xelatex, or lualatex
+%% The following provides engine-specific capabilities
+%% Generally, xelatex and lualatex will do better languages other than US English
+%% You can pick from the conditional if you will only ever use one engine
+\usepackage{ifthen}
+\usepackage{ifxetex,ifluatex}
+\ifthenelse{\boolean{xetex} \or \boolean{luatex}}{%
+%% begin: xelatex and lualatex-specific configuration
+%% fontspec package will make Latin Modern (lmodern) the default font
+\ifxetex\usepackage{xltxtra}\fi
+\usepackage{fontspec}
+%% realscripts is the only part of xltxtra relevant to lualatex 
+\ifluatex\usepackage{realscripts}\fi
+%% 
+%% Extensive support for other languages
+\usepackage{polyglossia}
+%% Main document language is US English
+\setdefaultlanguage{english}
+%% Spanish
+\setotherlanguage{spanish}
+%% Vietnamese
+\setotherlanguage{vietnamese}
+%% end: xelatex and lualatex-specific configuration
+}{%
+%% begin: pdflatex-specific configuration
+%% translate common Unicode to their LaTeX equivalents
+%% Also, fontenc with T1 makes CM-Super the default font
+%% (\input{ix-utf8enc.dfu} from the "inputenx" package is possible addition (broken?)
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%% end: pdflatex-specific configuration
+}
+%% Symbols, align environment, bracket-matrix
+\usepackage{amsmath}
+\usepackage{amssymb}
+%% allow page breaks within display mathematics anywhere
+%% level 4 is maximally permissive
+%% this is exactly the opposite of AMSmath package philosophy
+%% there are per-display, and per-equation options to control this
+%% split, aligned, gathered, and alignedat are not affected
+\allowdisplaybreaks[4]
+%% allow more columns to a matrix
+%% can make this even bigger by overriding with  latex.preamble.late  processing option
+\setcounter{MaxMatrixCols}{30}
+%%
+%% Color support, xcolor package
+%% Always loaded.  Used for:
+%% mdframed boxes, add/delete text, author tools
+\PassOptionsToPackage{usenames,dvipsnames,svgnames,table}{xcolor}
+\usepackage{xcolor}
+%%
+%% Semantic Macros
+%% To preserve meaning in a LaTeX file
+%% Only defined here if required in this document
+%% Subdivision Numbering, Chapters, Sections, Subsections, etc
+%% Subdivision numbers may be turned off at some level ("depth")
+%% A section *always* has depth 1, contrary to us counting from the document root
+%% The latex default is 3.  If a larger number is present here, then
+%% removing this command may make some cross-references ambiguous
+%% The precursor variable $numbering-maxlevel is checked for consistency in the common XSL file
+\setcounter{secnumdepth}{1}
+%% Environments with amsthm package
+%% Theorem-like environments in "plain" style, with or without proof
+\usepackage{amsthm}
+\theoremstyle{plain}
+%% Numbering for Theorems, Conjectures, Examples, Figures, etc
+%% Controlled by  numbering.theorems.level  processing parameter
+%% Always need a theorem environment to set base numbering scheme
+%% even if document has no theorems (but has other environments)
+\newtheorem{theorem}{Theorem}[section]
+%% Only variants actually used in document appear here
+%% Style is like a theorem, and for statements without proofs
+%% Numbering: all theorem-like numbered consecutively
+%% i.e. Corollary 4.3 follows Theorem 4.2
+%% Miscellaneous environments, normal text
+%% Numbering for inline exercises and lists is in sync with theorems, etc
+\theoremstyle{definition}
+\newtheorem{exercise}[theorem]{Exercise}
+%% Localize LaTeX supplied names (possibly none)
+\renewcommand*{\chaptername}{Chapter}
+%% Raster graphics inclusion, wrapped figures in paragraphs
+%% \resizebox sometimes used for images in side-by-side layout
+\usepackage{graphicx}
+%%
+%% More flexible list management, esp. for references and exercises
+%% But also for specifying labels (i.e. custom order) on nested lists
+\usepackage{enumitem}
+%% Lists of exercises in their own section, maximum depth 4
+\newlist{exerciselist}{description}{4}
+\setlist[exerciselist]{leftmargin=0pt,itemsep=1.0ex,topsep=1.0ex,partopsep=0pt,parsep=0pt}
+%% hyperref driver does not need to be specified, it will be detected
+\usepackage{hyperref}
+%% configure hyperref's  \url  to match listings' inline verbatim
+\renewcommand\UrlFont{\small\ttfamily}
+%% Hyperlinking active in PDFs, all links solid and blue
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,filecolor=blue,urlcolor=blue}
+\hypersetup{pdftitle={Discrete and Combinatorial Mathematics}}
+%% If you manually remove hyperref, leave in this next command
+\providecommand\phantomsection{}
+%% Graphics Preamble Entries
+\usepackage{tikz, pgfplots}
+
+\usetikzlibrary{positioning,matrix,arrows}
+
+\usetikzlibrary{shapes,decorations,shadows,fadings,patterns}
+\usetikzlibrary{decorations.markings}
+
+\usepackage{skak} %for chessboards etc.
+
+\tikzset{->-/.style={decoration={
+  markings,
+  mark=at position .5 with {\arrow{>}}},postaction={decorate}}}
+%% If tikz has been loaded, replace ampersand with \amp macro
+%% extpfeil package for certain extensible arrows,
+%% as also provided by MathJax extension of the same name
+%% NB: this package loads mtools, which loads calc, which redefines
+%%     \setlength, so it can be removed if it seems to be in the 
+%%     way and your math does not use:
+%%     
+%%     \xtwoheadrightarrow, \xtwoheadleftarrow, \xmapsto, \xlongequal, \xtofrom
+%%     
+%%     we have had to be extra careful with variable thickness
+%%     lines in tables, and so also load this package late
+\usepackage{extpfeil}
+%% Custom Preamble Entries, late (use latex.preamble.late)
+%This should load all the style information that mbx does not.
+\input{latex-preamble-styles}
+
+%% Begin: Author-provided packages
+%% (From  docinfo/latex-preamble/package  elements)
+%% End: Author-provided packages
+%% Begin: Author-provided macros
+%% (From  docinfo/macros  element)
+%% Plus three from MBX for XML characters
+\def\d{\displaystyle}
+\newcommand{\f}[1]{\mathfrak #1}
+\newcommand{\s}[1]{\mathscr #1}
+\def\N{\mathbb N}
+\def\B{\mathbf{B}}
+\def\circleA{(-.5,0) circle (1)}
+\def\Z{\mathbb Z}
+\def\circleAlabel{(-1.5,.6) node[above]{$A$}}
+\def\Q{\mathbb Q}
+\def\circleB{(.5,0) circle (1)}
+\def\R{\mathbb R}
+\def\circleBlabel{(1.5,.6) node[above]{$B$}}
+\def\C{\mathbb C}
+\def\circleC{(0,-1) circle (1)}
+\def\F{\mathbb F}
+\def\circleClabel{(.5,-2) node[right]{$C$}}
+\def\A{\mathbb A}
+\def\twosetbox{(-2,-1.5) rectangle (2,1.5)}
+\def\X{\mathbb X}
+\def\threesetbox{(-2,-2.5) rectangle (2,1.5)}
+\def\E{\mathbb E}
+\def\O{\mathbb O}
+\def\U{\mathcal U}
+\def\pow{\mathcal P}
+\def\inv{^{-1}}
+\def\nrml{\triangleleft}
+\def\st{:}
+\def\~{\widetilde}
+\def\rem{\mathcal R}
+\def\sigalg{$\sigma$-algebra }
+\def\Gal{\mbox{Gal}}
+\def\iff{\leftrightarrow}
+\def\Iff{\Leftrightarrow}
+\def\land{\wedge}
+\def\And{\bigwedge}
+\def\entry{\entry}
+\def\AAnd{\d\bigwedge\mkern-18mu\bigwedge}
+\def\Vee{\bigvee}
+\def\VVee{\d\Vee\mkern-18mu\Vee}
+\def\imp{\rightarrow}
+\def\Imp{\Rightarrow}
+\def\Fi{\Leftarrow}
+\def\var{\mbox{var}}
+\def\Th{\mbox{Th}}
+\def\entry{\entry}
+\def\sat{\mbox{Sat}}
+\def\con{\mbox{Con}}
+\def\iffmodels{\bmodels\models}
+\def\dbland{\bigwedge \!\!\bigwedge}
+\def\dom{\mbox{dom}}
+\def\rng{\mbox{range}}
+\def\isom{\cong}
+\DeclareMathOperator{\wgt}{wgt}
+\newcommand{\vtx}[2]{node[fill,circle,inner sep=0pt, minimum size=4pt,label=#1:#2]{}}
+\newcommand{\va}[1]{\vtx{above}{#1}}
+\newcommand{\vb}[1]{\vtx{below}{#1}}
+\newcommand{\vr}[1]{\vtx{right}{#1}}
+\newcommand{\vl}[1]{\vtx{left}{#1}}
+\renewcommand{\v}{\vtx{above}{}}
+\def\circleA{(-.5,0) circle (1)}
+\def\circleAlabel{(-1.5,.6) node[above]{$A$}}
+\def\circleB{(.5,0) circle (1)}
+\def\circleBlabel{(1.5,.6) node[above]{$B$}}
+\def\circleC{(0,-1) circle (1)}
+\def\circleClabel{(.5,-2) node[right]{$C$}}
+\def\twosetbox{(-2,-1.4) rectangle (2,1.4)}
+\def\threesetbox{(-2.5,-2.4) rectangle (2.5,1.4)}
+\def\ansfilename{practice-answers}
+\def\shadowprops{{fill=black!50,shadow xshift=0.5ex,shadow yshift=0.5ex,path fading={circle with fuzzy edge 10 percent}}}
+\newcommand{\hexbox}[3]{
+  \def\x{-cos{30}*\r*#1+cos{30}*#2*\r*2}
+  \def\y{-\r*#1-sin{30}*\r*#1}
+  \draw (\x,\y) +(90:\r) -- +(30:\r) -- +(-30:\r) -- +(-90:\r) -- +(-150:\r) -- +(150:\r) -- cycle;
+  \draw (\x,\y) node{#3};
+}
+\renewcommand{\bar}{\overline}
+\newcommand{\card}[1]{\left| #1 \right|}
+\newcommand{\twoline}[2]{\begin{pmatrix}#1 \\ #2 \end{pmatrix}}
+\newcommand{\lt}{<}
+\newcommand{\gt}{>}
+\newcommand{\amp}{&}
+%% End: Author-provided macros
+%% Title page information for book
+\title{Discrete and Combinatorial Mathematics}
+\author{Richard Grassl\\
+School of Mathematical Science\\
+University of Northern Colorado
+}
+\date{August 6, 2017}
+\begin{document}
+\frontmatter
+%% begin: half-title
+\thispagestyle{empty}
+{\centering
+\vspace*{0.28\textheight}
+{\Huge Discrete and Combinatorial Mathematics}\\}
+\clearpage
+%% end:   half-title
+%% begin: adcard
+\thispagestyle{empty}
+\null%
+\clearpage
+%% end:   adcard
+%% begin: title page
+%% Inspired by Peter Wilson's "titleDB" in "titlepages" CTAN package
+\thispagestyle{empty}
+{\centering
+\vspace*{0.14\textheight}
+%% Target for xref to top-level element is ToC
+\addtocontents{toc}{\protect\hypertarget{dacm}{}}
+{\Huge Discrete and Combinatorial Mathematics}\\[3\baselineskip]
+{\Large Richard Grassl}\\[0.5\baselineskip]
+{\Large University of Northern Colorado}\\[3\baselineskip]
+{\Large August 6, 2017}\\}
+\clearpage
+%% end:   title page
+%% begin: copyright-page
+\thispagestyle{empty}
+\vspace*{\stretch{2}}
+\noindent\textcopyright\ 2009\textendash{}2017\quad{}Richard Grassl\\[0.5\baselineskip]
+\includegraphics[width=0.15\linewidth]{../images/by-sa.png}
+%
+ \par
+This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit \href{http://creativecommons.org/licenses/by-sa/4.0/}{http://creativecommons.org/licenses/by-sa/4.0/}%
+\par\medskip
+\vspace*{\stretch{1}}
+\null\clearpage
+%% end:   copyright-page
+%% begin: table of contents
+%% Adjust Table of Contents
+\setcounter{tocdepth}{2}
+\renewcommand*\contentsname{Contents}
+\tableofcontents
+%% end:   table of contents
+\mainmatter
+\typeout{************************************************}
+\typeout{Chapter 0 A BRIEF HISTORY OF FIBONACCI NUMBERS}
+\typeout{************************************************}
+\chapter[{A BRIEF HISTORY OF FIBONACCI NUMBERS}]{A BRIEF HISTORY OF FIBONACCI NUMBERS}\label{ch_fibs}
+Fibonacci numbers receive their name from Leonardo of Pisa (Leonardo Pisano, c. 1175-1250), better known as Leonardo Fibonacci. Fibonacci is a contraction of Filius Bonacci, son of Bonacci%
+\par
+Leonardo was born about 1175 in the commercial center of Pisa. This was a time of great interest and importance in the history of Western Civilization. One finds the influence of the crusades stirring and awakening the people of Europe by bringing them in contact with the more advanced intellect of the East. During this time the Universities of Naples, Padua, Paris, Oxford, and Cambridge were established, the Magna Carta signed in England, and the long struggle between the Papacy and the Empire was culminated. Commerce was flourishing in the Mediterranean world and adventurous travelers such as Marco Polo were penetrating far beyond the borders of the known world%
+\par
+It is in this growing commercial activity that we find the young Leonardo at Bugia on the Northern coast of Africa. Here the merchants of Pisa and other commercial cities of Italy had large warehouses for the storage of their goods. Actually very little is known about the life of this great mathematician. No contemporary historian makes mention of him, and one must look to his writings to find information about him%
+\par
+A mathematician before his time, Leonardo of Pisa, alias Leonardo Pisano, alias Leonardo Bigollo, alias Fibonacci, was a despair to his teacher as a young boy and an enigma to his colleagues in his later years. Convinced of the superiority of the Hindu-Arabic numeral system over the Roman system, Leonardo wrote one of his greatest works, \emph{Liber Abaci} (in English, ``Book of Calculating'') to introduce this system to the Western world. The \emph{Liber Abaci} was written in 1202 but was not published until 1857 because ``it was too advanced for Leonardo's contemporaries.'' Along with the introduction and development of many mathematical topics, the \emph{Liber Abaci} contained interesting story problems that Leonardo liked to invent. His most popular problem is the breeding pair of rabbits: ``How many pairs of rabbits will there be after a year if it is assumed that every month each pair produces one new pair, which begins to bear young two months after its own birth?''%
+\par
+This problem generates the infinite sequence that bears his name because his work is the earliest known recording. The Fibonacci sequence begins with 1 and each number that follows is the sum of the previous two numbers. The first ten Fibonnaci numbers are: \(1, 1, 2, 3, 5, 8, 13, 21,
+34, 55\).%
+\par
+Leonardo, in 1228, gave a second edition of the \emph{Liber Abaci} which he dedicated to Michel Scott, astrologer to the Emperor Frederic II and author of many scientific works. Copies of this edition exist today. Leonardo profusely illustrated and strongly advocated the Hindu-Arabic system in this work. He gave an extensive discussion of the Rule of False Position and the Rule of Three. Leonardo did not use a general method in problem solving; each problem was solved independently of the others. In the solution of a problem he not only considered the problem as it might occur, but considered all of the variations of the question, even those that were not reasonable%
+\par
+Because of Leonardo's great reputation, the emperor Frederick II, when in Pisa (1225), held a sort of mathematical tournament to test Leonardo's skill. The competitors were informed beforehand of the questions to be asked, some or all of which were composed by Johannes of Palermo, who was of Frederick's staff. This is the first case in the history of mathematics that one meets with an instance of these challenges to solve particular problems which were so common in the sixteenth and seventeenth centuries%
+\par
+The first question propounded was to find a number of which the square when decreased or increased by 5 would remain a square. The correct answer given by Leonardo was 41/12. The next question was to find by the methods used in the tenth book of Euclid a line whose length x should satisfy the equation \(x^3 + 2x^2 + 10x - 20 = 0\) . Leonardo showed by geometry that the problem was impossible, but he gave an approximation of the root \(1.3688081075\ldots\), which is correct to nine places. \emph{Liber Abaci} contains many additional problems of this type%
+\par
+After the ``Rabbit Problem,'' the matter lay for 400 years. In 1611, Johann Kepler, of astronomy fame, arrived at the series \(1, 1, 2, 3, 5,
+8, 13, 21, \ldots\) . There is no indication that he had access to one of Fibonacci's hand-written books (the \emph{Liber Abaci} was not published until 1857).%
+\par
+Simon Stevens (1548-1620) wrote on the famous Golden Section.  The editor of his works, A. Gerarad, arrived at the following formula for expressing the series in 1634:%
+\begin{equation*}
+F_{n + 2} = F_{n + 1} + F_{n}.
+\end{equation*}
+%
+\par
+A hundred years must pass before the problem is again considered. In 1753, R. Simpson derived a formula, implied by Kepler:%
+\begin{equation*}
+F_{n - 1}F_{n + 1} - F_{n}^{2} = \left( - 1 \right)^{n}.
+\end{equation*}
+%
+\par
+A second hundred years pass by and the series again comes under study. In 1843, J.P.M. Binet derives an analytical function for determining the value of any Fibonacci number:%
+\begin{equation*}
+2^n \sqrt{5} F^n = (1 + \sqrt{5})^{n} - (1 - \sqrt{5})^{n}.
+\end{equation*}
+In 1846 E. Catalan derived the formula:%
+\begin{equation*}
+2^{n - 1}F_{n} = \frac{n}{1} + \frac{5n\left( n - 1 \right)\left( n - 2 \right)}{1 \cdot 2 \cdot 3} + \frac{5^{2}n\left( n - 1 \right)\left( n - 2 \right)\left( n - 3 \right)\left( n - 4 \right)}{1 \cdot 2 \cdot 3 \cdot 4 \cdot 5}.
+\end{equation*}
+%
+\par
+By now, the series had received enough attention to deserve a name. It was variously called the Braun series, the Schimper-Braun series, the Lamé series and the Gerhardt series. A. Braun, applied the series to the arrangement of the scales of pine cones. Schimper is completely unknown. Gerhardt is probably a misspelling of Girard%
+\par
+Edouard Lucas, who dominated the field of recursive series during the period 1876-1891, first applied Fibonacci's name to the series and it has been known as the Fibonacci series since then%
+\par
+About this time, 1858, Sam Loyd claimed to have invented the checkerboard paradox. It is first found in print in a German journal in 1868. Today it seems proper to call it the Carroll Paradox after Lewis Carroll (Charles Dodgson, 1832-1893) who was quite fond of it.%
+\typeout{************************************************}
+\typeout{Exercises 0 PROBLEMS ON FIBONACCI NUMBERS}
+\typeout{************************************************}
+\section[{PROBLEMS ON FIBONACCI NUMBERS}]{PROBLEMS ON FIBONACCI NUMBERS}\label{exercises-1}
+\begin{exerciselist}
+\item[1.]\hypertarget{exercise-1}{}Determine a formula for each:%
+\leavevmode%
+\begin{enumerate}[label=(\alph*)]
+\item\hypertarget{li-1}{}\(F_{0} + F_{1} + F_{2} + \ldots + F_{m}\)%
+\item\hypertarget{li-2}{}\(F_{0} + F_{2} + F_{4} + \ldots + F_{m}\) where m is even.%
+\end{enumerate}
+\par\smallskip
+\item[2.]\hypertarget{exercise-2}{}Prove each of the following%
+\leavevmode%
+\begin{enumerate}[label=(\alph*)]
+\item\hypertarget{diff-fib-squares}{}\(F_{n + 1}^{2} - F_{n}^{2} = F_{n - 1}F_{n + 2}\)%
+\item\hypertarget{fib-squares}{}\(F_{k}^{2} = F_{k}(F_{k + 1} - F_{k - 1})\)%
+\end{enumerate}
+\par\smallskip
+\item[3.]\hypertarget{exercise-3}{}Determine a closed expression for \(F_{0}F_{3}
++ F_{1}F_{4} + \cdots +
+F_{n-1}F_{n+2}\) using \hyperlink{diff-fib-squares}{Problem~0.1.2.a}.%
+\par\smallskip
+\item[4.]\hypertarget{fib-sum-squares}{}Determine a formula for \(F_{1}^{2} + F_{2}^{2} + \ldots + F_{n}^{2}\) in two ways:%
+\leavevmode%
+\begin{enumerate}[label=(\alph*)]
+\item\hypertarget{li-5}{}Collect data and prove by mathematical induction.%
+\item\hypertarget{li-6}{}Use \hyperlink{fib-squares}{Problem~0.1.2.b} and telescoping sums.%
+\end{enumerate}
+\par\smallskip
+\item[5.]\hypertarget{exercise-5}{}Give a geometrical ``proof'' for the result in \hyperlink{fib-sum-squares}{Problem~4}.%
+\par\smallskip
+\item[6.]\hypertarget{fib-matrix}{}Prove \(\begin{pmatrix}
+0 \amp 1\\
+1 \amp 1
+\end{pmatrix}^{n} = \begin{pmatrix}
+F_{n - 1} \amp F_{n}\\
+F_{n} \amp F_{n + 1}
+\end{pmatrix}\) by induction. For convenience let \(Q =\begin{pmatrix}
+0 \amp 1 \\
+1 \amp 1
+\end{pmatrix}\) .%
+\par\smallskip
+\item[7.]\hypertarget{fib-neg-one}{}Prove that \(F_{n - 1}F_{n + 1} - F_{n}^{2} = (-1)^{n}\) in two ways:%
+\leavevmode%
+\begin{enumerate}[label=(\alph*)]
+\item\hypertarget{li-7}{}Mathematical induction.%
+\item\hypertarget{li-8}{}Use \hyperlink{fib-matrix}{Problem~6} and determinants.%
+\end{enumerate}
+\par\smallskip
+\item[8.]\hypertarget{exercise-8}{}Is there a result analogous to that in \hyperlink{fib-neg-one}{Problem~7} for just the positive integers \(1, 2, 3, 4, \ldots\)?%
+\par\smallskip
+\item[9.]\hypertarget{exercise-9}{}Show that \(Q^{2n + 1} = Q^{n}Q^{n+1}\) and that \(F_{2n + 1} = F_{n + 1}^{2} + F_{n}^{2}\) .%
+\par\smallskip
+\item[10.]\hypertarget{exercise-10}{}Prove the Binet Formula: \(F_{n = }\frac{a^{n} - b^{n}}{a - b}\) where \(a\), \(b\) are roots of \(x^{2} - x - 1 = 0\).%
+\par\smallskip
+\item[11.]\hypertarget{exercise-11}{}Prove \(\left( \frac{n}{0} \right)F_{0} + \left( \frac{n}{1} \right)F_{1} + \ldots + \left( \frac{n}{n} \right)F_{n} = F_{2n}\) in two ways:%
+\leavevmode%
+\begin{enumerate}[label=(\alph*)]
+\item\hypertarget{li-9}{}Use the Binet Formula.%
+\item\hypertarget{li-10}{}Use Q.%
+\end{enumerate}
+\par\smallskip
+\item[12.]\hypertarget{exercise-12}{}Prove that \(\sum_{n = 2}^{\infty}\frac{1}{F_{n - 1}F_{n + 1}} = 1\).%
+\par\smallskip
+\par\smallskip
+\noindent\textbf{Hint.}\hypertarget{hint-1}{}\quad
+Show first that \(\frac{1}{F_{n - 1}F_{n + 1}} = \frac{1}{F_{n - 1}F_{n}} -
+\frac{1}{F_{n}F_{n + 1}}\).%
+\item[13.]\hypertarget{exercise-13}{}Prove that \(\sum_{n = 2}^{\infty}\frac{F_{n}}{F_{n - 1}F_{n + 1}} = 2.\)%
+\par\smallskip
+\item[14.]\hypertarget{exercise-14}{}Prove that \(\lim_{n\to\infty}\frac{F_{n + 1}}{F_{n}} = \frac{1 + \sqrt{5}}{2}.\)%
+\par\smallskip
+\item[15.]\hypertarget{exercise-15}{}For which values of \(n\) is \(F^{n}\) an integral multiple of 3?%
+\par\smallskip
+\item[16.]\hypertarget{exercise-16}{}Can you have four distinct positive Fibonacci numbers in arithmetic progression?%
+\par\smallskip
+\item[17.]\hypertarget{exercise-17}{}How many Fibonacci numbers are perfect squares?%
+\par\smallskip
+\item[18.]\hypertarget{exercise-18}{}Find a closed formula for \(\frac{1}{F_{1}} + \frac{1}{F_{2}} + \frac{1}{F_{4}} + \frac{1}{F_{8}} + \ldots.\)%
+\par\smallskip
+\item[19.]\hypertarget{exercise-19}{}Conjecture and prove a formula for \(\binom{n}{0} + \binom{n-1}{1} + \binom{n-2}{2} + \cdots\).%
+\par\smallskip
+\item[20.]\hypertarget{exercise-20}{}In what sense is \(\frac{x}{1 - x - x^{2}}\) the generating function for the sequence of Fibonacci numbers?%
+\par\smallskip
+\item[21.]\hypertarget{exercise-21}{}Prove that \(F_{5n + 5} = 3F_{5n} + 5F_{5n + 1}\).%
+\par\smallskip
+\par\smallskip
+\noindent\textbf{Hint.}\hypertarget{hint-2}{}\quad
+Use \(Q^{5n + 5}\).%
+\item[22.]\hypertarget{exercise-22}{}Let \(\varphi\) be the positive root of \(x^{2} - x - 1 = 0\). Prove that \(\varphi^{n} = F_{n}\varphi + F_{n - 1}\).%
+\par\smallskip
+\item[23.]\hypertarget{exercise-23}{}Can every positive integer be written as a sum of distinct Fibonacci numbers?%
+\par\smallskip
+\end{exerciselist}
+%
+\backmatter
+%
+%
+%% A lineskip in table of contents as transition to appendices, backmatter
+\addtocontents{toc}{\vspace{\normalbaselineskip}}
+%
+\cleardoublepage
+\pagestyle{empty}
+\vspace*{\stretch{1}}
+\centerline{This book was authored in PreTeXt.%
+}
+\vspace*{\stretch{2}}
+\end{document}
