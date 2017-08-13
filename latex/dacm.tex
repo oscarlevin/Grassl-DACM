@@ -1,6 +1,6 @@
 %**************************************%
 %*    Generated from PreTeXt source   *%
-%*    on 2017-08-06T14:51:37-06:00    *%
+%*    on 2017-08-13T13:42:09-06:00    *%
 %*                                    *%
 %*   http://mathbook.pugetsound.edu   *%
 %*                                    *%
@@ -76,6 +76,8 @@
 %% Semantic Macros
 %% To preserve meaning in a LaTeX file
 %% Only defined here if required in this document
+%% Used for inline definitions of terms
+\newcommand{\terminology}[1]{\textbf{#1}}
 %% Subdivision Numbering, Chapters, Sections, Subsections, etc
 %% Subdivision numbers may be turned off at some level ("depth")
 %% A section *always* has depth 1, contrary to us counting from the document root
@@ -99,9 +101,66 @@
 %% Miscellaneous environments, normal text
 %% Numbering for inline exercises and lists is in sync with theorems, etc
 \theoremstyle{definition}
-\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{exercise}[theorem]{Problem}
 %% Localize LaTeX supplied names (possibly none)
 \renewcommand*{\chaptername}{Chapter}
+%% Equation Numbering
+%% Controlled by  numbering.equations.level  processing parameter
+\numberwithin{equation}{chapter}
+%% For improved tables
+\usepackage{array}
+%% Some extra height on each row is desirable, especially with horizontal rules
+%% Increment determined experimentally
+\setlength{\extrarowheight}{0.2ex}
+%% Define variable thickness horizontal rules, full and partial
+%% Thicknesses are 0.03, 0.05, 0.08 in the  booktabs  package
+\makeatletter
+\newcommand{\hrulethin}  {\noalign{\hrule height 0.04em}}
+\newcommand{\hrulemedium}{\noalign{\hrule height 0.07em}}
+\newcommand{\hrulethick} {\noalign{\hrule height 0.11em}}
+%% We preserve a copy of the \setlength package before other
+%% packages (extpfeil) get a chance to load packages that redefine it
+\let\oldsetlength\setlength
+\newlength{\Oldarrayrulewidth}
+\newcommand{\crulethin}[1]%
+{\noalign{\global\oldsetlength{\Oldarrayrulewidth}{\arrayrulewidth}}%
+\noalign{\global\oldsetlength{\arrayrulewidth}{0.04em}}\cline{#1}%
+\noalign{\global\oldsetlength{\arrayrulewidth}{\Oldarrayrulewidth}}}%
+\newcommand{\crulemedium}[1]%
+{\noalign{\global\oldsetlength{\Oldarrayrulewidth}{\arrayrulewidth}}%
+\noalign{\global\oldsetlength{\arrayrulewidth}{0.07em}}\cline{#1}%
+\noalign{\global\oldsetlength{\arrayrulewidth}{\Oldarrayrulewidth}}}
+\newcommand{\crulethick}[1]%
+{\noalign{\global\oldsetlength{\Oldarrayrulewidth}{\arrayrulewidth}}%
+\noalign{\global\oldsetlength{\arrayrulewidth}{0.11em}}\cline{#1}%
+\noalign{\global\oldsetlength{\arrayrulewidth}{\Oldarrayrulewidth}}}
+%% Single letter column specifiers defined via array package
+\newcolumntype{A}{!{\vrule width 0.04em}}
+\newcolumntype{B}{!{\vrule width 0.07em}}
+\newcolumntype{C}{!{\vrule width 0.11em}}
+\makeatother
+%% Figures, Tables, Listings, Floats
+%% The [H]ere option of the float package fixes floats in-place,
+%% in deference to web usage, where floats are totally irrelevant
+%% We re/define the figure, table and listing environments, if used
+%%   1) New mbxfigure and/or mbxtable environments are defined with float package
+%%   2) Standard LaTeX environments redefined to use new environments
+%%   3) Standard LaTeX environments redefined to step theorem counter
+%%   4) Counter for new environments is set to the theorem counter before caption
+%% You can remove all this figure/table setup, to restore standard LaTeX behavior
+%% HOWEVER, numbering of figures/tables AND theorems/examples/remarks, etc
+%% WILL ALL de-synchronize with the numbering in the HTML version
+%% You can remove the [H] argument of the \newfloat command, to allow flotation and 
+%% preserve numbering, BUT the numbering may then appear "out-of-order"
+\usepackage{float}
+\usepackage[bf]{caption} % http://tex.stackexchange.com/questions/95631/defining-a-new-type-of-floating-environment 
+\usepackage{newfloat}
+% Figure environment setup so that it no longer floats
+\SetupFloatingEnvironment{figure}{fileext=lof,placement={H},within=section,name=Figure}
+% figures have the same number as theorems: http://tex.stackexchange.com/questions/16195/how-to-make-equations-figures-and-theorems-use-the-same-numbering-scheme 
+\makeatletter
+\let\c@figure\c@theorem
+\makeatother
 %% Raster graphics inclusion, wrapped figures in paragraphs
 %% \resizebox sometimes used for images in side-by-side layout
 \usepackage{graphicx}
@@ -112,6 +171,10 @@
 %% Lists of exercises in their own section, maximum depth 4
 \newlist{exerciselist}{description}{4}
 \setlist[exerciselist]{leftmargin=0pt,itemsep=1.0ex,topsep=1.0ex,partopsep=0pt,parsep=0pt}
+%% Indented groups of exercises within an exercise section
+%% Add  debug=true  option to see boxes around contents
+\usepackage{tasks}
+\NewTasks[label-format=\bfseries,item-indent=3.3em,label-offset=0.4em,label-width=1.7em,label-align=right,after-item-skip=\smallskipamount,after-skip=\smallskipamount]{exercisegroup}[\exercise]
 %% hyperref driver does not need to be specified, it will be detected
 \usepackage{hyperref}
 %% configure hyperref's  \url  to match listings' inline verbatim
@@ -134,7 +197,35 @@
 \tikzset{->-/.style={decoration={
   markings,
   mark=at position .5 with {\arrow{>}}},postaction={decorate}}}
+
+\newcommand{\hexbox}[3]{
+    \def\x{-cos{30}*\r*#1+cos{30}*#2*\r*2}
+    \def\y{-\r*#1-sin{30}*\r*#1}
+  %  \draw (\x,\y) +(90:\r) -- +(30:\r) -- +(-30:\r) -- +(-90:\r) -- +(-150:\r) -- +(150:\r) -- cycle;
+    \draw (\x,\y) node{#3};
+  }
+\newcommand{\squarebox}[2]{
+  \def\x{-cos{30}*\r*#1+cos{30}*#2*\r*2}
+  \def\y{-\r*#1-sin{30}*\r*#1}
+  \draw (\x,\y) +(45:\r) -- +(135:\r) -- +(-135:\r) -- +(-45:\r) -- cycle;
+}
+
+\def\fivegon{%
+  \coordinate (a) at (0,2.5);
+  \coordinate (b) at (2,1.4);
+  \coordinate (c) at (1,0);
+  \coordinate (d) at (-.5,0);
+  \coordinate (e) at (-2,1.5);
+  \draw (a) -- (b) -- (c) -- (d) -- (e) -- (a);
+}
 %% If tikz has been loaded, replace ampersand with \amp macro
+\ifdefined\tikzset
+    \tikzset{ampersand replacement = \amp}
+\fi
+%% NB: calc redefines \setlength
+\usepackage{calc}
+%% used repeatedly for vertical dimensions of sidebyside panels
+\newlength{\panelmax}
 %% extpfeil package for certain extensible arrows,
 %% as also provided by MathJax extension of the same name
 %% NB: this package loads mtools, which loads calc, which redefines
@@ -156,6 +247,7 @@
 %% Begin: Author-provided macros
 %% (From  docinfo/macros  element)
 %% Plus three from MBX for XML characters
+\newcommand{\alert}{\fbox}
 \def\d{\displaystyle}
 \newcommand{\f}[1]{\mathfrak #1}
 \newcommand{\s}[1]{\mathscr #1}
@@ -225,12 +317,7 @@
 \def\threesetbox{(-2.5,-2.4) rectangle (2.5,1.4)}
 \def\ansfilename{practice-answers}
 \def\shadowprops{{fill=black!50,shadow xshift=0.5ex,shadow yshift=0.5ex,path fading={circle with fuzzy edge 10 percent}}}
-\newcommand{\hexbox}[3]{
-  \def\x{-cos{30}*\r*#1+cos{30}*#2*\r*2}
-  \def\y{-\r*#1-sin{30}*\r*#1}
-  \draw (\x,\y) +(90:\r) -- +(30:\r) -- +(-30:\r) -- +(-90:\r) -- +(-150:\r) -- +(150:\r) -- cycle;
-  \draw (\x,\y) node{#3};
-}
+
 \renewcommand{\bar}{\overline}
 \newcommand{\card}[1]{\left| #1 \right|}
 \newcommand{\twoline}[2]{\begin{pmatrix}#1 \\ #2 \end{pmatrix}}
@@ -244,7 +331,7 @@
 School of Mathematical Science\\
 University of Northern Colorado
 }
-\date{August 6, 2017}
+\date{August 13, 2017}
 \begin{document}
 \frontmatter
 %% begin: half-title
@@ -269,7 +356,7 @@ University of Northern Colorado
 {\Huge Discrete and Combinatorial Mathematics}\\[3\baselineskip]
 {\Large Richard Grassl}\\[0.5\baselineskip]
 {\Large University of Northern Colorado}\\[3\baselineskip]
-{\Large August 6, 2017}\\}
+{\Large August 13, 2017}\\}
 \clearpage
 %% end:   title page
 %% begin: copyright-page
@@ -292,9 +379,9 @@ This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 Inte
 %% end:   table of contents
 \mainmatter
 \typeout{************************************************}
-\typeout{Chapter 0 A BRIEF HISTORY OF FIBONACCI NUMBERS}
+\typeout{Chapter 1 A Brief History of Fibonacci Numbers}
 \typeout{************************************************}
-\chapter[{A BRIEF HISTORY OF FIBONACCI NUMBERS}]{A BRIEF HISTORY OF FIBONACCI NUMBERS}\label{ch_fibs}
+\chapter[{A Brief History of Fibonacci Numbers}]{A Brief History of Fibonacci Numbers}\label{ch_fibs}
 Fibonacci numbers receive their name from Leonardo of Pisa (Leonardo Pisano, c. 1175-1250), better known as Leonardo Fibonacci. Fibonacci is a contraction of Filius Bonacci, son of Bonacci%
 \par
 Leonardo was born about 1175 in the commercial center of Pisa. This was a time of great interest and importance in the history of Western Civilization. One finds the influence of the crusades stirring and awakening the people of Europe by bringing them in contact with the more advanced intellect of the East. During this time the Universities of Naples, Padua, Paris, Oxford, and Cambridge were established, the Magna Carta signed in England, and the long struggle between the Papacy and the Empire was culminated. Commerce was flourishing in the Mediterranean world and adventurous travelers such as Marco Polo were penetrating far beyond the borders of the known world%
@@ -343,9 +430,9 @@ Edouard Lucas, who dominated the field of recursive series during the period 187
 \par
 About this time, 1858, Sam Loyd claimed to have invented the checkerboard paradox. It is first found in print in a German journal in 1868. Today it seems proper to call it the Carroll Paradox after Lewis Carroll (Charles Dodgson, 1832-1893) who was quite fond of it.%
 \typeout{************************************************}
-\typeout{Exercises 0 PROBLEMS ON FIBONACCI NUMBERS}
+\typeout{Exercises 1 Problems on Fibonacci Numbers}
 \typeout{************************************************}
-\section[{PROBLEMS ON FIBONACCI NUMBERS}]{PROBLEMS ON FIBONACCI NUMBERS}\label{exercises-1}
+\section[{Problems on Fibonacci Numbers}]{Problems on Fibonacci Numbers}\label{exercises-1}
 \begin{exerciselist}
 \item[1.]\hypertarget{exercise-1}{}Determine a formula for each:%
 \leavevmode%
@@ -363,16 +450,16 @@ About this time, 1858, Sam Loyd claimed to have invented the checkerboard parado
 \par\smallskip
 \item[3.]\hypertarget{exercise-3}{}Determine a closed expression for \(F_{0}F_{3}
 + F_{1}F_{4} + \cdots +
-F_{n-1}F_{n+2}\) using \hyperlink{diff-fib-squares}{Problem~0.1.2.a}.%
+F_{n-1}F_{n+2}\) using \hyperlink{diff-fib-squares}{Problem~1.1.2.a}.%
 \par\smallskip
 \item[4.]\hypertarget{fib-sum-squares}{}Determine a formula for \(F_{1}^{2} + F_{2}^{2} + \ldots + F_{n}^{2}\) in two ways:%
 \leavevmode%
 \begin{enumerate}[label=(\alph*)]
 \item\hypertarget{li-5}{}Collect data and prove by mathematical induction.%
-\item\hypertarget{li-6}{}Use \hyperlink{fib-squares}{Problem~0.1.2.b} and telescoping sums.%
+\item\hypertarget{li-6}{}Use \hyperlink{fib-squares}{Problem~1.1.2.b} and telescoping sums.%
 \end{enumerate}
 \par\smallskip
-\item[5.]\hypertarget{exercise-5}{}Give a geometrical ``proof'' for the result in \hyperlink{fib-sum-squares}{Problem~4}.%
+\item[5.]\hypertarget{exercise-5}{}Give a geometrical ``proof'' for the result in \hyperlink{fib-sum-squares}{Problem~1.1.4}.%
 \par\smallskip
 \item[6.]\hypertarget{fib-matrix}{}Prove \(\begin{pmatrix}
 0 \amp 1\\
@@ -389,10 +476,10 @@ F_{n} \amp F_{n + 1}
 \leavevmode%
 \begin{enumerate}[label=(\alph*)]
 \item\hypertarget{li-7}{}Mathematical induction.%
-\item\hypertarget{li-8}{}Use \hyperlink{fib-matrix}{Problem~6} and determinants.%
+\item\hypertarget{li-8}{}Use \hyperlink{fib-matrix}{Problem~1.1.6} and determinants.%
 \end{enumerate}
 \par\smallskip
-\item[8.]\hypertarget{exercise-8}{}Is there a result analogous to that in \hyperlink{fib-neg-one}{Problem~7} for just the positive integers \(1, 2, 3, 4, \ldots\)?%
+\item[8.]\hypertarget{exercise-8}{}Is there a result analogous to that in \hyperlink{fib-neg-one}{Problem~1.1.7} for just the positive integers \(1, 2, 3, 4, \ldots\)?%
 \par\smallskip
 \item[9.]\hypertarget{exercise-9}{}Show that \(Q^{2n + 1} = Q^{n}Q^{n+1}\) and that \(F_{2n + 1} = F_{n + 1}^{2} + F_{n}^{2}\) .%
 \par\smallskip
@@ -437,6 +524,500 @@ Use \(Q^{5n + 5}\).%
 \item[23.]\hypertarget{exercise-23}{}Can every positive integer be written as a sum of distinct Fibonacci numbers?%
 \par\smallskip
 \end{exerciselist}
+\typeout{************************************************}
+\typeout{Chapter 2 The Catalan Numbers}
+\typeout{************************************************}
+\chapter[{The Catalan Numbers}]{The Catalan Numbers}\label{ch_catalan}
+(Notes of a talk presented by Professor Richard Grassl, Muhlenberg College, March 15, 1991)%
+\par
+The sequence of Catalan numbers, named after Eugene Catalan who along with Euler discovered many of the properties of these numbers, is \(1, 1, 2, 5, 14, 42, 132, \ldots\). The characterizations below show that a formula for these numbers is given by%
+\begin{equation*}
+C_{n + 1} = C_{1}C_{n} + C_{2}C_{n - 1} + \ldots + C_{n}C_{1}
+\end{equation*}
+with \(C_1 = 1\), \(C_2 = 1\), etc.%
+\typeout{************************************************}
+\typeout{Paragraphs  Parenthesizing}
+\typeout{************************************************}
+\paragraph[{Parenthesizing}]{Parenthesizing}\hypertarget{paragraphs-1}{}
+In how many ways can you insert parentheses in the nonassociative product \(abcd\)? The five ways are displayed%
+\begin{equation*}
+(ab)(cd)\quad ((ab)c)d \quad a(b(cd)) \quad (a(bc))d \quad a((bc)d).
+\end{equation*}
+%
+\par
+There are two ways for \(abc\), namely \(a(bc)\) and \((ab)c\), and one for \(ab\). For a product of \(n\) symbols \(a_{1}a_{2}\ldots a_{n}\), break it at the \(k\)th symbol:%
+\begin{equation*}
+(a_{1}a_{2}a_{3}\ldots a_{k})(a_{k + 1}\ldots a_{n}).
+\end{equation*}
+Let \(P_{n}\) denote the number of ways of inserting parentheses into this product. There are \(P_k\) ways of inserting parentheses in \(\left(a_{1}\ldots a_{k} \right)\) and \(P_{n - k}\) ways for the factor \((a_{k + 1}\ldots a_{n})\) . Letting \(k\) range from 1 to \(n - 1\) we have that%
+\begin{equation*}
+P_{n} = \sum_{k = 1}^{n - 1} P_{k}P_{n - k} = P_{1}P_{n - 1} + P_{2}P_{n - 2} + \ldots + P_{n - 1}P_{1}.
+\end{equation*}
+%
+\typeout{************************************************}
+\typeout{Paragraphs  The H-D sequences:}
+\typeout{************************************************}
+\paragraph[{The H-D sequences:}]{The H-D sequences:}\hypertarget{paragraphs-2}{}
+\(2n\) people stand in line at a theatre. Admission is 50 cents, (denoted by H), and the box office starts with no change. \(n\) of the people have H and \(n\) have \textdollar{}1 (denoted D). In how many ways can the \(2n\) people line up so that all can be admitted? Here we enumerate the number of workable sequences of n H's and n D's such that at each point in the sequence the number of H's is not less than the number of D's%
+\par
+The total number of sequences of \(n\) H's and \(n\) D's is \(\binom{2n}{n}\). We delete the number of \emph{nonworkable} sequences. Each such sequence has a first snag as shown by the highlighted D in%
+\begin{equation*}
+\text{H\ H\ D\ D\ \alert{D}\ H\ H\ D\ D\ D\ H\ H}
+\end{equation*}
+Reverse each letter up to and including the snag, obtaining%
+\begin{equation*}
+\text{D D H H H H H D D D H H},
+\end{equation*}
+a sequence of \(n+1\) H's and \(n-1\) D's. For \(n = 3\) , H D \alert{D} D H H is a nonworkable sequence with the snag indicated. Its mate, found by reversing the first three letters, is D H H D H H, a sequence of 2D's and 4H's. \emph{Any} arrangement of 2D's and 4H's will correspond to exactly one nonworkable sequence; simply scan through and see the \emph{first} time the H's dominate the D's and then reverse through that spot. There are \(\binom{6}{3}
+= 20\) arrangements of 3H's and 3D's. There are \(\binom{6}{2}
+= 15\) arrangements of 2D's and 4H's each of which corresponds to a nonworkable sequence. Hence there are \(\binom{6}{3}
+-\binom{6}{2} = 5\) workable sequences. In general, \(\binom{2n}{n}  - \binom{2n}{n - 1} = \frac{1}{n + 1}\binom{2n}{n}\) gives the number of workable sequences. See \hyperref[catalaninpascal]{Figure~\ref{catalaninpascal}}%
+\par
+For \(n=3\), the matching of the 5 workable sequences with one of the 5 ways of parenthesizing, given by the bijection which sends an H to a left parenthesis and a D to a letter, is presented below.%
+%
+\begin{gather*}
+\text{H H H D D D} \leftrightarrow  (((abcd \\
+\text{H H D H D D} \leftrightarrow  ((a(bcd \\
+\text{H H D D H D} \leftrightarrow  ((ab(cd \\
+\text{H D H H D D} \leftrightarrow  (a((bcd \\
+\text{H D H D H D} \leftrightarrow  (a(b(cd 
+\end{gather*}
+Add somethign about where the right parenteses go.\typeout{************************************************}
+\typeout{Paragraphs  Paths}
+\typeout{************************************************}
+\paragraph[{Paths}]{Paths}\hypertarget{paragraphs-3}{}
+A point \((a, b)\) in the plane is a \terminology{lattice point} if \(a\) and \(b\) are integers. How many paths of length \(2n\), consisting of horizontal and vertical segments of unit length, are there from \((0, 0)\) to \((n, n)\) such that the path never goes above the line \(y = x\)? One such path to \((3, 3)\) is shown in \hyperref[catalanpathex]{Figure~\ref{catalanpathex}}.%
+\begin{figure}
+\centering
+{
+      \begin{tikzpicture}
+  \draw[very thin, color=gray!50] (0,0) grid (3.5, 3.5);
+  \draw[thin] (0,0) -- (3.5,0) node[right]{$x$} (0,0) -- (0,3.5) node[above]{$y$};
+  \draw (0,0) node[below left]{$(0,0)$} (3,3) node[above right] {$(3,3)$};
+  \draw[very thick] (0,0) -- (1,0) -- (1,1) -- (3,1) -- (3,3);
+\end{tikzpicture}
+}
+\caption{One of the acceptable lattice paths from \((0,0)\) to \((3,3)\).\label{catalanpathex}}
+\end{figure}
+Using R for right and U for up, the sequence R U R R U U gives the path. The bijection mathing R with H and U with D links paths to H-D sequences.%
+\typeout{************************************************}
+\typeout{Paragraphs  Triangulations of convex \(n\)-gons}
+\typeout{************************************************}
+\paragraph[{Triangulations of convex \(n\)-gons}]{Triangulations of convex \(n\)-gons}\hypertarget{paragraphs-4}{}
+Fix \(n\) vertices. In how many ways can diagonals be inserted so as to decompose the \(n\)-gon into triangles? For \(n = 5\) the five figures are shown in \hyperref[five5gons]{Figure~\ref{five5gons}}.%
+\begin{figure}
+\centering
+% group protects changes to lengths, releases boxes (?)
+{% begin: group for a single side-by-side
+% set panel max height to practical minimum, created in preamble
+\setlength{\panelmax}{0pt}
+\newsavebox{\panelboxCimage}
+\savebox{\panelboxCimage}{%
+\resizebox{0.2\linewidth}{!}{{
+\begin{tikzpicture}
+\fivegon;
+\draw (a) -- (d) -- (b);
+\end{tikzpicture}
+}
+}}
+\newlength{\phCimage}\setlength{\phCimage}{\ht\panelboxCimage+\dp\panelboxCimage}
+\settototalheight{\phCimage}{\usebox{\panelboxCimage}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phCimage}}
+\newsavebox{\panelboxDimage}
+\savebox{\panelboxDimage}{%
+\resizebox{0.2\linewidth}{!}{{
+\begin{tikzpicture}
+\fivegon;
+\draw (b) -- (e) -- (c);
+\end{tikzpicture}
+}
+}}
+\newlength{\phDimage}\setlength{\phDimage}{\ht\panelboxDimage+\dp\panelboxDimage}
+\settototalheight{\phDimage}{\usebox{\panelboxDimage}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phDimage}}
+\newsavebox{\panelboxEimage}
+\savebox{\panelboxEimage}{%
+\resizebox{0.2\linewidth}{!}{{
+\begin{tikzpicture}
+\fivegon;
+\draw (d) -- (a) -- (c);
+\end{tikzpicture}
+}
+}}
+\newlength{\phEimage}\setlength{\phEimage}{\ht\panelboxEimage+\dp\panelboxEimage}
+\settototalheight{\phEimage}{\usebox{\panelboxEimage}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phEimage}}
+\newsavebox{\panelboxFimage}
+\savebox{\panelboxFimage}{%
+\resizebox{0.2\linewidth}{!}{{
+\begin{tikzpicture}
+\fivegon;
+\draw (e) -- (b) -- (d);
+\end{tikzpicture}
+}
+}}
+\newlength{\phFimage}\setlength{\phFimage}{\ht\panelboxFimage+\dp\panelboxFimage}
+\settototalheight{\phFimage}{\usebox{\panelboxFimage}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phFimage}}
+\newsavebox{\panelboxGimage}
+\savebox{\panelboxGimage}{%
+\resizebox{0.2\linewidth}{!}{{
+\begin{tikzpicture}
+\fivegon;
+\draw (e) -- (c) -- (a);
+\end{tikzpicture}
+}
+}}
+\newlength{\phGimage}\setlength{\phGimage}{\ht\panelboxGimage+\dp\panelboxGimage}
+\settototalheight{\phGimage}{\usebox{\panelboxGimage}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phGimage}}
+\leavevmode%
+% begin: side-by-side as tabular
+% \tabcolsep change local to group
+\setlength{\tabcolsep}{0\linewidth}
+% @{} suppress \tabcolsep at extremes, so margins behave as intended
+\par\medskip\noindent
+\begin{tabular}{@{}*{5}{c}@{}}
+\begin{minipage}[c][\panelmax][t]{0.2\linewidth}\usebox{\panelboxCimage}\end{minipage}&
+\begin{minipage}[c][\panelmax][t]{0.2\linewidth}\usebox{\panelboxDimage}\end{minipage}&
+\begin{minipage}[c][\panelmax][t]{0.2\linewidth}\usebox{\panelboxEimage}\end{minipage}&
+\begin{minipage}[c][\panelmax][t]{0.2\linewidth}\usebox{\panelboxFimage}\end{minipage}&
+\begin{minipage}[c][\panelmax][t]{0.2\linewidth}\usebox{\panelboxGimage}\end{minipage}\end{tabular}\\
+% end: side-by-side as tabular
+}% end: group for a single side-by-side
+\caption{The five triangulations of a convex pentagon.\label{five5gons}}
+\end{figure}
+There are two drawings for \(n=4\): % group protects changes to lengths, releases boxes (?)
+{% begin: group for a single side-by-side
+% set panel max height to practical minimum, created in preamble
+\setlength{\panelmax}{0pt}
+\newsavebox{\panelboxHimage}
+\savebox{\panelboxHimage}{%
+\resizebox{0.2\linewidth}{!}{{
+\begin{tikzpicture}
+  \draw (0,0) -- (1,0) -- (1,1) -- (0,1) -- (0,0) -- (1,1);
+  \draw (2,0) -- (3,0) -- (3,1) -- (2,1) -- (2,0) (2,1) -- (3,0);
+\end{tikzpicture}
+}
+}}
+\newlength{\phHimage}\setlength{\phHimage}{\ht\panelboxHimage+\dp\panelboxHimage}
+\settototalheight{\phHimage}{\usebox{\panelboxHimage}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phHimage}}
+\leavevmode%
+% begin: side-by-side as tabular
+% \tabcolsep change local to group
+\setlength{\tabcolsep}{0\linewidth}
+% @{} suppress \tabcolsep at extremes, so margins behave as intended
+\par\medskip\noindent
+\hspace*{0.4\linewidth}%
+\begin{tabular}{@{}*{1}{c}@{}}
+\begin{minipage}[c][\panelmax][t]{0.2\linewidth}\usebox{\panelboxHimage}\end{minipage}\end{tabular}\\
+% end: side-by-side as tabular
+}% end: group for a single side-by-side
+ A bijection between triangulations and parenthesizing is illustrated next:%
+\begin{figure}
+\centering
+{
+\begin{tikzpicture}
+  \fivegon;
+  {\footnotesize
+  \draw (a) -- (b) node[midway, above]{$c$};
+  \draw (b) -- (c) node[midway, right]{$d$};
+  \draw (c) -- (d) node[midway, below]{$((ab)c)d$};
+  \draw (d) -- (e) node[midway, left]{$a$};
+  \draw (e) -- (a) node[midway, above]{$b$};
+  \draw (a) -- (d) node[midway, left]{$(ab)$};
+  \draw (d) -- (b) node[midway, above]{$(ab)c$};
+  }
+\end{tikzpicture}
+}
+\caption{An example of a bijection between triangulations of \(n\)-gons and parenthesizing.\label{triangulationbijection}}
+\end{figure}
+\typeout{************************************************}
+\typeout{Paragraphs  Tableau Insertion}
+\typeout{************************************************}
+\paragraph[{Tableau Insertion}]{Tableau Insertion}\hypertarget{paragraphs-5}{}
+Insert the integers \(1, 2, \ldots, 2n\) into a 2 by \(n\) rectangle of boxes such that the entries are monotonic in rows and columns. For \(n=3\) there are five arrangements: % group protects changes to lengths, releases boxes (?)
+{% begin: group for a single side-by-side
+% set panel max height to practical minimum, created in preamble
+\setlength{\panelmax}{0pt}
+\newsavebox{\panelboxAtabular}
+\savebox{\panelboxAtabular}{%
+\raisebox{\depth}{\parbox{0.2\linewidth}{\centering\begin{tabular}{AcAcAcA}\hrulethin
+1&2&3\tabularnewline\hrulethin
+4&5&6\tabularnewline\hrulethin
+\end{tabular}
+}}}
+\newlength{\phAtabular}\setlength{\phAtabular}{\ht\panelboxAtabular+\dp\panelboxAtabular}
+\settototalheight{\phAtabular}{\usebox{\panelboxAtabular}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phAtabular}}
+\newsavebox{\panelboxBtabular}
+\savebox{\panelboxBtabular}{%
+\raisebox{\depth}{\parbox{0.2\linewidth}{\centering\begin{tabular}{AcAcAcA}\hrulethin
+1&2&4\tabularnewline\hrulethin
+3&5&6\tabularnewline\hrulethin
+\end{tabular}
+}}}
+\newlength{\phBtabular}\setlength{\phBtabular}{\ht\panelboxBtabular+\dp\panelboxBtabular}
+\settototalheight{\phBtabular}{\usebox{\panelboxBtabular}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phBtabular}}
+\newsavebox{\panelboxCtabular}
+\savebox{\panelboxCtabular}{%
+\raisebox{\depth}{\parbox{0.2\linewidth}{\centering\begin{tabular}{AcAcAcA}\hrulethin
+1&2&5\tabularnewline\hrulethin
+3&4&6\tabularnewline\hrulethin
+\end{tabular}
+}}}
+\newlength{\phCtabular}\setlength{\phCtabular}{\ht\panelboxCtabular+\dp\panelboxCtabular}
+\settototalheight{\phCtabular}{\usebox{\panelboxCtabular}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phCtabular}}
+\newsavebox{\panelboxDtabular}
+\savebox{\panelboxDtabular}{%
+\raisebox{\depth}{\parbox{0.2\linewidth}{\centering\begin{tabular}{AcAcAcA}\hrulethin
+1&3&4\tabularnewline\hrulethin
+2&5&6\tabularnewline\hrulethin
+\end{tabular}
+}}}
+\newlength{\phDtabular}\setlength{\phDtabular}{\ht\panelboxDtabular+\dp\panelboxDtabular}
+\settototalheight{\phDtabular}{\usebox{\panelboxDtabular}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phDtabular}}
+\newsavebox{\panelboxEtabular}
+\savebox{\panelboxEtabular}{%
+\raisebox{\depth}{\parbox{0.2\linewidth}{\centering\begin{tabular}{AcAcAcA}\hrulethin
+1&3&5\tabularnewline\hrulethin
+2&4&6\tabularnewline\hrulethin
+\end{tabular}
+}}}
+\newlength{\phEtabular}\setlength{\phEtabular}{\ht\panelboxEtabular+\dp\panelboxEtabular}
+\settototalheight{\phEtabular}{\usebox{\panelboxEtabular}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phEtabular}}
+\leavevmode%
+% begin: side-by-side as tabular
+% \tabcolsep change local to group
+\setlength{\tabcolsep}{0\linewidth}
+% @{} suppress \tabcolsep at extremes, so margins behave as intended
+\par\medskip\noindent
+\begin{tabular}{@{}*{5}{c}@{}}
+\begin{minipage}[c][\panelmax][t]{0.2\linewidth}\usebox{\panelboxAtabular}\end{minipage}&
+\begin{minipage}[c][\panelmax][t]{0.2\linewidth}\usebox{\panelboxBtabular}\end{minipage}&
+\begin{minipage}[c][\panelmax][t]{0.2\linewidth}\usebox{\panelboxCtabular}\end{minipage}&
+\begin{minipage}[c][\panelmax][t]{0.2\linewidth}\usebox{\panelboxDtabular}\end{minipage}&
+\begin{minipage}[c][\panelmax][t]{0.2\linewidth}\usebox{\panelboxEtabular}\end{minipage}\end{tabular}\\
+% end: side-by-side as tabular
+}% end: group for a single side-by-side
+%
+\par
+A bijection to the path problem is: an entry in the top row corresponds to R. For example, the middle arrangement corresponds to R R U U R U.%
+\typeout{************************************************}
+\typeout{Paragraphs  Trivalent rooted trees:}
+\typeout{************************************************}
+\paragraph[{Trivalent rooted trees:}]{Trivalent rooted trees:}\hypertarget{paragraphs-6}{}
+A \terminology{tree} is a connected graph that has no cycles. \terminology{Trivalent} means that each interior vertex has degree 3. The \terminology{leaves} or endpoints have degree 1. The number of trivalent rooted trees having \(n\) vertices (not counting the root) is \(C_n\).%
+\par
+The cases \(n = 1, 2, 3, 4\) are drawn in FIGURE 2 along with bijections linking H-D sequences and parenthesizing. For the bijection, label interior vertices with 1 and leaves with 0. Start at the root, keep bearing to the right, and call off the sequence of 0's and 1's, not repeating them once called.%
+\par
+A link between a particular triangulation of a 5-gon and its associated tree is displayed in the following diagram: % group protects changes to lengths, releases boxes (?)
+{% begin: group for a single side-by-side
+% set panel max height to practical minimum, created in preamble
+\setlength{\panelmax}{0pt}
+\newsavebox{\panelboxJimage}
+\savebox{\panelboxJimage}{%
+\begin{tikzpicture} \fivegon; \draw (d) -- (a) -- (c); \draw (0,-.5) -- (0,.75) \v -- (-1, 1.3) \v -- (-1.5, 2.5) \vl{$b$}; \draw (-1,1.3) -- (-2,.8) \vl{$a$}; \draw (0,.75) -- (1,1.2) \v -- (1.5,2.5) \vr{$c$}; \draw (1,1.2) -- (2,.7) \vr{$d$}; \end{tikzpicture}}
+\newlength{\phJimage}\setlength{\phJimage}{\ht\panelboxJimage+\dp\panelboxJimage}
+\settototalheight{\phJimage}{\usebox{\panelboxJimage}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phJimage}}
+\newsavebox{\panelboxKimage}
+\savebox{\panelboxKimage}{%
+\begin{tikzpicture} \draw (0,0) -- (0,.75) \v -- (-1, 1.3) \v -- (-1.5, 2.5) \va{$a$}; \draw (-1,1.3) -- (-.5,2.5) \va{$b$}; \draw (0,.75) -- (1,1.2) \v -- (1.5,2.5) \va{$d$}; \draw (1,1.2) -- (.5,2.5) \va{$c$}; \end{tikzpicture}}
+\newlength{\phKimage}\setlength{\phKimage}{\ht\panelboxKimage+\dp\panelboxKimage}
+\settototalheight{\phKimage}{\usebox{\panelboxKimage}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phKimage}}
+\leavevmode%
+% begin: side-by-side as tabular
+% \tabcolsep change local to group
+\setlength{\tabcolsep}{0\linewidth}
+% @{} suppress \tabcolsep at extremes, so margins behave as intended
+\par\medskip\noindent
+\begin{tabular}{@{}*{2}{c}@{}}
+\begin{minipage}[c][\panelmax][t]{0.5\linewidth}\usebox{\panelboxJimage}\end{minipage}&
+\begin{minipage}[c][\panelmax][t]{0.5\linewidth}\usebox{\panelboxKimage}\end{minipage}\end{tabular}\\
+% end: side-by-side as tabular
+}% end: group for a single side-by-side
+ Place a vertex in each triangle, connect the three vertices and run leaves out all edges, including the bottom which forms the root. Straighten the tree out! FIGURE 3 shows the five triangulations of a convex pentagon along with their trees.%
+\typeout{************************************************}
+\typeout{Paragraphs  Rhyme schemes for \(n\) line stanzas}
+\typeout{************************************************}
+\paragraph[{Rhyme schemes for \(n\) line stanzas}]{Rhyme schemes for \(n\) line stanzas}\hypertarget{paragraphs-7}{}
+A 2-line poem can have just two rhyme schemes%
+\begin{equation*}
+\begin{matrix}a \\ a\end{matrix} \qquad \text{or} \qquad \begin{matrix}a \\ b\end{matrix}
+\end{equation*}
+%
+\par
+A 3-line poem can have five schemes:%
+\begin{equation*}
+\begin{matrix} a \\ a \\ a \end{matrix} \qquad
+\begin{matrix} a \\ a \\ b \end{matrix} \qquad
+\begin{matrix} a \\ b \\ a \end{matrix} \qquad
+\begin{matrix} a \\ b \\ b \end{matrix} \qquad
+\begin{matrix} a \\ b \\ c \end{matrix} \qquad
+\end{equation*}
+The last pattern indicates that no line rhymes with any other.%
+\par
+The Catalan numbers seem to be popping up again. For \(n=4\) there happen to be 15 (not 14) patterns:%
+\begin{equation*}
+\begin{matrix} a \\ a \\ a \\ a \end{matrix} \quad ~
+\begin{matrix} a \\ a \\ a \\ b \end{matrix} \quad ~
+\begin{matrix} a \\ a \\ b \\ a \end{matrix} \quad ~
+\begin{matrix} a \\ b \\ a \\ a \end{matrix} \quad ~
+\begin{matrix} a \\ b \\ b \\ b \end{matrix} \quad ~
+\begin{matrix} a \\ a \\ b \\ b \end{matrix} \quad ~
+\begin{matrix} a \\ b \\ b \\ a \end{matrix} \quad ~
+\begin{matrix} a \\ b \\ a \\ b \end{matrix} \quad ~
+\begin{matrix} a \\ a \\ b \\ c \end{matrix} \quad ~
+\begin{matrix} a \\ b \\ a \\ c \end{matrix} \quad ~
+\begin{matrix} a \\ b \\ c \\ a \end{matrix} \quad ~
+\begin{matrix} a \\ b \\ b \\ c \end{matrix} \quad ~
+\begin{matrix} a \\ b \\ c \\ b \end{matrix} \quad ~
+\begin{matrix} a \\ b \\ c \\ c \end{matrix} \quad ~
+\begin{matrix} a \\ b \\ c \\ d \end{matrix} \quad ~
+\end{equation*}
+One of these, \(abab\), is special in that it is the only ``non-planar'' scheme. In this pattern, you cannot connect the \(a\)'s with an arc and the \(b\)'s with an arc without the arcs crossing.%
+\par
+The planar rhyme schemes are enumerated by the Catalan numbers. These numbers are a subsequence of the Bell numbers, which enumerate all rhyme schemes.%
+\par
+Thus far, we have the following bijections: % group protects changes to lengths, releases boxes (?)
+{% begin: group for a single side-by-side
+% set panel max height to practical minimum, created in preamble
+\setlength{\panelmax}{0pt}
+\newsavebox{\panelboxFtabular}
+\savebox{\panelboxFtabular}{%
+\raisebox{\depth}{\parbox{1\linewidth}{\centering\begin{tabular}{rcl}
+Parentheses&\(\leftrightarrow\)&H-D sequences\tabularnewline[0pt]
+H-D sequences&\(\leftrightarrow\)&Paths\tabularnewline[0pt]
+Triangulations&\(\leftrightarrow\)&Parentheses\tabularnewline[0pt]
+Insertions&\(\leftrightarrow\)&Paths\tabularnewline[0pt]
+Trees&\(\leftrightarrow\)&Parentheses
+\end{tabular}
+}}}
+\newlength{\phFtabular}\setlength{\phFtabular}{\ht\panelboxFtabular+\dp\panelboxFtabular}
+\settototalheight{\phFtabular}{\usebox{\panelboxFtabular}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phFtabular}}
+\leavevmode%
+% begin: side-by-side as tabular
+% \tabcolsep change local to group
+\setlength{\tabcolsep}{0\linewidth}
+% @{} suppress \tabcolsep at extremes, so margins behave as intended
+\par\medskip\noindent
+\begin{tabular}{@{}*{1}{c}@{}}
+\begin{minipage}[c][\panelmax][t]{1\linewidth}\usebox{\panelboxFtabular}\end{minipage}\end{tabular}\\
+% end: side-by-side as tabular
+}% end: group for a single side-by-side
+ See if you can connect the rhyme schemes to any of the above.%
+\begin{figure}
+\centering
+{
+  \begin{tikzpicture}
+\def\r{.6}
+\foreach \row in {0,...,10} {
+  \hexbox{\row}{0}{\large 1}
+  \coordinate (r\row) at (-cos{30}*\r*10+cos{30}*11*\r*2, -\r*\row-sin{30}*\r*\row);
+}
+%fill in the rest of the triangle:
+\foreach \row in {1,...,10} {
+  \pgfmathsetmacro{\entry}{1};
+  \foreach \col in {1,...,\row} {
+    % iterative formula : val = precval * (row-col+1)/col
+    % (+ 0.5 to bypass rounding errors)
+    \pgfmathtruncatemacro{\entry}{\entry*((\row-\col+1)/\col)+0.5};
+    \global\let\entry=\entry
+    \ifnum \entry<100
+\hexbox{\row}{\col}{\large \entry}
+    \else \ifnum \entry<1000
+\hexbox{\row}{\col}{\entry}
+    \else \ifnum \entry<10000
+\hexbox{\row}{\col}{\footnotesize \entry}
+\else
+\hexbox{\row}{\col}{\scriptsize \entry}
+\fi
+    \fi
+    \fi
+  }
+}
+\squarebox{0}{0}
+\foreach \row in {2,4,6,8,10}{
+    \squarebox{\row}{\row/2}
+    \pgfmathsetmacro{\col}{\row/2+1}
+    \squarebox{\row}{\col}
+}
+\draw (r0) node{1} (r2) node{1} (r4) node{2} (r6) node{5} (r8) node{14} (r10) node{42};
+\node[above] at (0,2) {\Large The Catalan Numbers};
+\end{tikzpicture}
+}
+\caption{The Catalan numbers inside Pascal's triangle.\label{catalaninpascal}}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth]{../images/tri-trees}
+\caption{Trivalent, planted trees with \(n\) leaves.\label{trivalenttrees}}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth]{../images/catalan-bijections.png}
+\caption{\label{catalanbijections}}
+\end{figure}
+\typeout{************************************************}
+\typeout{Exercises 2 Problems on Catalan Numbers}
+\typeout{************************************************}
+\section[{Problems on Catalan Numbers}]{Problems on Catalan Numbers}\label{exercises-2}
+\begin{exerciselist}
+\item[1.]\hypertarget{exercise-24}{}Use the recursion for \(P_{n}\) and compute \(P_{6}\), and \(P_{7}\).%
+\par\smallskip
+\item[2.]\hypertarget{exercise-25}{}Use the closed formula for \(P_n\) and compute \(P_{6}\) and \(P_{7}\).%
+\par\smallskip
+\item[3.]\hypertarget{exercise-26}{}Use \(G = P_{1}x + P_{2}x^{2} +\cdots\) and the recursion for \(P_{n}\) to determine a closed formula for \(P_{n}\).%
+\par\smallskip
+\item[4.]\hypertarget{prob-workseq}{}List the workable sequences for \(n = 4\).%
+\par\smallskip
+\item[5.]\hypertarget{prob-parenth}{}List the \(P_{6}\) ways of parenthesizing \(abcdef\).%
+\par\smallskip
+\item[6.]\hypertarget{exercise-29}{}Display a bijection between the 14 sequences in \hyperlink{prob-workseq}{Problem~4} and the 14 products in \hyperlink{prob-parenth}{Problem~5}.%
+\par\smallskip
+\item[7.]\hypertarget{exercise-30}{}Find the nonworkable sequence associated with each: \leavevmode%
+\begin{enumerate}[label=(\alph*)]
+\item\hypertarget{li-11}{}H H H D D H%
+\item\hypertarget{li-12}{}D H H H H D%
+\item\hypertarget{li-13}{}D D D H H H H H%
+\item\hypertarget{li-14}{}D D H H D H H H%
+\end{enumerate}
+%
+\par\smallskip
+\item[8.]\hypertarget{exercise-31}{}Draw the \(T_{6}\) triangulations of a convex hexagon.%
+\par\smallskip
+\item[9.]\hypertarget{exercise-32}{}Display a bijection between the 5 ways of parenthesizing \(abcd\) and the 5 triangulations of a convex pentagon.%
+\par\smallskip
+\item[10.]\hypertarget{exercise-33}{}Let \(C_{n} = \frac{1}{n + 1}\binom{2n}{n}.\) Verifiy the formula:%
+\begin{equation*}
+C_{n} = \binom{n}{1} C_{n - 1} - \binom{n - 1}{2} C_{n - 2} + \binom{n - 2}{3} C_{n - 3} - \cdots
+\end{equation*}
+%
+\par\smallskip
+\item[11.]\hypertarget{exercise-34}{}Verify that \(H_{3} = 5\) by drawing the required paths.%
+\par\smallskip
+\item[12.]\hypertarget{exercise-35}{}Assign the appropriate binary sequences to each of the 5 trees for \(n=3\) in \hyperref[trivalenttrees]{Figure~\ref{trivalenttrees}}.%
+\par\smallskip
+\end{exerciselist}
+\hypertarget{exercisegroup-1}{}\par\noindent For each of the following, investigate bijections that relate one to another.%
+\begin{exercisegroup}(1)
+\exercise[13.]\hypertarget{exercise-36}{}A and B each receive \(n\) votes. Let \(V_{n}\) denote the number of ways that the \(2n\) votes can be tallied so that A never trails B. Let \(V_{0} = 1\).%
+\exercise[14.]\hypertarget{exercise-37}{}Place \(2n\) points on the circumference of a circle and draw \(n\)  nonintersecting chords in \(D_{n}\) ways; \(D_{0} = 1\)%
+\exercise[15.]\hypertarget{exercise-38}{}In how many ways can \(1, 2, 3, \ldots, 2n\) be inserted into a \(2\times n\) rectangle such that the entries are increasing in rows and columns.  Let the answer be \(Y_n\); \(Y_1 = 1\), \(Y_2 = 2\).%
+\exercise[16.]\hypertarget{exercise-39}{}Place \(2n\) points on a line segment and join them in pairs by nonintersecting arcs above the segment. In how many ways can this be done? Call the answer \(S_{n}\); \(S_{1}=1\), \(S_{2}=2\).%
+\exercise[17.]\hypertarget{exercise-40}{}A rook on an \(n + 1\) by \(n + 1\) chessboard must move from the lower left corner to the upper right corner never going above the diagonal. How many paths are possible? Let \(K_{n}\) be the answer.%
+\exercise[18.]\hypertarget{exercise-41}{}On an \(n + 1\) by \(n + 1\) chessboard a king starts on the first row and moves one square forward or back along a fixed column and ends on the starting square after \(2n\) moves. In how many ways, \(G_{n}\) , can this be done?%
+\exercise[19.]\hypertarget{exercise-42}{}Count the number of planar rhyme schemes for a stanza consisting of \(n\) lines. Joanne Growney showed in her doctoral thesis that the Bell numbers, which count all rhyme schemes, have the Catalan numbers as a subsequence and that these enumerate precisely the planar rhyme schemes. For example, of the \(B_4 = 15\) rhyme schemes, \(C_4 = 14\) are planar. The nonplanar one is given by \(abab\).%
+\end{exercisegroup}
+\par\smallskip\noindent
 %
 \backmatter
 %

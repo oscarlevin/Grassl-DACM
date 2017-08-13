@@ -13,8 +13,9 @@
 <xi:include href="./frontmatter.ptx" />
 
 <xi:include href="./ch_fibs.ptx" />
+<xi:include href="./ch_catalan.ptx" />
 
-<!-- <xi:include href="./ch_catalan.ptx" />
+<!--
 <xi:include href="./ch_stirling.ptx" />
 <xi:include href="./ch_bell.ptx" />
 <xi:include href="./ch_projects.ptx" />

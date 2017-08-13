@@ -3,7 +3,7 @@
 
 <chapter xml:id="ch_fibs" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>
-  A BRIEF HISTORY OF FIBONACCI NUMBERS
+  A Brief History of Fibonacci Numbers
 </title>
 <introduction>
 <p>
@@ -152,7 +152,7 @@
 </introduction>
 
 <exercises>
-    <title>PROBLEMS ON FIBONACCI NUMBERS</title>
+    <title>Problems on Fibonacci Numbers</title>
 
     <exercise>
       <statement>

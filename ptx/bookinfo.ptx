@@ -10,6 +10,7 @@
 </website> -->
 
 <macros>
+\newcommand{\alert}{\fbox}
 \def\d{\displaystyle}
 \newcommand{\f}[1]{\mathfrak #1}
 \newcommand{\s}[1]{\mathscr #1}
@@ -79,12 +80,7 @@
 \def\threesetbox{(-2.5,-2.4) rectangle (2.5,1.4)}
 \def\ansfilename{practice-answers}
 \def\shadowprops{{fill=black!50,shadow xshift=0.5ex,shadow yshift=0.5ex,path fading={circle with fuzzy edge 10 percent}}}
-\newcommand{\hexbox}[3]{
-  \def\x{-cos{30}*\r*#1+cos{30}*#2*\r*2}
-  \def\y{-\r*#1-sin{30}*\r*#1}
-  \draw (\x,\y) +(90:\r) -- +(30:\r) -- +(-30:\r) -- +(-90:\r) -- +(-150:\r) -- +(150:\r) -- cycle;
-  \draw (\x,\y) node{#3};
-}
+
 \renewcommand{\bar}{\overline}
 \newcommand{\card}[1]{\left| #1 \right|}
 \newcommand{\twoline}[2]{\begin{pmatrix}#1 \\ #2 \end{pmatrix}}
@@ -105,9 +101,31 @@
   markings,
   mark=at position .5 with {\arrow{>}}},postaction={decorate}}}
 
+\newcommand{\hexbox}[3]{
+    \def\x{-cos{30}*\r*#1+cos{30}*#2*\r*2}
+    \def\y{-\r*#1-sin{30}*\r*#1}
+  %  \draw (\x,\y) +(90:\r) -- +(30:\r) -- +(-30:\r) -- +(-90:\r) -- +(-150:\r) -- +(150:\r) -- cycle;
+    \draw (\x,\y) node{#3};
+  }
+\newcommand{\squarebox}[2]{
+  \def\x{-cos{30}*\r*#1+cos{30}*#2*\r*2}
+  \def\y{-\r*#1-sin{30}*\r*#1}
+  \draw (\x,\y) +(45:\r) -- +(135:\r) -- +(-135:\r) -- +(-45:\r) -- cycle;
+}
 
+\def\fivegon{%
+  \coordinate (a) at (0,2.5);
+  \coordinate (b) at (2,1.4);
+  \coordinate (c) at (1,0);
+  \coordinate (d) at (-.5,0);
+  \coordinate (e) at (-2,1.5);
+  \draw (a) -- (b) -- (c) -- (d) -- (e) -- (a);
+}
 
 </latex-image-preamble>
+
+<cross-references text="type-global" />
+<rename element="exercise" lang="en-US">Problem</rename>
 
 <!-- <rename element="investigation" lang="en-US"><em>Investigate!</em></rename> -->
 

@@ -104,12 +104,12 @@
 
 
 <!-- Redefine chapter numbering to start at 0 -->
-<xsl:template match="chapter" mode="raw-serial-number">
+<!-- <xsl:template match="chapter" mode="raw-serial-number">
     <xsl:variable name="n">
       <xsl:number count="chapter|references|exercises"/>
     </xsl:variable>
     <xsl:number value="$n - 1" format="1" />
-</xsl:template>
+</xsl:template> -->
 
 <xsl:template match="exercises|references" mode="raw-serial-number">
     <xsl:number count="part|chapter|appendix|section|subsection|subsubsection|references|exercises" format="1" />
