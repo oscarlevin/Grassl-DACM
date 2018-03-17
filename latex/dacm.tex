@@ -1,12 +1,30 @@
 %**************************************%
 %*    Generated from PreTeXt source   *%
-%*    on 2017-08-13T13:42:09-06:00    *%
+%*    on 2018-03-15T19:05:21-06:00    *%
 %*                                    *%
 %*   http://mathbook.pugetsound.edu   *%
 %*                                    *%
 %**************************************%
 \documentclass[10pt,]{book}
 %% Custom Preamble Entries, early (use latex.preamble.early)
+%% Default LaTeX packages
+%%   1.  always employed (or nearly so) for some purpose, or
+%%   2.  a stylewriter may assume their presence
+\usepackage{geometry}
+%% Some aspects of the preamble are conditional,
+%% the LaTeX engine is one such determinant
+\usepackage{ifthen}
+\usepackage{ifxetex,ifluatex}
+%% Raster graphics inclusion
+\usepackage{graphicx}
+%% Colored boxes, and much more, though mostly styling
+%% skins library provides "enhanced" skin, employing tikzpicture
+%% boxes may be configured as "breakable" or "unbreakable"
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+\tcbuselibrary{breakable}
+%% Hyperref should be here, but likes to be loaded late
+%%
 %% Inline math delimiters, \(, \), need to be robust
 %% 2016-01-31:  latexrelease.sty  supersedes  fixltx2e.sty
 %% If  latexrelease.sty  exists, bugfix is in kernel
@@ -18,16 +36,12 @@
 %% See Bringhurst 2.1.1 on measure for recommendations
 %% 75 characters per line (count spaces, punctuation) is target
 %% which is the upper limit of Bringhurst's recommendations
-%% Load geometry package to allow page margin adjustments
-\usepackage{geometry}
 \geometry{letterpaper,total={340pt,9.0in}}
 %% Custom Page Layout Adjustments (use latex.geometry)
 %% This LaTeX file may be compiled with pdflatex, xelatex, or lualatex
 %% The following provides engine-specific capabilities
 %% Generally, xelatex and lualatex will do better languages other than US English
 %% You can pick from the conditional if you will only ever use one engine
-\usepackage{ifthen}
-\usepackage{ifxetex,ifluatex}
 \ifthenelse{\boolean{xetex} \or \boolean{luatex}}{%
 %% begin: xelatex and lualatex-specific configuration
 %% fontspec package will make Latin Modern (lmodern) the default font
@@ -68,8 +82,7 @@
 \setcounter{MaxMatrixCols}{30}
 %%
 %% Color support, xcolor package
-%% Always loaded.  Used for:
-%% mdframed boxes, add/delete text, author tools
+%% Always loaded, for: add/delete text, author tools
 \PassOptionsToPackage{usenames,dvipsnames,svgnames,table}{xcolor}
 \usepackage{xcolor}
 %%
@@ -98,11 +111,19 @@
 %% Style is like a theorem, and for statements without proofs
 %% Numbering: all theorem-like numbered consecutively
 %% i.e. Corollary 4.3 follows Theorem 4.2
-%% Miscellaneous environments, normal text
-%% Numbering for inline exercises and lists is in sync with theorems, etc
+\newtheorem{corollary}[theorem]{Corollary}
+%% Numbering for Projects (independent of others)
+%% Controlled by  numbering.projects.level  processing parameter
+%% Always need a project environment to set base numbering scheme
+%% even if document has no projectss (but has other blocks)
+\newtheorem{project}{Project}%% Project-like environments, normal text
+\theoremstyle{definition}
+\newtheorem{activity}[project]{Activity}
+%% Numbering for inline exercises is in sync with theorems, normal text
 \theoremstyle{definition}
 \newtheorem{exercise}[theorem]{Problem}
 %% Localize LaTeX supplied names (possibly none)
+\renewcommand*{\proofname}{Proof}
 \renewcommand*{\chaptername}{Chapter}
 %% Equation Numbering
 %% Controlled by  numbering.equations.level  processing parameter
@@ -139,32 +160,24 @@
 \newcolumntype{B}{!{\vrule width 0.07em}}
 \newcolumntype{C}{!{\vrule width 0.11em}}
 \makeatother
-%% Figures, Tables, Listings, Floats
+%% Figures, Tables, Listings, Named Lists, Floats
 %% The [H]ere option of the float package fixes floats in-place,
 %% in deference to web usage, where floats are totally irrelevant
-%% We re/define the figure, table and listing environments, if used
-%%   1) New mbxfigure and/or mbxtable environments are defined with float package
-%%   2) Standard LaTeX environments redefined to use new environments
-%%   3) Standard LaTeX environments redefined to step theorem counter
-%%   4) Counter for new environments is set to the theorem counter before caption
-%% You can remove all this figure/table setup, to restore standard LaTeX behavior
+%% You can remove some of this setup, to restore standard LaTeX behavior
 %% HOWEVER, numbering of figures/tables AND theorems/examples/remarks, etc
-%% WILL ALL de-synchronize with the numbering in the HTML version
-%% You can remove the [H] argument of the \newfloat command, to allow flotation and 
+%% may de-synchronize with the numbering in the HTML version
+%% You can remove the "placement={H}" option to allow flotation and
 %% preserve numbering, BUT the numbering may then appear "out-of-order"
+%% Floating environments: http://tex.stackexchange.com/questions/95631/
 \usepackage{float}
-\usepackage[bf]{caption} % http://tex.stackexchange.com/questions/95631/defining-a-new-type-of-floating-environment 
 \usepackage{newfloat}
-% Figure environment setup so that it no longer floats
+\usepackage{caption}%% Adjust stock figure environment so that it no longer floats
 \SetupFloatingEnvironment{figure}{fileext=lof,placement={H},within=section,name=Figure}
-% figures have the same number as theorems: http://tex.stackexchange.com/questions/16195/how-to-make-equations-figures-and-theorems-use-the-same-numbering-scheme 
+\captionsetup[figure]{labelfont=bf}
+%% http://tex.stackexchange.com/questions/16195
 \makeatletter
 \let\c@figure\c@theorem
 \makeatother
-%% Raster graphics inclusion, wrapped figures in paragraphs
-%% \resizebox sometimes used for images in side-by-side layout
-\usepackage{graphicx}
-%%
 %% More flexible list management, esp. for references and exercises
 %% But also for specifying labels (i.e. custom order) on nested lists
 \usepackage{enumitem}
@@ -331,7 +344,7 @@
 School of Mathematical Science\\
 University of Northern Colorado
 }
-\date{August 13, 2017}
+\date{March 15, 2018}
 \begin{document}
 \frontmatter
 %% begin: half-title
@@ -356,16 +369,18 @@ University of Northern Colorado
 {\Huge Discrete and Combinatorial Mathematics}\\[3\baselineskip]
 {\Large Richard Grassl}\\[0.5\baselineskip]
 {\Large University of Northern Colorado}\\[3\baselineskip]
-{\Large August 13, 2017}\\}
+{\Large March 15, 2018}\\}
 \clearpage
 %% end:   title page
 %% begin: copyright-page
 \thispagestyle{empty}
-\vspace*{\stretch{2}}
+\hypertarget{colophon-1}{}\vspace*{\stretch{2}}
 \noindent\textcopyright\ 2009\textendash{}2017\quad{}Richard Grassl\\[0.5\baselineskip]
+\hypertarget{p-1}{}%
 \includegraphics[width=0.15\linewidth]{../images/by-sa.png}
 %
  \par
+\hypertarget{p-2}{}%
 This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit \href{http://creativecommons.org/licenses/by-sa/4.0/}{http://creativecommons.org/licenses/by-sa/4.0/}%
 \par\medskip
 \vspace*{\stretch{1}}
@@ -382,38 +397,50 @@ This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 Inte
 \typeout{Chapter 1 A Brief History of Fibonacci Numbers}
 \typeout{************************************************}
 \chapter[{A Brief History of Fibonacci Numbers}]{A Brief History of Fibonacci Numbers}\label{ch_fibs}
+\hypertarget{p-3}{}%
 Fibonacci numbers receive their name from Leonardo of Pisa (Leonardo Pisano, c. 1175-1250), better known as Leonardo Fibonacci. Fibonacci is a contraction of Filius Bonacci, son of Bonacci%
 \par
+\hypertarget{p-4}{}%
 Leonardo was born about 1175 in the commercial center of Pisa. This was a time of great interest and importance in the history of Western Civilization. One finds the influence of the crusades stirring and awakening the people of Europe by bringing them in contact with the more advanced intellect of the East. During this time the Universities of Naples, Padua, Paris, Oxford, and Cambridge were established, the Magna Carta signed in England, and the long struggle between the Papacy and the Empire was culminated. Commerce was flourishing in the Mediterranean world and adventurous travelers such as Marco Polo were penetrating far beyond the borders of the known world%
 \par
+\hypertarget{p-5}{}%
 It is in this growing commercial activity that we find the young Leonardo at Bugia on the Northern coast of Africa. Here the merchants of Pisa and other commercial cities of Italy had large warehouses for the storage of their goods. Actually very little is known about the life of this great mathematician. No contemporary historian makes mention of him, and one must look to his writings to find information about him%
 \par
+\hypertarget{p-6}{}%
 A mathematician before his time, Leonardo of Pisa, alias Leonardo Pisano, alias Leonardo Bigollo, alias Fibonacci, was a despair to his teacher as a young boy and an enigma to his colleagues in his later years. Convinced of the superiority of the Hindu-Arabic numeral system over the Roman system, Leonardo wrote one of his greatest works, \emph{Liber Abaci} (in English, ``Book of Calculating'') to introduce this system to the Western world. The \emph{Liber Abaci} was written in 1202 but was not published until 1857 because ``it was too advanced for Leonardo's contemporaries.'' Along with the introduction and development of many mathematical topics, the \emph{Liber Abaci} contained interesting story problems that Leonardo liked to invent. His most popular problem is the breeding pair of rabbits: ``How many pairs of rabbits will there be after a year if it is assumed that every month each pair produces one new pair, which begins to bear young two months after its own birth?''%
 \par
+\hypertarget{p-7}{}%
 This problem generates the infinite sequence that bears his name because his work is the earliest known recording. The Fibonacci sequence begins with 1 and each number that follows is the sum of the previous two numbers. The first ten Fibonnaci numbers are: \(1, 1, 2, 3, 5, 8, 13, 21,
 34, 55\).%
 \par
+\hypertarget{p-8}{}%
 Leonardo, in 1228, gave a second edition of the \emph{Liber Abaci} which he dedicated to Michel Scott, astrologer to the Emperor Frederic II and author of many scientific works. Copies of this edition exist today. Leonardo profusely illustrated and strongly advocated the Hindu-Arabic system in this work. He gave an extensive discussion of the Rule of False Position and the Rule of Three. Leonardo did not use a general method in problem solving; each problem was solved independently of the others. In the solution of a problem he not only considered the problem as it might occur, but considered all of the variations of the question, even those that were not reasonable%
 \par
+\hypertarget{p-9}{}%
 Because of Leonardo's great reputation, the emperor Frederick II, when in Pisa (1225), held a sort of mathematical tournament to test Leonardo's skill. The competitors were informed beforehand of the questions to be asked, some or all of which were composed by Johannes of Palermo, who was of Frederick's staff. This is the first case in the history of mathematics that one meets with an instance of these challenges to solve particular problems which were so common in the sixteenth and seventeenth centuries%
 \par
+\hypertarget{p-10}{}%
 The first question propounded was to find a number of which the square when decreased or increased by 5 would remain a square. The correct answer given by Leonardo was 41/12. The next question was to find by the methods used in the tenth book of Euclid a line whose length x should satisfy the equation \(x^3 + 2x^2 + 10x - 20 = 0\) . Leonardo showed by geometry that the problem was impossible, but he gave an approximation of the root \(1.3688081075\ldots\), which is correct to nine places. \emph{Liber Abaci} contains many additional problems of this type%
 \par
+\hypertarget{p-11}{}%
 After the ``Rabbit Problem,'' the matter lay for 400 years. In 1611, Johann Kepler, of astronomy fame, arrived at the series \(1, 1, 2, 3, 5,
 8, 13, 21, \ldots\) . There is no indication that he had access to one of Fibonacci's hand-written books (the \emph{Liber Abaci} was not published until 1857).%
 \par
+\hypertarget{p-12}{}%
 Simon Stevens (1548-1620) wrote on the famous Golden Section.  The editor of his works, A. Gerarad, arrived at the following formula for expressing the series in 1634:%
 \begin{equation*}
 F_{n + 2} = F_{n + 1} + F_{n}.
 \end{equation*}
 %
 \par
+\hypertarget{p-13}{}%
 A hundred years must pass before the problem is again considered. In 1753, R. Simpson derived a formula, implied by Kepler:%
 \begin{equation*}
 F_{n - 1}F_{n + 1} - F_{n}^{2} = \left( - 1 \right)^{n}.
 \end{equation*}
 %
 \par
+\hypertarget{p-14}{}%
 A second hundred years pass by and the series again comes under study. In 1843, J.P.M. Binet derives an analytical function for determining the value of any Fibonacci number:%
 \begin{equation*}
 2^n \sqrt{5} F^n = (1 + \sqrt{5})^{n} - (1 - \sqrt{5})^{n}.
@@ -424,44 +451,59 @@ In 1846 E. Catalan derived the formula:%
 \end{equation*}
 %
 \par
+\hypertarget{p-15}{}%
 By now, the series had received enough attention to deserve a name. It was variously called the Braun series, the Schimper-Braun series, the Lamé series and the Gerhardt series. A. Braun, applied the series to the arrangement of the scales of pine cones. Schimper is completely unknown. Gerhardt is probably a misspelling of Girard%
 \par
+\hypertarget{p-16}{}%
 Edouard Lucas, who dominated the field of recursive series during the period 1876-1891, first applied Fibonacci's name to the series and it has been known as the Fibonacci series since then%
 \par
+\hypertarget{p-17}{}%
 About this time, 1858, Sam Loyd claimed to have invented the checkerboard paradox. It is first found in print in a German journal in 1868. Today it seems proper to call it the Carroll Paradox after Lewis Carroll (Charles Dodgson, 1832-1893) who was quite fond of it.%
 \typeout{************************************************}
 \typeout{Exercises 1 Problems on Fibonacci Numbers}
 \typeout{************************************************}
 \section[{Problems on Fibonacci Numbers}]{Problems on Fibonacci Numbers}\label{exercises-1}
 \begin{exerciselist}
-\item[1.]\hypertarget{exercise-1}{}Determine a formula for each:%
+\item[1.]\hypertarget{exercise-1}{}\hypertarget{p-18}{}%
+Determine a formula for each:%
 \leavevmode%
 \begin{enumerate}[label=(\alph*)]
-\item\hypertarget{li-1}{}\(F_{0} + F_{1} + F_{2} + \ldots + F_{m}\)%
-\item\hypertarget{li-2}{}\(F_{0} + F_{2} + F_{4} + \ldots + F_{m}\) where m is even.%
+\item\hypertarget{li-1}{}\hypertarget{p-19}{}%
+\(F_{0} + F_{1} + F_{2} + \ldots + F_{m}\)%
+\item\hypertarget{li-2}{}\hypertarget{p-20}{}%
+\(F_{0} + F_{2} + F_{4} + \ldots + F_{m}\) where m is even.%
 \end{enumerate}
 \par\smallskip
-\item[2.]\hypertarget{exercise-2}{}Prove each of the following%
+\item[2.]\hypertarget{exercise-2}{}\hypertarget{p-21}{}%
+Prove each of the following%
 \leavevmode%
 \begin{enumerate}[label=(\alph*)]
-\item\hypertarget{diff-fib-squares}{}\(F_{n + 1}^{2} - F_{n}^{2} = F_{n - 1}F_{n + 2}\)%
-\item\hypertarget{fib-squares}{}\(F_{k}^{2} = F_{k}(F_{k + 1} - F_{k - 1})\)%
+\item\hypertarget{diff-fib-squares}{}\hypertarget{p-22}{}%
+\(F_{n + 1}^{2} - F_{n}^{2} = F_{n - 1}F_{n + 2}\)%
+\item\hypertarget{fib-squares}{}\hypertarget{p-23}{}%
+\(F_{k}^{2} = F_{k}(F_{k + 1} - F_{k - 1})\)%
 \end{enumerate}
 \par\smallskip
-\item[3.]\hypertarget{exercise-3}{}Determine a closed expression for \(F_{0}F_{3}
+\item[3.]\hypertarget{exercise-3}{}\hypertarget{p-24}{}%
+Determine a closed expression for \(F_{0}F_{3}
 + F_{1}F_{4} + \cdots +
 F_{n-1}F_{n+2}\) using \hyperlink{diff-fib-squares}{Problem~1.1.2.a}.%
 \par\smallskip
-\item[4.]\hypertarget{fib-sum-squares}{}Determine a formula for \(F_{1}^{2} + F_{2}^{2} + \ldots + F_{n}^{2}\) in two ways:%
+\item[4.]\hypertarget{fib-sum-squares}{}\hypertarget{p-25}{}%
+Determine a formula for \(F_{1}^{2} + F_{2}^{2} + \ldots + F_{n}^{2}\) in two ways:%
 \leavevmode%
 \begin{enumerate}[label=(\alph*)]
-\item\hypertarget{li-5}{}Collect data and prove by mathematical induction.%
-\item\hypertarget{li-6}{}Use \hyperlink{fib-squares}{Problem~1.1.2.b} and telescoping sums.%
+\item\hypertarget{li-5}{}\hypertarget{p-26}{}%
+Collect data and prove by mathematical induction.%
+\item\hypertarget{li-6}{}\hypertarget{p-27}{}%
+Use \hyperlink{fib-squares}{Problem~1.1.2.b} and telescoping sums.%
 \end{enumerate}
 \par\smallskip
-\item[5.]\hypertarget{exercise-5}{}Give a geometrical ``proof'' for the result in \hyperlink{fib-sum-squares}{Problem~1.1.4}.%
+\item[5.]\hypertarget{exercise-5}{}\hypertarget{p-28}{}%
+Give a geometrical ``proof'' for the result in \hyperlink{fib-sum-squares}{Problem~1.1.4}.%
 \par\smallskip
-\item[6.]\hypertarget{fib-matrix}{}Prove \(\begin{pmatrix}
+\item[6.]\hypertarget{fib-matrix}{}\hypertarget{p-29}{}%
+Prove \(\begin{pmatrix}
 0 \amp 1\\
 1 \amp 1
 \end{pmatrix}^{n} = \begin{pmatrix}
@@ -472,64 +514,89 @@ F_{n} \amp F_{n + 1}
 1 \amp 1
 \end{pmatrix}\) .%
 \par\smallskip
-\item[7.]\hypertarget{fib-neg-one}{}Prove that \(F_{n - 1}F_{n + 1} - F_{n}^{2} = (-1)^{n}\) in two ways:%
+\item[7.]\hypertarget{fib-neg-one}{}\hypertarget{p-30}{}%
+Prove that \(F_{n - 1}F_{n + 1} - F_{n}^{2} = (-1)^{n}\) in two ways:%
 \leavevmode%
 \begin{enumerate}[label=(\alph*)]
-\item\hypertarget{li-7}{}Mathematical induction.%
-\item\hypertarget{li-8}{}Use \hyperlink{fib-matrix}{Problem~1.1.6} and determinants.%
+\item\hypertarget{li-7}{}\hypertarget{p-31}{}%
+Mathematical induction.%
+\item\hypertarget{li-8}{}\hypertarget{p-32}{}%
+Use \hyperlink{fib-matrix}{Problem~1.1.6} and determinants.%
 \end{enumerate}
 \par\smallskip
-\item[8.]\hypertarget{exercise-8}{}Is there a result analogous to that in \hyperlink{fib-neg-one}{Problem~1.1.7} for just the positive integers \(1, 2, 3, 4, \ldots\)?%
+\item[8.]\hypertarget{exercise-8}{}\hypertarget{p-33}{}%
+Is there a result analogous to that in \hyperlink{fib-neg-one}{Problem~1.1.7} for just the positive integers \(1, 2, 3, 4, \ldots\)?%
 \par\smallskip
-\item[9.]\hypertarget{exercise-9}{}Show that \(Q^{2n + 1} = Q^{n}Q^{n+1}\) and that \(F_{2n + 1} = F_{n + 1}^{2} + F_{n}^{2}\) .%
+\item[9.]\hypertarget{exercise-9}{}\hypertarget{p-34}{}%
+Show that \(Q^{2n + 1} = Q^{n}Q^{n+1}\) and that \(F_{2n + 1} = F_{n + 1}^{2} + F_{n}^{2}\) .%
 \par\smallskip
-\item[10.]\hypertarget{exercise-10}{}Prove the Binet Formula: \(F_{n = }\frac{a^{n} - b^{n}}{a - b}\) where \(a\), \(b\) are roots of \(x^{2} - x - 1 = 0\).%
+\item[10.]\hypertarget{exercise-10}{}\hypertarget{p-35}{}%
+Prove the Binet Formula: \(F_{n = }\frac{a^{n} - b^{n}}{a - b}\) where \(a\), \(b\) are roots of \(x^{2} - x - 1 = 0\).%
 \par\smallskip
-\item[11.]\hypertarget{exercise-11}{}Prove \(\left( \frac{n}{0} \right)F_{0} + \left( \frac{n}{1} \right)F_{1} + \ldots + \left( \frac{n}{n} \right)F_{n} = F_{2n}\) in two ways:%
+\item[11.]\hypertarget{exercise-11}{}\hypertarget{p-36}{}%
+Prove \(\left( \frac{n}{0} \right)F_{0} + \left( \frac{n}{1} \right)F_{1} + \ldots + \left( \frac{n}{n} \right)F_{n} = F_{2n}\) in two ways:%
 \leavevmode%
 \begin{enumerate}[label=(\alph*)]
-\item\hypertarget{li-9}{}Use the Binet Formula.%
-\item\hypertarget{li-10}{}Use Q.%
+\item\hypertarget{li-9}{}\hypertarget{p-37}{}%
+Use the Binet Formula.%
+\item\hypertarget{li-10}{}\hypertarget{p-38}{}%
+Use Q.%
 \end{enumerate}
 \par\smallskip
-\item[12.]\hypertarget{exercise-12}{}Prove that \(\sum_{n = 2}^{\infty}\frac{1}{F_{n - 1}F_{n + 1}} = 1\).%
+\item[12.]\hypertarget{exercise-12}{}\hypertarget{p-39}{}%
+Prove that \(\sum_{n = 2}^{\infty}\frac{1}{F_{n - 1}F_{n + 1}} = 1\).%
 \par\smallskip
-\par\smallskip
-\noindent\textbf{Hint.}\hypertarget{hint-1}{}\quad
+\par\smallskip%
+\noindent\textbf{Hint.}\hypertarget{hint-1}{}\quad%
+\hypertarget{p-40}{}%
 Show first that \(\frac{1}{F_{n - 1}F_{n + 1}} = \frac{1}{F_{n - 1}F_{n}} -
 \frac{1}{F_{n}F_{n + 1}}\).%
-\item[13.]\hypertarget{exercise-13}{}Prove that \(\sum_{n = 2}^{\infty}\frac{F_{n}}{F_{n - 1}F_{n + 1}} = 2.\)%
+\item[13.]\hypertarget{exercise-13}{}\hypertarget{p-41}{}%
+Prove that \(\sum_{n = 2}^{\infty}\frac{F_{n}}{F_{n - 1}F_{n + 1}} = 2.\)%
 \par\smallskip
-\item[14.]\hypertarget{exercise-14}{}Prove that \(\lim_{n\to\infty}\frac{F_{n + 1}}{F_{n}} = \frac{1 + \sqrt{5}}{2}.\)%
+\item[14.]\hypertarget{exercise-14}{}\hypertarget{p-42}{}%
+Prove that \(\lim_{n\to\infty}\frac{F_{n + 1}}{F_{n}} = \frac{1 + \sqrt{5}}{2}.\)%
 \par\smallskip
-\item[15.]\hypertarget{exercise-15}{}For which values of \(n\) is \(F^{n}\) an integral multiple of 3?%
+\item[15.]\hypertarget{exercise-15}{}\hypertarget{p-43}{}%
+For which values of \(n\) is \(F^{n}\) an integral multiple of 3?%
 \par\smallskip
-\item[16.]\hypertarget{exercise-16}{}Can you have four distinct positive Fibonacci numbers in arithmetic progression?%
+\item[16.]\hypertarget{exercise-16}{}\hypertarget{p-44}{}%
+Can you have four distinct positive Fibonacci numbers in arithmetic progression?%
 \par\smallskip
-\item[17.]\hypertarget{exercise-17}{}How many Fibonacci numbers are perfect squares?%
+\item[17.]\hypertarget{exercise-17}{}\hypertarget{p-45}{}%
+How many Fibonacci numbers are perfect squares?%
 \par\smallskip
-\item[18.]\hypertarget{exercise-18}{}Find a closed formula for \(\frac{1}{F_{1}} + \frac{1}{F_{2}} + \frac{1}{F_{4}} + \frac{1}{F_{8}} + \ldots.\)%
+\item[18.]\hypertarget{exercise-18}{}\hypertarget{p-46}{}%
+Find a closed formula for \(\frac{1}{F_{1}} + \frac{1}{F_{2}} + \frac{1}{F_{4}} + \frac{1}{F_{8}} + \ldots.\)%
 \par\smallskip
-\item[19.]\hypertarget{exercise-19}{}Conjecture and prove a formula for \(\binom{n}{0} + \binom{n-1}{1} + \binom{n-2}{2} + \cdots\).%
+\item[19.]\hypertarget{exercise-19}{}\hypertarget{p-47}{}%
+Conjecture and prove a formula for \(\binom{n}{0} + \binom{n-1}{1} + \binom{n-2}{2} + \cdots\).%
 \par\smallskip
-\item[20.]\hypertarget{exercise-20}{}In what sense is \(\frac{x}{1 - x - x^{2}}\) the generating function for the sequence of Fibonacci numbers?%
+\item[20.]\hypertarget{exercise-20}{}\hypertarget{p-48}{}%
+In what sense is \(\frac{x}{1 - x - x^{2}}\) the generating function for the sequence of Fibonacci numbers?%
 \par\smallskip
-\item[21.]\hypertarget{exercise-21}{}Prove that \(F_{5n + 5} = 3F_{5n} + 5F_{5n + 1}\).%
+\item[21.]\hypertarget{exercise-21}{}\hypertarget{p-49}{}%
+Prove that \(F_{5n + 5} = 3F_{5n} + 5F_{5n + 1}\).%
 \par\smallskip
-\par\smallskip
-\noindent\textbf{Hint.}\hypertarget{hint-2}{}\quad
+\par\smallskip%
+\noindent\textbf{Hint.}\hypertarget{hint-2}{}\quad%
+\hypertarget{p-50}{}%
 Use \(Q^{5n + 5}\).%
-\item[22.]\hypertarget{exercise-22}{}Let \(\varphi\) be the positive root of \(x^{2} - x - 1 = 0\). Prove that \(\varphi^{n} = F_{n}\varphi + F_{n - 1}\).%
+\item[22.]\hypertarget{exercise-22}{}\hypertarget{p-51}{}%
+Let \(\varphi\) be the positive root of \(x^{2} - x - 1 = 0\). Prove that \(\varphi^{n} = F_{n}\varphi + F_{n - 1}\).%
 \par\smallskip
-\item[23.]\hypertarget{exercise-23}{}Can every positive integer be written as a sum of distinct Fibonacci numbers?%
+\item[23.]\hypertarget{exercise-23}{}\hypertarget{p-52}{}%
+Can every positive integer be written as a sum of distinct Fibonacci numbers?%
 \par\smallskip
 \end{exerciselist}
 \typeout{************************************************}
 \typeout{Chapter 2 The Catalan Numbers}
 \typeout{************************************************}
 \chapter[{The Catalan Numbers}]{The Catalan Numbers}\label{ch_catalan}
+\hypertarget{p-53}{}%
 (Notes of a talk presented by Professor Richard Grassl, Muhlenberg College, March 15, 1991)%
 \par
+\hypertarget{p-54}{}%
 The sequence of Catalan numbers, named after Eugene Catalan who along with Euler discovered many of the properties of these numbers, is \(1, 1, 2, 5, 14, 42, 132, \ldots\). The characterizations below show that a formula for these numbers is given by%
 \begin{equation*}
 C_{n + 1} = C_{1}C_{n} + C_{2}C_{n - 1} + \ldots + C_{n}C_{1}
@@ -539,12 +606,14 @@ with \(C_1 = 1\), \(C_2 = 1\), etc.%
 \typeout{Paragraphs  Parenthesizing}
 \typeout{************************************************}
 \paragraph[{Parenthesizing}]{Parenthesizing}\hypertarget{paragraphs-1}{}
+\hypertarget{p-55}{}%
 In how many ways can you insert parentheses in the nonassociative product \(abcd\)? The five ways are displayed%
 \begin{equation*}
 (ab)(cd)\quad ((ab)c)d \quad a(b(cd)) \quad (a(bc))d \quad a((bc)d).
 \end{equation*}
 %
 \par
+\hypertarget{p-56}{}%
 There are two ways for \(abc\), namely \(a(bc)\) and \((ab)c\), and one for \(ab\). For a product of \(n\) symbols \(a_{1}a_{2}\ldots a_{n}\), break it at the \(k\)th symbol:%
 \begin{equation*}
 (a_{1}a_{2}a_{3}\ldots a_{k})(a_{k + 1}\ldots a_{n}).
@@ -558,8 +627,10 @@ P_{n} = \sum_{k = 1}^{n - 1} P_{k}P_{n - k} = P_{1}P_{n - 1} + P_{2}P_{n - 2} + 
 \typeout{Paragraphs  The H-D sequences:}
 \typeout{************************************************}
 \paragraph[{The H-D sequences:}]{The H-D sequences:}\hypertarget{paragraphs-2}{}
+\hypertarget{p-57}{}%
 \(2n\) people stand in line at a theatre. Admission is 50 cents, (denoted by H), and the box office starts with no change. \(n\) of the people have H and \(n\) have \textdollar{}1 (denoted D). In how many ways can the \(2n\) people line up so that all can be admitted? Here we enumerate the number of workable sequences of n H's and n D's such that at each point in the sequence the number of H's is not less than the number of D's%
 \par
+\hypertarget{p-58}{}%
 The total number of sequences of \(n\) H's and \(n\) D's is \(\binom{2n}{n}\). We delete the number of \emph{nonworkable} sequences. Each such sequence has a first snag as shown by the highlighted D in%
 \begin{equation*}
 \text{H\ H\ D\ D\ \alert{D}\ H\ H\ D\ D\ D\ H\ H}
@@ -573,6 +644,7 @@ a sequence of \(n+1\) H's and \(n-1\) D's. For \(n = 3\) , H D \alert{D} D H H i
 = 15\) arrangements of 2D's and 4H's each of which corresponds to a nonworkable sequence. Hence there are \(\binom{6}{3}
 -\binom{6}{2} = 5\) workable sequences. In general, \(\binom{2n}{n}  - \binom{2n}{n - 1} = \frac{1}{n + 1}\binom{2n}{n}\) gives the number of workable sequences. See \hyperref[catalaninpascal]{Figure~\ref{catalaninpascal}}%
 \par
+\hypertarget{p-59}{}%
 For \(n=3\), the matching of the 5 workable sequences with one of the 5 ways of parenthesizing, given by the bijection which sends an H to a left parenthesis and a D to a letter, is presented below.%
 %
 \begin{gather*}
@@ -586,6 +658,7 @@ Add somethign about where the right parenteses go.\typeout{*********************
 \typeout{Paragraphs  Paths}
 \typeout{************************************************}
 \paragraph[{Paths}]{Paths}\hypertarget{paragraphs-3}{}
+\hypertarget{p-60}{}%
 A point \((a, b)\) in the plane is a \terminology{lattice point} if \(a\) and \(b\) are integers. How many paths of length \(2n\), consisting of horizontal and vertical segments of unit length, are there from \((0, 0)\) to \((n, n)\) such that the path never goes above the line \(y = x\)? One such path to \((3, 3)\) is shown in \hyperref[catalanpathex]{Figure~\ref{catalanpathex}}.%
 \begin{figure}
 \centering
@@ -597,13 +670,15 @@ A point \((a, b)\) in the plane is a \terminology{lattice point} if \(a\) and \(
   \draw[very thick] (0,0) -- (1,0) -- (1,1) -- (3,1) -- (3,3);
 \end{tikzpicture}
 }
-\caption{One of the acceptable lattice paths from \((0,0)\) to \((3,3)\).\label{catalanpathex}}
 \end{figure}
+\caption{One of the acceptable lattice paths from \((0,0)\) to \((3,3)\).\label{catalanpathex}}
+\hypertarget{p-61}{}%
 Using R for right and U for up, the sequence R U R R U U gives the path. The bijection mathing R with H and U with D links paths to H-D sequences.%
 \typeout{************************************************}
 \typeout{Paragraphs  Triangulations of convex \(n\)-gons}
 \typeout{************************************************}
 \paragraph[{Triangulations of convex \(n\)-gons}]{Triangulations of convex \(n\)-gons}\hypertarget{paragraphs-4}{}
+\hypertarget{p-62}{}%
 Fix \(n\) vertices. In how many ways can diagonals be inserted so as to decompose the \(n\)-gon into triangles? For \(n = 5\) the five figures are shown in \hyperref[five5gons]{Figure~\ref{five5gons}}.%
 \begin{figure}
 \centering
@@ -611,66 +686,71 @@ Fix \(n\) vertices. In how many ways can diagonals be inserted so as to decompos
 {% begin: group for a single side-by-side
 % set panel max height to practical minimum, created in preamble
 \setlength{\panelmax}{0pt}
-\newsavebox{\panelboxCimage}
-\savebox{\panelboxCimage}{%
+\ifdefined\panelboxAimage\else\newsavebox{\panelboxAimage}\fi%
+\begin{lrbox}{\panelboxAimage}
 \resizebox{0.2\linewidth}{!}{{
 \begin{tikzpicture}
 \fivegon;
 \draw (a) -- (d) -- (b);
 \end{tikzpicture}
 }
-}}
-\newlength{\phCimage}\setlength{\phCimage}{\ht\panelboxCimage+\dp\panelboxCimage}
-\settototalheight{\phCimage}{\usebox{\panelboxCimage}}
-\setlength{\panelmax}{\maxof{\panelmax}{\phCimage}}
-\newsavebox{\panelboxDimage}
-\savebox{\panelboxDimage}{%
+}\end{lrbox}
+\ifdefined\phAimage\else\newlength{\phAimage}\fi%
+\setlength{\phAimage}{\ht\panelboxAimage+\dp\panelboxAimage}
+\settototalheight{\phAimage}{\usebox{\panelboxAimage}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phAimage}}
+\ifdefined\panelboxBimage\else\newsavebox{\panelboxBimage}\fi%
+\begin{lrbox}{\panelboxBimage}
 \resizebox{0.2\linewidth}{!}{{
 \begin{tikzpicture}
 \fivegon;
 \draw (b) -- (e) -- (c);
 \end{tikzpicture}
 }
-}}
-\newlength{\phDimage}\setlength{\phDimage}{\ht\panelboxDimage+\dp\panelboxDimage}
-\settototalheight{\phDimage}{\usebox{\panelboxDimage}}
-\setlength{\panelmax}{\maxof{\panelmax}{\phDimage}}
-\newsavebox{\panelboxEimage}
-\savebox{\panelboxEimage}{%
+}\end{lrbox}
+\ifdefined\phBimage\else\newlength{\phBimage}\fi%
+\setlength{\phBimage}{\ht\panelboxBimage+\dp\panelboxBimage}
+\settototalheight{\phBimage}{\usebox{\panelboxBimage}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phBimage}}
+\ifdefined\panelboxCimage\else\newsavebox{\panelboxCimage}\fi%
+\begin{lrbox}{\panelboxCimage}
 \resizebox{0.2\linewidth}{!}{{
 \begin{tikzpicture}
 \fivegon;
 \draw (d) -- (a) -- (c);
 \end{tikzpicture}
 }
-}}
-\newlength{\phEimage}\setlength{\phEimage}{\ht\panelboxEimage+\dp\panelboxEimage}
-\settototalheight{\phEimage}{\usebox{\panelboxEimage}}
-\setlength{\panelmax}{\maxof{\panelmax}{\phEimage}}
-\newsavebox{\panelboxFimage}
-\savebox{\panelboxFimage}{%
+}\end{lrbox}
+\ifdefined\phCimage\else\newlength{\phCimage}\fi%
+\setlength{\phCimage}{\ht\panelboxCimage+\dp\panelboxCimage}
+\settototalheight{\phCimage}{\usebox{\panelboxCimage}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phCimage}}
+\ifdefined\panelboxDimage\else\newsavebox{\panelboxDimage}\fi%
+\begin{lrbox}{\panelboxDimage}
 \resizebox{0.2\linewidth}{!}{{
 \begin{tikzpicture}
 \fivegon;
 \draw (e) -- (b) -- (d);
 \end{tikzpicture}
 }
-}}
-\newlength{\phFimage}\setlength{\phFimage}{\ht\panelboxFimage+\dp\panelboxFimage}
-\settototalheight{\phFimage}{\usebox{\panelboxFimage}}
-\setlength{\panelmax}{\maxof{\panelmax}{\phFimage}}
-\newsavebox{\panelboxGimage}
-\savebox{\panelboxGimage}{%
+}\end{lrbox}
+\ifdefined\phDimage\else\newlength{\phDimage}\fi%
+\setlength{\phDimage}{\ht\panelboxDimage+\dp\panelboxDimage}
+\settototalheight{\phDimage}{\usebox{\panelboxDimage}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phDimage}}
+\ifdefined\panelboxEimage\else\newsavebox{\panelboxEimage}\fi%
+\begin{lrbox}{\panelboxEimage}
 \resizebox{0.2\linewidth}{!}{{
 \begin{tikzpicture}
 \fivegon;
 \draw (e) -- (c) -- (a);
 \end{tikzpicture}
 }
-}}
-\newlength{\phGimage}\setlength{\phGimage}{\ht\panelboxGimage+\dp\panelboxGimage}
-\settototalheight{\phGimage}{\usebox{\panelboxGimage}}
-\setlength{\panelmax}{\maxof{\panelmax}{\phGimage}}
+}\end{lrbox}
+\ifdefined\phEimage\else\newlength{\phEimage}\fi%
+\setlength{\phEimage}{\ht\panelboxEimage+\dp\panelboxEimage}
+\settototalheight{\phEimage}{\usebox{\panelboxEimage}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phEimage}}
 \leavevmode%
 % begin: side-by-side as tabular
 % \tabcolsep change local to group
@@ -678,31 +758,33 @@ Fix \(n\) vertices. In how many ways can diagonals be inserted so as to decompos
 % @{} suppress \tabcolsep at extremes, so margins behave as intended
 \par\medskip\noindent
 \begin{tabular}{@{}*{5}{c}@{}}
+\begin{minipage}[c][\panelmax][t]{0.2\linewidth}\usebox{\panelboxAimage}\end{minipage}&
+\begin{minipage}[c][\panelmax][t]{0.2\linewidth}\usebox{\panelboxBimage}\end{minipage}&
 \begin{minipage}[c][\panelmax][t]{0.2\linewidth}\usebox{\panelboxCimage}\end{minipage}&
 \begin{minipage}[c][\panelmax][t]{0.2\linewidth}\usebox{\panelboxDimage}\end{minipage}&
-\begin{minipage}[c][\panelmax][t]{0.2\linewidth}\usebox{\panelboxEimage}\end{minipage}&
-\begin{minipage}[c][\panelmax][t]{0.2\linewidth}\usebox{\panelboxFimage}\end{minipage}&
-\begin{minipage}[c][\panelmax][t]{0.2\linewidth}\usebox{\panelboxGimage}\end{minipage}\end{tabular}\\
+\begin{minipage}[c][\panelmax][t]{0.2\linewidth}\usebox{\panelboxEimage}\end{minipage}\end{tabular}\\
 % end: side-by-side as tabular
 }% end: group for a single side-by-side
-\caption{The five triangulations of a convex pentagon.\label{five5gons}}
 \end{figure}
+\caption{The five triangulations of a convex pentagon.\label{five5gons}}
+\hypertarget{p-63}{}%
 There are two drawings for \(n=4\): % group protects changes to lengths, releases boxes (?)
 {% begin: group for a single side-by-side
 % set panel max height to practical minimum, created in preamble
 \setlength{\panelmax}{0pt}
-\newsavebox{\panelboxHimage}
-\savebox{\panelboxHimage}{%
+\ifdefined\panelboxAimage\else\newsavebox{\panelboxAimage}\fi%
+\begin{lrbox}{\panelboxAimage}
 \resizebox{0.2\linewidth}{!}{{
 \begin{tikzpicture}
   \draw (0,0) -- (1,0) -- (1,1) -- (0,1) -- (0,0) -- (1,1);
   \draw (2,0) -- (3,0) -- (3,1) -- (2,1) -- (2,0) (2,1) -- (3,0);
 \end{tikzpicture}
 }
-}}
-\newlength{\phHimage}\setlength{\phHimage}{\ht\panelboxHimage+\dp\panelboxHimage}
-\settototalheight{\phHimage}{\usebox{\panelboxHimage}}
-\setlength{\panelmax}{\maxof{\panelmax}{\phHimage}}
+}\end{lrbox}
+\ifdefined\phAimage\else\newlength{\phAimage}\fi%
+\setlength{\phAimage}{\ht\panelboxAimage+\dp\panelboxAimage}
+\settototalheight{\phAimage}{\usebox{\panelboxAimage}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phAimage}}
 \leavevmode%
 % begin: side-by-side as tabular
 % \tabcolsep change local to group
@@ -711,7 +793,7 @@ There are two drawings for \(n=4\): % group protects changes to lengths, release
 \par\medskip\noindent
 \hspace*{0.4\linewidth}%
 \begin{tabular}{@{}*{1}{c}@{}}
-\begin{minipage}[c][\panelmax][t]{0.2\linewidth}\usebox{\panelboxHimage}\end{minipage}\end{tabular}\\
+\begin{minipage}[c][\panelmax][t]{0.2\linewidth}\usebox{\panelboxAimage}\end{minipage}\end{tabular}\\
 % end: side-by-side as tabular
 }% end: group for a single side-by-side
  A bijection between triangulations and parenthesizing is illustrated next:%
@@ -731,64 +813,70 @@ There are two drawings for \(n=4\): % group protects changes to lengths, release
   }
 \end{tikzpicture}
 }
-\caption{An example of a bijection between triangulations of \(n\)-gons and parenthesizing.\label{triangulationbijection}}
 \end{figure}
+\caption{An example of a bijection between triangulations of \(n\)-gons and parenthesizing.\label{triangulationbijection}}
 \typeout{************************************************}
 \typeout{Paragraphs  Tableau Insertion}
 \typeout{************************************************}
 \paragraph[{Tableau Insertion}]{Tableau Insertion}\hypertarget{paragraphs-5}{}
+\hypertarget{p-64}{}%
 Insert the integers \(1, 2, \ldots, 2n\) into a 2 by \(n\) rectangle of boxes such that the entries are monotonic in rows and columns. For \(n=3\) there are five arrangements: % group protects changes to lengths, releases boxes (?)
 {% begin: group for a single side-by-side
 % set panel max height to practical minimum, created in preamble
 \setlength{\panelmax}{0pt}
-\newsavebox{\panelboxAtabular}
+\ifdefined\panelboxAtabular\else\newsavebox{\panelboxAtabular}\fi%
 \savebox{\panelboxAtabular}{%
 \raisebox{\depth}{\parbox{0.2\linewidth}{\centering\begin{tabular}{AcAcAcA}\hrulethin
 1&2&3\tabularnewline\hrulethin
 4&5&6\tabularnewline\hrulethin
 \end{tabular}
 }}}
-\newlength{\phAtabular}\setlength{\phAtabular}{\ht\panelboxAtabular+\dp\panelboxAtabular}
+\ifdefined\phAtabular\else\newlength{\phAtabular}\fi%
+\setlength{\phAtabular}{\ht\panelboxAtabular+\dp\panelboxAtabular}
 \settototalheight{\phAtabular}{\usebox{\panelboxAtabular}}
 \setlength{\panelmax}{\maxof{\panelmax}{\phAtabular}}
-\newsavebox{\panelboxBtabular}
+\ifdefined\panelboxBtabular\else\newsavebox{\panelboxBtabular}\fi%
 \savebox{\panelboxBtabular}{%
 \raisebox{\depth}{\parbox{0.2\linewidth}{\centering\begin{tabular}{AcAcAcA}\hrulethin
 1&2&4\tabularnewline\hrulethin
 3&5&6\tabularnewline\hrulethin
 \end{tabular}
 }}}
-\newlength{\phBtabular}\setlength{\phBtabular}{\ht\panelboxBtabular+\dp\panelboxBtabular}
+\ifdefined\phBtabular\else\newlength{\phBtabular}\fi%
+\setlength{\phBtabular}{\ht\panelboxBtabular+\dp\panelboxBtabular}
 \settototalheight{\phBtabular}{\usebox{\panelboxBtabular}}
 \setlength{\panelmax}{\maxof{\panelmax}{\phBtabular}}
-\newsavebox{\panelboxCtabular}
+\ifdefined\panelboxCtabular\else\newsavebox{\panelboxCtabular}\fi%
 \savebox{\panelboxCtabular}{%
 \raisebox{\depth}{\parbox{0.2\linewidth}{\centering\begin{tabular}{AcAcAcA}\hrulethin
 1&2&5\tabularnewline\hrulethin
 3&4&6\tabularnewline\hrulethin
 \end{tabular}
 }}}
-\newlength{\phCtabular}\setlength{\phCtabular}{\ht\panelboxCtabular+\dp\panelboxCtabular}
+\ifdefined\phCtabular\else\newlength{\phCtabular}\fi%
+\setlength{\phCtabular}{\ht\panelboxCtabular+\dp\panelboxCtabular}
 \settototalheight{\phCtabular}{\usebox{\panelboxCtabular}}
 \setlength{\panelmax}{\maxof{\panelmax}{\phCtabular}}
-\newsavebox{\panelboxDtabular}
+\ifdefined\panelboxDtabular\else\newsavebox{\panelboxDtabular}\fi%
 \savebox{\panelboxDtabular}{%
 \raisebox{\depth}{\parbox{0.2\linewidth}{\centering\begin{tabular}{AcAcAcA}\hrulethin
 1&3&4\tabularnewline\hrulethin
 2&5&6\tabularnewline\hrulethin
 \end{tabular}
 }}}
-\newlength{\phDtabular}\setlength{\phDtabular}{\ht\panelboxDtabular+\dp\panelboxDtabular}
+\ifdefined\phDtabular\else\newlength{\phDtabular}\fi%
+\setlength{\phDtabular}{\ht\panelboxDtabular+\dp\panelboxDtabular}
 \settototalheight{\phDtabular}{\usebox{\panelboxDtabular}}
 \setlength{\panelmax}{\maxof{\panelmax}{\phDtabular}}
-\newsavebox{\panelboxEtabular}
+\ifdefined\panelboxEtabular\else\newsavebox{\panelboxEtabular}\fi%
 \savebox{\panelboxEtabular}{%
 \raisebox{\depth}{\parbox{0.2\linewidth}{\centering\begin{tabular}{AcAcAcA}\hrulethin
 1&3&5\tabularnewline\hrulethin
 2&4&6\tabularnewline\hrulethin
 \end{tabular}
 }}}
-\newlength{\phEtabular}\setlength{\phEtabular}{\ht\panelboxEtabular+\dp\panelboxEtabular}
+\ifdefined\phEtabular\else\newlength{\phEtabular}\fi%
+\setlength{\phEtabular}{\ht\panelboxEtabular+\dp\panelboxEtabular}
 \settototalheight{\phEtabular}{\usebox{\panelboxEtabular}}
 \setlength{\panelmax}{\maxof{\panelmax}{\phEtabular}}
 \leavevmode%
@@ -807,31 +895,37 @@ Insert the integers \(1, 2, \ldots, 2n\) into a 2 by \(n\) rectangle of boxes su
 }% end: group for a single side-by-side
 %
 \par
+\hypertarget{p-65}{}%
 A bijection to the path problem is: an entry in the top row corresponds to R. For example, the middle arrangement corresponds to R R U U R U.%
 \typeout{************************************************}
 \typeout{Paragraphs  Trivalent rooted trees:}
 \typeout{************************************************}
 \paragraph[{Trivalent rooted trees:}]{Trivalent rooted trees:}\hypertarget{paragraphs-6}{}
+\hypertarget{p-66}{}%
 A \terminology{tree} is a connected graph that has no cycles. \terminology{Trivalent} means that each interior vertex has degree 3. The \terminology{leaves} or endpoints have degree 1. The number of trivalent rooted trees having \(n\) vertices (not counting the root) is \(C_n\).%
 \par
+\hypertarget{p-67}{}%
 The cases \(n = 1, 2, 3, 4\) are drawn in FIGURE 2 along with bijections linking H-D sequences and parenthesizing. For the bijection, label interior vertices with 1 and leaves with 0. Start at the root, keep bearing to the right, and call off the sequence of 0's and 1's, not repeating them once called.%
 \par
+\hypertarget{p-68}{}%
 A link between a particular triangulation of a 5-gon and its associated tree is displayed in the following diagram: % group protects changes to lengths, releases boxes (?)
 {% begin: group for a single side-by-side
 % set panel max height to practical minimum, created in preamble
 \setlength{\panelmax}{0pt}
-\newsavebox{\panelboxJimage}
-\savebox{\panelboxJimage}{%
-\begin{tikzpicture} \fivegon; \draw (d) -- (a) -- (c); \draw (0,-.5) -- (0,.75) \v -- (-1, 1.3) \v -- (-1.5, 2.5) \vl{$b$}; \draw (-1,1.3) -- (-2,.8) \vl{$a$}; \draw (0,.75) -- (1,1.2) \v -- (1.5,2.5) \vr{$c$}; \draw (1,1.2) -- (2,.7) \vr{$d$}; \end{tikzpicture}}
-\newlength{\phJimage}\setlength{\phJimage}{\ht\panelboxJimage+\dp\panelboxJimage}
-\settototalheight{\phJimage}{\usebox{\panelboxJimage}}
-\setlength{\panelmax}{\maxof{\panelmax}{\phJimage}}
-\newsavebox{\panelboxKimage}
-\savebox{\panelboxKimage}{%
-\begin{tikzpicture} \draw (0,0) -- (0,.75) \v -- (-1, 1.3) \v -- (-1.5, 2.5) \va{$a$}; \draw (-1,1.3) -- (-.5,2.5) \va{$b$}; \draw (0,.75) -- (1,1.2) \v -- (1.5,2.5) \va{$d$}; \draw (1,1.2) -- (.5,2.5) \va{$c$}; \end{tikzpicture}}
-\newlength{\phKimage}\setlength{\phKimage}{\ht\panelboxKimage+\dp\panelboxKimage}
-\settototalheight{\phKimage}{\usebox{\panelboxKimage}}
-\setlength{\panelmax}{\maxof{\panelmax}{\phKimage}}
+\ifdefined\panelboxAimage\else\newsavebox{\panelboxAimage}\fi%
+\begin{lrbox}{\panelboxAimage}
+\begin{tikzpicture} \fivegon; \draw (d) -- (a) -- (c); \draw (0,-.5) -- (0,.75) \v -- (-1, 1.3) \v -- (-1.5, 2.5) \vl{$b$}; \draw (-1,1.3) -- (-2,.8) \vl{$a$}; \draw (0,.75) -- (1,1.2) \v -- (1.5,2.5) \vr{$c$}; \draw (1,1.2) -- (2,.7) \vr{$d$}; \end{tikzpicture}\end{lrbox}
+\ifdefined\phAimage\else\newlength{\phAimage}\fi%
+\setlength{\phAimage}{\ht\panelboxAimage+\dp\panelboxAimage}
+\settototalheight{\phAimage}{\usebox{\panelboxAimage}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phAimage}}
+\ifdefined\panelboxBimage\else\newsavebox{\panelboxBimage}\fi%
+\begin{lrbox}{\panelboxBimage}
+\begin{tikzpicture} \draw (0,0) -- (0,.75) \v -- (-1, 1.3) \v -- (-1.5, 2.5) \va{$a$}; \draw (-1,1.3) -- (-.5,2.5) \va{$b$}; \draw (0,.75) -- (1,1.2) \v -- (1.5,2.5) \va{$d$}; \draw (1,1.2) -- (.5,2.5) \va{$c$}; \end{tikzpicture}\end{lrbox}
+\ifdefined\phBimage\else\newlength{\phBimage}\fi%
+\setlength{\phBimage}{\ht\panelboxBimage+\dp\panelboxBimage}
+\settototalheight{\phBimage}{\usebox{\panelboxBimage}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phBimage}}
 \leavevmode%
 % begin: side-by-side as tabular
 % \tabcolsep change local to group
@@ -839,8 +933,8 @@ A link between a particular triangulation of a 5-gon and its associated tree is 
 % @{} suppress \tabcolsep at extremes, so margins behave as intended
 \par\medskip\noindent
 \begin{tabular}{@{}*{2}{c}@{}}
-\begin{minipage}[c][\panelmax][t]{0.5\linewidth}\usebox{\panelboxJimage}\end{minipage}&
-\begin{minipage}[c][\panelmax][t]{0.5\linewidth}\usebox{\panelboxKimage}\end{minipage}\end{tabular}\\
+\begin{minipage}[c][\panelmax][t]{0.5\linewidth}\usebox{\panelboxAimage}\end{minipage}&
+\begin{minipage}[c][\panelmax][t]{0.5\linewidth}\usebox{\panelboxBimage}\end{minipage}\end{tabular}\\
 % end: side-by-side as tabular
 }% end: group for a single side-by-side
  Place a vertex in each triangle, connect the three vertices and run leaves out all edges, including the bottom which forms the root. Straighten the tree out! FIGURE 3 shows the five triangulations of a convex pentagon along with their trees.%
@@ -848,12 +942,14 @@ A link between a particular triangulation of a 5-gon and its associated tree is 
 \typeout{Paragraphs  Rhyme schemes for \(n\) line stanzas}
 \typeout{************************************************}
 \paragraph[{Rhyme schemes for \(n\) line stanzas}]{Rhyme schemes for \(n\) line stanzas}\hypertarget{paragraphs-7}{}
+\hypertarget{p-69}{}%
 A 2-line poem can have just two rhyme schemes%
 \begin{equation*}
 \begin{matrix}a \\ a\end{matrix} \qquad \text{or} \qquad \begin{matrix}a \\ b\end{matrix}
 \end{equation*}
 %
 \par
+\hypertarget{p-70}{}%
 A 3-line poem can have five schemes:%
 \begin{equation*}
 \begin{matrix} a \\ a \\ a \end{matrix} \qquad
@@ -864,6 +960,7 @@ A 3-line poem can have five schemes:%
 \end{equation*}
 The last pattern indicates that no line rhymes with any other.%
 \par
+\hypertarget{p-71}{}%
 The Catalan numbers seem to be popping up again. For \(n=4\) there happen to be 15 (not 14) patterns:%
 \begin{equation*}
 \begin{matrix} a \\ a \\ a \\ a \end{matrix} \quad ~
@@ -884,14 +981,16 @@ The Catalan numbers seem to be popping up again. For \(n=4\) there happen to be 
 \end{equation*}
 One of these, \(abab\), is special in that it is the only ``non-planar'' scheme. In this pattern, you cannot connect the \(a\)'s with an arc and the \(b\)'s with an arc without the arcs crossing.%
 \par
+\hypertarget{p-72}{}%
 The planar rhyme schemes are enumerated by the Catalan numbers. These numbers are a subsequence of the Bell numbers, which enumerate all rhyme schemes.%
 \par
+\hypertarget{p-73}{}%
 Thus far, we have the following bijections: % group protects changes to lengths, releases boxes (?)
 {% begin: group for a single side-by-side
 % set panel max height to practical minimum, created in preamble
 \setlength{\panelmax}{0pt}
-\newsavebox{\panelboxFtabular}
-\savebox{\panelboxFtabular}{%
+\ifdefined\panelboxAtabular\else\newsavebox{\panelboxAtabular}\fi%
+\savebox{\panelboxAtabular}{%
 \raisebox{\depth}{\parbox{1\linewidth}{\centering\begin{tabular}{rcl}
 Parentheses&\(\leftrightarrow\)&H-D sequences\tabularnewline[0pt]
 H-D sequences&\(\leftrightarrow\)&Paths\tabularnewline[0pt]
@@ -900,9 +999,10 @@ Insertions&\(\leftrightarrow\)&Paths\tabularnewline[0pt]
 Trees&\(\leftrightarrow\)&Parentheses
 \end{tabular}
 }}}
-\newlength{\phFtabular}\setlength{\phFtabular}{\ht\panelboxFtabular+\dp\panelboxFtabular}
-\settototalheight{\phFtabular}{\usebox{\panelboxFtabular}}
-\setlength{\panelmax}{\maxof{\panelmax}{\phFtabular}}
+\ifdefined\phAtabular\else\newlength{\phAtabular}\fi%
+\setlength{\phAtabular}{\ht\panelboxAtabular+\dp\panelboxAtabular}
+\settototalheight{\phAtabular}{\usebox{\panelboxAtabular}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phAtabular}}
 \leavevmode%
 % begin: side-by-side as tabular
 % \tabcolsep change local to group
@@ -910,7 +1010,7 @@ Trees&\(\leftrightarrow\)&Parentheses
 % @{} suppress \tabcolsep at extremes, so margins behave as intended
 \par\medskip\noindent
 \begin{tabular}{@{}*{1}{c}@{}}
-\begin{minipage}[c][\panelmax][t]{1\linewidth}\usebox{\panelboxFtabular}\end{minipage}\end{tabular}\\
+\begin{minipage}[c][\panelmax][t]{1\linewidth}\usebox{\panelboxAtabular}\end{minipage}\end{tabular}\\
 % end: side-by-side as tabular
 }% end: group for a single side-by-side
  See if you can connect the rhyme schemes to any of the above.%
@@ -954,70 +1054,327 @@ Trees&\(\leftrightarrow\)&Parentheses
 \node[above] at (0,2) {\Large The Catalan Numbers};
 \end{tikzpicture}
 }
-\caption{The Catalan numbers inside Pascal's triangle.\label{catalaninpascal}}
 \end{figure}
+\caption{The Catalan numbers inside Pascal's triangle.\label{catalaninpascal}}
 \begin{figure}
 \centering
 \includegraphics[width=1\linewidth]{../images/tri-trees}
-\caption{Trivalent, planted trees with \(n\) leaves.\label{trivalenttrees}}
 \end{figure}
+\caption{Trivalent, planted trees with \(n\) leaves.\label{trivalenttrees}}
 \begin{figure}
 \centering
 \includegraphics[width=1\linewidth]{../images/catalan-bijections.png}
-\caption{\label{catalanbijections}}
 \end{figure}
+\caption{\label{catalanbijections}}
 \typeout{************************************************}
 \typeout{Exercises 2 Problems on Catalan Numbers}
 \typeout{************************************************}
 \section[{Problems on Catalan Numbers}]{Problems on Catalan Numbers}\label{exercises-2}
 \begin{exerciselist}
-\item[1.]\hypertarget{exercise-24}{}Use the recursion for \(P_{n}\) and compute \(P_{6}\), and \(P_{7}\).%
+\item[1.]\hypertarget{exercise-24}{}\hypertarget{p-74}{}%
+Use the recursion for \(P_{n}\) and compute \(P_{6}\), and \(P_{7}\).%
 \par\smallskip
-\item[2.]\hypertarget{exercise-25}{}Use the closed formula for \(P_n\) and compute \(P_{6}\) and \(P_{7}\).%
+\item[2.]\hypertarget{exercise-25}{}\hypertarget{p-75}{}%
+Use the closed formula for \(P_n\) and compute \(P_{6}\) and \(P_{7}\).%
 \par\smallskip
-\item[3.]\hypertarget{exercise-26}{}Use \(G = P_{1}x + P_{2}x^{2} +\cdots\) and the recursion for \(P_{n}\) to determine a closed formula for \(P_{n}\).%
+\item[3.]\hypertarget{exercise-26}{}\hypertarget{p-76}{}%
+Use \(G = P_{1}x + P_{2}x^{2} +\cdots\) and the recursion for \(P_{n}\) to determine a closed formula for \(P_{n}\).%
 \par\smallskip
-\item[4.]\hypertarget{prob-workseq}{}List the workable sequences for \(n = 4\).%
+\item[4.]\hypertarget{prob-workseq}{}\hypertarget{p-77}{}%
+List the workable sequences for \(n = 4\).%
 \par\smallskip
-\item[5.]\hypertarget{prob-parenth}{}List the \(P_{6}\) ways of parenthesizing \(abcdef\).%
+\item[5.]\hypertarget{prob-parenth}{}\hypertarget{p-78}{}%
+List the \(P_{6}\) ways of parenthesizing \(abcdef\).%
 \par\smallskip
-\item[6.]\hypertarget{exercise-29}{}Display a bijection between the 14 sequences in \hyperlink{prob-workseq}{Problem~4} and the 14 products in \hyperlink{prob-parenth}{Problem~5}.%
+\item[6.]\hypertarget{exercise-29}{}\hypertarget{p-79}{}%
+Display a bijection between the 14 sequences in \hyperlink{prob-workseq}{Problem~4} and the 14 products in \hyperlink{prob-parenth}{Problem~5}.%
 \par\smallskip
-\item[7.]\hypertarget{exercise-30}{}Find the nonworkable sequence associated with each: \leavevmode%
+\item[7.]\hypertarget{exercise-30}{}\hypertarget{p-80}{}%
+Find the nonworkable sequence associated with each: \leavevmode%
 \begin{enumerate}[label=(\alph*)]
-\item\hypertarget{li-11}{}H H H D D H%
-\item\hypertarget{li-12}{}D H H H H D%
-\item\hypertarget{li-13}{}D D D H H H H H%
-\item\hypertarget{li-14}{}D D H H D H H H%
+\item\hypertarget{li-11}{}\hypertarget{p-81}{}%
+H H H D D H%
+\item\hypertarget{li-12}{}\hypertarget{p-82}{}%
+D H H H H D%
+\item\hypertarget{li-13}{}\hypertarget{p-83}{}%
+D D D H H H H H%
+\item\hypertarget{li-14}{}\hypertarget{p-84}{}%
+D D H H D H H H%
 \end{enumerate}
 %
 \par\smallskip
-\item[8.]\hypertarget{exercise-31}{}Draw the \(T_{6}\) triangulations of a convex hexagon.%
+\item[8.]\hypertarget{exercise-31}{}\hypertarget{p-85}{}%
+Draw the \(T_{6}\) triangulations of a convex hexagon.%
 \par\smallskip
-\item[9.]\hypertarget{exercise-32}{}Display a bijection between the 5 ways of parenthesizing \(abcd\) and the 5 triangulations of a convex pentagon.%
+\item[9.]\hypertarget{exercise-32}{}\hypertarget{p-86}{}%
+Display a bijection between the 5 ways of parenthesizing \(abcd\) and the 5 triangulations of a convex pentagon.%
 \par\smallskip
-\item[10.]\hypertarget{exercise-33}{}Let \(C_{n} = \frac{1}{n + 1}\binom{2n}{n}.\) Verifiy the formula:%
+\item[10.]\hypertarget{exercise-33}{}\hypertarget{p-87}{}%
+Let \(C_{n} = \frac{1}{n + 1}\binom{2n}{n}.\) Verifiy the formula:%
 \begin{equation*}
 C_{n} = \binom{n}{1} C_{n - 1} - \binom{n - 1}{2} C_{n - 2} + \binom{n - 2}{3} C_{n - 3} - \cdots
 \end{equation*}
 %
 \par\smallskip
-\item[11.]\hypertarget{exercise-34}{}Verify that \(H_{3} = 5\) by drawing the required paths.%
+\item[11.]\hypertarget{exercise-34}{}\hypertarget{p-88}{}%
+Verify that \(H_{3} = 5\) by drawing the required paths.%
 \par\smallskip
-\item[12.]\hypertarget{exercise-35}{}Assign the appropriate binary sequences to each of the 5 trees for \(n=3\) in \hyperref[trivalenttrees]{Figure~\ref{trivalenttrees}}.%
+\item[12.]\hypertarget{exercise-35}{}\hypertarget{p-89}{}%
+Assign the appropriate binary sequences to each of the 5 trees for \(n=3\) in \hyperref[trivalenttrees]{Figure~\ref{trivalenttrees}}.%
 \par\smallskip
 \end{exerciselist}
-\hypertarget{exercisegroup-1}{}\par\noindent For each of the following, investigate bijections that relate one to another.%
+\hypertarget{exercisegroup-1}{}\par\noindent \hypertarget{p-90}{}%
+For each of the following, investigate bijections that relate one to another.%
 \begin{exercisegroup}(1)
-\exercise[13.]\hypertarget{exercise-36}{}A and B each receive \(n\) votes. Let \(V_{n}\) denote the number of ways that the \(2n\) votes can be tallied so that A never trails B. Let \(V_{0} = 1\).%
-\exercise[14.]\hypertarget{exercise-37}{}Place \(2n\) points on the circumference of a circle and draw \(n\)  nonintersecting chords in \(D_{n}\) ways; \(D_{0} = 1\)%
-\exercise[15.]\hypertarget{exercise-38}{}In how many ways can \(1, 2, 3, \ldots, 2n\) be inserted into a \(2\times n\) rectangle such that the entries are increasing in rows and columns.  Let the answer be \(Y_n\); \(Y_1 = 1\), \(Y_2 = 2\).%
-\exercise[16.]\hypertarget{exercise-39}{}Place \(2n\) points on a line segment and join them in pairs by nonintersecting arcs above the segment. In how many ways can this be done? Call the answer \(S_{n}\); \(S_{1}=1\), \(S_{2}=2\).%
-\exercise[17.]\hypertarget{exercise-40}{}A rook on an \(n + 1\) by \(n + 1\) chessboard must move from the lower left corner to the upper right corner never going above the diagonal. How many paths are possible? Let \(K_{n}\) be the answer.%
-\exercise[18.]\hypertarget{exercise-41}{}On an \(n + 1\) by \(n + 1\) chessboard a king starts on the first row and moves one square forward or back along a fixed column and ends on the starting square after \(2n\) moves. In how many ways, \(G_{n}\) , can this be done?%
-\exercise[19.]\hypertarget{exercise-42}{}Count the number of planar rhyme schemes for a stanza consisting of \(n\) lines. Joanne Growney showed in her doctoral thesis that the Bell numbers, which count all rhyme schemes, have the Catalan numbers as a subsequence and that these enumerate precisely the planar rhyme schemes. For example, of the \(B_4 = 15\) rhyme schemes, \(C_4 = 14\) are planar. The nonplanar one is given by \(abab\).%
+\exercise[13.]\hypertarget{exercise-36}{}\hypertarget{p-91}{}%
+A and B each receive \(n\) votes. Let \(V_{n}\) denote the number of ways that the \(2n\) votes can be tallied so that A never trails B. Let \(V_{0} = 1\).%
+\exercise[14.]\hypertarget{exercise-37}{}\hypertarget{p-92}{}%
+Place \(2n\) points on the circumference of a circle and draw \(n\)  nonintersecting chords in \(D_{n}\) ways; \(D_{0} = 1\)%
+\exercise[15.]\hypertarget{exercise-38}{}\hypertarget{p-93}{}%
+In how many ways can \(1, 2, 3, \ldots, 2n\) be inserted into a \(2\times n\) rectangle such that the entries are increasing in rows and columns.  Let the answer be \(Y_n\); \(Y_1 = 1\), \(Y_2 = 2\).%
+\exercise[16.]\hypertarget{exercise-39}{}\hypertarget{p-94}{}%
+Place \(2n\) points on a line segment and join them in pairs by nonintersecting arcs above the segment. In how many ways can this be done? Call the answer \(S_{n}\); \(S_{1}=1\), \(S_{2}=2\).%
+\exercise[17.]\hypertarget{exercise-40}{}\hypertarget{p-95}{}%
+A rook on an \(n + 1\) by \(n + 1\) chessboard must move from the lower left corner to the upper right corner never going above the diagonal. How many paths are possible? Let \(K_{n}\) be the answer.%
+\exercise[18.]\hypertarget{exercise-41}{}\hypertarget{p-96}{}%
+On an \(n + 1\) by \(n + 1\) chessboard a king starts on the first row and moves one square forward or back along a fixed column and ends on the starting square after \(2n\) moves. In how many ways, \(G_{n}\) , can this be done?%
+\exercise[19.]\hypertarget{exercise-42}{}\hypertarget{p-97}{}%
+Count the number of planar rhyme schemes for a stanza consisting of \(n\) lines. Joanne Growney showed in her doctoral thesis that the Bell numbers, which count all rhyme schemes, have the Catalan numbers as a subsequence and that these enumerate precisely the planar rhyme schemes. For example, of the \(B_4 = 15\) rhyme schemes, \(C_4 = 14\) are planar. The nonplanar one is given by \(abab\).%
 \end{exercisegroup}
 \par\smallskip\noindent
+\typeout{************************************************}
+\typeout{Chapter 3 Sterling Numbers of the 2nd Kind}
+\typeout{************************************************}
+\chapter[{Sterling Numbers of the 2nd Kind}]{Sterling Numbers of the 2nd Kind}\label{ch_temp}
+\begin{activity}[Worksheet on Stirling numbers of the 2nd kind]\label{activity-1}
+\hypertarget{p-98}{}%
+\emph{DEFINITION:} \(S\left( n,k \right)\) is the number of ways of partitioning an \(n\)-set into \(k\) nonempty subsets.%
+\begin{enumerate}[font=\bfseries,label=(\alph*),ref=\alph*]
+\item\label{task-1} \hypertarget{p-99}{}%
+Compute \(S(3,1)\), \(S(4,1)\) and \(S(n,1)\).%
+\item\label{task-2} \hypertarget{p-100}{}%
+Compute \(S(2,2)\), \(S(3,2)\) and \(S(4,2)\) .%
+\item\label{task-3} \hypertarget{p-101}{}%
+Compute \(S(3,3)\), and \(S(4,3)\).%
+\item\label{task-4} \hypertarget{p-102}{}%
+Find formulas and give proofs for \(S(n,n)\), \(S(n,2)\) \(S(n,n - 1)\), and \(S(n,n-2)\).%
+\item\label{task-5} \hypertarget{p-103}{}%
+Determine a recursion for \(S(n,k)\) by examining the following: In computing \(S\left( 4,3 \right)\) look back at the two cases: \leavevmode%
+\begin{enumerate}
+\item\hypertarget{li-15}{}\hypertarget{p-104}{}%
+``Social'': The element 4 is part of another set.%
+\item\hypertarget{li-16}{}\hypertarget{p-105}{}%
+``Antisocial'': The element 4 stands alone.%
+\item\hypertarget{li-17}{}\hypertarget{p-106}{}%
+Deduce a recursion \(S\left( n,k \right) =\)%
+\end{enumerate}
+%
+\item\label{task-6} \hypertarget{p-107}{}%
+Make the first 5 rows of the Stirling Triangle.%
+\end{enumerate}
+\end{activity}
+\hypertarget{p-108}{}%
+A distribution of 4 different (often we say distinguishable) objects \(1,2,3,4\) into 3 similar (often we say indistinguishable) boxes, each of which becomes non-empty is modeled by partitioning \(\{ 1,2,3,4\}\) into 3 nonempty subsets. The six ways of doing this are listed next:%
+% group protects changes to lengths, releases boxes (?)
+{% begin: group for a single side-by-side
+% set panel max height to practical minimum, created in preamble
+\setlength{\panelmax}{0pt}
+\ifdefined\panelboxAtabular\else\newsavebox{\panelboxAtabular}\fi%
+\savebox{\panelboxAtabular}{%
+\raisebox{\depth}{\parbox{0.5\linewidth}{\centering\begin{tabular}{ll}
+\(\{4\}, \{1\}, \{2,3\}\)&\(\{1,4\}, \{2\}, \{3\}\)\tabularnewline[0pt]
+\(\{4\}, \{2\}, \{1,3\}\)&\(\{1\}, \{2,4\}, \{3\}\)\tabularnewline[0pt]
+\(\{4\}, \{3\}, \{1,2\}\)&\(\{1\}, \{2\}, \{3,4\}\)
+\end{tabular}
+}}}
+\ifdefined\phAtabular\else\newlength{\phAtabular}\fi%
+\setlength{\phAtabular}{\ht\panelboxAtabular+\dp\panelboxAtabular}
+\settototalheight{\phAtabular}{\usebox{\panelboxAtabular}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phAtabular}}
+\leavevmode%
+% begin: side-by-side as tabular
+% \tabcolsep change local to group
+\setlength{\tabcolsep}{0\linewidth}
+% @{} suppress \tabcolsep at extremes, so margins behave as intended
+\par\medskip\noindent
+\hspace*{0.25\linewidth}%
+\begin{tabular}{@{}*{1}{c}@{}}
+\begin{minipage}[c][\panelmax][t]{0.5\linewidth}\usebox{\panelboxAtabular}\end{minipage}\end{tabular}\\
+% end: side-by-side as tabular
+}% end: group for a single side-by-side
+\par
+\hypertarget{p-109}{}%
+The Stirling numbers of the second kind, denoted by \(S(n,k)\), give the number of ways of partitioning an \(n\)-set into \(k\) non-empty subsets. Here \(k \in \{1,2,\ldots\}\) and \(n \geq k\). The above example shows \(S(4, 3) = 6\). Also notice that there are two cases: 4 is alone, or 4 is in some other batch; we can conclude that \(S(4, 3) = 3S(3,3) + S(3,2)\) since if 4 is in a singleton set just partition the remaining 3 into 2 sets and otherwise 4 can join any of the 3 batches of 3 elements.%
+\begin{theorem}[{}]\label{thm-stirling-recursion}
+\hypertarget{p-110}{}%
+\(S(n,k) = kS(n - 1,k) + S(n - 1,k - 1)\)%
+\end{theorem}
+\begin{proof}\hypertarget{proof-1}{}
+\hypertarget{p-111}{}%
+We partition \(\{1,2,\ldots,n\}\) into \(k\) non-empty subsets in \(S(n,k)\) ways. If \(n\) is in a singleton set, there are \(S(n - 1,k - 1)\) ways to partition the remaining \(n - 1\) elements into \(k - 1\) subsets. Otherwise, the element \(n\) can join any of the \(k\) batches of \(n-1\) elements in \(kS(n - 1,k)\) ways.%
+\end{proof}
+\hypertarget{p-112}{}%
+Polya, in Notes on Introductory Combinatorics, refers to these as the ``antisocial'' and ``social'' cases.%
+\par
+\hypertarget{p-113}{}%
+The reader should check that \(S(3,3) = 1\) and that \(S(3,2) = 3\) so that \(S(4,3) = 3 \cdot 1 + 3 = 6\).%
+\typeout{************************************************}
+\typeout{Paragraphs  Border Formulas}
+\typeout{************************************************}
+\paragraph[{Border Formulas}]{Border Formulas}\hypertarget{paragraphs-8}{}
+\hypertarget{p-114}{}%
+The reader should verify that \(S(n,1) = 1\) and \(S(n,n) = 1\) for \(n \in Z^{+}\). From these border formulas and the recursion in \hyperref[thm-stirling-recursion]{Theorem~\ref{thm-stirling-recursion}} the following Stirling's Second Triangle can be made.%
+% group protects changes to lengths, releases boxes (?)
+{% begin: group for a single side-by-side
+% set panel max height to practical minimum, created in preamble
+\setlength{\panelmax}{0pt}
+\ifdefined\panelboxAtabular\else\newsavebox{\panelboxAtabular}\fi%
+\savebox{\panelboxAtabular}{%
+\raisebox{\depth}{\parbox{0.5\linewidth}{\centering\begin{tabular}{lllllllll}
+&&&&1&&&&\tabularnewline[0pt]
+&&&1&&1&&&\tabularnewline[0pt]
+&&1&&3&&1&&\tabularnewline[0pt]
+&1&&7&&7&&1&\tabularnewline[0pt]
+1&&15&&25&&10&&1
+\end{tabular}
+}}}
+\ifdefined\phAtabular\else\newlength{\phAtabular}\fi%
+\setlength{\phAtabular}{\ht\panelboxAtabular+\dp\panelboxAtabular}
+\settototalheight{\phAtabular}{\usebox{\panelboxAtabular}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phAtabular}}
+\leavevmode%
+% begin: side-by-side as tabular
+% \tabcolsep change local to group
+\setlength{\tabcolsep}{0\linewidth}
+% @{} suppress \tabcolsep at extremes, so margins behave as intended
+\par\medskip\noindent
+\hspace*{0.25\linewidth}%
+\begin{tabular}{@{}*{1}{c}@{}}
+\begin{minipage}[c][\panelmax][t]{0.5\linewidth}\usebox{\panelboxAtabular}\end{minipage}\end{tabular}\\
+% end: side-by-side as tabular
+}% end: group for a single side-by-side
+\begin{theorem}[{}]\label{thm-stirling-border}
+\hypertarget{p-115}{}%
+\leavevmode%
+\begin{enumerate}
+\item\hypertarget{li-18}{}\hypertarget{p-116}{}%
+\(S\left( n,n - 1 \right) =\binom{n}{2}\)%
+\item\hypertarget{li-19}{}\hypertarget{p-117}{}%
+\(S\left( n,2 \right) = 2^{n - 1} - 1\)%
+\item\hypertarget{li-20}{}\hypertarget{p-118}{}%
+\(S\left( n,n - 2 \right) =\binom{n}{3}
++ 3\binom{n}{4}\)%
+\item\hypertarget{li-21}{}\hypertarget{p-119}{}%
+\(S\left( n,n - 3 \right) =\binom{n}{4}
++ 10\binom{n}{5}
++ 15\binom{n}{6}\)%
+\end{enumerate}
+%
+\end{theorem}
+\hypertarget{p-120}{}%
+You are asked to prove these in the problems.%
+\par
+\hypertarget{p-121}{}%
+The entries in the Pascal Triangle, \(\binom{n}{k}\), satisfy the nice recursion \(\binom{n}{k} = \binom{n - 1}{k} + \binom{n - 1}{k - 1}\) and also have a closed formula: \(\binom{n}{k} = \frac{n!}{k!(n - k)!}\). \hyperref[thm-stirling-recursion]{Theorem~\ref{thm-stirling-recursion}} gives us a recursion for the Stirling numbers \(S(n,k)\) and, unfortunately, the best we can do for a ``closed'' formula is contained in the following.%
+\begin{theorem}[{}]\label{thm-stirling-closed}
+\hypertarget{p-122}{}%
+%
+\begin{equation*}
+S(n,k) = \frac{1}{k!}\left[k^{n} - \binom{k}{1} \left( k - 1 \right)^{n} + \binom{k}{2} \left( k - 2 \right)^{n} - \binom{k}{3} \left( k - 3 \right)^{n} + \ldots + \left( - 1 \right)^{k - 1}\binom{k}{k - 1} 1^{n} \right] 
+\end{equation*}
+%
+\end{theorem}
+\begin{proof}\hypertarget{proof-2}{}
+\hypertarget{p-123}{}%
+The following argument is due to Polya. Suppose you wished to paint n houses and you have \(k\) different colors available. The first house can be painted in \(k\) different ways, the second in \(k\) different ways, etc. So there are \(k^{n}\) ways. How many ways actually use all \(k\) colors? Let \(\alpha_{i}\) be the property that no house is painted with the \(i\)th color, and let \(N(\alpha_{i})\) denote the number of ways of painting the \(n\) houses without using the \(i\)th color. Analogously for \(N(\alpha_{i},\alpha_{j})\), \(N(\alpha_{i},\alpha_{j},\alpha_{k})\), etc. Since \(N(\alpha_{i}) = (k - 1)^{n}\), \(N(a_{i},\alpha_{j}) = ( k - 2)^{n}\) and so on, the number of ways of painting \(n\) houses using all \(k\) colors is, using PIE, \(k^{n} -\binom{k}{1} \left(k - 1 \right)^{n} + \binom{k}{2} \left( k - 2 \right)^{n} - \binom{k}{3}      \left( k - 3 \right)^{n} + \ldots + \left( - 1 \right)^{k}\binom{k}{k} 0^{n}\).%
+\par
+\hypertarget{p-124}{}%
+Alternately, we could first partition the \(n\) houses into \(k\) (non-empty) sets, and then paint each set. This can be    accomplished in \(k!S(n,k)\) ways. Now equate these two expressions.%
+\end{proof}
+\begin{corollary}[{}]\label{corollary-1}
+\hypertarget{p-125}{}%
+\(S\left( n,3 \right) = \frac{1}{2}\left\lbrack 3^{n - 1} - 2^{n} + 1 \right\rbrack\)%
+\end{corollary}
+\begin{theorem}[{}]\label{thm-stirling-polynomial}
+\hypertarget{p-126}{}%
+\(x^{n} = S\left( n,1 \right)x + S\left( n,2 \right)x\left( x - 1 \right) + S\left( n,3 \right)x\left( x - 1 \right)\left( x - 2 \right) + \cdots
++ S\left( n,n \right)x\left( x - 1 \right)\cdots(x - n + 1)\)%
+\end{theorem}
+\begin{proof}\hypertarget{proof-3}{}
+\hypertarget{p-127}{}%
+Again, based on the proof by Polya. We can paint \(n\) houses, with \(x\) colors available, in \(x^{n}\) ways. Using exactly one color, there are \(S\left( n,1 \right)x\) ways. Using exactly two colors there are \(S\left( n,2 \right)x(x - 1)\) ways. Continue in this manner.%
+\end{proof}
+\hypertarget{p-128}{}%
+It is in this form that James Stirling originally developed these numbers. \(S(n,k)\) is used to convert from powers to binomial  coefficients as shown in the following:%
+\begin{theorem}[{}]\label{thm-stirling-polynomial2}
+\hypertarget{p-129}{}%
+\(x^{n} = S\left( n,1 \right)\binom{x}{1}1! + S\left( n,2 \right) \binom{x}{2}2! + \ldots + S\left( n,n \right)\binom{n}{n} n!\)%
+\end{theorem}
+\typeout{************************************************}
+\typeout{Exercises 3 Problems}
+\typeout{************************************************}
+\section[{Problems}]{Problems}\label{exercises-3}
+\begin{exerciselist}
+\item[1.]\hypertarget{exercise-43}{}\hypertarget{p-130}{}%
+Compute \(S(4,2)\) and \(S(5,2)\) by listing subsets.%
+\par\smallskip
+\item[2.]\hypertarget{exercise-44}{}\hypertarget{p-131}{}%
+Make the 6th row of the Stirling Triangle.%
+\par\smallskip
+\item[3.]\hypertarget{exercise-45}{}\hypertarget{p-132}{}%
+Prove the four parts of \hyperref[thm-stirling-border]{Theorem~\ref{thm-stirling-border}}.%
+\par\smallskip
+\item[4.]\hypertarget{exercise-46}{}\hypertarget{p-133}{}%
+List the sequence of elements that are row sums of the Stirling Triangle.%
+\par\smallskip
+\item[5.]\hypertarget{exercise-47}{}\hypertarget{p-134}{}%
+How many subsets \(\{a,b,c\}\) are there of \(\{2,3,4,\ldots\}\) such that \(abc = 2 \cdot 3 \cdot 5 \cdot 7 \cdot 11 \cdot 13 \cdot 17\)?%
+\par\smallskip
+\item[6.]\hypertarget{exercise-48}{}\hypertarget{p-135}{}%
+Let \(S = \{2,3,4,\ldots\}\).  How many ordered triples \((a,b,c)\) are there in \(S\times S \times S\) such that \(abc = 2 \cdot 3 \cdot 5 \cdot 7 \cdot 11 \cdot 13 \cdot 17\)?%
+\par\smallskip
+\item[7.]\hypertarget{exercise-49}{}\hypertarget{p-136}{}%
+Compute each of the following using \hyperref[thm-stirling-closed]{Theorem~\ref{thm-stirling-closed}}. \leavevmode%
+\begin{enumerate}[label=(\alph*)]
+\item\hypertarget{li-22}{}\(S(5,3)\)%
+\item\hypertarget{li-23}{}\(S(6,3)\)%
+\item\hypertarget{li-24}{}\(S(n,2)\)%
+\item\hypertarget{li-25}{}\(S(n,3)\)%
+\end{enumerate}
+%
+\par\smallskip
+\item[8.]\hypertarget{exercise-50}{}\hypertarget{p-137}{}%
+Write out the proof of \hyperref[thm-stirling-closed]{Theorem~\ref{thm-stirling-closed}} for \(k=3\).%
+\par\smallskip
+\item[9.]\hypertarget{ex-stirling-cubic}{}\hypertarget{p-138}{}%
+Express \(x^3\) as suggested in \hyperref[thm-stirling-polynomial]{Theorem~\ref{thm-stirling-polynomial}}.  Also, multiply your answer out to verify.%
+\par\smallskip
+\item[10.]\hypertarget{exercise-52}{}\hypertarget{p-139}{}%
+Use your results in \hyperlink{ex-stirling-cubic}{Problem~3.1.9} to express \(x^3\) as a linear combination of the binomial coefficients \(\binom{x}{1}\), \(\binom{x}{2}\), and \(\binom{x}{3}\).%
+\par\smallskip
+\item[11.]\hypertarget{exercise-53}{}\hypertarget{p-140}{}%
+Determine the following: \leavevmode%
+\begin{enumerate}[label=(\alph*)]
+\item\hypertarget{li-26}{}\hypertarget{p-141}{}%
+\(a, b, c\) so that \(n^4 = 24\binom{n}{4} + 6a\binom{n}{3}+2b\binom{n}{2} + c \binom{n}{1}\).%
+\item\hypertarget{li-27}{}\hypertarget{p-142}{}%
+\(a, b, c, d\) so that \(n^5 = 5!\binom{n}{5} + a\binom{n}{4} + b\binom{n}{3} + c \binom{n}{2} + d \binom{n}{1}\).%
+\end{enumerate}
+%
+\par\smallskip
+\item[12.]\hypertarget{exercise-54}{}\hypertarget{p-143}{}%
+Express \(1^4 + 2^4 + 3^4 + \cdots + n^4\) as a polynomial in \(n\).%
+\par\smallskip
+\item[13.]\hypertarget{exercise-55}{}\hypertarget{p-144}{}%
+The numbers \(S(n,k)\) and \(k!S(n,k)\) are solutions to two different distribution problems.  Describe each.%
+\par\smallskip
+\item[14.]\hypertarget{exercise-56}{}\hypertarget{p-145}{}%
+Prove \hyperref[thm-stirling-polynomial2]{Theorem~\ref{thm-stirling-polynomial2}}.%
+\par\smallskip
+\item[15.]\hypertarget{exercise-57}{}\hypertarget{p-146}{}%
+Why is \(4^n - 4\cdot 3^n + 6\cdot 2^n - 4\) always divisible by 24?%
+\par\smallskip
+\end{exerciselist}
 %
 \backmatter
 %
@@ -1027,8 +1384,9 @@ C_{n} = \binom{n}{1} C_{n - 1} - \binom{n - 1}{2} C_{n - 2} + \binom{n - 2}{3} C
 %
 \cleardoublepage
 \pagestyle{empty}
-\vspace*{\stretch{1}}
-\centerline{This book was authored in PreTeXt.%
+\hypertarget{colophon-2}{}\vspace*{\stretch{1}}
+\centerline{\hypertarget{p-147}{}%
+This book was authored in PreTeXt.%
 }
 \vspace*{\stretch{2}}
 \end{document}

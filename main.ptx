@@ -6,598 +6,201 @@
 <book>
 
 
+STIRLING NUMBERS OF THE 2^{nd} KIND
 
-
-    <exercise>
-      <statement>
-        <p>
-          Use the recursion for P_{n} and compute
-          P_{6}, P_{7}.
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          Use the closed formula for P_{n} and compute
-          P_{6}, P_{7}.
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          Use G = P_{1}x + P_{2}x^{2} +
-          \ldots and the recursion for P_{n} to determine a
-          closed formula for P_{n}.
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          List the workable sequences for n = 4.
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          List the P_{6} ways of parenthesizing abcdef.
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          Display a bijection between the 14 sequences in Problem 4 and the 14
-          products in Problem 5.
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          Find the nonworkable sequence associated with each:
-        </p>
-      </statement>
-    </exercise>
-    <ol>
-    <exercise>
-      <statement>
-        <p>
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          H H H D D H (c) D D D H H H H H
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          D H H H H D (d) D D H H D H H H
-        </p>
-      </statement>
-    </exercise>
-    <ol>
-    <exercise>
-      <statement>
-        <p>
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          Draw the T_{6} triangulations of a convex hexagon.
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          Display a bijection between the 5 ways of parenthesizing abcd and the
-          5 triangulations of a convex pentagon.
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          Let <m>C_{n} = \frac{1}{n + 1}\left( \frac{2n}{n} \right).</m> Verifiy
-          the formula:
-        </p>
-      </statement>
-    </exercise>
-    <me>
-      _{n} = \left( \frac{n}{1} \right)C_{n - 1} - \left( \frac{n - 1}{2} \right)C_{n - 2} + \left( \frac{n - 2}{3} \right)C_{n - 3} - \ldots
-    </me>
-    <ol>
-    <exercise>
-      <statement>
-        <p>
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          Verify that H_{3} = 5 by drawing the required paths.
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          Assign the appropriate binary sequences to each of the 5 Trees for n=3
-          in FIGURE 2.
-        </p>
-      </statement>
-    </exercise>
-    FOR EACH OF THE FOLLOWING, INVESTIGATE BIJECTIONS THAT RELATE ONE TO
-    ANOTHER.
-    <ol>
-    <exercise>
-      <statement>
-        <p>
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          A and B each receive n votes. Let V_{n} denote the number
-          of ways that the 2n votes can be tallied so that A never trails B. Let
-          V_{0} = 1.
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          Place 2n points on the circumference of a circle and draw n
-          nonintersecting chords in D_{n} ways; D_{0}
-          = 1.
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          In how many ways can 1, 2, 3, \ldots, 2n be inserted into a 2xn
-          rectangle such that the entries are increasing in rows and columns.
-          Let the answer be Y_{n}; Y_{1} = 1,
-          Y_{2} = 2.
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          Place points on a line segment and join them in pairs by
-          nonintersecting arcs above the segment. In how many ways can this be
-          done? Call the answer S_{n}; S_{1}=1,
-          S_{2}=2.
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          A rook on an <m>n + 1</m> by <m>n + 1</m> chessboard must move from the
-          lower left corner to the upper right corner never going above the
-          diagonal. How many paths are possible? Let <m>K_{n}</m> be the answer.
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          On an <m>n + 1</m> by <m>n + 1</m> chessboard a king starts on the first row
-          and moves one square forward or back along a fixed column and ends on
-          the starting square after moves. In how many ways, <m>G_{n}</m> , can this
-          be done?
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          Count the number of planar rhyme schemes for a stanza consisting of n
-          lines. Joanne Growney showed in her doctoral thesis that the Bell
-          numbers, which count all rhyme schemes, have the Catalan numbers as a
-          subsequence and that these enumerate precisely the planar rhyme
-          schemes. For example, of the rhyme schemes, are planar. The nonplanar
-          one is given by abab.
-        </p>
-      </statement>
-    </exercise>
-    WORKSHEET ON STIRLING NUMBERS OF THE 2^{ND}
-    KIND- <m>S(n,k)</m> <em>DEFINITION:</em> <m>S\left( n,k \right)</m> is the number of ways of
-    partitioning an n-set into k nonempty subsets.
-
-    <em>TASK 1:</em> Compute <m>S\left( 3,1 \right),S(4,1)</m> and <m>S(n,1)</m> .
-
-    <em>TASK 2:</em> Compute <m>S\left( 2,2 \right),S(3,2)</m> and <m>S(4,2)</m> .
-
-    <em>TASK 3:} Compute <m>\text{S</em>\left( 3,3 \right),S(4,3)</m> .
-
-    <em>TASK 4:} Find formulas and give \emph{proofs</em> for: <m>S\left( n,n \right) =</m> <m>S\left( n,2 \right) =</m>
-    <me>
-      \left( n,n - 1 \right) =
-    </me>
-    <me>
-      \left( n,n - 2 \right) =
-    </me>
-    <em>TASK 5:} Determine a recursion for <m>\text{S</em>\left( n,k \right)</m> by examining the following:
-
-    In computing <m>S\left( 4,3 \right)</m> look back at the two cases:
-    <ol>
-    <exercise>
-      <statement>
-        <p>
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          <q>Social</q>- The element 4 is part of another set.
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          <q>Antisocial</q>-The element 4 stands alone.
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          Deduce a recursion <m>S\left( n,k \right) =</m>
-        </p>
-      </statement>
-    </exercise>
-    <em>TASK 6:</em> Make the first 5 rows of the Stirling Triangle.
-
-    STIRLING NUMBERS OF THE 2^{nd} KIND
-
-    A distribution of 4 different (often we say distinguishable) objects <m>1,2,3,4</m> into 3 similar (often we say indistinguishable) boxes, each
-    of which becomes non-empty is modeled by partitioning <m>\{ 1,2,3,4\}</m> into 3 nonempty subsets. The six ways of doing this are listed next:
-
-    \{4\} \{1\} \{2,3\} \{1,4\} \{2\} \{3\}
-
-    \{4\} \{2\} \{1,3\} \{1\} \{2,4\} \{3\}
-
-    \{4\} \{3\} \{1,2\} \{1\} \{2\} \{3,4\}
-
-    The Stirling numbers of the second kind, denoted by <m>S(n,k)</m> , give the
-    number of ways of partitioning an n-set into k non-empty subsets. Here <m>k \in \{ 1,2,\ldots\}</m> and <m>n \geq k</m> . The above example shows <m>S\left( 4,3 \right) = 6</m> . Also notice that there are two cases: 4 is
-    alone, or 4 is in some other batch; we can conclude that <m>S\left( 4,3 \right) = 3S\left( 3,3 \right) + S(3,2)</m> since if 4 is in
-    a singleton set just partition the remaining 3 into 2 sets and otherwise
-    4 can join any of the 3 batches of 3 elements.
-
-    THEOREM 1: <m>S\left( n,k \right) = kS\left( n - 1,k \right) + S(n - 1,k - 1)</m>
-  </p>
-
-  <p>
-    Proof. We partition <m>\{ 1,2,\ldots,n\}</m> into k non-empty subsets in <m>S(n,k)</m> ways. If n is in a singleton set, there are <m>S(n - 1,k - 1)</m> ways to partition the remaining <m>n - 1</m> elements
-    into <m>k - 1</m> subsets. Otherwise, the element n can join any of the k
-    batches of <m>n - 1</m> elements in <m>kS(n - 1,k)</m> ways
-  </p>
-
-  <p>
-    Polya, in Notes on Introductory Combinatorics, refers to these as the
-    <q>antisocial'' and ``social</q> cases
-  </p>
-
-  <p>
-    The reader should check that <m>S\left( 3,3 \right) = 1</m> and that <m>S\left( 3,2 \right) = 3</m> so that <m>S\left( 4,3 \right) = 3 \bullet 1 + 3 = 6</m> .
-
-    <em>Border Formulas:} The reader should verify that <m>S\left( n,1 \right) = 1</m> and <m>S\left( n,n \right) = 1</m> for <m>n \in Z^{+</em></m> . From
-
-    these border formulas and the recursion in Theorem 1 the following
-    Stirling's Second Triangle can be made.
-
-    1
-
-    1 1
-
-    1 3 1
-
-    1 7 6 1
-
-    1 15 25 10 1
-
-    THEOREM 2.
-    <ol>
-    <exercise>
-      <statement>
-        <p>
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          <m>S\left( n,n - 1 \right) =\binom{n}{2}</m>
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          <m>S\left( n,2 \right) = 2^{n - 1} - 1</m>
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          <m>S\left( n,n - 2 \right) =\binom{n}{3}
-          + 3\binom{n}{4}</m>
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          <m>S\left( n,n - 3 \right) =\binom{n}{4}
-          + 10\binom{n}{5}
-          + 15\binom{n}{6}</m>
-        </p>
-      </statement>
-    </exercise>
-    Proof. You are asked to prove these in the problems
-  </p>
-
-  <p>
-    The entries in the Pascal Triangle, <m>\binom{n}{k}</m> , satisfy the nice recursion <m>\binom{n}{k}
-    =
-    \binom{n - 1}{k}
-    +\binom{n - 1}{k - 1}</m> and also have a closed formula: <m>\binom{n}{k}
-    = n!/k!\left( n - k \right)!</m> . Theorem 1 gives us a
-    recursion for the Stirling numbers <m>S\left( n,k \right)</m> and,
-    unfortunately, the best we can do for a <q>closed</q> formula is contained
-    in the following.
-    <me>
-      \left( n,k \right) = \frac{1}{k!}\left\lbrack k^{n} - \binom{k}{1} \left( k - 1 \right)^{n} + \binom{k}{2} \left( k - 2 \right)^{n} - \binom{k}{3} \left( k - 3 \right)^{n} + \ldots + \left( - 1 \right)^{k - 1}\binom{k}{k - 1} 1^{n} \right\rbrack
-    </me>
-    Proof (by Polya). Suppose you wished to paint n houses and you have k
-    different colors available. The first house can be painted in k
-    different ways, the second in k different ways, etc. So there are <m>k^{n}</m> ways. How many ways actually use all k colors? Let <m>\alpha_{i}</m> be the property that no house is painted with the <m>i^{th}</m> color, and let <m>N(\alpha_{i})</m> denote the number of ways of
-    painting the n houses without using the <m>i^{th}</m> color. Analogously for <m>\text{N}\left( \alpha_{i},\alpha_{j} \right),N\left( \alpha_{i},\alpha_{j},\alpha_{k} \right),</m> etc. Since <m>N\left( \alpha_{i} \right) = \left( k - 1 \right)^{n}</m> , <m>N\left( a_{i},\alpha_{j} \right) = \left( k - 2 \right)^{n},\ldots</m> the number of ways of painting n houses using all k colors is, using
-    PIE, <m>k^{n} -\binom{k}{1}
-    \left( k - 1 \right)^{n} +
-    \binom{k}{2}
-    \left( k - 2 \right)^{n} -
-    \binom{k}{3}
-    \left( k - 3 \right)^{n} + \ldots + \left( - 1 \right)^{k}
-    \binom{k}{k}
-    0^{n}</m> . Alternately, we could first partition the n houses
-    into k (non-empty) sets, and then paint each set. This can be
-    accomplished in <m>k!S\left( n,k \right)</m> ways. Now equate these two
-    expressions.
-
-    COROLLARY. <m>S\left( n,3 \right) = \frac{1}{2}\left\lbrack 3^{n - 1} - 2^{n} + 1 \right\rbrack</m> THEOREM 4. <m>x^{n} = S\left( n,1 \right)x + S\left( n,2 \right)x\left( x - 1 \right) + S\left( n,3 \right)x\left( x - 1 \right)\left( x - 2 \right) + \ldots</m>
-    <me>
-      ldots + S\left( n,n \right)x\left( x - 1 \right)\ldots(x - n + 1)
-    </me>
-    Proof (by Polya). We can paint n houses, with x colors available, in <m>x^{n}</m> ways. Using exactly one color, there are <m>S\left( n,1 \right)x</m> ways. Using exactly two colors there are <m>S\left( n,2 \right)x(x - 1)</m> ways. Continue in this manner
-  </p>
-
-  <p>
-    It is in this form that James Stirling originally developed these
-    numbers. <m>S(n,k)</m> is used to convert from powers to binomial
-    coefficients as shown in the following:
-
-    THEOREM 5. <m>x^{n} = S\left( n,1 \right)
-    \binom{x}{1}
-    1! + S\left( n,2 \right)
-    \binom{x}{2}
-    2! + \ldots + S\left( n,n \right)
-    \binom{n}{n}
-    n!</m> PROBLEMS
-    <ol>
-    <exercise>
-      <statement>
-        <p>
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          Compute by listing the subsets <m>S(4,2)</m> and <m>S(5,2)</m> .
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          Make the 6^{th} row of the Stirling Triangle.
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          Prove the four parts of THEOREM 2.
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          List the sequence of elements that are row sums of the Stirling
-          Triangle.
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          How many subsets \{a, b, c\} are there of \{2, 3, 4, \ldots\} such
-          that <m>abc = 2 \bullet 3 \bullet 5 \bullet 7 \bullet 11 \bullet 13 \bullet 17</m> ?
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          Let <m>S = \{ 2,3,4,\ldots\}</m> . How many ordered triples (a, b, c) are
-          there in S x S x S such that <m>abc = 2 \bullet 3 \bullet 5 \bullet 7 \bullet 11 \bullet 13 \bullet 17</m> ?
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-    <statement>
+ PROBLEMS
+<ol>
+<exercise>
+  <statement>
     <p>
-      Compute each using THEOREM 3.
-      <ol>
-      <exercise>
-        <statement>
-          <p>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            <m>S\left( 5,3 \right)</m>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            <m>S(6,3)</m>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            <m>S(n,2)</m>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            <m>S(n,3)</m>
-          </p>
-        </statement>
-      </exercise>
     </p>
-    </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          Write out the proof of THEOREM 3 for k=3.
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          Express x^{3} as suggested in THEOREM 4. Also, multiply
-          your answer out to verify.
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          Use your result in Problem 9 to express x^{3} as a
-          linear combination of the binomial coefficients <m>\binom{x}{1}
-          ,\binom{x}{2}
-          ,\binom{x}{3}</m> .
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-    <statement>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
     <p>
-      Determine the following:
-      <ol>
-      <exercise>
-        <statement>
-          <p>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            <m>a,b,c</m> so that <m>n^{4} = 24
-            \binom{n}{4}
-            + 6a\binom{n}{3}
-            + 2b\binom{n}{2}
-            + c
-            \binom{n}{1}</m> .
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            <m>a,b,c,d</m> so that <m>n^{5} = 5!
-            \binom{n}{5}
-            + a
-            \binom{n}{4}
-            + b
-            \binom{n}{3}
-            + c
-            \binom{n}{2}
-            + d
-            \binom{n}{1}</m> .
-          </p>
-        </statement>
-      </exercise>
+      Compute by listing the subsets <m>S(4,2)</m> and <m>S(5,2)</m> .
     </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Make the 6^{th} row of the Stirling Triangle.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Prove the four parts of THEOREM 2.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      List the sequence of elements that are row sums of the Stirling
+      Triangle.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      How many subsets \{a, b, c\} are there of \{2, 3, 4, \ldots\} such
+      that <m>abc = 2 \bullet 3 \bullet 5 \bullet 7 \bullet 11 \bullet 13 \bullet 17</m> ?
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Let <m>S = \{ 2,3,4,\ldots\}</m> . How many ordered triples (a, b, c) are
+      there in S x S x S such that <m>abc = 2 \bullet 3 \bullet 5 \bullet 7 \bullet 11 \bullet 13 \bullet 17</m> ?
+    </p>
+  </statement>
+</exercise>
+<exercise>
+<statement>
+<p>
+  Compute each using THEOREM 3.
+  <ol>
+  <exercise>
+    <statement>
+      <p>
+      </p>
     </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          Express <m>1^{4} + 2^{4} + 3^{4} + \ldots + n^{4}</m> as a polynomial
-          in n.
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          The numbers <m>S(n,k)</m> and <m>k!S(n,k)</m> are solutions to two different
-          distribution problems. Describe each.
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          Prove THEOREM 5.
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-          Why is <m>4^{n} - 4 \bullet 3^{n} + 6 \bullet 2^{n} - 4</m> always
-          divisible by 24?
-        </p>
-      </statement>
-    </exercise>
-  </p>
-</section>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>S\left( 5,3 \right)</m>
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>S(6,3)</m>
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>S(n,2)</m>
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>S(n,3)</m>
+      </p>
+    </statement>
+  </exercise>
+</p>
+</statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Write out the proof of THEOREM 3 for k=3.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Express x^{3} as suggested in THEOREM 4. Also, multiply
+      your answer out to verify.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Use your result in Problem 9 to express x^{3} as a
+      linear combination of the binomial coefficients <m>\binom{x}{1}
+      ,\binom{x}{2}
+      ,\binom{x}{3}</m> .
+    </p>
+  </statement>
+</exercise>
+<exercise>
+<statement>
+<p>
+  Determine the following:
+  <ol>
+  <exercise>
+    <statement>
+      <p>
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>a,b,c</m> so that <m>n^{4} = 24
+        \binom{n}{4}
+        + 6a\binom{n}{3}
+        + 2b\binom{n}{2}
+        + c
+        \binom{n}{1}</m> .
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <m>a,b,c,d</m> so that <m>n^{5} = 5!
+        \binom{n}{5}
+        + a
+        \binom{n}{4}
+        + b
+        \binom{n}{3}
+        + c
+        \binom{n}{2}
+        + d
+        \binom{n}{1}</m> .
+      </p>
+    </statement>
+  </exercise>
+</p>
+</statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Express <m>1^{4} + 2^{4} + 3^{4} + \ldots + n^{4}</m> as a polynomial
+      in n.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      The numbers <m>S(n,k)</m> and <m>k!S(n,k)</m> are solutions to two different
+      distribution problems. Describe each.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Prove THEOREM 5.
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      Why is <m>4^{n} - 4 \bullet 3^{n} + 6 \bullet 2^{n} - 4</m> always
+      divisible by 24?
+    </p>
+  </statement>
+</exercise>
 
 <section>
   <title>BELL NUMBERS</title>

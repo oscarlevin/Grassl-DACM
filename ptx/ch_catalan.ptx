@@ -102,14 +102,14 @@
     <figure xml:id="catalanpathex">
       <caption> One of the acceptable lattice paths from <m>(0,0)</m> to <m>(3,3)</m>.</caption>
       <image width="50%">
-        <latex-image-code>
+        <latex-image>
           <![CDATA[\begin{tikzpicture}
       \draw[very thin, color=gray!50] (0,0) grid (3.5, 3.5);
       \draw[thin] (0,0) -- (3.5,0) node[right]{$x$} (0,0) -- (0,3.5) node[above]{$y$};
       \draw (0,0) node[below left]{$(0,0)$} (3,3) node[above right] {$(3,3)$};
       \draw[very thick] (0,0) -- (1,0) -- (1,1) -- (3,1) -- (3,3);
     \end{tikzpicture}]]>
-        </latex-image-code>
+  </latex-image>
       </image>
     </figure>
 
@@ -133,44 +133,44 @@
           </caption>
           <sidebyside>
           <image>
-            <latex-image-code>
+            <latex-image>
               \begin{tikzpicture}
               \fivegon;
               \draw (a) -- (d) -- (b);
               \end{tikzpicture}
-            </latex-image-code>
+            </latex-image>
           </image>
           <image>
-            <latex-image-code>
+            <latex-image>
               \begin{tikzpicture}
               \fivegon;
               \draw (b) -- (e) -- (c);
               \end{tikzpicture}
-            </latex-image-code>
+            </latex-image>
           </image>
           <image>
-            <latex-image-code>
+            <latex-image>
               \begin{tikzpicture}
               \fivegon;
               \draw (d) -- (a) -- (c);
               \end{tikzpicture}
-            </latex-image-code>
+            </latex-image>
           </image>
           <image>
-            <latex-image-code>
+            <latex-image>
               \begin{tikzpicture}
               \fivegon;
               \draw (e) -- (b) -- (d);
               \end{tikzpicture}
-            </latex-image-code>
+            </latex-image>
           </image>
           <image>
-            <latex-image-code>
+            <latex-image>
               \begin{tikzpicture}
               \fivegon;
               \draw (e) -- (c) -- (a);
               \end{tikzpicture}
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         </figure>
@@ -180,12 +180,12 @@
     There are two drawings for <m>n=4</m>:
     <sidebyside width="20%">
       <image>
-        <latex-image-code>
+        <latex-image>
           \begin{tikzpicture}
             \draw (0,0) -- (1,0) -- (1,1) -- (0,1) -- (0,0) -- (1,1);
             \draw (2,0) -- (3,0) -- (3,1) -- (2,1) -- (2,0) (2,1) -- (3,0);
           \end{tikzpicture}
-        </latex-image-code>
+        </latex-image>
       </image>
     </sidebyside>
     A bijection between triangulations and parenthesizing is illustrated
@@ -197,7 +197,7 @@
         An example of a bijection between triangulations of <m>n</m>-gons and parenthesizing.
       </caption>
     <image width="50%">
-      <latex-image-code>
+      <latex-image>
         \begin{tikzpicture}
           \fivegon;
           {\footnotesize
@@ -210,7 +210,7 @@
           \draw (d) -- (b) node[midway, above]{$(ab)c$};
           }
         \end{tikzpicture}
-      </latex-image-code>
+      </latex-image>
     </image>
   </figure>
   </paragraphs>
@@ -446,7 +446,7 @@ See if you can connect the rhyme schemes to any of the above.
   </caption>
 
     <image>
-      <latex-image-code>
+      <latex-image>
         <![CDATA[\begin{tikzpicture}
       \def\r{.6}
       \foreach \row in {0,...,10} {
@@ -483,7 +483,7 @@ See if you can connect the rhyme schemes to any of the above.
       \draw (r0) node{1} (r2) node{1} (r4) node{2} (r6) node{5} (r8) node{14} (r10) node{42};
       \node[above] at (0,2) {\Large The Catalan Numbers};
       \end{tikzpicture}]]>
-      </latex-image-code>
+    </latex-image>
     </image>
   </figure>
 
