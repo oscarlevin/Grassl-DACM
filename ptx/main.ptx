@@ -17,8 +17,8 @@
 
 <xi:include href="./ch_stirling.ptx" />
 <xi:include href="./ch_bell.ptx" />
-<!--
 <xi:include href="./ch_projects.ptx" />
+<!--
 <xi:include href="./ch_dist-probs.ptx" />
 <xi:include href="./ch_comb-proofs.ptx" />
 <xi:include href="./ch_lin-parts.ptx" />
