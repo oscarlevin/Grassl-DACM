@@ -85,11 +85,11 @@
 \mdtheorem[style=examplestyle]{mdexample}[theorem]{Example}
 
 %Redefine ``example'' to call the new mdexample, and put a paragraph break after it.
-\newenvironment{example}{%
-\mdexample
-}{%
-\endmdexample\par
-}
+% \renewenvironment{example}{%
+% \mdexample
+% }{%
+% \endmdexample\par
+% }
 
 
 % \LetLtxMacro\mdexample\oldexample
@@ -101,37 +101,37 @@
 % \endoldexample\par
 % }
 
-%Create ``investigation'' environment for in-text worksheet type problems:
-\newenvironment{investigation}{%
-\mdfsetup{%
-	frametitle={\colorbox{white}{\large\space\space \textit{Investigate!} \space} },
-	frametitlealignment=\centering,
-	frametitleaboveskip=-1.5ex,
-	frametitlebelowskip=0pt,
-	frametitlealignment={\hspace*{2pt}},
-	innerbottommargin=2em,
-	innermargin=1ex,
-	outermargin=1ex,
-	leftmargin=1ex,
-	rightmargin=1ex,
-%	topline=false,
-%	bottomline=false,
-	linecolor=green!50!black,
-	linewidth=1pt,
-	skipabove=2em,
-	skipbelow=2em,
-	roundcorner=15pt,
-	needspace=2em,
-}
-\vskip 1em
-\begin{mdframed}
-}{%
-\end{mdframed}\vspace{-4em} \begin{center}\colorbox{white}{ \space\space\quad {\LARGE \color{red} \Stopsign} \quad \textbf{Attempt the above activity before proceeding} \quad {\LARGE\color{red} \Stopsign}\quad\space\space }  \end{center}\par
-}
+% %Create ``investigation'' environment for in-text worksheet type problems:
+% \renewenvironment{investigation}{%
+% \mdfsetup{%
+% 	frametitle={\colorbox{white}{\large\space\space \textit{Investigate!} \space} },
+% 	frametitlealignment=\centering,
+% 	frametitleaboveskip=-1.5ex,
+% 	frametitlebelowskip=0pt,
+% 	frametitlealignment={\hspace*{2pt}},
+% 	innerbottommargin=2em,
+% 	innermargin=1ex,
+% 	outermargin=1ex,
+% 	leftmargin=1ex,
+% 	rightmargin=1ex,
+% %	topline=false,
+% %	bottomline=false,
+% 	linecolor=green!50!black,
+% 	linewidth=1pt,
+% 	skipabove=2em,
+% 	skipbelow=2em,
+% 	roundcorner=15pt,
+% 	needspace=2em,
+% }
+% \vskip 1em
+% \begin{mdframed}
+% }{%
+% \end{mdframed}\vspace{-4em} \begin{center}\colorbox{white}{ \space\space\quad {\LARGE \color{red} \Stopsign} \quad \textbf{Attempt the above activity before proceeding} \quad {\LARGE\color{red} \Stopsign}\quad\space\space }  \end{center}\par
+% }
 
 
 % redefine the assemblage environment for minor tweaking %
-\newenvironment{assemblage}[1]{%
+\renewenvironment{assemblage}[1][]{%
 	\mdfsetup{%
 	frametitle={\colorbox{blue!20}{\space#1\space}},
 	% frametitlealignment={\hspace*{1ex}},
@@ -166,7 +166,7 @@
 \setlist[description]{style=nextline, leftmargin=3em}
 
 
-%%%%%%% Set chapters to start at 0 %%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%% Set chapters to start at 0 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \setcounter{chapter}{-1}
 
 

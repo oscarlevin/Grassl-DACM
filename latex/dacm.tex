@@ -1,6 +1,6 @@
 %**************************************%
 %*    Generated from PreTeXt source   *%
-%*    on 2018-03-15T19:05:21-06:00    *%
+%*    on 2018-03-18T14:22:35-06:00    *%
 %*                                    *%
 %*   http://mathbook.pugetsound.edu   *%
 %*                                    *%
@@ -119,6 +119,15 @@
 \newtheorem{project}{Project}%% Project-like environments, normal text
 \theoremstyle{definition}
 \newtheorem{activity}[project]{Activity}
+%% begin: assemblage
+%% minimally structured content, high visibility presentation
+%% One optional argument (title) with default value blank
+%% 3mm space below dropped title is increase over 2mm default
+\newtcolorbox{assemblage}[1][]
+  {breakable, skin=enhanced, arc=2ex, colback=blue!5, colframe=blue!75!black,
+   colbacktitle=blue!20, coltitle=black, boxed title style={sharp corners, frame hidden},
+   fonttitle=\bfseries, attach boxed title to top left={xshift=4mm,yshift=-3mm}, top=3mm, title=#1}
+%% end: assemblage
 %% Numbering for inline exercises is in sync with theorems, normal text
 \theoremstyle{definition}
 \newtheorem{exercise}[theorem]{Problem}
@@ -344,7 +353,7 @@
 School of Mathematical Science\\
 University of Northern Colorado
 }
-\date{March 15, 2018}
+\date{March 18, 2018}
 \begin{document}
 \frontmatter
 %% begin: half-title
@@ -369,7 +378,7 @@ University of Northern Colorado
 {\Huge Discrete and Combinatorial Mathematics}\\[3\baselineskip]
 {\Large Richard Grassl}\\[0.5\baselineskip]
 {\Large University of Northern Colorado}\\[3\baselineskip]
-{\Large March 15, 2018}\\}
+{\Large March 18, 2018}\\}
 \clearpage
 %% end:   title page
 %% begin: copyright-page
@@ -670,8 +679,8 @@ A point \((a, b)\) in the plane is a \terminology{lattice point} if \(a\) and \(
   \draw[very thick] (0,0) -- (1,0) -- (1,1) -- (3,1) -- (3,3);
 \end{tikzpicture}
 }
-\end{figure}
 \caption{One of the acceptable lattice paths from \((0,0)\) to \((3,3)\).\label{catalanpathex}}
+\end{figure}
 \hypertarget{p-61}{}%
 Using R for right and U for up, the sequence R U R R U U gives the path. The bijection mathing R with H and U with D links paths to H-D sequences.%
 \typeout{************************************************}
@@ -765,8 +774,8 @@ Fix \(n\) vertices. In how many ways can diagonals be inserted so as to decompos
 \begin{minipage}[c][\panelmax][t]{0.2\linewidth}\usebox{\panelboxEimage}\end{minipage}\end{tabular}\\
 % end: side-by-side as tabular
 }% end: group for a single side-by-side
-\end{figure}
 \caption{The five triangulations of a convex pentagon.\label{five5gons}}
+\end{figure}
 \hypertarget{p-63}{}%
 There are two drawings for \(n=4\): % group protects changes to lengths, releases boxes (?)
 {% begin: group for a single side-by-side
@@ -813,8 +822,8 @@ There are two drawings for \(n=4\): % group protects changes to lengths, release
   }
 \end{tikzpicture}
 }
-\end{figure}
 \caption{An example of a bijection between triangulations of \(n\)-gons and parenthesizing.\label{triangulationbijection}}
+\end{figure}
 \typeout{************************************************}
 \typeout{Paragraphs  Tableau Insertion}
 \typeout{************************************************}
@@ -1054,18 +1063,18 @@ Trees&\(\leftrightarrow\)&Parentheses
 \node[above] at (0,2) {\Large The Catalan Numbers};
 \end{tikzpicture}
 }
-\end{figure}
 \caption{The Catalan numbers inside Pascal's triangle.\label{catalaninpascal}}
+\end{figure}
 \begin{figure}
 \centering
 \includegraphics[width=1\linewidth]{../images/tri-trees}
-\end{figure}
 \caption{Trivalent, planted trees with \(n\) leaves.\label{trivalenttrees}}
+\end{figure}
 \begin{figure}
 \centering
 \includegraphics[width=1\linewidth]{../images/catalan-bijections.png}
-\end{figure}
 \caption{\label{catalanbijections}}
+\end{figure}
 \typeout{************************************************}
 \typeout{Exercises 2 Problems on Catalan Numbers}
 \typeout{************************************************}
@@ -1375,6 +1384,244 @@ Prove \hyperref[thm-stirling-polynomial2]{Theorem~\ref{thm-stirling-polynomial2}
 Why is \(4^n - 4\cdot 3^n + 6\cdot 2^n - 4\) always divisible by 24?%
 \par\smallskip
 \end{exerciselist}
+\typeout{************************************************}
+\typeout{Chapter 4 Bell Numbers}
+\typeout{************************************************}
+\chapter[{Bell Numbers}]{Bell Numbers}\label{ch_temp}
+\hypertarget{p-147}{}%
+The Bell number, \(B_{n}\) , denotes the number of ways that a set of \(n\) objects \(S\) can be partitioned into nonempty subsets. The definition of ``partition'' implies two properties: The subsets are disjoint and their union is \(S\).%
+\par
+\hypertarget{p-148}{}%
+Essential properties and facts about \(B_{n}\) are summarized next.%
+\begin{assemblage}[Bell Numbers]\label{assemblage-1}
+\hypertarget{p-149}{}%
+%
+\begin{equation*}
+1, 1, 2, 5, 15, 52, 203, 877, 4040, 21147, 115975, \ldots
+\end{equation*}
+%
+\par
+\hypertarget{p-150}{}%
+Formulas: %
+\begin{itemize}[label=\textbullet]
+\item{}\(B_{n} = S\left( n,1 \right) + S\left( n,2 \right) + S\left( n,3 \right) + \ldots + S(n,n)\)%
+\item{}\(B_{n} = \frac{1}{e}\sum_{k=0}^{\infty}\frac{k^{n}}{k!}\) (Dobinski's Formula)%
+\item{}\(B_{n} = L\left( x^{n} \right)\) (Gian - Carlo Rota)%
+\end{itemize}
+%
+\par
+\hypertarget{p-151}{}%
+Recursion: \(B_{n} = \binom{n - 1}{0}B_{0} + \binom{n - 1}{1}B_{1} + \cdots + \binom{n - 1}{n - 1}B_{n - 1}\); \(B_{0} = 1\).%
+\par
+\hypertarget{p-152}{}%
+E.G.F.: \(e^{e^{x} - 1} = \sum_{k = 0}^{\infty}{B_{n}\frac{x^{n}}{n!}}\)%
+\par
+\hypertarget{p-153}{}%
+BELL TRIANGLE:%
+% group protects changes to lengths, releases boxes (?)
+{% begin: group for a single side-by-side
+% set panel max height to practical minimum, created in preamble
+\setlength{\panelmax}{0pt}
+\ifdefined\panelboxAtabular\else\newsavebox{\panelboxAtabular}\fi%
+\savebox{\panelboxAtabular}{%
+\raisebox{\depth}{\parbox{0.5\linewidth}{\centering\begin{tabular}{lllll}
+1&&&&\tabularnewline[0pt]
+1&2&&&\tabularnewline[0pt]
+2&3&5&&\tabularnewline[0pt]
+5&7&10&15&\tabularnewline[0pt]
+15&20&27&37&52\tabularnewline[0pt]
+\ldots&&&&
+\end{tabular}
+}}}
+\ifdefined\phAtabular\else\newlength{\phAtabular}\fi%
+\setlength{\phAtabular}{\ht\panelboxAtabular+\dp\panelboxAtabular}
+\settototalheight{\phAtabular}{\usebox{\panelboxAtabular}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phAtabular}}
+\leavevmode%
+% begin: side-by-side as tabular
+% \tabcolsep change local to group
+\setlength{\tabcolsep}{0\linewidth}
+% @{} suppress \tabcolsep at extremes, so margins behave as intended
+\par\medskip\noindent
+\hspace*{0.25\linewidth}%
+\begin{tabular}{@{}*{1}{c}@{}}
+\begin{minipage}[c][\panelmax][t]{0.5\linewidth}\usebox{\panelboxAtabular}\end{minipage}\end{tabular}\\
+% end: side-by-side as tabular
+}% end: group for a single side-by-side
+\end{assemblage}
+\hypertarget{p-154}{}%
+Two observations: The first few Bell's look like the Catalans; the sequence of Bells increases in size rapidly. The Bell numbers can be generated by constructing what is called the Bell Triangle. To construct this triangle, begin with a 1 at the top and a 1 below it. Add these two numbers together and put the sum 2, to the right of the 1 in the second column. This 2 is also the first entry of the third row. The second entry in the third row is found by adding the 2 to the number 1 above it. This sum is 3 and goes to the right of the 2. The 3 is now below a 2. Adding these two numbers produces the last number, 5, in the third row. Since 5 has no number above it, the third row is complete. 5 now becomes the first number in the fourth row and the process continuesv%
+\par
+\hypertarget{p-155}{}%
+Construction of the triangle follows two basic rules: \leavevmode%
+\begin{enumerate}
+\item\hypertarget{li-31}{}\hypertarget{p-156}{}%
+The last number of each row is the first number of the next row.%
+\item\hypertarget{li-32}{}\hypertarget{p-157}{}%
+All other numbers are found by adding the number to the left of the missing number to the number directly above this same number.%
+\end{enumerate}
+ When the triangle is extended, as above, the Bell Numbers are found down the first column as well as along the outside diagonal.%
+% group protects changes to lengths, releases boxes (?)
+{% begin: group for a single side-by-side
+% set panel max height to practical minimum, created in preamble
+\setlength{\panelmax}{0pt}
+\ifdefined\panelboxAtabular\else\newsavebox{\panelboxAtabular}\fi%
+\savebox{\panelboxAtabular}{%
+\raisebox{\depth}{\parbox{0.7\linewidth}{\centering\begin{tabular}{lllllll}
+1&&&&&&\tabularnewline[0pt]
+1&2&&&&&\tabularnewline[0pt]
+2&3&5&&&&\tabularnewline[0pt]
+5&7&10&15&&&\tabularnewline[0pt]
+15&20&27&37&52&&\tabularnewline[0pt]
+52&67&87&114&151&203&\tabularnewline[0pt]
+203&255&322&409&523&674&877
+\end{tabular}
+}}}
+\ifdefined\phAtabular\else\newlength{\phAtabular}\fi%
+\setlength{\phAtabular}{\ht\panelboxAtabular+\dp\panelboxAtabular}
+\settototalheight{\phAtabular}{\usebox{\panelboxAtabular}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phAtabular}}
+\leavevmode%
+% begin: side-by-side as tabular
+% \tabcolsep change local to group
+\setlength{\tabcolsep}{0\linewidth}
+% @{} suppress \tabcolsep at extremes, so margins behave as intended
+\par\medskip\noindent
+\hspace*{0.15\linewidth}%
+\begin{tabular}{@{}*{1}{c}@{}}
+\begin{minipage}[c][\panelmax][t]{0.7\linewidth}\usebox{\panelboxAtabular}\end{minipage}\end{tabular}\\
+% end: side-by-side as tabular
+}% end: group for a single side-by-side
+\par
+\hypertarget{p-158}{}%
+As with Pascal's Triangle, the Bell triangle has several interesting properties. If the sum of a row is added to the Bell number at the end of that row, the next Bell number is obtained. For example, the sum of the fourth row plus the Bell number at the end of the row: \(15 + 20 + 27 + 37 + 52 + 52\) is 203, the next Bell number. Also, the numbers of the second diagonal \(1, 3, 10, 37, 151, 674, \ldots\) are the sums of the horizontal rows. Rotating the triangle slightly creates a difference triangle analogous to Pascal's Triangle. The entries that are formed recursively by adding in Pascal's Triangle are now differences of the two numbers above them in the Bell triangle.%
+% group protects changes to lengths, releases boxes (?)
+{% begin: group for a single side-by-side
+% set panel max height to practical minimum, created in preamble
+\setlength{\panelmax}{0pt}
+\ifdefined\panelboxAtabular\else\newsavebox{\panelboxAtabular}\fi%
+\savebox{\panelboxAtabular}{%
+\raisebox{\depth}{\parbox{0.8\linewidth}{\centering\begin{tabular}{llllllllllllll}
+1&&2&&5&&15&&52&&203&&877&\(\ldots\)\tabularnewline[0pt]
+&1&&3&&10&&37&&151&&674&\(\ldots\)&\tabularnewline[0pt]
+&&2&&7&&27&&114&&523&\(\ldots\)&&\tabularnewline[0pt]
+&&&5&&20&&87&&409&\(\ldots\)&&&\tabularnewline[0pt]
+&&&&15&&67&&322&\(\ldots\)&&&&\tabularnewline[0pt]
+&&&&&52&&255&\(\ldots\)&&&&&\tabularnewline[0pt]
+&&&&&&203&\(\ldots\)&&&&&&
+\end{tabular}
+}}}
+\ifdefined\phAtabular\else\newlength{\phAtabular}\fi%
+\setlength{\phAtabular}{\ht\panelboxAtabular+\dp\panelboxAtabular}
+\settototalheight{\phAtabular}{\usebox{\panelboxAtabular}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phAtabular}}
+\leavevmode%
+% begin: side-by-side as tabular
+% \tabcolsep change local to group
+\setlength{\tabcolsep}{0\linewidth}
+% @{} suppress \tabcolsep at extremes, so margins behave as intended
+\par\medskip\noindent
+\hspace*{0.1\linewidth}%
+\begin{tabular}{@{}*{1}{c}@{}}
+\begin{minipage}[c][\panelmax][t]{0.8\linewidth}\usebox{\panelboxAtabular}\end{minipage}\end{tabular}\\
+% end: side-by-side as tabular
+}% end: group for a single side-by-side
+\par
+\hypertarget{p-159}{}%
+Finally, rewriting the Bell triangle recursively indicates a nice connection of the Bell Numbers to Pascal's triangle.%
+% group protects changes to lengths, releases boxes (?)
+{% begin: group for a single side-by-side
+% set panel max height to practical minimum, created in preamble
+\setlength{\panelmax}{0pt}
+\ifdefined\panelboxAtabular\else\newsavebox{\panelboxAtabular}\fi%
+\savebox{\panelboxAtabular}{%
+\raisebox{\depth}{\parbox{0.7\linewidth}{\centering\begin{tabular}{llll}
+\(B_{0} = B_{1}\)&&&\tabularnewline[0pt]
+\(B_{1}\)&\(B_{0} + B_{1} = B_{2}\)&&\tabularnewline[0pt]
+\(B_{2}\)&\(B_{1} + B_{2}\)&\(B_{0} + 2B_{1} + B_{2} = B_{3}\)&\tabularnewline[0pt]
+\(B_{3}\)&\(B_{2} + B_{3}\)&\(B_{1} + B_{2} + B_{2} + B_{3}\)&\(B_{0} + 3B_{1} + 3B_{2} + B_{3} = B_{4}\)
+\end{tabular}
+}}}
+\ifdefined\phAtabular\else\newlength{\phAtabular}\fi%
+\setlength{\phAtabular}{\ht\panelboxAtabular+\dp\panelboxAtabular}
+\settototalheight{\phAtabular}{\usebox{\panelboxAtabular}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phAtabular}}
+\leavevmode%
+% begin: side-by-side as tabular
+% \tabcolsep change local to group
+\setlength{\tabcolsep}{0\linewidth}
+% @{} suppress \tabcolsep at extremes, so margins behave as intended
+\par\medskip\noindent
+\hspace*{0.15\linewidth}%
+\begin{tabular}{@{}*{1}{c}@{}}
+\begin{minipage}[c][\panelmax][t]{0.7\linewidth}\usebox{\panelboxAtabular}\end{minipage}\end{tabular}\\
+% end: side-by-side as tabular
+}% end: group for a single side-by-side
+\par
+\hypertarget{p-160}{}%
+This pattern suggests the \({(n + 1)}^{\text{th}}\) Bell Number can be represented recursively by \(B_{n + 1} = \binom{n}{0} B_{0} + \binom{n}{1} B_{1} + \binom{n}{2}B_{2} + \ldots + \binom{n}{n} B_{n}\). The coefficients of this equation are the entries of the nth row of Pascal's triangle. You are asked to prove this recursion in the exercises%
+\par
+\hypertarget{p-161}{}%
+The Bell numbers are related to the Stirling numbers and can be defined as the sum of the Stirling numbers of the second kind. That is, \(B_{n} = S( n,1 ) + S( n,2 ) + \cdots + S(n,n)\), where \(S(n,k)\) represents the number of ways of grouping \(n\) elements into \(k\) subsets. So \(B_{3} = S( 3,1 ) + S( 3,2 ) + S( 3,3 ) = 1 + 3 + 1 = 5\). Since the Bell numbers count the partitions of a set of elements, they are used in prime-number theory to enumerate the number of ways to factor a number with distinct prime factors. For example, 42 has three distinct prime factors: 2, 3, and 7. Since \(B_{3} = 5\) , we know there are five ways of factoring 42. These are \(2 \times 3 \times 7\), \(2 \times 21\), \(3 \times 14\), \(6 \times 7\), and \(42\). So the number \(210\), which has 4 distinct factors, 2, 3, 5, and 7, can be factored in \(B_{4} = 15\) ways.%
+\par
+\hypertarget{p-162}{}%
+The Bell numbers can be used to model many real-life situations. For example, the number of different ways two people can sleep in unlabeled twin beds is \(B_{2} = 2\) ways: They can sleep in the same bed or in separate beds. The number of ways of serving a dinner consisting of three items, such as a salad, bread, and fish is \(B_{3} = 5\) ways: each could be served on a separate plate, salad and bread could be on one plate and fish on another, salad and fish on one plate and bread on another, or all three items could be on the same plate. This example serves as a model for the five ways three people can occupy three unlabeled beds, the five ways three prisoners can be handcuffed together, the five ways three nations can be form alliances, or any situation of partitioning three distinct elements into non-empty subsets.%
+\par
+\hypertarget{p-163}{}%
+One interesting application of Bell numbers is in counting the number of rhyme schemes possible for a stanza in poetry. There are \(B_{2} = 2\) possibilities for a two-line stanza: the lines can either rhyme or not rhyme. The possible rhyme schemes of a three-line stanza can be described as aaa, aab, aba, abb, and abc: thus there are 5 or \(B_{3}\) possible rhyme schemes. The Japanese used diagrams depicting possible rhyme schemes of a five-line stanza \(B_{5} = 52\) as early as 1000 A.D. in the \emph{Tale of the Genji} by Lady Shikibu Murasaki.%
+\typeout{************************************************}
+\typeout{Exercises 4 Problems for Bell Numbers}
+\typeout{************************************************}
+\section[{Problems for Bell Numbers}]{Problems for Bell Numbers}\label{exercises-4}
+\hypertarget{p-164}{}%
+The Bell number (named after Eric Temple Bell, a Scottish-born American mathematician, who died in 1960) \(B_{n}\) is the number of ways of partitioning an \(n\)-set into subsets. For example, \(B_{3} = 5\); the 5  ways of partitioning the elements of \(\{1, 2, 3\}\) are%
+\begin{equation*}
+\{1\} \{2\} \{3\},\quad \{1, 2\} \{3\},\quad  \{1, 3\} \{2\}, \quad \{2, 3\} \{1\}, \quad \{1, 2, 3\}
+\end{equation*}
+%
+\begin{exerciselist}
+\item[1.]\hypertarget{exercise-58}{}\hypertarget{p-165}{}%
+Compute \(B_{1}\), \(B_{2}\), and \(B_{4}\) by listing all the relevant partitions.%
+\par\smallskip
+\item[2.]\hypertarget{ex-bell-as-stirlings}{}\hypertarget{p-166}{}%
+Explain why \(B_{n} = S\left( n,1 \right) + S\left( n,2 \right) + \cdots + S(n,n)\).%
+\par\smallskip
+\item[3.]\hypertarget{exercise-60}{}\hypertarget{p-167}{}%
+Compute \(B_{5}\), \(B_{6}\), \(B_{7}\), and \(B_{8}\) using a table of Stirling numbers \(S(n,k)\) and the formula in \hyperlink{ex-bell-as-stirlings}{Problem~4.1.2}.%
+\par\smallskip
+\item[4.]\hypertarget{ex-bell-recurrence}{}\hypertarget{p-168}{}%
+Prove that \(B_{n} =  \binom{n - 1}{0} B_{0} + \binom{n - 1}{1} B_{1} + \binom{n - 1}{2} B_{2} + \cdots + \binom{n - 1}{n - 1} B_{n - 1}\).  Here we let \(B_0 = 1\).%
+\par\smallskip
+\par\smallskip%
+\noindent\textbf{Hint.}\hypertarget{hint-3}{}\quad%
+\hypertarget{p-169}{}%
+First try n=5 and partition \(\{ 1,2,3,4,5\}\) by treating 5 as ``special.'' The element 5 can be a singleton, in a doubleton, or etc.%
+\item[5.]\hypertarget{ex-stirling-recurrence}{}\hypertarget{p-170}{}%
+Prove that \(S_{n}(n + 1, r) = \binom{n}{0} S(0, r - 1) + \binom{n}{1} S(1, r - 1) + \binom{n}{2} S(2, r - 1) + \cdots + \binom{n}{n} S(n, r - 1)\)%
+\par\smallskip
+\item[6.]\hypertarget{exercise-63}{}\hypertarget{p-171}{}%
+Using the results in \hyperlink{ex-bell-as-stirlings}{Problem~4.1.2} and \hyperlink{ex-stirling-recurrence}{Problem~4.1.5}, give another proof of the recurrence in \hyperlink{ex-bell-recurrence}{Problem~4.1.4}.%
+\par\smallskip
+\item[7.]\hypertarget{exercise-64}{}\hypertarget{p-172}{}%
+The set \(\{u_{0}, u_{1}, u_{2}, \ldots \}\) where \(u_{0} = 1\), \(u_{1} = x\), \(u_{2} = x(x - 1)\), \(u_{3} = x(x - 1)(x - 2)\), etc., is a basis for the vector space \(V\) of all polynomials with real coefficients. Let \(P(x) = c_{0}u_{0} + c_{1}u_{1} + c_{2}u_{2} + \cdots\) be any element of \(V\), and define the functional \(L\) as follows: \(L\lbrack P(x)\rbrack = c_{0} + c_{1} + \cdots\).%
+\par
+\hypertarget{p-173}{}%
+\leavevmode%
+\begin{enumerate}[label=(\alph*)]
+\item\hypertarget{li-33}{}\hypertarget{p-174}{}%
+Prove that \(L\left\lbrack P\left( x \right) + Q\left( x \right) \right\rbrack = L\left\lbrack P\left( x \right) \right\rbrack + L\left\lbrack Q\left( x \right) \right\rbrack.\)%
+\item\hypertarget{li-34}{}\hypertarget{p-175}{}%
+Prove that \(L\left\lbrack \text{rP}\left( x \right) \right\rbrack = rL\lbrack P\left( x \right)\rbrack\) for \(r \in \R\) (the Reals).%
+\item\hypertarget{li-35}{}\hypertarget{p-176}{}%
+Prove that \(B_{n} = L\lbrack x^{n}\rbrack\) .%
+\item\hypertarget{li-36}{}\hypertarget{p-177}{}%
+Prove that \(L\left\lbrack x^{n + 1} \right\rbrack = L\lbrack\left( x + 1 \right)^{n}\rbrack\) .%
+\item\hypertarget{li-37}{}\hypertarget{p-178}{}%
+Derive the recursion in \hyperlink{ex-bell-recurrence}{Problem~4.1.4} using the previous part.%
+\end{enumerate}
+%
+\par\smallskip
+\end{exerciselist}
 %
 \backmatter
 %
@@ -1385,7 +1632,7 @@ Why is \(4^n - 4\cdot 3^n + 6\cdot 2^n - 4\) always divisible by 24?%
 \cleardoublepage
 \pagestyle{empty}
 \hypertarget{colophon-2}{}\vspace*{\stretch{1}}
-\centerline{\hypertarget{p-147}{}%
+\centerline{\hypertarget{p-179}{}%
 This book was authored in PreTeXt.%
 }
 \vspace*{\stretch{2}}

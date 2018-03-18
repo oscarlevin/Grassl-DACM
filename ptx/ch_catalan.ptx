@@ -444,7 +444,6 @@ See if you can connect the rhyme schemes to any of the above.
   <caption>
     The Catalan numbers inside Pascal's triangle.
   </caption>
-
     <image>
       <latex-image>
         <![CDATA[\begin{tikzpicture}
@@ -490,15 +489,12 @@ See if you can connect the rhyme schemes to any of the above.
 
 
   <figure xml:id="trivalenttrees">
-    <caption>
-      Trivalent, planted trees with <m>n</m> leaves.
-    </caption>
+    <caption>Trivalent, planted trees with <m>n</m> leaves.</caption>
     <image width="100%" source="../images/tri-trees" />
   </figure>
 
   <figure xml:id="catalanbijections">
-    <caption>
-    </caption>
+    <caption></caption>
     <image width="100%" source="../images/catalan-bijections.png" />
   </figure>
 
