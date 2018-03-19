@@ -1,6 +1,6 @@
 %**************************************%
 %*    Generated from PreTeXt source   *%
-%*    on 2018-03-18T16:47:03-06:00    *%
+%*    on 2018-03-19T12:41:51-06:00    *%
 %*                                    *%
 %*   http://mathbook.pugetsound.edu   *%
 %*                                    *%
@@ -353,7 +353,7 @@
 School of Mathematical Science\\
 University of Northern Colorado
 }
-\date{March 18, 2018}
+\date{March 19, 2018}
 \begin{document}
 \frontmatter
 %% begin: half-title
@@ -378,7 +378,7 @@ University of Northern Colorado
 {\Huge Discrete and Combinatorial Mathematics}\\[3\baselineskip]
 {\Large Richard Grassl}\\[0.5\baselineskip]
 {\Large University of Northern Colorado}\\[3\baselineskip]
-{\Large March 18, 2018}\\}
+{\Large March 19, 2018}\\}
 \clearpage
 %% end:   title page
 %% begin: copyright-page
@@ -1742,6 +1742,346 @@ Generalize and prove your generalization.%
 %
 \par\smallskip
 \end{exerciselist}
+\typeout{************************************************}
+\typeout{Exercises 5 Project 3: Fibonacci}
+\typeout{************************************************}
+\section[{Project 3: Fibonacci}]{Project 3: Fibonacci}\label{exercises-7}
+\begin{exerciselist}
+\item[1.]\hypertarget{exercise-82}{}\hypertarget{p-207}{}%
+Briefly address history.%
+\par\smallskip
+\item[2.]\hypertarget{exercise-83}{}\hypertarget{p-208}{}%
+Using a variety of proof methods (geometric, induction, matrices, recursion, telescoping sum) prove identities such as: \leavevmode%
+\begin{enumerate}[label=(\alph*)]
+\item\hypertarget{li-54}{}\hypertarget{p-209}{}%
+\(F_{1} + F_{2} + \ldots + F_{n} = F_{n + 2} - 1\)%
+\item\hypertarget{li-55}{}\hypertarget{p-210}{}%
+\(F_{1}^{2} + F_{2}^{2} + \ldots + F_{n}^{2} = F_{n}F_{n + 1}\)%
+\item\hypertarget{li-56}{}\hypertarget{p-211}{}%
+\(F_{n + 1}^{2} - F_{n}F_{n + 2} = \left( - 1 \right)^{n}\)%
+\item\hypertarget{li-57}{}\hypertarget{p-212}{}%
+\(F_{n + 2} = \binom{n + 1}{0} + \binom{n}{1} + \binom{n - 1}{2} + \cdots\)%
+\end{enumerate}
+%
+\par\smallskip
+\item[3.]\hypertarget{exercise-84}{}\hypertarget{p-213}{}%
+Prove the ``Binet Formula,'' \(F_{n} = \frac{\alpha^{n} - \beta^{n}}{\alpha - \beta}\) , where \(\alpha,\beta\) satisfy \(x^{2} - x - 1 = 0\) . \leavevmode%
+\begin{enumerate}[label=(\alph*)]
+\item\hypertarget{li-58}{}\hypertarget{p-214}{}%
+By induction.%
+\item\hypertarget{li-59}{}\hypertarget{p-215}{}%
+Using generating series.%
+\end{enumerate}
+%
+\par\smallskip
+\item[4.]\hypertarget{exercise-85}{}\hypertarget{p-216}{}%
+Use the Binet Formula to prove,%
+\begin{equation*}
+\binom{n}{0}F_{0} + \binom{n}{1} F_{1} + \ldots + \binom{n}{n}F_{0} = F_{2n}.
+\end{equation*}
+%
+\par\smallskip
+\item[5.]\hypertarget{exercise-86}{}\hypertarget{p-217}{}%
+Investigate the geometric interpretations of the \(F_{n}\) .%
+\par\smallskip
+\item[6.]\hypertarget{exercise-87}{}\hypertarget{p-218}{}%
+Prove that,%
+\begin{equation*}
+_{n} = \left\lbrack \binom{n}{1}  + \binom{n}{3} 5 + \binom{n}{5} 5^{2}\ldots \right\rbrack + \left\lbrack \binom{n}{0}  + \binom{n}{2}  + \binom{n}{4}  + \ldots \right\rbrack.
+\end{equation*}
+%
+\par\smallskip
+\item[7.]\hypertarget{exercise-88}{}\hypertarget{p-219}{}%
+Let \(Q =\begin{pmatrix}1 \amp 1 \\ 1 \amp 0\end{pmatrix}\) . Prove: \leavevmode%
+\begin{enumerate}[label=(\alph*)]
+\item\hypertarget{li-60}{}\hypertarget{p-220}{}%
+\(Q^{n} = \begin{pmatrix} F_{n + 1} \amp F_{n}\\ F_{n} \amp F_{n - 1} \end{pmatrix}\) .%
+\item\hypertarget{li-61}{}\hypertarget{p-221}{}%
+\(Q^{2} = Q + I\); use \(Q^{2n}\) to prove the identity in \#4.%
+\item\hypertarget{li-62}{}\hypertarget{p-222}{}%
+Use \(Q^{2n + 1} = Q^{n}Q^{n + 1}\) to show \(F_{2n + 1} = F_{n + 1}^{2} - F_{n}^{2}\) and other identities.%
+\end{enumerate}
+%
+\par\smallskip
+\item[8.]\hypertarget{exercise-89}{}\hypertarget{p-223}{}%
+Show that if \(x^{2} = x + 1\) then \(x^{n} = F_{n}x + F_{n - 1}\) for \(n \geq 2\) . Use this result to prove the Binet Formula, namely that \(F_{n} = \frac{\alpha^{n} - \beta^{n}}{\alpha - \beta}\) .%
+\par\smallskip
+\item[9.]\hypertarget{exercise-90}{}\hypertarget{p-224}{}%
+Investigate Lucas, Tribonacci, Tetranacci numbers.%
+\par\smallskip
+\end{exerciselist}
+\bigbreak
+\hypertarget{p-225}{}%
+References: The Fibonacci Quarterly; The Golden Section by Garth E. Runion; The Divine Proportion by H.E. Huntley%
+\typeout{************************************************}
+\typeout{Exercises 5 Project 4: Generalized Pascal Triangles}
+\typeout{************************************************}
+\section[{Project 4: Generalized Pascal Triangles}]{Project 4: Generalized Pascal Triangles}\label{exercises-8}
+\begin{exerciselist}
+\item[1.]\hypertarget{exercise-91}{}\hypertarget{p-226}{}%
+Expand \({\left( 1 + x + x^{2} \right)}^{2}\), \(\left( 1 + x + x^{2} \right)^{3}\), and \(\left( 1 + x + x^{2} \right)^{4}\).%
+\par\smallskip
+\item[2.]\hypertarget{exercise-92}{}\hypertarget{p-227}{}%
+Organize the coefficients as in the following triangle:%
+% group protects changes to lengths, releases boxes (?)
+{% begin: group for a single side-by-side
+% set panel max height to practical minimum, created in preamble
+\setlength{\panelmax}{0pt}
+\ifdefined\panelboxAtabular\else\newsavebox{\panelboxAtabular}\fi%
+\savebox{\panelboxAtabular}{%
+\raisebox{\depth}{\parbox{0.8\linewidth}{\centering\begin{tabular}{lllllllll}
+&&&&1&&&&\tabularnewline[0pt]
+&&&1&1&1&&&\tabularnewline[0pt]
+&&1&2&3&2&1&&\tabularnewline[0pt]
+&1&3&6&7&6&3&1&\tabularnewline[0pt]
+1&4&10&16&19&16&10&4&1
+\end{tabular}
+}}}
+\ifdefined\phAtabular\else\newlength{\phAtabular}\fi%
+\setlength{\phAtabular}{\ht\panelboxAtabular+\dp\panelboxAtabular}
+\settototalheight{\phAtabular}{\usebox{\panelboxAtabular}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phAtabular}}
+\leavevmode%
+% begin: side-by-side as tabular
+% \tabcolsep change local to group
+\setlength{\tabcolsep}{0\linewidth}
+% @{} suppress \tabcolsep at extremes, so margins behave as intended
+\par\medskip\noindent
+\hspace*{0.1\linewidth}%
+\begin{tabular}{@{}*{1}{c}@{}}
+\begin{minipage}[c][\panelmax][t]{0.8\linewidth}\usebox{\panelboxAtabular}\end{minipage}\end{tabular}\\
+% end: side-by-side as tabular
+}% end: group for a single side-by-side
+\par\smallskip
+\item[3.]\hypertarget{exercise-93}{}\hypertarget{p-228}{}%
+Investigate the properties of this triangle: \leavevmode%
+\begin{enumerate}[label=(\alph*)]
+\item\hypertarget{li-63}{}\hypertarget{p-229}{}%
+Produce the next row.%
+\item\hypertarget{li-64}{}\hypertarget{p-230}{}%
+Give a recursion that produces elements in this triangle.%
+\item\hypertarget{li-65}{}\hypertarget{p-231}{}%
+What are the row sums? Prove it!%
+\item\hypertarget{li-66}{}\hypertarget{p-232}{}%
+What is the sum \(1^{2} + 2^{2} + 3^{2} + 2^{2} + 1^{2}\) ? Generalize and prove.%
+\item\hypertarget{li-67}{}\hypertarget{p-233}{}%
+Is there a hockey stick theorem?%
+\end{enumerate}
+%
+\par\smallskip
+\item[4.]\hypertarget{exercise-94}{}\hypertarget{p-234}{}%
+Investigate 3-dimensional versions of \(\left( 1 + x + x^{2} \right)^{n}\) and \(\left( x + y + z \right)^{n}.\)%
+\par\smallskip
+\item[5.]\hypertarget{exercise-95}{}\hypertarget{p-235}{}%
+Investigate \(\left( 1 + x + x^{2} + x^{3} \right)^{n}\) .%
+\par\smallskip
+\item[6.]\hypertarget{exercise-96}{}\hypertarget{p-236}{}%
+Investigate \(\left( 1 + x + x^{2} + \ldots + x^{k} \right)^{n}\) .%
+\par\smallskip
+\item[7.]\hypertarget{exercise-97}{}\hypertarget{p-237}{}%
+Where do the ``Fibonacci'' numbers get involved in the Pascal triangle?%
+\par\smallskip
+\item[8.]\hypertarget{exercise-98}{}\hypertarget{p-238}{}%
+Where do the ``Tribonacci'' numbers appear in the triangle in \#2?%
+\par\smallskip
+\end{exerciselist}
+\typeout{************************************************}
+\typeout{Exercises 5 Project 5: A Pascal-like Triangle of Eulerian Numbers}
+\typeout{************************************************}
+\section[{Project 5: A Pascal-like Triangle of Eulerian Numbers}]{Project 5: A Pascal-like Triangle of Eulerian Numbers}\label{exercises-9}
+\begin{exerciselist}
+\item[1.]\hypertarget{exercise-99}{}\hypertarget{p-239}{}%
+Show algebraically and geometrically that \(\binom{n}{2}
++
+\binom{n + 1}{2}
+= n^{2}\) .%
+\par\smallskip
+\item[2.]\hypertarget{exercise-100}{}\hypertarget{p-240}{}%
+Show that \(\binom{n}{3}
++ 4
+\binom{n + 1}{3}
++
+\binom{n + 2}{3}
+= n^{3}\) .%
+\par\smallskip
+\item[3.]\hypertarget{exercise-101}{}\hypertarget{p-241}{}%
+Use \#1 and the hockey stick theorem to find a nice formula for \(1^{2} + 2^{2} + 3^{2} + \ldots + n^{2}\) . Contrast with the version usually seen in calculus.%
+\par\smallskip
+\item[4.]\hypertarget{exercise-102}{}\hypertarget{p-242}{}%
+Use \#2 to find a nice formula for \(1^{3} + 2^{3} + 3^{3} + \ldots + n^{3}\) .%
+\par\smallskip
+\item[5.]\hypertarget{exercise-103}{}\hypertarget{p-243}{}%
+Express \(n^{4}\) as in problems \#1 and \#2.%
+\par\smallskip
+\item[6.]\hypertarget{exercise-104}{}\hypertarget{p-244}{}%
+Use \#5 to find a nice formula for \(1^{4} + 2^{4} + 3^{4} + \ldots + n^{4}\) .%
+\par\smallskip
+\item[7.]\hypertarget{exercise-105}{}\hypertarget{p-245}{}%
+Here is an alternate way of accomplishing \#6:  Find integers \(a\), \(b\), \(c\), and \(d\) so that%
+\begin{equation*}
+1^{4} + 2^{4} + 3^{4} + \ldots + n^{4} = a\binom{n + 1}{5}  + b\binom{n + 2}{5}  + c\binom{n + 3}{5}  + d\binom{n + 4}{5}
+\end{equation*}
+using \(n=1, 2, 3, 4\). This sometimes referred to as ``Polynomial Fitting.''%
+\par\smallskip
+\item[8.]\hypertarget{exercise-106}{}\hypertarget{p-246}{}%
+Express \(n^{3}\) as in problems \#1 and \#2.%
+\par\smallskip
+\item[9.]\hypertarget{exercise-107}{}\hypertarget{p-247}{}%
+Express \(1^{5} + 2^{5} + 3^{5} + \ldots + n^{5}\) as a sum of multiples of binomial coefficients.%
+\par\smallskip
+\item[10.]\hypertarget{exercise-108}{}\hypertarget{p-248}{}%
+In problem \#1, \#2, \#5, and \#7, \(n^{2},n^{3},n^{4},\) and \(n^{5}\) were expressed as sums of binomial coefficients with integer coefficients. Arrange these expressions in a Pascal-like triangle, concentrating on these integer coefficients. The coefficients are called Eulerian numbers.%
+\par\smallskip
+\item[11.]\hypertarget{exercise-109}{}\hypertarget{p-249}{}%
+Investigate the properties of this triangle. Include a discussion of row sums, how entries are found, and a possible recursion. Use \(\begin{bmatrix}
+n\\
+k
+\end{bmatrix}\) for notation.%
+\par\smallskip
+\end{exerciselist}
+\typeout{************************************************}
+\typeout{Exercises 5 Project 6: The Leibnitz Harmonic Triangle}
+\typeout{************************************************}
+\section[{Project 6: The Leibnitz Harmonic Triangle}]{Project 6: The Leibnitz Harmonic Triangle}\label{exercises-10}
+% group protects changes to lengths, releases boxes (?)
+{% begin: group for a single side-by-side
+% set panel max height to practical minimum, created in preamble
+\setlength{\panelmax}{0pt}
+\ifdefined\panelboxAtabular\else\newsavebox{\panelboxAtabular}\fi%
+\savebox{\panelboxAtabular}{%
+\raisebox{\depth}{\parbox{1\linewidth}{\centering\begin{tabular}{lllllllll}
+&&&&\(\frac{1}{1}\)&&&&\tabularnewline[0pt]
+&&&\(\frac{1}{2}\)&&\(\frac{1}{2}\)&&&\tabularnewline[0pt]
+&&\(\frac{1}{3}\)&&\(\frac{1}{6}\)&&\(\frac{1}{3}\)&&\tabularnewline[0pt]
+&\(\frac{1}{4}\)&&\(\frac{1}{12}\)&&\(\frac{1}{12}\)&&\(\frac{1}{4}\)&\tabularnewline[0pt]
+\(\frac{1}{5}\)&&\(\frac{1}{20}\)&&\(\frac{1}{30}\)&&\(\frac{1}{20}\)&&\(\frac{1}{5}\)
+\end{tabular}
+}}}
+\ifdefined\phAtabular\else\newlength{\phAtabular}\fi%
+\setlength{\phAtabular}{\ht\panelboxAtabular+\dp\panelboxAtabular}
+\settototalheight{\phAtabular}{\usebox{\panelboxAtabular}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phAtabular}}
+\leavevmode%
+% begin: side-by-side as tabular
+% \tabcolsep change local to group
+\setlength{\tabcolsep}{0\linewidth}
+% @{} suppress \tabcolsep at extremes, so margins behave as intended
+\par\medskip\noindent
+\begin{tabular}{@{}*{1}{c}@{}}
+\begin{minipage}[c][\panelmax][t]{1\linewidth}\usebox{\panelboxAtabular}\end{minipage}\end{tabular}\\
+% end: side-by-side as tabular
+}% end: group for a single side-by-side
+\begin{exerciselist}
+\item[1.]\hypertarget{exercise-110}{}\hypertarget{p-250}{}%
+State the rule used to form each entry, and produce the next two rows.%
+\par\smallskip
+\item[2.]\hypertarget{exercise-111}{}\hypertarget{p-251}{}%
+What are the ``initial conditions'' needed to generate the entries?%
+\par\smallskip
+\item[3.]\hypertarget{exercise-112}{}\hypertarget{p-252}{}%
+Use \(\begin{bmatrix} n\\ k \end{bmatrix}\) as the notation for entries and state properties analogous to those found in the Pascal Triangle. Include closed formulas for each entry, row sums (alternating also), hockey stick theorem, hexagon property, sum of squares of row entries, etc. Indicate how partial fractions help in verifying the (infinite) hockey stick theorem.%
+\par\smallskip
+\item[4.]\hypertarget{exercise-113}{}\hypertarget{p-253}{}%
+See if you can find any papers on this topic. Check \emph{Pi Mu Epsilon Journal}, \emph{The Mathematical Gazette}, \emph{Mathematics Magazine}, \emph{Delta-Undergraduate Mathematics Journal}, etc.%
+\par\smallskip
+\end{exerciselist}
+\typeout{************************************************}
+\typeout{Exercises 5 Project 7: The Twelve Days of Christmas (in the Discrete Math Style)}
+\typeout{************************************************}
+\section[{Project 7: The Twelve Days of Christmas (in the Discrete Math Style)}]{Project 7: The Twelve Days of Christmas (in the Discrete Math Style)}\label{exercises-11}
+\hypertarget{p-254}{}%
+According to the song, THE TWELVE DAYS OF CHRISTMAS the ``true love'' received the following number of (not so practical) gifts:%
+% group protects changes to lengths, releases boxes (?)
+{% begin: group for a single side-by-side
+% set panel max height to practical minimum, created in preamble
+\setlength{\panelmax}{0pt}
+\ifdefined\panelboxAtabular\else\newsavebox{\panelboxAtabular}\fi%
+\savebox{\panelboxAtabular}{%
+\raisebox{\depth}{\parbox{0.6\linewidth}{\centering\begin{tabular}{lll}
+Day's Gift&Number received&Total\tabularnewline\hrulemedium
+First&1 X 12&12\tabularnewline[0pt]
+Second&2 X 11&22\tabularnewline[0pt]
+Third&3 X 10&30\tabularnewline[0pt]
+Fourth&4 X 9&36\tabularnewline[0pt]
+Fifth&5 X 8&40\tabularnewline[0pt]
+Sixth&6 X 7&42\tabularnewline[0pt]
+Seventh&7 X 6&42\tabularnewline[0pt]
+Eighth&8 X 5&40\tabularnewline[0pt]
+Ninth&9 X4&36\tabularnewline[0pt]
+Tenth&10 X 3&30\tabularnewline[0pt]
+Eleventh&11 X 2&22\tabularnewline[0pt]
+Twelfth&12 X 1&12\tabularnewline[0pt]
+&&Grand Total = 364
+\end{tabular}
+}}}
+\ifdefined\phAtabular\else\newlength{\phAtabular}\fi%
+\setlength{\phAtabular}{\ht\panelboxAtabular+\dp\panelboxAtabular}
+\settototalheight{\phAtabular}{\usebox{\panelboxAtabular}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phAtabular}}
+\leavevmode%
+% begin: side-by-side as tabular
+% \tabcolsep change local to group
+\setlength{\tabcolsep}{0\linewidth}
+% @{} suppress \tabcolsep at extremes, so margins behave as intended
+\par\medskip\noindent
+\hspace*{0.2\linewidth}%
+\begin{tabular}{@{}*{1}{c}@{}}
+\begin{minipage}[c][\panelmax][t]{0.6\linewidth}\usebox{\panelboxAtabular}\end{minipage}\end{tabular}\\
+% end: side-by-side as tabular
+}% end: group for a single side-by-side
+% group protects changes to lengths, releases boxes (?)
+{% begin: group for a single side-by-side
+% set panel max height to practical minimum, created in preamble
+\setlength{\panelmax}{0pt}
+\ifdefined\panelboxAtabular\else\newsavebox{\panelboxAtabular}\fi%
+\savebox{\panelboxAtabular}{%
+\raisebox{\depth}{\parbox{0.8\linewidth}{\centering\begin{tabular}{lllllllll}
+&&&&1&&&&\tabularnewline[0pt]
+&&&2&&2&&&\tabularnewline[0pt]
+&&3&&4&&3&&\tabularnewline[0pt]
+&4&&6&&6&&4&\tabularnewline[0pt]
+5&&8&&9&&8&&5
+\end{tabular}
+}}}
+\ifdefined\phAtabular\else\newlength{\phAtabular}\fi%
+\setlength{\phAtabular}{\ht\panelboxAtabular+\dp\panelboxAtabular}
+\settototalheight{\phAtabular}{\usebox{\panelboxAtabular}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phAtabular}}
+\leavevmode%
+% begin: side-by-side as tabular
+% \tabcolsep change local to group
+\setlength{\tabcolsep}{0\linewidth}
+% @{} suppress \tabcolsep at extremes, so margins behave as intended
+\par\medskip\noindent
+\hspace*{0.1\linewidth}%
+\begin{tabular}{@{}*{1}{c}@{}}
+\begin{minipage}[c][\panelmax][t]{0.8\linewidth}\usebox{\panelboxAtabular}\end{minipage}\end{tabular}\\
+% end: side-by-side as tabular
+}% end: group for a single side-by-side
+\par
+\hypertarget{p-255}{}%
+The first five rows of a triangle are given above.%
+\begin{exerciselist}
+\item[1.]\hypertarget{exercise-114}{}\hypertarget{p-256}{}%
+Make the next few rows.%
+\par\smallskip
+\item[2.]\hypertarget{exercise-115}{}\hypertarget{p-257}{}%
+Where have you seen this triangle before?%
+\par\smallskip
+\item[3.]\hypertarget{exercise-116}{}\hypertarget{p-258}{}%
+Experiment with factoring each integer in the 6th row. Repeat with other rows.%
+\par\smallskip
+\item[4.]\hypertarget{exercise-117}{}\hypertarget{p-259}{}%
+What are the entries in row 12?%
+\par\smallskip
+\item[5.]\hypertarget{exercise-118}{}\hypertarget{p-260}{}%
+Where does the expression \(1 \cdot n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \cdots + n \cdot 1\) show up in the triangle?%
+\par\smallskip
+\item[6.]\hypertarget{exercise-119}{}\hypertarget{p-261}{}%
+Explain why \(1 \cdot n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \cdots + n \cdot 1 =
+\binom{n + 2}{3}\) .%
+\par\smallskip
+\end{exerciselist}
 %
 \backmatter
 %
@@ -1752,7 +2092,7 @@ Generalize and prove your generalization.%
 \cleardoublepage
 \pagestyle{empty}
 \hypertarget{colophon-2}{}\vspace*{\stretch{1}}
-\centerline{\hypertarget{p-207}{}%
+\centerline{\hypertarget{p-262}{}%
 This book was authored in PreTeXt.%
 }
 \vspace*{\stretch{2}}
