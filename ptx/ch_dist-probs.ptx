@@ -2,12 +2,201 @@
 
 
 <chapter xml:id="ch_temp" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>TEMP</title>
+  <title>
+    Four (or eight) Distribution Problems
+  </title>
+  <p>
+
+    The formulas derived earlier for the number of <em>onto</em> functions <m>f</m> from a domain <m>\{x_{1},x_{2},\ldots,x_{m}\}</m> to a codomain <m>\{ y_{1},y_{2},\ldots,y_{n}\}</m> can be used as a model for the following distribution problem: in how many ways can you place <m>n</m> different objects into <m>k</m> different bins, not allowing empty bins? Some texts use the word distinguishable instead of different. We will also use the word similar to connote the same meaning as indistinguishable.
+  </p>
+
+  <p>
+    The concept of <em>compositions</em> of <m>n</m> into <m>k</m> parts likewise serves as a model for the following distribution problem: in how many ways can you place <m>n</m> similar objects into <m>k</m> different boxes either allowing empty boxes or not? As this second class of problem is a little easier let's analyze it first.
+  </p>
 
 
-  <introduction>
+    <assemblage>
+      <p>
+        The number of ways of placing <m>n</m> similar objects into <m>k</m> different bins not allowing empty bins is <m>\binom{n - 1}{k - 1}</m>. Denote the <m>k</m> different bins by <m>x_{1},x_{2},\ldots,x_{k}</m>. The number of solutions to <m>x_{1} + x_{2} + \ldots + x_{k} = n</m> where each <m>x_{i} \geq 1</m> is the number of such distributions.
+      </p>
+    </assemblage>
 
-  </introduction>
+
+    <assemblage>
+      <p>
+        The number of ways of placing n similar objects into k different bins allowing empty bins is <m>\binom{n + k - 1}{k - 1}</m>.
+        The number of solutions to <m>x_{1} + x_{2} + \ldots + x_{k} = n</m> where each <m>x_{i} \geq 0</m> is the number of such distributions.
+        Notice here that allowing, <m>x_{2}</m>, for example, to be 0 is the same as saying that no objects will be placed in bin 2.
+      </p>
+    </assemblage>
+
+    <p>
+      Now let's turn to the first problem.
+      Using the Principle of Inclusion-Exclusion (PIE) we see that the number of functions from <m>\{1, 2, 3, 4, 5\}</m> <em>onto</em> <m>\{a, b, c\}</m> is <m>3^{5} - 3 \cdot 2^{5} + 3 \cdot 1^5</m> .
+      Similarly, the number of functions from <m>\{1, 2, 3, 4, 5, 6\}</m> <em>onto</em> <m>\{a, b, c, d\}</m> is <m>4^{6} - 4 \cdot 3^{6} + 6 \cdot 2^{6} - 4 \cdot 1^{6} = \binom{4}{4} 4^{6} - \binom{4}{3} 3^{6} + \binom{4}{2} 2^{6} - \binom{4}{1} 1^{6}</m>.
+      PIE can be used to show that, in general, the number of functions from <m>\{ x_{1},x_{2},\ldots,x_{n}\}</m> <em>onto</em> <m>\{ y_{1},y_{2},\ldots,y_{k}\}</m> is
+      <me>B(n,k) = k^{n} - \binom{k}{1} \left( k - 1 \right)^{n} + \binom{k}{2} \left( k - 2 \right)^{n} - \binom{k}{3} \left( k - 3 \right)^{n} + \ldots + \left( - 1 \right)^{k - 1}\binom{k}{k - 1} 1^{n}.
+    </me>
+  </p>
+
+  <p>
+    Each onto functions characterizes a distribution problem as follows: the following onto function
+  </p>
+
+  <sidebyside width="50%">
+    <tabular>
+      <row bottom="medium">
+        <cell right="medium">
+          <m>x</m>
+        </cell>
+        <cell> 1 </cell>
+        <cell> 2</cell>
+        <cell>3</cell>
+        <cell>4</cell>
+        <cell>5</cell>
+      </row>
+      <row>
+        <cell right="medium">
+          <m>f(x)</m>
+        </cell>
+        <cell><m>a</m></cell>
+        <cell><m>a</m></cell>
+        <cell><m>b</m></cell>
+        <cell><m>c</m></cell>
+        <cell><m>b</m></cell>
+      </row>
+    </tabular>
+  </sidebyside>
+
+  <p>
+    can be considered as a model for distributing the two different objects 1 and 2 into a bin <m>a</m> , the two different objects 3 and 5 into bin <m>b</m> and 4 into bin <m>c</m>.
+    Since each of the complete inverse images <m>f^{- 1}\left( a \right)</m>, <m>f^{-1}(b)</m>, and <m>f^{-1}(c)</m> is non-empty (the function being onto guarantees this) this model counts distributions that do not allow empty bins. This establishes the following distribution result.
+  </p>
+
+  <assemblage>
+    <p>
+  	   The number of ways of placing <m>n</m> different objects into <m>k</m> different bins with no empty bins is <m>B(n,k)</m> .
+    </p>
+  </assemblage>
+
+  <assemblage>
+    <p>
+      The number of ways of placing <m>n</m> different objects into <m>k</m> different bins is <m>k^{n}</m>.
+  </p>
+</assemblage>
+
+  <p>
+    Without the restriction of <q>no empty bins</q> this is just a matter of saying that there are <m>k</m> places for disposing of each of the <m>n</m> objects.
+    This is also the number of functions from <m>\{x_{1},x_{2},\ldots,x_{n}\}</m> <em>to</em> <m>\{y_{1},y_{2},\ldots,y_{k}\}</m>, ignoring the restriction that
+    they must be onto.
+  </p>
+
+  <p>
+    Finally, we look at what happens if the <m>n</m> objects are different but the <m>k</m> bins are now similar, still with no empty bins allowed. Since there are <m>k!</m> ways to label the <m>k</m> bins, there are <m>k!</m> ways to convert similar bins into different bins.
+    The number of distributions of this type is therefore <m>\frac{1}{k!}B(n,k)</m>. For convenience of notation, let's call this last expression: <m>S\left(n,k \right)</m>.
+  </p>
+
+
+  <assemblage>
+    <p>
+      The number of ways of placing <m>n</m> different objects into <m>k</m> similar bins with no empty bins is <m>S(n,k)</m>.
+    </p>
+  </assemblage>
+
+  <p>
+  There is one additional distribution problem that we can analyze using the machinery developed thus far. In how many ways can you place n different objects into k similar bins <em>allowing</em> empty bins. Using the sum rule we can look at the following disjoint cases:
+</p>
+
+<sidebyside width="50%">
+  <tabular>
+    <row>
+      <cell>
+        No box is empty
+      </cell>
+      <cell>
+        <m>S(n,k)</m>
+      </cell>
+    </row>
+    <row>
+      <cell> Exactly one box is empty</cell>
+      <cell> <m>S(n,k - 1)</m></cell>
+    </row>
+    <row>
+      <cell>
+        Exactly two bins are empty
+      </cell>
+      <cell>
+        <m>S(n,k - 2)</m>
+      </cell>
+    </row>
+    <row>
+      <cell> <m>\vdots</m></cell><cell/>
+    </row>
+    <row>
+      <cell>
+        All but one bin are empty
+      </cell>
+      <cell>
+        <m>S(n,1)</m>
+      </cell>
+    </row>
+  </tabular>
+</sidebyside>
+
+<assemblage>
+  <p>
+    The number of ways of distributing <m>n</m> different objects into <m>k</m> or fewer bins is <m>S\left(n,1 \right) + S\left(n,2 \right) + \cdots + S(n,k)</m> .
+  </p>
+</assemblage>
+
+  <p>
+    Finally, the theory of linear or integer <em>partitions</em> solves the final distribution problem: In how many ways can you distribute <m>n</m> similar objects into <m>k</m> similar bins?
+    Recall that a <em>partition</em> <m>(a_{1},a_{2},\ldots,a_{k})</m> of an integer <m>n</m> is an array of integers <m>a_{i}</m> such that <m>n = a_{1} + a_{2} + \ldots + a_{n}</m> and <m>a_{1} \geq a_{2} \geq a_{3} \geq \cdots \geq a_{k} \gt 0</m>.
+    For example, the 5 partitions of <m>n=4</m> are 4, 31, 22, 211, 1111. Here, the distribution 31 is the same as 13 since the bins are similar.
+  </p>
+
+  <!-- Need to include some sort of table:
+
+  DISTRIBUTIONS OF OBJECTS INTO BINS
+  \begin{longtable}[]{@{}lllll@{}}
+  \toprule
+  n objects & & & k bins &\tabularnewline
+  \midrule
+  \endhead
+  & & & Allow empty & <m>P_{k}(n)</m> \tabularnewline
+  S & (Partitions of Integers) & S & &\tabularnewline
+  & & & Do not & <m>P_{k}(n - k)</m> \tabularnewline
+  & & & Allow empty & <m>\binom{n + k - 1}{k - 1}</m> \tabularnewline
+  S & (Compositions) & D & &\tabularnewline
+  & & & Do not & <m>\binom{n - 1}{k - 1}</m> \tabularnewline
+  & & & Allow empty & <m>S\left( n,1 \right) + S\left( n,2 \right) + \ldots + S(n,k)</m> \tabularnewline
+  D & (Set Partitions) & S & &\tabularnewline
+  & & & Do not & <m>\frac{1}{k!}B(n,k)</m> \tabularnewline
+  & & & Allow empty & <m>k^{n}</m> \tabularnewline
+  D & (Surjections) & D & &\tabularnewline
+  & & & Do not & <m>B(n,k)</m> \tabularnewline
+  \bottomrule
+
+  \end{longtable}
+
+  <section>
+    <title>CONVENIENT NOTATION</title>
+    <p>
+      S = Similar
+
+      D = Different <m>B\left( n,k \right) = k^{n} -
+      \binom{k}{1}
+      \left( k - 1 \right)^{n} +
+      \binom{k}{2}
+      \left( k - 2 \right)^{n} + \ldots + \left( - 1 \right)^{k - 1}
+      \binom{k}{k - 1}
+      1^{n}</m>
+      <me>
+        \left( n,k \right) = \frac{1}{k!}B\left( n,k \right)
+      </me>
+    </p>
+  </section> -->
+
 
   <!-- <xi:include href="sec_something.ptx" /> -->
 

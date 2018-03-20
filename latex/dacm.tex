@@ -1,6 +1,6 @@
 %**************************************%
 %*    Generated from PreTeXt source   *%
-%*    on 2018-03-19T12:41:51-06:00    *%
+%*    on 2018-03-20T10:20:45-06:00    *%
 %*                                    *%
 %*   http://mathbook.pugetsound.edu   *%
 %*                                    *%
@@ -353,7 +353,7 @@
 School of Mathematical Science\\
 University of Northern Colorado
 }
-\date{March 19, 2018}
+\date{March 20, 2018}
 \begin{document}
 \frontmatter
 %% begin: half-title
@@ -378,7 +378,7 @@ University of Northern Colorado
 {\Huge Discrete and Combinatorial Mathematics}\\[3\baselineskip]
 {\Large Richard Grassl}\\[0.5\baselineskip]
 {\Large University of Northern Colorado}\\[3\baselineskip]
-{\Large March 19, 2018}\\}
+{\Large March 20, 2018}\\}
 \clearpage
 %% end:   title page
 %% begin: copyright-page
@@ -1990,7 +1990,7 @@ See if you can find any papers on this topic. Check \emph{Pi Mu Epsilon Journal}
 \typeout{************************************************}
 \section[{Project 7: The Twelve Days of Christmas (in the Discrete Math Style)}]{Project 7: The Twelve Days of Christmas (in the Discrete Math Style)}\label{exercises-11}
 \hypertarget{p-254}{}%
-According to the song, THE TWELVE DAYS OF CHRISTMAS the ``true love'' received the following number of (not so practical) gifts:%
+According to the song, \emph{The Twelve Days Of Christmas} the ``true love'' received the following number of (not so practical) gifts:%
 % group protects changes to lengths, releases boxes (?)
 {% begin: group for a single side-by-side
 % set panel max height to practical minimum, created in preamble
@@ -1999,18 +1999,18 @@ According to the song, THE TWELVE DAYS OF CHRISTMAS the ``true love'' received t
 \savebox{\panelboxAtabular}{%
 \raisebox{\depth}{\parbox{0.6\linewidth}{\centering\begin{tabular}{lll}
 Day's Gift&Number received&Total\tabularnewline\hrulemedium
-First&1 X 12&12\tabularnewline[0pt]
-Second&2 X 11&22\tabularnewline[0pt]
-Third&3 X 10&30\tabularnewline[0pt]
-Fourth&4 X 9&36\tabularnewline[0pt]
-Fifth&5 X 8&40\tabularnewline[0pt]
-Sixth&6 X 7&42\tabularnewline[0pt]
-Seventh&7 X 6&42\tabularnewline[0pt]
-Eighth&8 X 5&40\tabularnewline[0pt]
-Ninth&9 X4&36\tabularnewline[0pt]
-Tenth&10 X 3&30\tabularnewline[0pt]
-Eleventh&11 X 2&22\tabularnewline[0pt]
-Twelfth&12 X 1&12\tabularnewline[0pt]
+First&\(1 \times 12\)&12\tabularnewline[0pt]
+Second&\(2 \times 11\)&22\tabularnewline[0pt]
+Third&\(3 \times 10\)&30\tabularnewline[0pt]
+Fourth&\(4 \times 9\)&36\tabularnewline[0pt]
+Fifth&\(5 \times 8\)&40\tabularnewline[0pt]
+Sixth&\(6 \times 7\)&42\tabularnewline[0pt]
+Seventh&\(7 \times 6\)&42\tabularnewline[0pt]
+Eighth&\(8 \times 5\)&40\tabularnewline[0pt]
+Ninth&\(9 \times 4\)&36\tabularnewline[0pt]
+Tenth&\(10 \times 3\)&30\tabularnewline[0pt]
+Eleventh&\(11 \times 2\)&22\tabularnewline[0pt]
+Twelfth&\(12 \times 1\)&12\tabularnewline[0pt]
 &&Grand Total = 364
 \end{tabular}
 }}}
@@ -2082,6 +2082,115 @@ Explain why \(1 \cdot n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \cdots
 \binom{n + 2}{3}\) .%
 \par\smallskip
 \end{exerciselist}
+\typeout{************************************************}
+\typeout{Chapter 6 Four (or eight) Distribution Problems}
+\typeout{************************************************}
+\chapter[{Four (or eight) Distribution Problems}]{Four (or eight) Distribution Problems}\label{ch_temp}
+\hypertarget{p-262}{}%
+The formulas derived earlier for the number of \emph{onto} functions \(f\) from a domain \(\{x_{1},x_{2},\ldots,x_{m}\}\) to a codomain \(\{ y_{1},y_{2},\ldots,y_{n}\}\) can be used as a model for the following distribution problem: in how many ways can you place \(n\) different objects into \(k\) different bins, not allowing empty bins? Some texts use the word distinguishable instead of different. We will also use the word similar to connote the same meaning as indistinguishable.%
+\par
+\hypertarget{p-263}{}%
+The concept of \emph{compositions} of \(n\) into \(k\) parts likewise serves as a model for the following distribution problem: in how many ways can you place \(n\) similar objects into \(k\) different boxes either allowing empty boxes or not? As this second class of problem is a little easier let's analyze it first.%
+\begin{assemblage}\label{assemblage-2}
+\hypertarget{p-264}{}%
+The number of ways of placing \(n\) similar objects into \(k\) different bins not allowing empty bins is \(\binom{n - 1}{k - 1}\). Denote the \(k\) different bins by \(x_{1},x_{2},\ldots,x_{k}\). The number of solutions to \(x_{1} + x_{2} + \ldots + x_{k} = n\) where each \(x_{i} \geq 1\) is the number of such distributions.%
+\end{assemblage}
+\begin{assemblage}\label{assemblage-3}
+\hypertarget{p-265}{}%
+The number of ways of placing n similar objects into k different bins allowing empty bins is \(\binom{n + k - 1}{k - 1}\). The number of solutions to \(x_{1} + x_{2} + \ldots + x_{k} = n\) where each \(x_{i} \geq 0\) is the number of such distributions. Notice here that allowing, \(x_{2}\), for example, to be 0 is the same as saying that no objects will be placed in bin 2.%
+\end{assemblage}
+\hypertarget{p-266}{}%
+Now let's turn to the first problem. Using the Principle of Inclusion-Exclusion (PIE) we see that the number of functions from \(\{1, 2, 3, 4, 5\}\) \emph{onto} \(\{a, b, c\}\) is \(3^{5} - 3 \cdot 2^{5} + 3 \cdot 1^5\) . Similarly, the number of functions from \(\{1, 2, 3, 4, 5, 6\}\) \emph{onto} \(\{a, b, c, d\}\) is \(4^{6} - 4 \cdot 3^{6} + 6 \cdot 2^{6} - 4 \cdot 1^{6} = \binom{4}{4} 4^{6} - \binom{4}{3} 3^{6} + \binom{4}{2} 2^{6} - \binom{4}{1} 1^{6}\). PIE can be used to show that, in general, the number of functions from \(\{ x_{1},x_{2},\ldots,x_{n}\}\) \emph{onto} \(\{ y_{1},y_{2},\ldots,y_{k}\}\) is%
+\begin{equation*}
+B(n,k) = k^{n} - \binom{k}{1} \left( k - 1 \right)^{n} + \binom{k}{2} \left( k - 2 \right)^{n} - \binom{k}{3} \left( k - 3 \right)^{n} + \ldots + \left( - 1 \right)^{k - 1}\binom{k}{k - 1} 1^{n}.
+\end{equation*}
+%
+\par
+\hypertarget{p-267}{}%
+Each onto functions characterizes a distribution problem as follows: the following onto function%
+% group protects changes to lengths, releases boxes (?)
+{% begin: group for a single side-by-side
+% set panel max height to practical minimum, created in preamble
+\setlength{\panelmax}{0pt}
+\ifdefined\panelboxAtabular\else\newsavebox{\panelboxAtabular}\fi%
+\savebox{\panelboxAtabular}{%
+\raisebox{\depth}{\parbox{0.5\linewidth}{\centering\begin{tabular}{llllll}
+\multicolumn{1}{lB}{\(x\)}&1&2&3&4&5\tabularnewline\hrulemedium
+\multicolumn{1}{lB}{\(f(x)\)}&\(a\)&\(a\)&\(b\)&\(c\)&\(b\)
+\end{tabular}
+}}}
+\ifdefined\phAtabular\else\newlength{\phAtabular}\fi%
+\setlength{\phAtabular}{\ht\panelboxAtabular+\dp\panelboxAtabular}
+\settototalheight{\phAtabular}{\usebox{\panelboxAtabular}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phAtabular}}
+\leavevmode%
+% begin: side-by-side as tabular
+% \tabcolsep change local to group
+\setlength{\tabcolsep}{0\linewidth}
+% @{} suppress \tabcolsep at extremes, so margins behave as intended
+\par\medskip\noindent
+\hspace*{0.25\linewidth}%
+\begin{tabular}{@{}*{1}{c}@{}}
+\begin{minipage}[c][\panelmax][t]{0.5\linewidth}\usebox{\panelboxAtabular}\end{minipage}\end{tabular}\\
+% end: side-by-side as tabular
+}% end: group for a single side-by-side
+\par
+\hypertarget{p-268}{}%
+can be considered as a model for distributing the two different objects 1 and 2 into a bin \(a\) , the two different objects 3 and 5 into bin \(b\) and 4 into bin \(c\). Since each of the complete inverse images \(f^{- 1}\left( a \right)\), \(f^{-1}(b)\), and \(f^{-1}(c)\) is non-empty (the function being onto guarantees this) this model counts distributions that do not allow empty bins. This establishes the following distribution result.%
+\begin{assemblage}\label{assemblage-4}
+\hypertarget{p-269}{}%
+The number of ways of placing \(n\) different objects into \(k\) different bins with no empty bins is \(B(n,k)\) .%
+\end{assemblage}
+\begin{assemblage}\label{assemblage-5}
+\hypertarget{p-270}{}%
+The number of ways of placing \(n\) different objects into \(k\) different bins is \(k^{n}\).%
+\end{assemblage}
+\hypertarget{p-271}{}%
+Without the restriction of ``no empty bins'' this is just a matter of saying that there are \(k\) places for disposing of each of the \(n\) objects. This is also the number of functions from \(\{x_{1},x_{2},\ldots,x_{n}\}\) \emph{to} \(\{y_{1},y_{2},\ldots,y_{k}\}\), ignoring the restriction that they must be onto.%
+\par
+\hypertarget{p-272}{}%
+Finally, we look at what happens if the \(n\) objects are different but the \(k\) bins are now similar, still with no empty bins allowed. Since there are \(k!\) ways to label the \(k\) bins, there are \(k!\) ways to convert similar bins into different bins. The number of distributions of this type is therefore \(\frac{1}{k!}B(n,k)\). For convenience of notation, let's call this last expression: \(S\left(n,k \right)\).%
+\begin{assemblage}\label{assemblage-6}
+\hypertarget{p-273}{}%
+The number of ways of placing \(n\) different objects into \(k\) similar bins with no empty bins is \(S(n,k)\).%
+\end{assemblage}
+\hypertarget{p-274}{}%
+There is one additional distribution problem that we can analyze using the machinery developed thus far. In how many ways can you place n different objects into k similar bins \emph{allowing} empty bins. Using the sum rule we can look at the following disjoint cases:%
+% group protects changes to lengths, releases boxes (?)
+{% begin: group for a single side-by-side
+% set panel max height to practical minimum, created in preamble
+\setlength{\panelmax}{0pt}
+\ifdefined\panelboxAtabular\else\newsavebox{\panelboxAtabular}\fi%
+\savebox{\panelboxAtabular}{%
+\raisebox{\depth}{\parbox{0.5\linewidth}{\centering\begin{tabular}{ll}
+No box is empty&\(S(n,k)\)\tabularnewline[0pt]
+Exactly one box is empty&\(S(n,k - 1)\)\tabularnewline[0pt]
+Exactly two bins are empty&\(S(n,k - 2)\)\tabularnewline[0pt]
+\(\vdots\)&\tabularnewline[0pt]
+All but one bin are empty&\(S(n,1)\)
+\end{tabular}
+}}}
+\ifdefined\phAtabular\else\newlength{\phAtabular}\fi%
+\setlength{\phAtabular}{\ht\panelboxAtabular+\dp\panelboxAtabular}
+\settototalheight{\phAtabular}{\usebox{\panelboxAtabular}}
+\setlength{\panelmax}{\maxof{\panelmax}{\phAtabular}}
+\leavevmode%
+% begin: side-by-side as tabular
+% \tabcolsep change local to group
+\setlength{\tabcolsep}{0\linewidth}
+% @{} suppress \tabcolsep at extremes, so margins behave as intended
+\par\medskip\noindent
+\hspace*{0.25\linewidth}%
+\begin{tabular}{@{}*{1}{c}@{}}
+\begin{minipage}[c][\panelmax][t]{0.5\linewidth}\usebox{\panelboxAtabular}\end{minipage}\end{tabular}\\
+% end: side-by-side as tabular
+}% end: group for a single side-by-side
+\begin{assemblage}\label{assemblage-7}
+\hypertarget{p-275}{}%
+The number of ways of distributing \(n\) different objects into \(k\) or fewer bins is \(S\left(n,1 \right) + S\left(n,2 \right) + \cdots + S(n,k)\) .%
+\end{assemblage}
+\hypertarget{p-276}{}%
+Finally, the theory of linear or integer \emph{partitions} solves the final distribution problem: In how many ways can you distribute \(n\) similar objects into \(k\) similar bins? Recall that a \emph{partition} \((a_{1},a_{2},\ldots,a_{k})\) of an integer \(n\) is an array of integers \(a_{i}\) such that \(n = a_{1} + a_{2} + \ldots + a_{n}\) and \(a_{1} \geq a_{2} \geq a_{3} \geq \cdots \geq a_{k} \gt 0\). For example, the 5 partitions of \(n=4\) are 4, 31, 22, 211, 1111. Here, the distribution 31 is the same as 13 since the bins are similar.%
 %
 \backmatter
 %
@@ -2092,7 +2201,7 @@ Explain why \(1 \cdot n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \cdots
 \cleardoublepage
 \pagestyle{empty}
 \hypertarget{colophon-2}{}\vspace*{\stretch{1}}
-\centerline{\hypertarget{p-262}{}%
+\centerline{\hypertarget{p-277}{}%
 This book was authored in PreTeXt.%
 }
 \vspace*{\stretch{2}}
