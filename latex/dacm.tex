@@ -1,6 +1,6 @@
 %**************************************%
 %*    Generated from PreTeXt source   *%
-%*    on 2018-03-20T10:20:45-06:00    *%
+%*    on 2018-04-09T20:38:52-06:00    *%
 %*                                    *%
 %*   http://mathbook.pugetsound.edu   *%
 %*                                    *%
@@ -353,7 +353,7 @@
 School of Mathematical Science\\
 University of Northern Colorado
 }
-\date{March 20, 2018}
+\date{April 9, 2018}
 \begin{document}
 \frontmatter
 %% begin: half-title
@@ -378,7 +378,7 @@ University of Northern Colorado
 {\Huge Discrete and Combinatorial Mathematics}\\[3\baselineskip]
 {\Large Richard Grassl}\\[0.5\baselineskip]
 {\Large University of Northern Colorado}\\[3\baselineskip]
-{\Large March 20, 2018}\\}
+{\Large April 9, 2018}\\}
 \clearpage
 %% end:   title page
 %% begin: copyright-page
@@ -2191,6 +2191,226 @@ The number of ways of distributing \(n\) different objects into \(k\) or fewer b
 \end{assemblage}
 \hypertarget{p-276}{}%
 Finally, the theory of linear or integer \emph{partitions} solves the final distribution problem: In how many ways can you distribute \(n\) similar objects into \(k\) similar bins? Recall that a \emph{partition} \((a_{1},a_{2},\ldots,a_{k})\) of an integer \(n\) is an array of integers \(a_{i}\) such that \(n = a_{1} + a_{2} + \ldots + a_{n}\) and \(a_{1} \geq a_{2} \geq a_{3} \geq \cdots \geq a_{k} \gt 0\). For example, the 5 partitions of \(n=4\) are 4, 31, 22, 211, 1111. Here, the distribution 31 is the same as 13 since the bins are similar.%
+\typeout{************************************************}
+\typeout{Chapter 7 Combinatorial Proofs}
+\typeout{************************************************}
+\chapter[{Combinatorial Proofs}]{Combinatorial Proofs}\label{ch_temp}
+\hypertarget{p-277}{}%
+A combinatorial proof is sometimes used to show that two very different looking expressions are in fact equal. The technique is as follows. Refer to the two different looking expressions as the left-hand side (LHS) and the right-hand side RHS. Create a situation or question that is answered by the LHS; then show that the RHS also answers the question. The conclusion is that LHS=RHS%
+\par
+\hypertarget{p-278}{}%
+In the following we present a number of theorems, statements, identities, etc, and give combinatorial proofs of each. For each result the reader is urged to attempt an alternate proof for comparison purposes. Such an alternate proof could be algebraic or geometric in nature; or one could try a collapsing sum or an induction proof.%
+\begin{theorem}[{}]\label{theorem-6}
+\hypertarget{p-279}{}%
+\(\binom{2n}{2}
+= 2
+\binom{n}{2}
++ n^{2}\)%
+\end{theorem}
+\begin{proof}\hypertarget{proof-4}{}
+\hypertarget{p-280}{}%
+Split the \(2n\) objects into two groups \(A\) and \(B\) each of size \(n\).%
+\par
+\hypertarget{p-281}{}%
+First, you can choose 2 objects from a set of \(2n\) objects in \(\binom{2n}{2}\) ways. Alternatively, you could select two from group \(A\) in \(\binom{n}{2}\) ways or two from group \(B\) in \(\binom{n}{2}\) ways or take one from each in \(n \cdot n = n^{2}\) ways. Now add \(\binom{n}{2} + \binom{n}{2}+ n \cdot n\) and the result follows.%
+\end{proof}
+\hypertarget{p-282}{}%
+The reader should attempt an algebraic proof of the above result using the factorial formula for \(\binom{n}{k}\).%
+\begin{theorem}[{}]\label{theorem-7}
+\hypertarget{p-283}{}%
+\(\binom{m + n}{2} - \binom{m}{2} - \binom{n}{2} = mn\).%
+\end{theorem}
+\begin{proof}\hypertarget{proof-5}{}
+\hypertarget{p-284}{}%
+Suppose you have a group of m men and n women and you want to form men-women dancing pairs. This can clearly be done in mn ways. Or, you could choose 2 from the total of m + n and delete the men-men pairs (there are \(\binom{m}{2}\) of these) and delete the women-women pairs (also \(\binom{n}{2}\) of these). The result follows.%
+\end{proof}
+\hypertarget{p-285}{}%
+The reader could attempt an algebraic proof or perhaps a geometric proof making use of figures consisting of triangular numbers. Also, as a challenge, the reader could formulate a similar result involving \(\binom{a + b + c}{3}\) and a corresponding proof.%
+\begin{theorem}[{}]\label{theorem-8}
+\hypertarget{p-286}{}%
+\(\binom{n}{0} + \binom{n}{1} + \binom{n}{2} + \ldots + \binom{n}{n} = 2^{n}\).%
+\end{theorem}
+\begin{proof}\hypertarget{proof-6}{}
+\hypertarget{p-287}{}%
+Here again we first create a question that is answered by either side of the given identity. Question: How many subsets does \(\{ a_{1},a_{2},\ldots,a_{n}\}\) have? An n-set has \(\binom{n}{2}\) subsets. The left-hand side counts these subsets by their size. There are \(\binom{n}{k}\) subsets of size k.%
+\end{proof}
+\hypertarget{p-288}{}%
+In this situation the reader might \emph{not} want to try this algebraically.%
+\begin{theorem}[{}]\label{thm_anysizecommittee}
+\hypertarget{p-289}{}%
+\(\binom{n}{1} + 2 \binom{n}{2} + 3 \binom{n}{3} + \ldots + n \binom{n}{n} = {n2}^{n - 1}\).%
+\end{theorem}
+\begin{proof}\hypertarget{proof-7}{}
+\hypertarget{p-290}{}%
+Given a set of \(n\) people we can select a committee of size \(k\) along with a chair from that committee in \(k \binom{n}{k}\) ways. We can select a committee (of size 1, or size 2, or \ldots) and its chair in \(\binom{n}{1} + 2 \binom{n}{2} + 3 \binom{n}{3} + \ldots + n \binom{n}{n}\) ways. Alternatively, we can explain the term \(n2^{n - 1}\) as follows: choose one of the n people to chair any of the \(2^{n - 1}\) subsets of the remaining \(n - 1\) people.%
+\end{proof}
+\hypertarget{p-291}{}%
+The reader is invited to investigate one or more of the following approaches: \(n2^{n - 1}\) looks like a derivative, so try differentiating \(\left( 1 + x \right)^{n}\); a reverse and add approach also works; or, first prove \(k \binom{n}{k} = n \binom{n - 1}{k - 1}\) and then use it.%
+\begin{theorem}[{}]\label{theorem-10}
+\hypertarget{p-292}{}%
+\(\binom{n}{k} = \binom{n - 1}{k} + \binom{n - 1}{k - 1}\).%
+\end{theorem}
+\begin{proof}\hypertarget{proof-8}{}
+\hypertarget{p-293}{}%
+\(\binom{n}{k}\) is the number of subsets of \(\{ a_{1},a_{2},a_{3},\ldots,a_{n}\}\) of size \(k\). Now a subset \(A\) of size \(k\) either contains the fixed element \(a_{i}\) or it does not. If \(A\) contains \(a_{i}\), the remaining \(k - 1\) elements can be selected in \(\binom{n - 1}{k - 1}\) ways. If, on the other hand, \(A\) does not contain \(a_{i}\), you can choose the \(k\) elements from the depressed set \(\left\{ a_{1},a_{2},\ldots,a_{i - 1,}a_{i + 1,\ldots,}a_{n} \right\}\) in \(\binom{n - 1}{k}\) ways. Since these two cases are mutually exclusive the theorem follows.%
+\end{proof}
+\hypertarget{p-294}{}%
+Once again the reader is invited to attempt an algebraic proof.%
+\begin{theorem}[{}]\label{theorem-11}
+\hypertarget{p-295}{}%
+Let \(d_{n}\) denote the number of derangements of 1, 2, 3, \ldots, n with \(d_{0} = 1,d_{1} = 0\).  Then \(d_{n} = \left( n - 1 \right)(d_{n - 1}{+ d}_{n - 2})\) for \(n \geq 2\).%
+\end{theorem}
+\begin{proof}\hypertarget{proof-9}{}
+\hypertarget{p-296}{}%
+In forming a derangement of \(1, 2, 3, \ldots, n\) the integer \(n\) can be placed in any of the \(n - 1\) spots \(1, 2, 3, \ldots, n - 1\), say spot \(i\). If \(i\) goes into spot \(n\) there are \(d_{n - 2}\) ways to finish it. If \(i\) does not go into spot \(n\) there are \(d_{n - 1}\) ways to complete the derangement.%
+\end{proof}
+\hypertarget{p-297}{}%
+The reader can use the principle of inclusion-exclusion to derive a formula for \(d_{n}\) from which the new recursion \(d_{n} = nd_{n - 1} + \left( - 1 \right)^{n}\), and the above recursion, can be derived.%
+\begin{theorem}[{}]\label{theorem-12}
+\hypertarget{p-298}{}%
+\(\binom{n}{0}^{2} + \binom{n}{1}^{2} + \binom{n}{2}^{2} + \ldots + \binom{n}{n}^{2} = \binom{2n}{n}\).%
+\end{theorem}
+\begin{proof}\hypertarget{proof-10}{}
+\hypertarget{p-299}{}%
+Given a group of \(2n\) people consisting of \(n\) men and \(n\) women, in how many ways can one choose a group of \(n\) people? The answer to that question is just \(\binom{2n}{n}\), the right side of the identity in question. One could also form the group of \(n\) people in the following way: choose 0 men and \(n\) women in \(\binom{n}{0} \binom{n}{n} = \binom{n}{0}^{2}\) ways, or, choose 1 man and \(n - 1\) women in \(\binom{n}{1} \binom{n}{n - 1} = \binom{n}{1}^{2}\) ways, or choose 2 men and \(n - 2\) women in \(\binom{n}{2} \binom{n}{n - 2} = \binom{n}{2}^{2}\) ways and so on. Now add these disjoint cases.%
+\end{proof}
+\hypertarget{p-300}{}%
+An alternate algebraic proof is less interesting: Extract the coefficient of \(x^{n}\) from both sides of \(\left\lbrack \left( x + 1 \right)^{n} \right\rbrack^{2} = \left(x + 1 \right)^{2n}\)%
+\begin{theorem}[{}]\label{theorem-13}
+\hypertarget{p-301}{}%
+\(\binom{2}{2} + \binom{3}{2} + \binom{4}{2} + \ldots + \binom{n}{2} = \binom{n + 1}{3}\).%
+\end{theorem}
+\begin{proof}\hypertarget{proof-11}{}
+\hypertarget{p-302}{}%
+The term \(\binom{n + 1}{3}\) is the number of binary strings of length \(n + 1\) consisting of three 1's (and the rest 0's). The left hand side counts these by where in the string the left-most 1 appears. Let \(a_{1}a_{2}a_{3}\ldots a_{n + 1}\) be a string of length \(n + 1\). There are \(\binom{n}{2}\) strings when \(a_{1} = 1\), \(\binom{n - 1}{2}\) strings when \(a_{2} = 1\) is the leftmost 1, and so on, up to \(\binom{2}{2}\) strings when \(a_{n - 1} = 1\) is the leftmost 1. In this last case the string looks like \(000\ldots 0111\).%
+\end{proof}
+\hypertarget{p-303}{}%
+Attempting a proof by mathematical induction is an easy option. An algebraic approach is not!%
+\begin{theorem}[{}]\label{theorem-14}
+\hypertarget{p-304}{}%
+The number of positive integers that have their digits in strictly increasing order is \(2^{9} - 1\). Include single digit numbers.%
+\end{theorem}
+\begin{proof}\hypertarget{proof-12}{}
+\hypertarget{p-305}{}%
+There are \(\binom{9}{1}\) single digit type, \(\binom{9}{2}\) double digit type (just select 2 of the 9 digits \(1, 2, 3, \ldots, 9\) and arrange in order), \ldots, and so on to see that there are \(\binom{9}{9}\) nine digit type. The total is \(\binom{9}{1} + \binom{9}{2} + \binom{9}{3} + \ldots + \binom{9}{9} = 2^{9} - 1\).%
+\end{proof}
+\hypertarget{p-306}{}%
+Here is an alternative, more clever, proof. Look at 123456789. Any increasing number can be made by deleting \emph{any} subset of digits, except all of them. There are \(2^{9} - 1\) such subsets. For example, delete the subset \{2, 4, 7, 9\} and you get 13568. Combining these two approaches actually gives you a nice proof that \(\binom{9}{0} + \binom{9}{1} + \binom{9}{2} + \ldots + \binom{9}{9} = 2^{9}\).%
+\begin{theorem}[{}]\label{theorem-15}
+\hypertarget{p-307}{}%
+\(\binom{3n}{3} = 3 \binom{n}{3} + 6n \binom{n}{2} + n^{3}\).%
+\end{theorem}
+\begin{proof}\hypertarget{proof-13}{}
+\hypertarget{p-308}{}%
+This one is a little tougher. First rewrite as \(n^{3} = \binom{3n}{3} - 3 \binom{n}{3} - 6n \binom{n}{2}\). Suppose you have \(n\) men, \(n\) women and \(n\) children and you want to select triples consisting of one man, one woman and one child. There are \(n^{3}\) ways to do this, just pick one from each group. Alternatively, select 3 of the \(3n\) people in \(\binom{3n}{3}\) ways and delete the ``bad'' ones. Delete the ones where you selected all three from one group \textemdash{} there are \(3 \binom{n}{3}\) of these. Now delete those where you had two from one group and one from another \textemdash{} there are \(2n \binom{n}{2} + 2n \binom{n}{2} + 2n \binom{n}{2}\) of these.%
+\end{proof}
+\begin{theorem}[{}]\label{theorem-16}
+\hypertarget{p-309}{}%
+\(1 \cdot 1! + 2 \cdot 2! + 3 \cdot 3! + \ldots + n \cdot n! = \left( n + 1 \right)! - 1\).%
+\end{theorem}
+\begin{proof}\hypertarget{proof-14}{}
+\hypertarget{p-310}{}%
+In how many ways can you arrange the \(n+1\) numbers \(0, 1, 2, \ldots, n\) so that they are \emph{not} in ascending order? The answer is \(\left( n + 1 \right)! - 1\) since \(0, 1, 2, \ldots, n\) is the \emph{only} arrangement in ascending order. Now lets separate into cases. Let \(a_{0},a_{1},a_{2},\ldots,a_{n}\) represent an arrangement of these \(n+1\) numbers. If \(a_{0} \neq 0\), there are \(n\) choices left for \(a_{0}\), and then \(n!\) ways to fill out \(a_{1},a_{2},\ldots,a_{n}\) for a total of \(n \cdot n!\). Now let \(a_{0} = 0\) but \(a_{1} \neq 1\). There are \(n - 1\) choices for \(a_{1}\) and \(\left(n - 1 \right)!\) ways to complete for a total of \(\left(n - 1 \right)\left(n - 1 \right)!\). Now continue with \(a_{0} = 1,a_{1} = 1\) but \(a_{2} \neq 2\). There are \(\left(n - 2 \right)\left(n - 2 \right)!\) ways, and so on.%
+\end{proof}
+\hypertarget{p-311}{}%
+The reader should attempt a collapsing sum or induction proof.%
+\begin{theorem}[{}]\label{theorem-17}
+\hypertarget{p-312}{}%
+\(1 \cdot n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \ldots + n \cdot 1 = \binom{n + 2}{3}\).%
+\end{theorem}
+\begin{proof}\hypertarget{proof-15}{}
+\hypertarget{p-313}{}%
+Let \(S = \{0,1,2,\ldots,n,n + 1\}\). The number of subsets of \(S\) of size 3 is \(\binom{n + 2}{3}\). Each one looks like \(\{a, b, c\}\) with \(a \lt b \lt c\). Let's count these by looking at the size of the middle element \(b\). If \(b=1\), there is one choice for \(a\), namely \(a=0\) and \(n\) choices for \(c\) for a total of \(1 \cdot n\). If \(b=2\) there are 2 choices for \(a\), and \(n - 1\) choices for \(c\) for a total of \(2(n - 1)\). If \(b=3\) the total is \(3(n - 2)\), and so on. The total derived by looking at cases is \(1 \cdot n + 2\left( n - 1 \right) + 3\left( n - 2 \right) + \ldots + n \cdot 1\) and this must equal \(\binom{n + 2}{3}\) since the cases are disjoint.%
+\end{proof}
+\begin{theorem}[{}]\label{theorem-18}
+\hypertarget{p-314}{}%
+\(k \binom{n}{k} = n \binom{n - 1}{k - 1}\).%
+\end{theorem}
+\begin{proof}\hypertarget{proof-16}{}
+\hypertarget{p-315}{}%
+Suppose you have a group of \(n\) people and you wish to form a subcommittee of \(k\) people with one of those \(k\) people to serve as chair. Choose the subcommittee in \(\binom{n}{k}\) ways and the chair in \(k\) ways. The product rule gives \(k \binom{n}{k}\) as the number of ways of selecting such a chaired subcommittee.%
+\par
+\hypertarget{p-316}{}%
+Alternatively, you could first choose any one of the \(n\) people to serve as chair and then fill out the committee in \(\binom{n - 1}{k - 1}\) ways. There are \(n \binom{n - 1}{k - 1}\) ways to select a chaired subcommittee. Hence \(k \binom{n}{k} = n \binom{n - 1}{k - 1}\).%
+\end{proof}
+\hypertarget{p-317}{}%
+The reader should attempt the easier algebraic technique by converting \(\binom{n}{k}\) to factorial form.%
+\begin{theorem}[{}]\label{theorem-19}
+\hypertarget{p-318}{}%
+\(P(n,k) = k!\binom{n}{k}\).%
+\end{theorem}
+\begin{proof}\hypertarget{proof-17}{}
+\hypertarget{p-319}{}%
+Question: How many permutations are there of \(k\) objects chosen from a collection of \(n\) objects? The LHS answers the question. There are \(P(n,k) = n(n - 1)(n - 2)\cdots(n - k + 1)\) ways. Alternatively, one could first choose the \(k\) objects from the \(n\) objects in \(\binom{n}{k}\) ways and then permute these in \(k!\) ways.%
+\end{proof}
+\begin{theorem}[{}]\label{theorem-20}
+\hypertarget{p-320}{}%
+\(n2^{n - 1} = 1 \binom{n}{1} + 2 \binom{n}{2} + 3 \binom{n}{3} + \ldots + n \binom{n}{n}\).%
+\end{theorem}
+\begin{proof}\hypertarget{proof-18}{}
+\hypertarget{p-321}{}%
+Contrast this discussion with that presented in \hyperref[thm_anysizecommittee]{Theorem~\ref{thm_anysizecommittee}}. Look at the set of the first \(2^{n}\) nonnegative integers \(0,1,2,\ldots,2^{n} - 1\). When you convert each to binary form what is the total number of 1s written? This binary list will look like the standard listing in \(B^{n}\) the set of all binary strings of length \(n\). For \(n=3\) \(B^{3} = \{000,001,010,011,100,101,110,111\}\). In \(B^{n}\) each string has length \(n\) and there are \(2^{n}\) of them. But half of the \(n \cdot 2^{n}\) symbols are 1's. Then the total number of 1's is \(n2^{n - 1}\). Alternatively, we could consider each string and count those with one 1, then those with two 1's, etc. There are \(1 \cdot \binom{n}{1}\) with one 1, \(2 \binom{n}{2}\) total 1's in those binary numbers with exactly two 1's, \(3 \binom{n}{3}\) in those with exactly three 1's, and so on. The total is \(1 \binom{n}{1} + 2 \binom{n}{2} + 3 \binom{n}{3} + \ldots + n \binom{n}{n}\).  The result now follows by equating \(n2^{n - 1}\) to this sum.%
+\end{proof}
+\begin{theorem}[{}]\label{theorem-21}
+\hypertarget{p-322}{}%
+\(\binom{n}{0}^{2} + \binom{n}{1}^{2} + \binom{n}{2}^{2} + \cdots + \binom{n}{n}^{2} = \binom{2n}{n}\).%
+\end{theorem}
+\begin{proof}\hypertarget{proof-19}{}
+\hypertarget{p-323}{}%
+Let's revisit this identity using equivalence relations. A binary relation \(R\) on the set of all binary strings of length \(n\) is defined by specifying that \((\alpha,\beta) \in R\) whenever \(\alpha\) and \(\beta\) have the same weight. This \(R\) is an equivalence relation. For \(n=3\) there are four different equivalence classes, each containing strings of weight 0, 1, 2, or 3. The relation \(R\) contains \(1^{2} + 3^{2} + 3^{2} + 1^{2}\) ordered pairs; for example, with weight 1 each of the three strings 001, 010, 100 can be paired with any one of those same strings for a total of \(3^{2} = 9\).%
+\par
+\hypertarget{p-324}{}%
+These ordered pairs can be counted in another way. Each ordered pair looks like \((- - -,- - -)\).  Place 1's in any three positions, and 0's in the others.  If you take the complement of the entries in the second coordinate an element of \(R\) is produced. Here is what one sequence of this process looks like:%
+\begin{equation*}
+(- - -, - - -) \rightarrow (- 11,- - 1) \rightarrow (011,001) \rightarrow (011,110)\text{.}
+\end{equation*}
+%
+\par
+\hypertarget{p-325}{}%
+The reader can check that this process always produces an element of \(R\) and that the case of \(n=3\) extends easily to general \(n\). Conclusion: choose the \(n\) positions for 1's in \(\binom{2n}{n}\) ways. The result follows.%
+\end{proof}
+\begin{theorem}[{}]\label{theorem-22}
+\hypertarget{p-326}{}%
+\(\binom{n}{0} d_{0} + \binom{n}{1} d_{1} + \binom{n}{2} d_{2} + \ldots + \binom{n}{n} d_{n} = n!\) where \(d_{n}\) denotes the \(n\)th derangement number, \(d_{0} = 1,d_{1} = 0\).%
+\end{theorem}
+\begin{proof}\hypertarget{proof-20}{}
+\hypertarget{p-327}{}%
+The right-hand side, \(n!\), gives the number of permutations of \(n\) objects. So the left-hand side must provide the same enumeration. The left side partitions the permutations according to how many elements are deranged (and the rest fixed). The term \(\binom{n}{i} d_{i} = \binom{n}{n - i} d_{i}\) gives the number of permutations of \(n\) where \(n - i\) elements are fixed and the remaining \(i\) elements are deranged. Summing over all \(i\) yields%
+\begin{equation*}
+\binom{n}{n} d_{0} + \binom{n}{n - 1} d_{1} + \cdots + \binom{n}{0} d_{n} = \binom{n}{0} d_{0} + \binom{n}{1} d_{1} + \cdots + \binom{n}{n} d_{n} = n!\qedhere
+\end{equation*}
+%
+\end{proof}
+\begin{theorem}[{}]\label{theorem-23}
+\hypertarget{p-328}{}%
+\(F_{n + 1} = \binom{n}{0} + \binom{n - 1}{1} + \binom{n - 2}{2} + \cdots\) where \(F_{n}\) denotes the \(n\)th Fibonacci number.%
+\end{theorem}
+\begin{proof}\hypertarget{proof-21}{}
+\hypertarget{p-329}{}%
+Here is a question that might resolve the issue. How many different brick paths of length \(n\) (and width 1) can you make using \(1\times 1\) bricks and \(1 \times 2\) bricks? Let \(a(n)\) denote the number of such paths of length \(n\). A few drawings will show that \(a(1)=1\), \(a(2)=2\), \(a(3)=3\), \(a(4)=5\). Since you can place a \(1\times 1\) brick in front of all paths of length \(n - 1\) or a \(1\times 2\) brick in front of all paths of length \(n - 2\) we have that \(a(n) = a(n - 1) + a(n - 2)\). This recursion, along with the initial conditions, show that \(a(n) = F_{n + 1}\), the left-hand side of the identity.%
+\par
+\hypertarget{p-330}{}%
+Now lets look at all paths of length \(n\) and count them by the number of \(1\times 2\) bricks. If there are \(i\) \(1\times 2\) bricks there are \(n - i\) total bricks making up the path of length \(n\). Choose the positions of the \(i\) \(1\times 2\) bricks in \(\binom{n - i}{i}\) ways. Now sum as \(i\) ranges through the values \(0, 1, 2, \ldots\) and obtain \(\binom{n}{0} + \binom{n - 1}{1} + \binom{n - 2}{2} + \cdots = F_{n + 1}\).%
+\end{proof}
+\hypertarget{p-331}{}%
+The reader should draw all paths of length \(n = 5\), for example, and examine the cases with \(i=0, 1, 2\). The reader could also explore other proofs.%
+\begin{theorem}[{}]\label{theorem-24}
+\hypertarget{p-332}{}%
+\(\binom{m + n}{2} - \binom{m}{2} - \binom{n}{2} = mn\) (revisited).%
+\end{theorem}
+\begin{proof}\hypertarget{proof-22}{}
+\hypertarget{p-333}{}%
+We give three proofs: \leavevmode%
+\begin{enumerate}
+\item\hypertarget{li-68}{}\hypertarget{p-334}{}%
+How many lines that are not vertical or horizontal can you form by connecting the points that are on the positive \(x\) and \(y\) axes? Since we really want only lines that are formed by connecting the \(m\) points with the \(n\) points, we could say we have \(mn\) lines. Or we could consider all \(m + n\) points and pick 2 in \(\binom{m+n}{2}\) ways and then delete those choices where you took 2 from \(m\) or 2 from \(n\), since these formed vertical and horizontal lines, respectively.  Thus \(\binom{m + n}{2} - \binom{m}{2} - \binom{n}{2} = mn\).%
+\item\hypertarget{li-69}{}\hypertarget{p-335}{}%
+There are \(mn\) one by one squares in the subdivided \(m\) by \(n\) rectangle.  Each choice of arrows (one horizontal, one vertical) specifies one of these squares.  Pick two arrows but don't take two from the top or two from the side.  Then \(\binom{m + n}{2} - \binom{m}{2} - \binom{n}{2} = mn\).%
+\item\hypertarget{li-70}{}\hypertarget{p-336}{}%
+Take \(m\) people in one group and \(n\) in another. How many handshakes can be accomplished? Among the \(m\) people there are \(\binom{m}{2}\) handshakes; among the \(n\) people there are \(\binom{n}{2}\) handshakes and between the two groups, \(mn\). But, \(\binom{m + n}{2}\) also represents the total number of handshakes among the people. Then we get: \(\binom{m}{2} + \binom{n}{2} + mn = \binom{m + n}{2}\).%
+\end{enumerate}
+%
+\end{proof}
 %
 \backmatter
 %
@@ -2201,7 +2421,7 @@ Finally, the theory of linear or integer \emph{partitions} solves the final dist
 \cleardoublepage
 \pagestyle{empty}
 \hypertarget{colophon-2}{}\vspace*{\stretch{1}}
-\centerline{\hypertarget{p-277}{}%
+\centerline{\hypertarget{p-337}{}%
 This book was authored in PreTeXt.%
 }
 \vspace*{\stretch{2}}

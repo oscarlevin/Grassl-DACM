@@ -207,6 +207,7 @@
         This one is a little tougher. First rewrite as <m>n^{3} = \binom{3n}{3} - 3 \binom{n}{3} - 6n \binom{n}{2}</m>. Suppose you have <m>n</m> men, <m>n</m> women and <m>n</m> children and you want to select triples consisting of one man, one woman and one child. There are <m>n^{3}</m> ways to do this, just pick one from each group. Alternatively, select 3 of the <m>3n</m> people in <m>\binom{3n}{3}</m> ways and delete the <q>bad</q> ones.
         Delete the ones where you selected all three from one group <mdash/> there are <m>3 \binom{n}{3}</m> of these. Now delete those where you had two from one group and one from another <mdash/> there are <m>2n \binom{n}{2} + 2n \binom{n}{2} + 2n \binom{n}{2}</m> of these.
       </p>
+    </proof>
     </theorem>
 
     <theorem>
